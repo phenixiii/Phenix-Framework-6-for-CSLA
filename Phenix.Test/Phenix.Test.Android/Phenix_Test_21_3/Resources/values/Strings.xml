@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="UserNumber">用户名</string>
+  <string name="Password">口令</string>
+  <string name="LogOn">登录</string>
+  <string name="ApplicationName">Phenix_Test_21_3</string>
+</resources>

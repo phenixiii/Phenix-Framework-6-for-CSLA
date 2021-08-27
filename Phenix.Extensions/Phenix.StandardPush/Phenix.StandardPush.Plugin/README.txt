@@ -1,0 +1,3 @@
+﻿本程序集仅需在服务端部署，作为插件（WorkerPlugin）注册到Host上
+因Host可自动运行WorkerPlugin插件，Phenix.StandardService.Contract的AppHub.Worker会被自动赋值为Worker对象
+Worker对象含业务逻辑，运行在Host服务端，可自带线程

@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Phenix.Windows.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BusinessGroupControl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">编辑栏</Value>
+    </Setting>
+    <Setting Name="CriteriaGroupControl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">检索栏</Value>
+    </Setting>
+    <Setting Name="PromptCodeEdit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">编辑提示码</Value>
+    </Setting>
+    <Setting Name="Update" Type="System.String" Scope="User">
+      <Value Profile="(Default)">保存</Value>
+    </Setting>
+    <Setting Name="Delete" Type="System.String" Scope="User">
+      <Value Profile="(Default)">删除</Value>
+    </Setting>
+    <Setting Name="Cancel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">取消</Value>
+    </Setting>
+    <Setting Name="Caption" Type="System.String" Scope="User">
+      <Value Profile="(Default)">标签</Value>
+    </Setting>
+    <Setting Name="Setup" Type="System.String" Scope="User">
+      <Value Profile="(Default)">设置</Value>
+    </Setting>
+    <Setting Name="Fetch" Type="System.String" Scope="User">
+      <Value Profile="(Default)">查询</Value>
+    </Setting>
+    <Setting Name="New" Type="System.String" Scope="User">
+      <Value Profile="(Default)">新增</Value>
+    </Setting>
+    <Setting Name="Ok" Type="System.String" Scope="User">
+      <Value Profile="(Default)">确认</Value>
+    </Setting>
+    <Setting Name="FormSetupDialog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">窗体设置</Value>
+    </Setting>
+    <Setting Name="InputSheetName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">请输入Execl的Sheet名称</Value>
+    </Setting>
+    <Setting Name="SheetName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sheet名称</Value>
+    </Setting>
+    <Setting Name="SaveSheetConfig" Type="System.String" Scope="User">
+      <Value Profile="(Default)">下次默认使用本名称</Value>
+    </Setting>
+    <Setting Name="TemplateName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">模板名称</Value>
+    </Setting>
+    <Setting Name="TemplateSetDialog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">模板设置</Value>
+    </Setting>
+    <Setting Name="CriteriaExpressionNew" Type="System.String" Scope="User">
+      <Value Profile="(Default)">新增查询条件</Value>
+    </Setting>
+    <Setting Name="CriteriaExpressionPropertySelect" Type="System.String" Scope="User">
+      <Value Profile="(Default)">选择查询属性</Value>
+    </Setting>
+    <Setting Name="CriteriaExpressionPropertySetup" Type="System.String" Scope="User">
+      <Value Profile="(Default)">设置查询属性</Value>
+    </Setting>
+    <Setting Name="CriteriaExpressionGroupAdd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">添加查询分组</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

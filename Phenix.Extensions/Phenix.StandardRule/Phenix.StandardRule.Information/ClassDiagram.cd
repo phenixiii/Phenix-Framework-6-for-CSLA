@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.StandardRule.Information.InformationException">
+    <Position X="3.75" Y="7" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAgAAAAAQ=</HashCode>
+      <FileName>InformationException.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Action" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.StandardRule.Information.InformationStatusChangedEventArgs">
+    <Position X="6.5" Y="0.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAgAIAAAAAAAAAAAAAAACAAAAAAAgIAAAAQ=</HashCode>
+      <FileName>InformationStatusChangedEventArgs.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Information" />
+      <Property Name="OldStatus" />
+      <Property Name="NewStatus" />
+      <Property Name="Action" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.StandardRule.Information.InformationStatusChangingEventArgs">
+    <Position X="3.25" Y="0.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAgAIAAAAAAAAAAAAAAACAAAAAAAgIAAAAQ=</HashCode>
+      <FileName>InformationStatusChangingEventArgs.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Information" />
+      <Property Name="OldStatus" />
+      <Property Name="NewStatus" />
+      <Property Name="Action" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.StandardRule.Information.InformationTool">
+    <Position X="0.5" Y="7" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAQFBAAEBAAAgAgAAoQAAIAAAQAASKQABAAgYSAQCA=</HashCode>
+      <FileName>InformationTool.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Information" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="Phenix.StandardRule.Information.IInformation">
+    <Position X="0.5" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAgAgAACAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IInformation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="InformationStatus" />
+      <Property Name="VerifyStatus" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="Phenix.StandardRule.Information.IInformationList&lt;T&gt;">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IInformationList.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Phenix.StandardRule.Information.InformationAction">
+    <Position X="7.5" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABBAAEBAAAAAAAAAAAAIAAAAAAWAAAAAAAAAAAAA=</HashCode>
+      <FileName>InformationAction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Phenix.StandardRule.Information.InformationStatus">
+    <Position X="5.5" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAgAAQAAAAAIAAEEAAA=</HashCode>
+      <FileName>InformationStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Phenix.StandardRule.Information.InformationVerifyStatus">
+    <Position X="3.25" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAgAAAAEAAAA=</HashCode>
+      <FileName>InformationVerifyStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

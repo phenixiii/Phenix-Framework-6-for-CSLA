@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FD7A8CD7-BBDB-4046-804C-A4389CF78222}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Phenix.Business</RootNamespace>
+    <AssemblyName>Phenix.Business</AssemblyName>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>http://localhost/Phenix.Business/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin.Top\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Top</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <DocumentationFile>..\Bin.Top\Phenix.Business.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin.Top\</OutputPath>
+    <DefineConstants>Top</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>..\Bin.Top\Phenix.Business.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessListPageBase.cs" />
+    <Compile Include="BusinessPageBase.cs" />
+    <Compile Include="BusinessTreeBase.cs" />
+    <Compile Include="BusinessTreeNodeBase.cs" />
+    <Compile Include="Core\BusinessBase.cs" />
+    <Compile Include="CommandBase.cs" />
+    <Compile Include="BusinessListBase.cs" />
+    <Compile Include="BusinessBase.cs" />
+    <Compile Include="Core\BusinessListBase.cs" />
+    <Compile Include="Core\CommandBase.cs" />
+    <Compile Include="Core\EventHandler.cs" />
+    <Compile Include="Core\IRefinedlyCollection.cs" />
+    <Compile Include="Core\IRefinedlyObject.cs" />
+    <Compile Include="Core\IRefinedly.cs" />
+    <Compile Include="CriteriaBase.cs" />
+    <Compile Include="Criterions.cs" />
+    <Compile Include="EntityBase.cs" />
+    <Compile Include="EntityListBase.cs" />
+    <Compile Include="Exception\CheckSaveException.cs" />
+    <Compile Include="Exception\ExecuteException.cs" />
+    <Compile Include="Exception\SaveException.cs" />
+    <Compile Include="IBusiness.cs" />
+    <Compile Include="IBusinessCollection.cs" />
+    <Compile Include="IBusinessCollectionPage.cs" />
+    <Compile Include="IBusinessObject.cs" />
+    <Compile Include="IBusinessObjectPage.cs" />
+    <Compile Include="IBusinessTree.cs" />
+    <Compile Include="IBusinessTreeNode.cs" />
+    <Compile Include="IMethodInfo.cs" />
+    <Compile Include="IPropertyInfo.cs" />
+    <Compile Include="MethodInfo.cs" />
+    <Compile Include="PropertyInfo.cs" />
+    <Compile Include="Rules\AuthorizationContext.cs" />
+    <Compile Include="Rules\AuthorizationRules.cs" />
+    <Compile Include="Rules\ExecuteAuthorizationRule.cs" />
+    <Compile Include="Rules\IAuthorizationObject.cs" />
+    <Compile Include="Rules\IAuthorizationRule.cs" />
+    <Compile Include="Rules\MaxLengthRule.cs" />
+    <Compile Include="Rules\MinLengthRule.cs" />
+    <Compile Include="Rules\ObjectRule.cs" />
+    <Compile Include="Rules\PropertyAuthorizationRule.cs" />
+    <Compile Include="Rules\EditValidationRule.cs" />
+    <Compile Include="Rules\ReadAuthorizationRule.cs" />
+    <Compile Include="Rules\RequiredRule.cs" />
+    <Compile Include="Rules\WriteAuthorizationRule.cs" />
+    <Compile Include="Rules\CommonBusinessRule.cs" />
+    <Compile Include="Rules\RangeCompareRule.cs" />
+    <Compile Include="Security\UserPrincipal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceBase.cs" />
+    <Compile Include="Tunnel\FastSaveCommand.cs" />
+    <Compile Include="Tunnel\FastFetchCommand.cs" />
+    <Compile Include="Workflow\StartCommandBase.cs" />
+    <Compile Include="EntityPageBase.cs" />
+    <Compile Include="EntityListPageBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.zh-CHS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CHT.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-TW.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-Hans.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-Hant.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

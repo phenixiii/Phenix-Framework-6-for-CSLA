@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="77ba82d9-944c-4ffe-aa79-174778a5bb4a"
+  name="Phenix.Windows.Modeling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <activity
+        Id="a22ba94b-4b9e-4b25-8d3a-fb4a3ff89792"
+        name="Phenix.Windows.DataOperateState"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <opaqueAction
+            Id="634071a7-15d0-40aa-be38-a93c2c09c604"
+            name="Fetch"
+            isLeaf="false">
+            <description>检索</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="377e3032-9268-4609-a864-15a649e63b04"
+                guard="Fetching"
+                isLeaf="false">
+                <forkNodeMoniker
+                  Id="cc25a729-57b4-4c54-9dac-4ee8e0a92ebf"
+                  LastKnownName="FetchFork"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="9d4707e4-b22e-47fe-a980-ffc2cabe08fa"
+            name="Add"
+            isLeaf="false">
+            <description>新增</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="f0d21c4d-34e1-4f65-810c-309f98131526"
+                guard="Add"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="054e95fa-110e-4230-b2a7-decc501f01df"
+                  LastKnownName="Save"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="bd762134-9b1e-4bc4-8f20-2020a8d808eb"
+                guard="Add"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9dc5e1a9-61af-4041-ac34-1d35a2a0b507"
+                  LastKnownName="Cancel"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="9e63b7b8-5acb-4b6a-9d5a-aad3990c0da7"
+            name="Modify"
+            isLeaf="false">
+            <description>编辑</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="ee0d4940-caf3-4e07-af77-de5c9a3546b6"
+                guard="Modify"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="054e95fa-110e-4230-b2a7-decc501f01df"
+                  LastKnownName="Save"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="6baf58ab-7fb4-429e-ab3b-13523060bf35"
+                guard="Modify"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9dc5e1a9-61af-4041-ac34-1d35a2a0b507"
+                  LastKnownName="Cancel"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="dead5697-42c6-47a1-9f60-7713014989cf"
+            name="Delete"
+            isLeaf="false">
+            <description>删除</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="22b8c5d5-08e1-4a20-aa41-c0aa7947baf5"
+                guard="Delete"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="054e95fa-110e-4230-b2a7-decc501f01df"
+                  LastKnownName="Save"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d5905ce1-3b55-4d8f-b11d-ea440a02737b"
+                guard="Delete"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9dc5e1a9-61af-4041-ac34-1d35a2a0b507"
+                  LastKnownName="Cancel"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="9dc5e1a9-61af-4041-ac34-1d35a2a0b507"
+            name="Cancel"
+            isLeaf="false">
+            <description>取消</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="3a13f636-4c2e-453d-9bcc-989f654f3c03"
+                guard="Browse"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="634071a7-15d0-40aa-be38-a93c2c09c604"
+                  LastKnownName="Fetch"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="054e95fa-110e-4230-b2a7-decc501f01df"
+            name="Save"
+            isLeaf="false">
+            <description>提交</description>
+            <flowNodeTargets>
+              <controlFlow
+                Id="2f16c43a-c28b-45ca-b227-c0518603b03d"
+                guard="Browse"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="634071a7-15d0-40aa-be38-a93c2c09c604"
+                  LastKnownName="Fetch"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <forkNode
+            Id="cc25a729-57b4-4c54-9dac-4ee8e0a92ebf"
+            name="FetchFork"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cbe34d04-6a53-4374-a669-178c798ab89f"
+                guard="FetchSuspend/FetchAborted"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="634071a7-15d0-40aa-be38-a93c2c09c604"
+                  LastKnownName="Fetch"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="d85e47b8-e88f-40fd-a884-f064db106e50"
+                guard="Browse"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9d4707e4-b22e-47fe-a980-ffc2cabe08fa"
+                  LastKnownName="Add"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="2e806268-1db9-4c09-ac01-5832cc0a635b"
+                guard="Browse"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="dead5697-42c6-47a1-9f60-7713014989cf"
+                  LastKnownName="Delete"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="503cf85c-5d29-4d75-a2e5-d0727d80d034"
+                guard="Browse"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="9e63b7b8-5acb-4b6a-9d5a-aad3990c0da7"
+                  LastKnownName="Modify"
+                  LastKnownLocation="Phenix.Windows.Modeling.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </forkNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

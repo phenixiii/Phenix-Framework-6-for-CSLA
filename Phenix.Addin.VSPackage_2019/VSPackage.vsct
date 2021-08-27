@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+
+  <Commands package="TOOLS">
+    <Groups>
+      <Group guid="C_FRAMEWORK_MENU_GUID" id="C_FRAMEWORK_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="IDE" id="CodeWindowRightClickMenu"/>
+      </Group>
+      <Group guid="C_FRAMEWORK_SUBMENU_GUID" id="C_FRAMEWORK_SUBMENU_GROUP" priority ="0x0000" >
+        <Parent guid="C_FRAMEWORK_MENU_GUID" id="C_FRAMEWORK_MENU"/>
+      </Group>
+      <Group guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_FRAMEWORK_CLASS_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="C_FRAMEWORK_MENU_GUID" id="C_FRAMEWORK_MENU"/>
+      </Group>
+      <Group guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="C_FRAMEWORK_MENU_GUID" id="C_FRAMEWORK_MENU"/>
+      </Group>
+      <Group guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_FRAMEWORK_CONFIG_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="C_FRAMEWORK_MENU_GUID" id="C_FRAMEWORK_MENU"/>
+      </Group>
+      <Group guid="C_FRAMEWORK_PLUGIN_MENU_GUID" id="C_FRAMEWORK_PLUGIN_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="C_FRAMEWORK_MENU_GUID" id="C_FRAMEWORK_MENU"/>
+      </Group>
+      <Group guid="C_FRAMEWORK_WEBAPI_MENU_GUID" id="C_FRAMEWORK_WEBAPI_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="C_FRAMEWORK_MENU_GUID" id="C_FRAMEWORK_MENU"/>
+      </Group>
+
+      <Group guid="S_FRAMEWORK_MENU_GUID" id="S_FRAMEWORK_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="IDE" id="SolutionRightClickMenu"/>
+      </Group>
+      <Group guid="S_FRAMEWORK_SUBMENU_GUID" id="S_FRAMEWORK_SUBMENU_GROUP" priority ="0x0000" >
+        <Parent guid="S_FRAMEWORK_MENU_GUID" id="S_FRAMEWORK_MENU"/>
+      </Group>
+
+      <Group guid="P_FRAMEWORK_MENU_GUID" id="P_FRAMEWORK_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="IDE" id="projectRightClickMenu"/>
+      </Group>
+      <Group guid="P_FRAMEWORK_SUBMENU_GUID" id="P_FRAMEWORK_SUBMENU_GROUP" priority ="0x0000" >
+        <Parent guid="P_FRAMEWORK_MENU_GUID" id="P_FRAMEWORK_MENU"/>
+      </Group>
+
+      <Group guid="C_TEAMWORK_MENU_GUID" id="C_TEAMWORK_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="IDE" id="CodeWindowRightClickMenu"/>
+      </Group>
+      <Group guid="C_TEAMWORK_SUBMENU_GUID" id="C_TEAMWORK_SUBMENU_GROUP" priority ="0x0000" >
+        <Parent guid="C_TEAMWORK_MENU_GUID" id="C_TEAMWORK_MENU"/>
+      </Group>
+
+      <Group guid="S_TEAMWORK_MENU_GUID" id="S_TEAMWORK_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="IDE" id="SolutionRightClickMenu"/>
+      </Group>
+      <Group guid="S_TEAMWORK_SUBMENU_GUID" id="S_TEAMWORK_SUBMENU_GROUP" priority ="0x0000" >
+        <Parent guid="S_TEAMWORK_MENU_GUID" id="S_TEAMWORK_MENU"/>
+      </Group>
+
+      <Group guid="P_TEAMWORK_MENU_GUID" id="P_TEAMWORK_MENU_GROUP" priority ="0x0000" >
+        <Parent guid="IDE" id="projectRightClickMenu"/>
+      </Group>
+      <Group guid="P_TEAMWORK_SUBMENU_GUID" id="P_TEAMWORK_SUBMENU_GROUP" priority ="0x0000" >
+        <Parent guid="P_TEAMWORK_MENU_GUID" id="P_TEAMWORK_MENU"/>
+      </Group>
+    </Groups>
+
+    <Menus>
+      <Menu guid="C_FRAMEWORK_MENU_GUID" id="C_FRAMEWORK_MENU" priority="0x0000" type="Menu">
+        <Parent guid="C_FRAMEWORK_MENU_GUID" id="C_FRAMEWORK_MENU_GROUP" />
+        <Strings>
+          <ButtonText>Phenix Framework Tools</ButtonText>
+          <CommandName>Phenix Framework Tools</CommandName>
+        </Strings>
+      </Menu>
+      <Menu guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_FRAMEWORK_CLASS_MENU" priority="0x0000" type="Menu">
+        <Parent guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_FRAMEWORK_CLASS_MENU_GROUP" />
+        <Strings>
+          <ButtonText>CLASS</ButtonText>
+          <CommandName>CLASS</CommandName>
+        </Strings>
+      </Menu>
+      <Menu guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU" priority="0x0000" type="Menu">
+        <Parent guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU_GROUP" />
+        <Strings>
+          <ButtonText>RULE</ButtonText>
+          <CommandName>RULE</CommandName>
+        </Strings>
+      </Menu>
+      <Menu guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_FRAMEWORK_CONFIG_MENU" priority="0x0000" type="Menu">
+        <Parent guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_FRAMEWORK_CONFIG_MENU_GROUP" />
+        <Strings>
+          <ButtonText>CONFIG</ButtonText>
+          <CommandName>CONFIG</CommandName>
+        </Strings>
+      </Menu>
+      <Menu guid="C_FRAMEWORK_PLUGIN_MENU_GUID" id="C_FRAMEWORK_PLUGIN_MENU" priority="0x0000" type="Menu">
+        <Parent guid="C_FRAMEWORK_PLUGIN_MENU_GUID" id="C_FRAMEWORK_PLUGIN_MENU_GROUP" />
+        <Strings>
+          <ButtonText>PLUGIN</ButtonText>
+          <CommandName>PLUGIN</CommandName>
+        </Strings>
+      </Menu>
+      <Menu guid="C_FRAMEWORK_WEBAPI_MENU_GUID" id="C_FRAMEWORK_WEBAPI_MENU" priority="0x0000" type="Menu">
+        <Parent guid="C_FRAMEWORK_WEBAPI_MENU_GUID" id="C_FRAMEWORK_WEBAPI_MENU_GROUP" />
+        <Strings>
+          <ButtonText>WEBAPI</ButtonText>
+          <CommandName>WEBAPI</CommandName>
+        </Strings>
+      </Menu>
+
+      <Menu guid="S_FRAMEWORK_MENU_GUID" id="S_FRAMEWORK_MENU" priority="0x0000" type="Menu">
+        <Parent guid="S_FRAMEWORK_MENU_GUID" id="S_FRAMEWORK_MENU_GROUP" />
+        <Strings>
+          <ButtonText>Phenix Framework Tools</ButtonText>
+          <CommandName>Phenix Framework Tools</CommandName>
+        </Strings>
+      </Menu>
+
+      <Menu guid="P_FRAMEWORK_MENU_GUID" id="P_FRAMEWORK_MENU" priority="0x0000" type="Menu">
+        <Parent guid="P_FRAMEWORK_MENU_GUID" id="P_FRAMEWORK_MENU_GROUP" />
+        <Strings>
+          <ButtonText>Phenix Framework Tools</ButtonText>
+          <CommandName>Phenix Framework Tools</CommandName>
+        </Strings>
+      </Menu>
+
+      <Menu guid="C_TEAMWORK_MENU_GUID" id="C_TEAMWORK_MENU" priority="0x0000" type="Menu">
+        <Parent guid="C_TEAMWORK_MENU_GUID" id="C_TEAMWORK_MENU_GROUP" />
+        <Strings>
+          <ButtonText>Phenix Teamwork Tools</ButtonText>
+          <CommandName>Phenix Teamwork Tools</CommandName>
+        </Strings>
+      </Menu>
+
+      <Menu guid="S_TEAMWORK_MENU_GUID" id="S_TEAMWORK_MENU" priority="0x0000" type="Menu">
+        <Parent guid="S_TEAMWORK_MENU_GUID" id="S_TEAMWORK_MENU_GROUP" />
+        <Strings>
+          <ButtonText>Phenix Teamwork Tools</ButtonText>
+          <CommandName>Phenix Teamwork Tools</CommandName>
+        </Strings>
+      </Menu>
+
+      <Menu guid="P_TEAMWORK_MENU_GUID" id="P_TEAMWORK_MENU" priority="0x0000" type="Menu">
+        <Parent guid="P_TEAMWORK_MENU_GUID" id="P_TEAMWORK_MENU_GROUP" />
+        <Strings>
+          <ButtonText>Phenix Teamwork Tools</ButtonText>
+          <CommandName>Phenix Teamwork Tools</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+    
+    <Buttons>
+      <Button guid="C_FRAMEWORK_SUBMENU_GUID" id="C_SET_CONNECTION_INFO" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_SUBMENU_GUID" id="C_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpSetConnectionInfo" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Set Connection Info</ButtonText>
+          <CommandName>SET_CONNECTION_INFO</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="C_FRAMEWORK_SUBMENU_GUID" id="C_CLEAR_DATA_DICTIONARY_CACHE" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_SUBMENU_GUID" id="C_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpClear" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Clear DataDictionary Cache</ButtonText>
+          <CommandName>CLEAR_DATA_DICTIONARY_CACHE</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="C_FRAMEWORK_SUBMENU_GUID" id="C_REFRESH_VIEW_FILE" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_SUBMENU_GUID" id="C_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpRefresh" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Refresh View File</ButtonText>
+          <CommandName>REFRESH_VIEW_FILE</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_BUILD_BUSINESS_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_FRAMEWORK_CLASS_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpBuildBusinessClass" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build Business Class</ButtonText>
+          <CommandName>BUILD_BUSINESS_CLASS</CommandName>
+        </Strings>
+      </Button>
+      
+      <Button guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_BUILD_CRITERIA_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_FRAMEWORK_CLASS_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpBuildCriteriaClass" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build Criteria Class</ButtonText>
+          <CommandName>BUILD_CRITERIA_CLASS</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_BUILD_COMMAND_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_FRAMEWORK_CLASS_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpBuildService" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build Command Class</ButtonText>
+          <CommandName>BUILD_COMMAND_CLASS</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_ADD_ENUM_ATTRIBUTE" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_FRAMEWORK_CLASS_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpAddEnumAttribute" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Add Enum Attribute</ButtonText>
+          <CommandName>ADD_ENUM_ATTRIBUTE</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_BRIDGING_DETAIL_PROPERTY" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_CLASS_MENU_GUID" id="C_FRAMEWORK_CLASS_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpBridgingDetailProperty" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Bridging Detail Property</ButtonText>
+          <CommandName>BRIDGING_DETAIL_PROPERTY</CommandName>
+        </Strings>
+      </Button>
+    
+      <Button guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_BUILD_COMMON_BUSINESS_RULE_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpValidationRule" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build CommonBusinessRule Class</ButtonText>
+          <CommandName>BUILD_COMMON_BUSINESS_RULE_CLASS</CommandName>
+        </Strings>
+      </Button>
+
+       <Button guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_BUILD_OBJECT_RULE_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpValidationRule" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build ObjectRule Class</ButtonText>
+          <CommandName>BUILD_OBJECT_RULE_CLASS</CommandName>
+        </Strings>
+      </Button>
+      
+      <Button guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_ADD_VALIDATION_RULE_ATTRIBUTE" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpValidationRule" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Add ValidationRule Attribute</ButtonText>
+          <CommandName>ADD_VALIDATION_RULE_ATTRIBUTE</CommandName>
+        </Strings>
+      </Button>
+        
+      <Button guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_BUILD_EDIT_VALIDATION_RULE_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpValidationRule" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build EditValidationRule Class</ButtonText>
+          <CommandName>BUILD_EDIT_VALIDATION_RULE_CLASS</CommandName>
+        </Strings>
+      </Button>
+        
+      <Button guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_BUILD_READ_AUTHORIZATION_RULE_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpAuthorizationRule" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build ReadAuthorizationRule Class</ButtonText>
+          <CommandName>BUILD_READ_AUTHORIZATION_RULE_CLASS</CommandName>
+        </Strings>
+      </Button>
+ 
+      <Button guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_BUILD_WRITE_AUTHORIZATION_RULE_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpAuthorizationRule" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build WriteAuthorizationRule Class</ButtonText>
+          <CommandName>BUILD_WRITE_AUTHORIZATION_RULE_CLASS</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_BUILD_EXECUTE_AUTHORIZATION_RULE_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_RULE_MENU_GUID" id="C_FRAMEWORK_RULE_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpAuthorizationRule" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build ExecuteAuthorizationRule Class</ButtonText>
+          <CommandName>BUILD_EXECUTE_AUTHORIZATION_RULE_CLASS</CommandName>
+        </Strings>
+      </Button>
+    
+      <Button guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_MAKE_OBJECT_LOCAL_CONFIG" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_FRAMEWORK_CONFIG_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpMakeConfig" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Make Object Local Config</ButtonText>
+          <CommandName>MAKE_OBJECT_LOCAL_CONFIG</CommandName>
+        </Strings>
+      </Button>
+ 
+      <Button guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_MAKE_OBJECT_PUBLIC_CONFIG" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_FRAMEWORK_CONFIG_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpMakeConfig" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Make Object Public Config</ButtonText>
+          <CommandName>MAKE_OBJECT_PUBLIC_CONFIG</CommandName>
+        </Strings>
+      </Button>
+    
+      <Button guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_MAKE_CLASS_LOCAL_CONFIG" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_FRAMEWORK_CONFIG_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpMakeConfig" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Make Class Local Config</ButtonText>
+          <CommandName>MAKE_CLASS_LOCAL_CONFIG</CommandName>
+        </Strings>
+      </Button>
+    
+      <Button guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_MAKE_CLASS_PUBLIC_CONFIG" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_CONFIG_MENU_GUID" id="C_FRAMEWORK_CONFIG_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpMakeConfig" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Make Class Public Config</ButtonText>
+          <CommandName>MAKE_CLASS_PUBLIC_CONFIG</CommandName>
+        </Strings>
+      </Button>
+      
+      <Button guid="C_FRAMEWORK_PLUGIN_MENU_GUID" id="C_ADD_WINDOW_PLUGIN" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_PLUGIN_MENU_GUID" id="C_FRAMEWORK_PLUGIN_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpAddWindowPlugin" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Add Window Plugin</ButtonText>
+          <CommandName>ADD_WINDOW_PLUGIN</CommandName>
+        </Strings>
+      </Button>
+        
+      <Button guid="C_FRAMEWORK_PLUGIN_MENU_GUID" id="C_BUILD_WORKFLOW_START_COMMAND_CLASS" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_PLUGIN_MENU_GUID" id="C_FRAMEWORK_PLUGIN_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpBuildWorkflowStartCommandClass" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build WorkflowStartCommand Class</ButtonText>
+          <CommandName>BUILD_WORKFLOW_START_COMMAND_CLASS</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="C_FRAMEWORK_WEBAPI_MENU_GUID" id="C_BUILD_API_CONTROLLER" priority ="0x0000" type="Button">
+        <Parent guid="C_FRAMEWORK_WEBAPI_MENU_GUID" id="C_FRAMEWORK_WEBAPI_MENU_GROUP" />
+        <Icon guid="guidImages" id="bmpBuildService" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Build API Controller</ButtonText>
+          <CommandName>BUILD_API_CONTROLLER</CommandName>
+        </Strings>
+      </Button>
+      
+      <Button guid="S_FRAMEWORK_SUBMENU_GUID" id="S_SET_CONNECTION_INFO" priority ="0x0000" type="Button">
+        <Parent guid="S_FRAMEWORK_SUBMENU_GUID" id="S_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpSetConnectionInfo" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Set Connection Info</ButtonText>
+          <CommandName>SET_CONNECTION_INFO</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="S_FRAMEWORK_SUBMENU_GUID" id="S_CLEAR_DATA_DICTIONARY_CACHE" priority ="0x0000" type="Button">
+        <Parent guid="S_FRAMEWORK_SUBMENU_GUID" id="S_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpClear" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Clear DataDictionary Cache</ButtonText>
+          <CommandName>CLEAR_DATA_DICTIONARY_CACHE</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="S_FRAMEWORK_SUBMENU_GUID" id="S_REFRESH_VIEW_FILES" priority ="0x0000" type="Button">
+        <Parent guid="S_FRAMEWORK_SUBMENU_GUID" id="S_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpRefresh" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Refresh View Files</ButtonText>
+          <CommandName>REFRESH_VIEW_FILES</CommandName>
+        </Strings>
+      </Button> 
+      
+      <Button guid="S_FRAMEWORK_SUBMENU_GUID" id="S_DELETE_DEV_LICX" priority ="0x0000" type="Button">
+        <Parent guid="S_FRAMEWORK_SUBMENU_GUID" id="S_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpClear" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Delete LICX Files</ButtonText>
+          <CommandName>DELETE_DEV_LICX</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="P_FRAMEWORK_SUBMENU_GUID" id="P_SET_CONNECTION_INFO" priority ="0x0000" type="Button">
+        <Parent guid="P_FRAMEWORK_SUBMENU_GUID" id="P_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpSetConnectionInfo" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Set Connection Info</ButtonText>
+          <CommandName>SET_CONNECTION_INFO</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="P_FRAMEWORK_SUBMENU_GUID" id="P_CLEAR_DATA_DICTIONARY_CACHE" priority ="0x0000" type="Button">
+        <Parent guid="P_FRAMEWORK_SUBMENU_GUID" id="P_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpClear" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Clear DataDictionary Cache</ButtonText>
+          <CommandName>CLEAR_DATA_DICTIONARY_CACHE</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="P_FRAMEWORK_SUBMENU_GUID" id="P_REFRESH_VIEW_FILES" priority ="0x0000" type="Button">
+        <Parent guid="P_FRAMEWORK_SUBMENU_GUID" id="P_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpRefresh" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Refresh View Files</ButtonText>
+          <CommandName>REFRESH_VIEW_FILES</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="P_FRAMEWORK_SUBMENU_GUID" id="P_DELETE_DEV_LICX" priority ="0x0000" type="Button">
+        <Parent guid="P_FRAMEWORK_SUBMENU_GUID" id="P_FRAMEWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpClear" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Delete LICX Files</ButtonText>
+          <CommandName>DELETE_DEV_LICX</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="C_TEAMWORK_SUBMENU_GUID" id="C_WEAVE_PROBER" priority ="0x0000" type="Button">
+        <Parent guid="C_TEAMWORK_SUBMENU_GUID" id="C_TEAMWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpWeave" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Weave Prober</ButtonText>
+          <CommandName>WEAVE_PROBER</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="S_TEAMWORK_SUBMENU_GUID" id="S_WEAVE_PROBER" priority ="0x0000" type="Button">
+        <Parent guid="S_TEAMWORK_SUBMENU_GUID" id="S_TEAMWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpWeave" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Weave Prober</ButtonText>
+          <CommandName>WEAVE_PROBER</CommandName>
+        </Strings>
+      </Button>
+
+      <Button guid="P_TEAMWORK_SUBMENU_GUID" id="P_WEAVE_PROBER" priority ="0x0000" type="Button">
+        <Parent guid="P_TEAMWORK_SUBMENU_GUID" id="P_TEAMWORK_SUBMENU_GROUP" />
+        <Icon guid="guidImages" id="bmpWeave" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Weave Prober</ButtonText>
+          <CommandName>WEAVE_PROBER</CommandName>
+        </Strings>
+      </Button>
+    </Buttons>
+
+   <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\Images.png" usedList="bmpAddEnumAttribute, bmpBuildBusinessClass, bmpRefresh, bmpBuildCriteriaClass, bmpBuildService, bmpValidationRule, bmpAuthorizationRule, bmpMakeConfig, bmpAddWindowPlugin, bmpBridgingDetailProperty, bmpBuildWorkflowStartCommandClass, bmpSetConnectionInfo, bmpClear, bmpWeave"/>
+    </Bitmaps>
+  </Commands>
+  
+  <Symbols>
+    <GuidSymbol name="IDE" value="{D309f791-903F-11D0-9EFC-00A0C911004F}">
+      <IDSymbol name="CodeWindowRightClickMenu" value="1037" />
+      <IDSymbol name="SolutionRightClickMenu" value="1043" />
+      <IDSymbol name="projectRightClickMenu" value="1026" />
+    </GuidSymbol>
+
+    <GuidSymbol name="TOOLS" value="{2EC09DC7-D1A6-48DC-81A2-86754736949D}" />
+    
+    <GuidSymbol name="C_FRAMEWORK_MENU_GUID" value="{A23BBB33-F623-4A1D-8F57-7BAAEBD2F9BF}">
+      <IDSymbol name="C_FRAMEWORK_MENU_GROUP" value="0x1000" />
+      <IDSymbol name="C_FRAMEWORK_MENU" value="0x1001" />
+    </GuidSymbol>
+    <GuidSymbol name="C_FRAMEWORK_SUBMENU_GUID" value="{EA2ACFA5-5468-486F-9D33-B18FB9DD4713}">
+      <IDSymbol name="C_FRAMEWORK_SUBMENU_GROUP" value="0x1100" />
+      <IDSymbol name="C_SET_CONNECTION_INFO" value="0x1120" />
+      <IDSymbol name="C_CLEAR_DATA_DICTIONARY_CACHE" value="0x1121" />
+      <IDSymbol name="C_REFRESH_VIEW_FILE" value="0x1122" />
+    </GuidSymbol>
+    <GuidSymbol name="C_FRAMEWORK_CLASS_MENU_GUID" value="{5AD8F0E8-A6E2-421B-AC93-83C08BB386C5}">
+      <IDSymbol name="C_FRAMEWORK_CLASS_MENU_GROUP" value="0x1010" />
+      <IDSymbol name="C_FRAMEWORK_CLASS_MENU" value="0x1011" />
+      <IDSymbol name="C_BUILD_BUSINESS_CLASS" value="0x0102" />
+      <IDSymbol name="C_BUILD_CRITERIA_CLASS" value="0x0103" />
+      <IDSymbol name="C_BUILD_COMMAND_CLASS" value="0x0104" />
+      <IDSymbol name="C_ADD_ENUM_ATTRIBUTE" value="0x0105" />
+      <IDSymbol name="C_BRIDGING_DETAIL_PROPERTY" value="0x0106" />
+    </GuidSymbol>
+    <GuidSymbol name="C_FRAMEWORK_RULE_MENU_GUID" value="{028921CC-B954-447E-98F5-BEDFB57DE002}">
+      <IDSymbol name="C_FRAMEWORK_RULE_MENU_GROUP" value="0x1020" />
+      <IDSymbol name="C_FRAMEWORK_RULE_MENU" value="0x1021" />
+      <IDSymbol name="C_BUILD_COMMON_BUSINESS_RULE_CLASS" value="0x0107" />
+      <IDSymbol name="C_BUILD_OBJECT_RULE_CLASS" value="0x0108" />
+      <IDSymbol name="C_ADD_VALIDATION_RULE_ATTRIBUTE" value="0x0109" />
+      <IDSymbol name="C_BUILD_EDIT_VALIDATION_RULE_CLASS" value="0x0110" />
+      <IDSymbol name="C_BUILD_READ_AUTHORIZATION_RULE_CLASS" value="0x0111" />
+      <IDSymbol name="C_BUILD_WRITE_AUTHORIZATION_RULE_CLASS" value="0x0112" />
+      <IDSymbol name="C_BUILD_EXECUTE_AUTHORIZATION_RULE_CLASS" value="0x0113" />
+    </GuidSymbol>
+    <GuidSymbol name="C_FRAMEWORK_CONFIG_MENU_GUID" value="{B3351075-E78D-40BB-AEFA-3CC5C85036E7}">
+      <IDSymbol name="C_FRAMEWORK_CONFIG_MENU_GROUP" value="0x1030" />
+      <IDSymbol name="C_FRAMEWORK_CONFIG_MENU" value="0x1031" />
+      <IDSymbol name="C_MAKE_OBJECT_LOCAL_CONFIG" value="0x0114" />
+      <IDSymbol name="C_MAKE_OBJECT_PUBLIC_CONFIG" value="0x0115" />
+      <IDSymbol name="C_MAKE_CLASS_LOCAL_CONFIG" value="0x0116" />
+      <IDSymbol name="C_MAKE_CLASS_PUBLIC_CONFIG" value="0x0117" />
+    </GuidSymbol>
+    <GuidSymbol name="C_FRAMEWORK_PLUGIN_MENU_GUID" value="{D2AAB83D-79C4-493D-9054-6EB060120EA0}">
+      <IDSymbol name="C_FRAMEWORK_PLUGIN_MENU_GROUP" value="0x1040" />
+      <IDSymbol name="C_FRAMEWORK_PLUGIN_MENU" value="0x1041" />
+      <IDSymbol name="C_ADD_WINDOW_PLUGIN" value="0x0118" />
+      <IDSymbol name="C_BUILD_WORKFLOW_START_COMMAND_CLASS" value="0x0119" />
+    </GuidSymbol>
+    <GuidSymbol name="C_FRAMEWORK_WEBAPI_MENU_GUID" value="{13441521-7173-4B46-9D41-256E5023F659}">
+      <IDSymbol name="C_FRAMEWORK_WEBAPI_MENU_GROUP" value="0x1050" />
+      <IDSymbol name="C_FRAMEWORK_WEBAPI_MENU" value="0x1051" />
+      <IDSymbol name="C_BUILD_API_CONTROLLER" value="0x0120" />
+    </GuidSymbol>
+
+    <GuidSymbol name="S_FRAMEWORK_MENU_GUID" value="{E690B0CC-2C98-44B3-B472-73C436AC63AC}">
+      <IDSymbol name="S_FRAMEWORK_MENU_GROUP" value="0x2000" />
+      <IDSymbol name="S_FRAMEWORK_MENU" value="0x2001" />
+    </GuidSymbol>
+    <GuidSymbol name="S_FRAMEWORK_SUBMENU_GUID" value="{5B535B09-B755-4F1F-BCDE-F76FC7C578F8}">
+      <IDSymbol name="S_FRAMEWORK_SUBMENU_GROUP" value="0x2100" />
+      <IDSymbol name="S_SET_CONNECTION_INFO" value="0x2120" />
+      <IDSymbol name="S_CLEAR_DATA_DICTIONARY_CACHE" value="0x2121" />
+      <IDSymbol name="S_REFRESH_VIEW_FILES" value="0x2122" />
+      <IDSymbol name="S_DELETE_DEV_LICX" value="0x2123" />
+    </GuidSymbol>
+
+    <GuidSymbol name="P_FRAMEWORK_MENU_GUID" value="{4CC9484E-51E4-44F7-AB18-8BB5AF81202E}">
+      <IDSymbol name="P_FRAMEWORK_MENU_GROUP" value="0x3000" />
+      <IDSymbol name="P_FRAMEWORK_MENU" value="0x3001" />
+    </GuidSymbol>
+    <GuidSymbol name="P_FRAMEWORK_SUBMENU_GUID" value="{D636119B-5057-46BD-B96F-33AB6558C291}">
+      <IDSymbol name="P_FRAMEWORK_SUBMENU_GROUP" value="0x3100" />
+      <IDSymbol name="P_SET_CONNECTION_INFO" value="0x3120" />
+      <IDSymbol name="P_CLEAR_DATA_DICTIONARY_CACHE" value="0x3121" />
+      <IDSymbol name="P_REFRESH_VIEW_FILES" value="0x3122" />
+      <IDSymbol name="P_DELETE_DEV_LICX" value="0x3123" />
+    </GuidSymbol>
+
+    <GuidSymbol name="C_TEAMWORK_MENU_GUID" value="{2724DE64-9059-4777-BFAF-635856F77234}">
+      <IDSymbol name="C_TEAMWORK_MENU_GROUP" value="0x5000" />
+      <IDSymbol name="C_TEAMWORK_MENU" value="0x5001" />
+    </GuidSymbol>
+    <GuidSymbol name="C_TEAMWORK_SUBMENU_GUID" value="{A5F45733-7245-4360-89C3-086C97EF5FCC}">
+      <IDSymbol name="C_TEAMWORK_SUBMENU_GROUP" value="0x5100" />
+      <IDSymbol name="C_WEAVE_PROBER" value="0x5120" />
+    </GuidSymbol>
+
+    <GuidSymbol name="S_TEAMWORK_MENU_GUID" value="{C44045D0-F6EB-4118-8FFC-05B3CBCD2D59}">
+      <IDSymbol name="S_TEAMWORK_MENU_GROUP" value="0x6000" />
+      <IDSymbol name="S_TEAMWORK_MENU" value="0x6001" />
+    </GuidSymbol>
+    <GuidSymbol name="S_TEAMWORK_SUBMENU_GUID" value="{2EE40385-88EF-4C7A-A59B-C14EFA0200FA}">
+      <IDSymbol name="S_TEAMWORK_SUBMENU_GROUP" value="0x6100" />
+      <IDSymbol name="S_WEAVE_PROBER" value="0x6120" />
+    </GuidSymbol>
+
+    <GuidSymbol name="P_TEAMWORK_MENU_GUID" value="{2C1601A5-FB20-4905-BE18-509D48028565}">
+      <IDSymbol name="P_TEAMWORK_MENU_GROUP" value="0x7000" />
+      <IDSymbol name="P_TEAMWORK_MENU" value="0x7001" />
+    </GuidSymbol>
+    <GuidSymbol name="P_TEAMWORK_SUBMENU_GUID" value="{C0CC70E7-3D6C-47BF-86F0-8EF13F70FF85}">
+      <IDSymbol name="P_TEAMWORK_SUBMENU_GROUP" value="0x7100" />
+      <IDSymbol name="P_WEAVE_PROBER" value="0x7120" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{9DDF64B3-AE1D-4E4D-9455-082F991B81C2}" >
+      <IDSymbol name="bmpAddEnumAttribute" value="1" />
+      <IDSymbol name="bmpBuildBusinessClass" value="2" />
+      <IDSymbol name="bmpRefresh" value="3" />
+      <IDSymbol name="bmpBuildCriteriaClass" value="4" />
+      <IDSymbol name="bmpBuildService" value="5" />
+      <IDSymbol name="bmpValidationRule" value="6" />
+      <IDSymbol name="bmpAuthorizationRule" value="7" />
+      <IDSymbol name="bmpMakeConfig" value="8" />
+      <IDSymbol name="bmpAddWindowPlugin" value="9" />
+      <IDSymbol name="bmpBridgingDetailProperty" value="10" />
+      <IDSymbol name="bmpBuildWorkflowStartCommandClass" value="11" />
+      <IDSymbol name="bmpSetConnectionInfo" value="12" />
+      <IDSymbol name="bmpClear" value="13" />
+      <IDSymbol name="bmpWeave" value="14" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

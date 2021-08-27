@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B4EB4DC-0071-4622-926C-F9E5091240D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Phenix.Windows</RootNamespace>
+    <AssemblyName>Phenix.Windows</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>http://localhost/Phenix.Windows/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin.Top\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <DocumentationFile>..\..\Bin.Top\Phenix.Windows.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin.Top\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>..\..\Bin.Top\Phenix.Windows.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla" />
+    <Reference Include="Phenix.Business" />
+    <Reference Include="Phenix.Core" />
+    <Reference Include="Phenix.Services.Client" />
+    <Reference Include="DevExpress.Data.v13.2" />
+    <Reference Include="DevExpress.Design.v13.2" />
+    <Reference Include="DevExpress.Printing.v13.2.Core" />
+    <Reference Include="DevExpress.Utils.v13.2" />
+    <Reference Include="DevExpress.XtraBars.v13.2" />
+    <Reference Include="DevExpress.XtraEditors.v13.2" />
+    <Reference Include="DevExpress.XtraBars.v13.2.Design" />
+    <Reference Include="DevExpress.XtraGrid.v13.2" />
+    <Reference Include="DevExpress.XtraLayout.v13.2" />
+    <Reference Include="DevExpress.XtraPrinting.v13.2" />
+    <Reference Include="DevExpress.XtraNavBar.v13.2" />
+    <Reference Include="DevExpress.XtraTreeList.v13.2" />
+    <Reference Include="DevExpress.XtraWizard.v13.2" />
+    <Reference Include="DevExpress.XtraReports.v13.2" />
+    <Reference Include="DevExpress.XtraReports.v13.2.Extensions" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v13.2" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BarManager\BarItemDeleteEventArgs.cs" />
+    <Compile Include="BarManager\BarItemImportEventArgs.cs" />
+    <Compile Include="BarManager\BarItemSaveEventArgs.cs" />
+    <Compile Include="BarManager\BindingSourceChangeEventArgs.cs" />
+    <Compile Include="BarManager\BindingSourceStatus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BarManager\BarItemClickEventArgs.cs" />
+    <Compile Include="BarManager\BarItemId.cs" />
+    <Compile Include="BarManager\FormSetupDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarManager\FormSetupDialog.Designer.cs">
+      <DependentUpon>FormSetupDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarManager\SheetNameSetDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarManager\SheetNameSetDialog.Designer.cs">
+      <DependentUpon>SheetNameSetDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForm.designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessGroupControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessGroupControl.Designer.cs">
+      <DependentUpon>BusinessGroupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemBooleanValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemBooleanValueControl.Designer.cs">
+      <DependentUpon>CriteriaCombineItemBooleanValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemColorValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemColorValueControl.Designer.cs">
+      <DependentUpon>CriteriaCombineItemColorValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemControl.Designer.cs">
+      <DependentUpon>CriteriaCombineItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemDateTimeValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemDateTimeValueControl.Designer.cs">
+      <DependentUpon>CriteriaCombineItemDateTimeValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemEnumValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemEnumValueControl.Designer.cs">
+      <DependentUpon>CriteriaCombineItemEnumValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemValueBaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemValueBaseControl.Designer.cs">
+      <DependentUpon>CriteriaCombineItemValueBaseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaCombineItemValueControl.Designer.cs">
+      <DependentUpon>CriteriaCombineItemValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaExpressionNewDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaExpressionNewDialog.Designer.cs">
+      <DependentUpon>CriteriaExpressionNewDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarManager\DataOperateState.cs" />
+    <Compile Include="BarManager\EnumBindingSourceStatus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaExpressionPropertySelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl\CriteriaExpressionPropertySelectDialog.Designer.cs">
+      <DependentUpon>CriteriaExpressionPropertySelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\DXErrorProviderExtentions.cs" />
+    <Compile Include="Helper\VGridControlHelper.cs" />
+    <Compile Include="Helper\XtraReportExtentions\DesignForm.DevExpress13.2.X.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\XtraReportExtentions\DesignForm.DevExpress13.2.X.designer.cs">
+      <DependentUpon>DesignForm.DevExpress13.2.X.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\XtraReportExtentions\PreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\XtraReportExtentions\PreviewForm.designer.cs">
+      <DependentUpon>PreviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\XtraReportExtentions\ReportSelectorEditor.cs" />
+    <Compile Include="Helper\XtraReportExtentions\TemplateFile.cs" />
+    <Compile Include="Helper\XtraReportExtentions\TemplateSetDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helper\XtraReportExtentions\TemplateSetDialog.designer.cs">
+      <DependentUpon>TemplateSetDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\XtraReportExtentions.cs" />
+    <Compile Include="DialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForm.designer.cs">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\DesignerHelper.DevExpress13.2.X.cs" />
+    <Compile Include="Helper\EditControlHelper.cs" />
+    <Compile Include="Helper\ExcelHelper.cs" />
+    <Compile Include="Helper\GridViewExtentions.cs" />
+    <Compile Include="Helper\GridControlHelper.cs" />
+    <Compile Include="CriteriaGroupControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CriteriaGroupControl.Designer.cs">
+      <DependentUpon>CriteriaGroupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\LayoutControlHelper.cs" />
+    <Compile Include="CriteriaCombineControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CriteriaCombineControl.Designer.cs">
+      <DependentUpon>CriteriaCombineControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarManager\PromptCodeBindingSourceStatus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BarManager\PromptCodeEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarManager\PromptCodeEditDialog.Designer.cs">
+      <DependentUpon>PromptCodeEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\PersistentHelper.cs" />
+    <Compile Include="Helper\TreeListExtentions.cs" />
+    <Compile Include="Helper\XtraReportHelper.cs" />
+    <Compile Include="ProcessControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProcessControl.designer.cs">
+      <DependentUpon>ProcessControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="BarManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BarManager.Designer.cs">
+      <DependentUpon>BarManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarManagerDesigner.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="BarManager\ShowExecuteActionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarManager\ShowExecuteActionForm.Designer.cs">
+      <DependentUpon>ShowExecuteActionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\ChangePasswordDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\ChangePasswordDialog.Designer.cs">
+      <DependentUpon>ChangePasswordDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\LogOn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Security\LogOnDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\LogOnDialog.Designer.cs">
+      <DependentUpon>LogOnDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\LogOnHelper.cs" />
+    <Compile Include="TextEditManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TreeListManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TreeListManagerDesigner.cs" />
+    <Compile Include="UnifyControlEnvironmental.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UnifyControlLayout.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BarManager\FormSetupDialog.resx">
+      <DependentUpon>FormSetupDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarManager\SheetNameSetDialog.resx">
+      <DependentUpon>SheetNameSetDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessGroupControl.resx">
+      <DependentUpon>BusinessGroupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl.resx">
+      <DependentUpon>CriteriaCombineControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarManager\PromptCodeEditDialog.resx">
+      <DependentUpon>PromptCodeEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl\CriteriaCombineItemBooleanValueControl.resx">
+      <DependentUpon>CriteriaCombineItemBooleanValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl\CriteriaCombineItemColorValueControl.resx">
+      <DependentUpon>CriteriaCombineItemColorValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl\CriteriaCombineItemControl.resx">
+      <DependentUpon>CriteriaCombineItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl\CriteriaCombineItemDateTimeValueControl.resx">
+      <DependentUpon>CriteriaCombineItemDateTimeValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl\CriteriaCombineItemEnumValueControl.resx">
+      <DependentUpon>CriteriaCombineItemEnumValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl\CriteriaCombineItemValueBaseControl.resx">
+      <DependentUpon>CriteriaCombineItemValueBaseControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl\CriteriaCombineItemValueControl.resx">
+      <DependentUpon>CriteriaCombineItemValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl\CriteriaExpressionNewDialog.resx">
+      <DependentUpon>CriteriaExpressionNewDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaCombineControl\CriteriaExpressionPropertySelectDialog.resx">
+      <DependentUpon>CriteriaExpressionPropertySelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriteriaGroupControl.resx">
+      <DependentUpon>CriteriaGroupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helper\XtraReportExtentions\DesignForm.DevExpress13.2.X.resx">
+      <DependentUpon>DesignForm.DevExpress13.2.X.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helper\XtraReportExtentions\PreviewForm.resx">
+      <DependentUpon>PreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Helper\XtraReportExtentions\TemplateSetDialog.resx">
+      <DependentUpon>TemplateSetDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogForm.resx">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessControl.resx">
+      <DependentUpon>ProcessControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarManager.resx">
+      <DependentUpon>BarManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarManager\ShowExecuteActionForm.resx">
+      <DependentUpon>ShowExecuteActionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\ChangePasswordDialog.resx">
+      <DependentUpon>ChangePasswordDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\LogOnDialog.resx">
+      <DependentUpon>LogOnDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnifyControlLayout.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.zh-CHS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CHT.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-TW.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-Hans.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-Hant.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CriteriaCombineControl.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TreeListManager.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BarManager.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CriteriaGroupControl.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BusinessGroupControl.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UnifyControlEnvironmental.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TextEditManager.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Security\LogOn.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

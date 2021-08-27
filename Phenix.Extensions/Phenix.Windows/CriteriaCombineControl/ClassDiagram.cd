@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Windows.CriteriaCombineItemBooleanValueControl">
+    <Position X="0.5" Y="10.25" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAACAAAAAiAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CriteriaCombineControl\CriteriaCombineItemBooleanValueControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.CriteriaCombineItemColorValueControl">
+    <Position X="4" Y="10.25" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAiAAAACAEAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>CriteriaCombineControl\CriteriaCombineItemColorValueControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.CriteriaCombineItemControl">
+    <Position X="0.5" Y="0.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ICAAAAAAQCAAAAABAACAAAACAAAACAAAAAAQAABAAAA=</HashCode>
+      <FileName>CriteriaCombineControl\CriteriaCombineItemControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.CriteriaCombineItemDateTimeValueControl">
+    <Position X="3.5" Y="7.25" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAgAAEAAACAAAAAAAAiAAAACAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>CriteriaCombineControl\CriteriaCombineItemDateTimeValueControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.CriteriaCombineItemEnumValueControl">
+    <Position X="7" Y="7.25" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAIgAAAACAAAAAAAAiAAAACAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>CriteriaCombineControl\CriteriaCombineItemEnumValueControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.CriteriaCombineItemValueBaseControl">
+    <Position X="0.5" Y="3.75" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AhAAAAAAACAAAAAAAAiAAAACAAAAAAAAQEAAgQAAAAA=</HashCode>
+      <FileName>CriteriaCombineControl\CriteriaCombineItemValueBaseControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.CriteriaCombineItemValueControl">
+    <Position X="0.5" Y="7.25" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIAAAAAAiAAAACAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>CriteriaCombineControl\CriteriaCombineItemValueControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Phenix.Services.Client.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UserNumber" Type="System.String" Scope="User">
+      <Value Profile="(Default)">工号</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">口令</Value>
+    </Setting>
+    <Setting Name="Host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">服务</Value>
+    </Setting>
+    <Setting Name="ChangePassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">修改口令</Value>
+    </Setting>
+    <Setting Name="Quit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">退出</Value>
+    </Setting>
+    <Setting Name="LogOn" Type="System.String" Scope="User">
+      <Value Profile="(Default)">登录</Value>
+    </Setting>
+    <Setting Name="OldPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">旧口令</Value>
+    </Setting>
+    <Setting Name="NewPassword1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">新口令</Value>
+    </Setting>
+    <Setting Name="NewPassword2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">重复新口令</Value>
+    </Setting>
+    <Setting Name="Ok" Type="System.String" Scope="User">
+      <Value Profile="(Default)">确认</Value>
+    </Setting>
+    <Setting Name="Cancel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">取消</Value>
+    </Setting>
+    <Setting Name="LogOnTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">欢迎登录</Value>
+    </Setting>
+    <Setting Name="ClearCache" Type="System.String" Scope="User">
+      <Value Profile="(Default)">清除缓存</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

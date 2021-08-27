@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Security.Business.Assembly">
+    <Position X="2.25" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assembly.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssemblyClasses" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Security.Business.Assembly&lt;T&gt;">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIEgAAgAAAAQCAAAAAAQAAAAAAAAACAAAQAAAgAA=</HashCode>
+      <FileName>Assembly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClass">
+    <Position X="5.5" Y="4.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAgAAAAAgACAAAgAAAAAEA=</HashCode>
+      <FileName>AssemblyClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssemblyClassProperties" />
+      <Property Name="AssemblyClassMethods" />
+      <Property Name="AssemblyClassRoles" />
+      <Property Name="SelectableRoles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClass&lt;T&gt;">
+    <Position X="8" Y="4.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>BgACYEgAAiAAwIQAAqQYAAQAAAAABAAACQAAQAAAgCA=</HashCode>
+      <FileName>AssemblyClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassMethod">
+    <Position X="2.75" Y="12" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAgACAAAAAAAAACA=</HashCode>
+      <FileName>AssemblyClassMethod.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssemblyClassMethodRoles" />
+      <Property Name="SelectableRoles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassMethod&lt;T&gt;">
+    <Position X="0.5" Y="12" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIEhAAgAgQwAAAgQIABQAAAAAAAAACAAAQAAAgAA=</HashCode>
+      <FileName>AssemblyClassMethod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassMethodRole">
+    <Position X="3" Y="16.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyClassMethodRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassMethodRole&lt;T&gt;">
+    <Position X="0.5" Y="16.25" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAQAAAAAIAAAIQAAAAAAAAAACAAAAAACEQAgAA=</HashCode>
+      <FileName>AssemblyClassMethodRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassProperty">
+    <Position X="8.5" Y="12" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAgAAACAAAAAAAAAAAAAAAAgAAAAAgACAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyClassProperty.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssemblyClassPropertyValues" />
+      <Property Name="AssemblyClassPropertyRoles" />
+      <Property Name="SelectableRoles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassProperty&lt;T&gt;">
+    <Position X="11.75" Y="12" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gBEAIMgAAgECQAJAQqQIABQAAAABQAAYCQBgQAAAgAA=</HashCode>
+      <FileName>AssemblyClassProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassPropertyRole">
+    <Position X="8" Y="16.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyClassPropertyRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassPropertyRole&lt;T&gt;">
+    <Position X="11.75" Y="16.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIAAAEAQAAAAIIAAAAQAAAAAAAEgACAAAAAACEAAgIA=</HashCode>
+      <FileName>AssemblyClassPropertyRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassPropertyValue">
+    <Position X="8.5" Y="9.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyClassPropertyValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassPropertyValue&lt;T&gt;">
+    <Position X="12.5" Y="9.25" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAEAAAIAQAwAAAQAAAAAQAAAgQBAAAIAgBA=</HashCode>
+      <FileName>AssemblyClassPropertyValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassRole">
+    <Position X="2.5" Y="7" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyClassRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassRole&lt;T&gt;">
+    <Position X="0.5" Y="7" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAEEAQAABAAIAACAQAIAAEoAEAACAACCAECEAAgAA=</HashCode>
+      <FileName>AssemblyClassRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyCriteria">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACAIAQAAAQAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyCriteria.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AssemblyClassCriteria" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyClassCriteria">
+    <Position X="4.75" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAQAAAAAAAQAAAAAAAgAAQAAAAAAAAA=</HashCode>
+      <FileName>AssemblyClassCriteria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.AssemblyList">
+    <Position X="2.25" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assembly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.SelectableRoleForAssemblyClass">
+    <Position X="2.5" Y="8.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAACAAAIACEoAEAAAAAACAEAAAAAAA=</HashCode>
+      <FileName>AssemblyClassRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.SelectableRoleForAssemblyClassProperty">
+    <Position X="8" Y="14" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAIAAAAAAAAACAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>AssemblyClassPropertyRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.SelectableRoleForAssemblyClassMethod">
+    <Position X="3.5" Y="14" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyClassMethodRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

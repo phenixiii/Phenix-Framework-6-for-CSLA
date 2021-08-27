@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Windows.BarManager">
+    <Position X="0.5" Y="0.5" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Phenix.Windows.BarManager.SetBindingSourceData">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
+        <TypeIdentifier>
+          <NewMemberFileName>BarManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>u5ffPF7q+m4gtk13/3/e09y7r7RHA+1F/vOL24u7t68=</HashCode>
+      <FileName>BarManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Phenix.Windows.BarManagerDesigner">
+    <Position X="5.5" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAgQAQAAAAAAAAGAASAAAkABAAABAAAAAAA=</HashCode>
+      <FileName>BarManagerDesigner.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BarManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Windows.CriteriaGroupControl">
+    <Position X="3.5" Y="48.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CriteriaGroupControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.BusinessGroupControl">
+    <Position X="0.5" Y="48.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessGroupControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.UnifyControlLayout">
+    <Position X="3.75" Y="51.75" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Phenix.Windows.UnifyControlLayout.GridViewRuleStatus">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
+        <TypeIdentifier>
+          <NewMemberFileName>UnifyControlLayout.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQAgAAIQQqAAQgAEQAAAACIAAAAACgAABgCABQIAQ8A=</HashCode>
+      <FileName>UnifyControlLayout.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Phenix.Windows.CriteriaCombineItemControl">
+    <Position X="6.25" Y="48.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ICAAAAAAQCAAAAABAACAAAACAAAACAAAAAAQAABAAAA=</HashCode>
+      <FileName>CriteriaCombineControl\CriteriaCombineItemControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.TreeListManager">
+    <Position X="0.5" Y="61.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Phenix.Windows.TreeListManager.TreeListDragDropRuleStatus">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
+        <TypeIdentifier>
+          <NewMemberFileName>TreeListManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AYEAEAAAECAAAAAAAAEAAAAAAIAACAAAAgCABQAARBA=</HashCode>
+      <FileName>TreeListManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Phenix.Windows.TreeListManagerDesigner">
+    <Position X="4.75" Y="61.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAgAAAAEAIQAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>TreeListManagerDesigner.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TreeListManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Windows.UnifyControlEnvironmental">
+    <Position X="0.5" Y="51.75" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Phenix.Windows.UnifyControlEnvironmental.RuleStatus">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
+        <TypeIdentifier>
+          <NewMemberFileName>UnifyControlEnvironmental.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BwAEBQAAACCQADAAAAEAEFAAQBGACgAQAgCABQAHQAA=</HashCode>
+      <FileName>UnifyControlEnvironmental.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

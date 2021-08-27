@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Security.Business.TableFilter&lt;T&gt;">
+    <Position X="0.5" Y="2.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AABAKAgAAgAAAABAAAAAAAQAgAAAAAAACQGSQAgApAA=</HashCode>
+      <FileName>TableFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.TableFilterCriteria">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAgAAAAAAAAAAAAQAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>TableFilterCriteria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.SectionTableFilter">
+    <Position X="6.25" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SectionTableFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.SectionReadOnly">
+    <Position X="5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Section.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.SectionTableFilter&lt;T&gt;">
+    <Position X="9" Y="2.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAEAAEAAAAACCAAAQBAggMAgCAABESAAAAAoAA=</HashCode>
+      <FileName>SectionTableFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.Section&lt;T&gt;">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAIAgAAgAAAAAAAAAAAQQAAAIAAAAACAAAQAAAgAA=</HashCode>
+      <FileName>Section.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.TableFilter">
+    <Position X="2.75" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAFAAEAAAAAAAAAAQAQAAAAAAAAACAAAAACAAAA=</HashCode>
+      <FileName>TableFilter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SectionTableFilters" />
+      <Property Name="SelectableSections" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Security.Business.TableFilterList">
+    <Position X="2.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TableFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

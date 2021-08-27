@@ -1,0 +1,23 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="2EC09DC7-D1A6-48DC-81A2-86754736949D" Version="61.48.2" Language="en-US" Publisher="Phenix Studio" />
+    <DisplayName>Phenix Framework and Teamwork Tools</DisplayName>
+    <Description xml:space="preserve">一组 Phenix Framework for .NET 所见即所得的代码快速生成和编辑工具
+&amp; Phenix Teamwork for DevOps 集开发、维护、客服响应于一体的协同工具</Description>
+    <Icon>Resources\Package.ico</Icon>
+  </Metadata>
+  <Installation AllUsers="true">
+    <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[16.0, 17.0)" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
+    <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[16.0, 17.0)" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.5,)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="Phenix.Addin.VSPackage_2019.pkgdef" />
+  </Assets>
+</PackageManifest>

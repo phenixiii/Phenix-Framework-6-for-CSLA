@@ -1,0 +1,394 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>测试数据服务...</title>
+
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/CryptoJS/core-min.js"></script>
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/CryptoJS/cipher-core-min.js"></script>
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/CryptoJS/aes-min.js"></script>
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/CryptoJS/md5-min.js"></script>
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/base64-binary.js"></script>
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/json2.js"></script>
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/jquery.min.js"></script> --v3.2.1
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/jquery.signalR.min.js"></script> --v2.2.2
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/phenix.js"></script>
+
+<script type="text/javascript" src="jquery-easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="jquery-easyui/datagrid-detailview.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery-easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui/themes/icon.css">
+
+<style type="text/css">
+    form {
+        margin: 0;
+        padding: 0;
+    }
+
+    .ftitle {
+        font-size: 14px;
+        font-weight: bold;
+        color: #666;
+        padding: 5px 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .fitem {
+        margin-bottom: 5px;
+    }
+
+    .fitem label {
+        display: inline-block;
+        width: 80px;
+    }
+</style>
+
+<script type="text/javascript">
+
+    function onCompleteLogOn(XMLHttpRequest, textStatus) {
+        if (XMLHttpRequest.status === 200) {
+            phAjax.canFetch({
+                dataName: $("#assemblyListTable").attr("summary"),
+                onSuccess: function (result) {
+                    $("#fetchAssemblyListButton").linkbutton(result ? "enable" : "disable");
+                },
+                onError: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("调用canFetch失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+                },
+            });
+            alert("登录成功! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+        } else if (XMLHttpRequest.status === 401)
+            alert("登录无效! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+        else
+            alert("登录失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+    };
+
+    function onCompleteLogOff(XMLHttpRequest, textStatus) {
+        if (XMLHttpRequest.status === 200)
+            alert("登出成功! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+        else
+            alert("登出失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+    };
+
+    function fetchAssemblyList(pageNo) {
+        phAjax.fetchList({
+            dataName: $("#assemblyListTable").attr("summary"),
+            criteriaName: $("#assemblyCriteriaForm").attr("name"),
+            criteria: $("#assemblyCriteriaForm").serializeArray(),
+            pageSize: $("#assemblyListTable").datagrid('getPager').pagination('options').pageSize,
+            pageNo: pageNo,
+            onSuccess: function (rows, total) {
+                alert(JSON.stringify(rows));
+                $("#assemblyListTable").datagrid('loadData', {
+                    rows: rows,
+                    total: total != null ? total : $("#assemblyListTable").datagrid('getPager').pagination('options').tota,
+                });
+                $("#executeServiceButton").linkbutton(rows.length > 0 ? "enable" : "disable");
+                $("#uploadFilesButton").linkbutton(rows.length > 0 ? "enable" : "disable");
+                $("#uploadBigFilesButton").linkbutton(rows.length > 0 ? "enable" : "disable");
+            },
+            onError: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("检索Assembly数据集失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            },
+        });
+        $("#assemblyListTable").datagrid('getPager').pagination('options').pageNumber = pageNo;
+    };
+
+    function fetchAssemblyClassList(index, row) {
+        phAjax.fetchList({
+            dataName: $("#assemblyListTable-" + index).attr("summary"),
+            masterName: $("#assemblyListTable").attr("summary"),
+            masterId: row.AS_ID,
+            onSuccess: function (rows) {
+                alert(JSON.stringify(rows));
+                $("#assemblyListTable-" + index).datagrid('loadData', {
+                    rows: rows,
+                });
+            },
+            onError: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("检索AssemblyClass数据集失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            },
+        });
+    };
+
+    function saveAssembly() {
+        phAjax.save({
+            dataName: $("#assemblyListTable").attr("summary"),
+            data: $("#assemblyForm").serializeArray(),
+            //dataVerify: true, //数据需核实
+            //dataEncrypt: true, //数据需加密
+            onSuccess: function (count) {
+                $("#assemblyListTable").datagrid('updateRow', {
+                    index: $("#assemblyListTableIndex").attr("value"),
+                    row: phUtils.toObject($("#assemblyForm").serializeArray()),
+                });
+                $("#editAssemblyDialog").dialog('close');
+            },
+            onError: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("提交Assembly数据失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            },
+        });
+    };
+
+    function showEditAssemblyDialog(index, row) {
+        $("#assemblyListTableIndex").attr("value", index);
+        $("#assemblyForm").form('load', row);
+        $("#editAssemblyDialog").dialog('open');
+    }
+
+    function executeService() {
+        var assembly = $("#assemblyListTable").datagrid('getSelected');
+        if (assembly == null)
+            assembly = $("#assemblyListTable").datagrid('getRows')[0];
+        phAjax.execute({
+            serviceName: "Phenix.Test.使用指南._21._5.Business.Service",
+            data: { Assembly: assembly },
+            //dataVerify: true, //数据需核实
+            //dataEncrypt: true, //数据需加密
+            onSuccess: function (result) {
+                alert("调用Service返回结果: " + JSON.stringify(result));
+            },
+            onError: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("调用Service失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            },
+        });
+    }
+
+    function uploadFiles() {
+        var assembly = $("#assemblyListTable").datagrid('getSelected');
+        if (assembly == null)
+            assembly = $("#assemblyListTable").datagrid('getRows')[0];
+        phAjax.uploadFiles({
+            serviceName: "Phenix.Test.使用指南._21._5.Business.Service",
+            data: { Assembly: assembly },
+            files: $("#uploadFiles")[0].files,
+            onSuccess: function (result) {
+                $("#downloadFileButton").linkbutton("enable");
+                alert("调用Service返回结果: " + JSON.stringify(result));
+            },
+            onError: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("调用Service失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            },
+        });
+    }
+
+    function uploadBigFiles() {
+        var assembly = $("#assemblyListTable").datagrid('getSelected');
+        if (assembly == null)
+            assembly = $("#assemblyListTable").datagrid('getRows')[0];
+        phAjax.uploadBigFiles({
+            serviceName: "Phenix.Test.使用指南._21._5.Business.Service",
+            data: { Assembly: assembly },
+            files: $("#uploadFiles")[0].files,
+            onProgress: function (result, fileName, chunkCount, chunkNumber, chunkSize) {
+                $("#progressbar").progressbar('setValue', Math.ceil(chunkNumber * 100 / chunkCount));
+                return true; //继续上传
+            },
+            onSuccess: function (result) {
+                $("#downloadBigFileButton").linkbutton("enable");
+                alert("调用Service返回结果: " + JSON.stringify(result));
+            },
+            onError: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("调用Service失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            },
+        });
+    }
+
+    function downloadFile() {
+        var assembly = $("#assemblyListTable").datagrid('getSelected');
+        if (assembly == null)
+            assembly = $("#assemblyListTable").datagrid('getRows')[0];
+        phAjax.downloadFile({
+            serviceName: "Phenix.Test.使用指南._21._5.Business.Service",
+            data: { Assembly: assembly },
+            onSuccess: function (blob) {
+                var img = document.createElement("img");
+                img.onload = function (e) {
+                    window.URL.revokeObjectURL(img.src);
+                };
+                img.src = window.URL.createObjectURL(blob);
+                $("#imgContainer").html(img); 
+            },
+            onError: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("调用Service失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            },
+        });
+    }
+
+    var chunkBuffers;
+
+    function downloadBigFile() {
+        var assembly = $("#assemblyListTable").datagrid('getSelected');
+        if (assembly == null)
+            assembly = $("#assemblyListTable").datagrid('getRows')[0];
+        phAjax.downloadBigFile({
+            serviceName: "Phenix.Test.使用指南._21._5.Business.Service",
+            data: { Assembly: assembly },
+            onProgress: function (fileName, chunkCount, chunkNumber, chunkSize, chunkBuffer) {
+                $("#progressbar").progressbar('setValue', Math.ceil(chunkNumber * 100 / chunkCount));
+                chunkBuffers = typeof (chunkBuffers) == 'undefined' || chunkBuffers == null ? chunkBuffer : chunkBuffers.concat(chunkBuffer);
+                return true; //继续下载
+            },
+            onSuccess: function (fileName, chunkCount) {
+                var img = document.createElement("img");
+                img.onload = function (e) {
+                    window.URL.revokeObjectURL(img.src);
+                    chunkBuffers = null;
+                    alert("调用Service完成下载: " + fileName);
+                };
+                img.src = window.URL.createObjectURL(new Blob([Base64Binary.decode(chunkBuffers)]));
+                $("#imgContainer").html(img); 
+            },
+            onError: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("调用Service失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            },
+        });
+    }
+
+    $(function () {
+        this.cache = false;
+        phAjax.host = 'localhost';
+        phAjax.port = 8080;
+
+        $("#assemblyListTable").datagrid({
+            view: detailview,
+            detailFormatter: function (index, row) {
+                return '<div style="padding:2px"><table id="assemblyListTable-' + index + '" summary="Phenix.Test.使用指南._21._5.Business.AssemblyClassList"></table></div>';
+            },
+            onExpandRow: function (index, row) {
+                $("#assemblyListTable-" + index).datagrid({
+                    idField: 'AC_ID',
+                    striped: true,
+                    fitColumns: true,
+                    rownumbers: true,
+                    singleSelect: true,
+                    height: 'auto',
+                    columns: [
+                        [
+                            { field: 'IsNew', hidden: true },
+                            { field: "IsSelfDeleted", hidden: true },
+                            { field: 'IsSelfDirty', hidden: true },
+                            { field: 'AC_ID', hidden: true },
+                            { field: 'AC_AS_ID', hidden: true },
+                            { field: 'Name', title: 'Name', width: 100 },
+                            { field: 'Caption', title: 'Caption', width: 100 }
+                        ]
+                    ],
+                    onResize: function () {
+                        $("#assemblyListTable").datagrid('fixDetailRowHeight', index);
+                    },
+                    onLoadSuccess: function () {
+                        setTimeout(function () {
+                            $("#assemblyListTable").datagrid('fixDetailRowHeight', index);
+                        }, 0);
+                    }
+                });
+                $("#assemblyListTable").datagrid('fixDetailRowHeight', index);
+                fetchAssemblyClassList(index, row);
+            },
+            onSelect: function (index, row) {
+                showEditAssemblyDialog(index, row);
+            },
+        });
+
+        $("#assemblyListTable").datagrid('getPager').pagination({
+            onSelectPage: function (pageNumber, pageSize) {
+                fetchAssemblyList(pageNumber);
+            },
+        });
+
+        //$("#assemblyForm").change(function () {
+        //    $("#assemblyForm-IsSelfDirty").attr("value", true);
+        //});
+    });
+</script>
+</head>
+<body>
+    请事先编译Phenix.Test.使用指南.21.5.Business工程输出DLL到Bin.Top目录<br />
+    然后启动Bin.Top目录下的Phenix.Services.Host.x86/x64.exe程序<br />
+    通过Host程序注册Phenix.Test.使用指南.21.5.Business.DLL内的业务类<br />
+    请不要关闭Host程序<br />
+    如需观察日志（被保存在TempDirectory子目录里）可将Host的Debugging功能菜单点亮<br />
+
+    <br />
+    请先登录Host：<br />
+
+    登录工号<input id="userNumber" type="text" value="ADMIN" /><br />
+    登录口令<input id="password" type="text" value="ADMIN" />
+    <input name="LogOn" onclick="phAjax.logOn(userNumber.value, password.value, onCompleteLogOn);" type="button" value="登录" />
+    <input name="LogOff" onclick="phAjax.logOff(onCompleteLogOff);" type="button" value="登出" /><br />
+
+    <br />
+    然后检索数据：<br />
+
+    <table id="assemblyListTable" summary="Phenix.Test.使用指南._21._5.Business.AssemblyList"
+           class="easyui-datagrid" title="Assembly List" style="width: 800px; height: 250px"
+           idfield="AS_ID" striped="true" fitcolumns="true" rownumbers="true" singleselect="true"
+           pagination="true" pagesize="2" pagelist="[2, 4, 8, 16, 32]"
+           toolbar="#assemblyListToolbar">
+        <thead>
+            <tr>
+                <th field="IsNew" hidden="true"></th>
+                <th field="IsSelfDeleted" hidden="true"></th>
+                <th field="IsSelfDirty" hidden="true"></th>
+                <th field="AS_ID" hidden="true"></th>
+                <th field="Name" width="380">Name</th>
+                <th field="Caption" width="200">Caption</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="assemblyListToolbar" style="padding: 3px">
+        <input id="uploadFiles" type="file" multiple />
+        <a href="#" id="uploadFilesButton" class="easyui-linkbutton" iconcls="icon-tip" plain="true" disabled="true" onclick="uploadFiles()">测试上传图片</a>
+        <a href="#" id="uploadBigFilesButton" class="easyui-linkbutton" iconcls="icon-tip" plain="true" disabled="true" onclick="uploadBigFiles()">测试上传大图片</a>
+        <a href="#" id="downloadFileButton" class="easyui-linkbutton" iconcls="icon-tip" plain="true" disabled="true" onclick="downloadFile()">测试下载图片</a>
+        <a href="#" id="downloadBigFileButton" class="easyui-linkbutton" iconcls="icon-tip" plain="true" disabled="true" onclick="downloadBigFile()">测试下载大图片</a>
+        <a href="#" id="executeServiceButton" class="easyui-linkbutton" iconcls="icon-tip" plain="true" disabled="true" onclick="executeService()">测试执行服务</a>
+        <form id="assemblyCriteriaForm" name="Phenix.Test.使用指南._21._5.Business.AssemblyCriteria" action="#">
+            <span>Name:</span>
+            <input id="assemblyCriteriaForm-Name" name="Name" value="Phenix.Test." style="line-height: 18px; border: 1px solid #ccc">
+            <a href="#" id="fetchAssemblyListButton" class="easyui-linkbutton" iconcls="icon-search" plain="true" disabled="true" onclick="fetchAssemblyList(1)">Fetch</a>
+        </form>
+    </div>
+
+    <div id="editAssemblyDialog"
+         class="easyui-dialog" title="Edit Assembly" style="width: 400px; height: 300px; padding: 10px" iconcls="icon-edit"
+         closed="true" cache="false" modal="true"
+         buttons="#editAssemblyButtons">
+        <div class="ftitle">Assembly Information</div>
+        <input id="assemblyListTableIndex" type="hidden" />
+        <form id="assemblyForm" name="Phenix.Test.使用指南._21._5.Business.Assembly">
+            <input id="assemblyForm-IsNew" name="IsNew" type="hidden" />
+            <input id="assemblyForm-IsSelfDeleted" name="IsSelfDeleted" type="hidden" />
+            <input id="assemblyForm-IsSelfDirty" name="IsSelfDirty" type="hidden" />
+            <input id="assemblyForm-AS_ID" name="AS_ID" type="hidden" />
+            <div class="fitem">
+                <label>Name:</label>
+                <input id="assemblyForm-Name" name="Name" class="easyui-validatebox" readonly="true" style="width: 300px">
+            </div>
+            <div class="fitem">
+                <label>Caption:</label>
+                <input id="assemblyForm-Caption" name="Caption" class="easyui-validatebox" style="width: 300px"
+                       onchange="javascript: $('#assemblyForm-IsSelfDirty').attr('value', true);">
+            </div>
+        </form>
+    </div>
+    <div id="editAssemblyButtons">
+        <table cellpadding="0" cellspacing="0" style="width: 100%">
+            <tr>
+                <td style="text-align: right">
+                    <a href="#" class="easyui-linkbutton" iconcls="icon-save" onclick="saveAssembly()">Save</a>
+                    <a href="#" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript: $('#editAssemblyDialog').dialog('close'); ">Close</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <br />
+    <div id="progressbar" class="easyui-progressbar" style="width: 800px;"></div>
+    下载图片：<form id="imgContainer"></form>
+    
+    <br />
+</body>
+</html>

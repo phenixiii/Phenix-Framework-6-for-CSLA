@@ -1,0 +1,60 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>测试身份认证...</title>
+
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/CryptoJS/core-min.js"></script>
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/CryptoJS/cipher-core-min.js"></script>
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/CryptoJS/aes-min.js"></script>
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/CryptoJS/md5-min.js"></script>
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/base64-binary.js"></script>
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/json2.js"></script>
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/jquery.min.js"></script> --v3.2.1
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/jquery.signalR.min.js"></script> --v2.2.2
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../Phenix.Extensions/Phenix.Web.Client.Ajax/phenix.js"></script>
+
+    <script type="text/javascript">
+
+        function onCompleteLogOn(XMLHttpRequest, textStatus) {
+            if (XMLHttpRequest.status === 200)
+                alert("登录成功! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            else if (XMLHttpRequest.status === 401)
+                alert("登录无效! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            else
+                alert("登录失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+        };
+
+        function onCompleteChangePassword(XMLHttpRequest, textStatus) {
+            if (XMLHttpRequest.status === 200)
+                alert("修改登录口令成功! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            else
+                alert("修改登录口令失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+        };
+
+        function onCompleteLogOff(XMLHttpRequest, textStatus) {
+            if (XMLHttpRequest.status === 200)
+                alert("登出成功! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+            else
+                alert("登出失败! status: " + XMLHttpRequest.statusText + ", response: " + XMLHttpRequest.responseText);
+        };
+
+        $(function () {
+            phAjax.host = 'localhost';
+            phAjax.port = 8080;
+        });
+    </script>
+</head>
+<body>
+    请启动Bin.Top目录下的Phenix.Services.Host.x86/x64.exe程序<br />
+    如需观察日志（被保存在TempDirectory子目录里）可将Host的Debugging功能菜单点亮<br />
+    <br />
+    登录工号<input id="userNumber" type="text" value="ADMIN" /><br />
+    登录口令<input id="password" type="text" value="ADMIN" />
+    <input name="LogOn" onclick="phAjax.logOn(userNumber.value, password.value, onCompleteLogOn);" type="button" value="登录" /><br />
+    新登录口令<input id="newPassword" type="text" value="ADMIN" />
+    <input name="ChangePassword" onclick="phAjax.changePassword(userNumber.value, password.value, newPassword.value, onCompleteChangePassword);" type="button" value="修改登录口令" /><br />
+    <input name="LogOff" onclick="phAjax.logOff(onCompleteLogOff);" type="button" value="登出" /><br />
+    <br />
+</body>
+</html>

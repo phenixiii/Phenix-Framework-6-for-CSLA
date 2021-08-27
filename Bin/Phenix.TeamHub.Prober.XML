@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Phenix.TeamHub.Prober</name>
+    </assembly>
+    <members>
+        <member name="T:Phenix.TeamHub.Prober.IWorker">
+            <summary>
+            操作者
+            </summary>
+        </member>
+        <member name="M:Phenix.TeamHub.Prober.IWorker.SubmitLog(System.String,System.Reflection.MethodBase,System.Exception)">
+            <summary>
+            提交日志
+            </summary>
+            <param name="message">消息</param>
+            <param name="method">函数的信息</param>
+            <param name="exception">错误</param>
+        </member>
+        <member name="T:Phenix.TeamHub.Prober.AppHub">
+            <summary>
+            应用中心
+            </summary>
+        </member>
+        <member name="M:Phenix.TeamHub.Prober.AppHub.CheckActive(System.String)">
+            <summary>
+            检查活动
+            </summary>
+        </member>
+        <member name="M:Phenix.TeamHub.Prober.AppHub.SubmitLog(System.Reflection.MethodBase,System.Exception)">
+            <summary>
+            提交日志
+            </summary>
+            <param name="method">函数的信息</param>
+            <param name="exception">错误</param>
+        </member>
+        <member name="M:Phenix.TeamHub.Prober.AppHub.SubmitLog(System.String,System.Reflection.MethodBase,System.Exception)">
+            <summary>
+            提交日志
+            </summary>
+            <param name="message">消息</param>
+            <param name="method">函数的信息</param>
+            <param name="exception">错误</param>
+        </member>
+        <member name="P:Phenix.TeamHub.Prober.AppHub.Worker">
+            <summary>
+            操作者
+            </summary>
+        </member>
+    </members>
+</doc>

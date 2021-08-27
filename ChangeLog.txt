@@ -1,0 +1,1256 @@
+2007-11-09  1，完成 RemotingAgent 组件。为 Client 程序集提供统一的 remoting 参数设置和远程对象代理工厂；
+            2，完成 Login 组件。为 Client 程序集提供统一的登录界面和用户校验机制，同时，自动进行文件的升级、本地与数据库的对时等功能；
+            3，初步构建了一个应用服务容器，除了为 Login 等组件提供服务外，可自动加载当前目录下的 Service 程序集；
+
+2008-05-21  1，完成业务组件框架，继承 CSLA 的 BusinessListBase、BusinessBase、ReadOnlyListBase、ReadOnlyBase、CommandBase，支持主从业务对象集；
+            2，可自动映射和持久化业务对象，支持同一登陆用户的多步长事务；
+            3，封装 CSLA 的本地和远程调用模式，通过 Login 组件自动切换，方便调试服务端代码；
+
+2008-07-11  业务处理跟踪日志（留痕）引擎；
+            
+2008-08-01  数据集动态刷新服务引擎；
+
+2008-08-03  Login 组件，如果用户选择的应用服务器不可登陆，可自动挑选可登陆的应用服务器；
+
+...
+
+
+2011-10-9升级：
+BusinessBase取子业务对象集合时，可以从本地的业务对象集合中过滤出来：
+
+    /// <summary>
+    /// 取从业务对象集合
+    /// </summary>
+    /// <param name="expression">条件表达式</param>
+    /// <param name="source">数据源</param>
+    public TDetail GetDetail<TDetail, TDetailBusiness>(Expression<Func<TDetailBusiness, bool>> expression, TDetail source)
+      where TDetail : BusinessListBase<TDetail, TDetailBusiness>
+      where TDetailBusiness : BusinessBase<TDetailBusiness>
+
+
+2011-10-24升级：
+排除未注册的业务类，当Fetch时陷入死循环的缺陷。
+ 
+
+2011-11-09升级：
+AddIn工具添加“构建指令类”功能。
+
+
+2011-11-27升级：
+1，框架案例.zip新增Phenix.Windows.dll源码，你可以重新编译支持非v10.1版本的DevExpress
+2，新增功能：在业务类的OnInsertingSelf、OnUpdatingSelf中中嵌入了附加的条件语句，可以实现如下效果的提交语句：
+update PH_Department set DP_Name = 'aaa' where DP_ID = 33221343543545
+and not exists (select * from PH_Department where DP_Name = 'aaa' and DP_ID <> 33221343543545)
+
+本案例实现了DP_Name不允许重复的业务逻辑。不过业务类中我们无需添加类似逻辑代码，唯一索引验证功能在框架中已默认实现。
+
+    /// <summary>
+    /// 新增本对象集合之前
+    /// 在运行持久层的程序域里被调用
+    /// </summary>
+    /// <param name="transaction">数据库事务</param>
+    /// <param name="limitingConditions">限制保存的条件</param>
+    protected virtual void OnInsertingSelf(DbTransaction transaction, out Criterions[] limitingConditions)
+    {
+      limitingConditions = 需要限制保存的条件;
+    }
+
+    /// <summary>
+    /// 更新本对象集合之前
+    /// 在运行持久层的程序域里被调用
+    /// </summary>
+    /// <param name="transaction">数据库事务</param>
+    /// <param name="limitingConditions">限制保存的条件</param>
+    protected virtual void OnUpdatingSelf(DbTransaction transaction, out Criterions[] limitingConditions)
+    {
+      limitingConditions = 需要限制保存的条件;
+    }
+
+3，当提交时满足限制条件则抛出CheckSaveException异常。如果是通过BarManager提交的，则可以在它的OnSaveFailed(e)事件里处理这个异常，如果不想由BarManager提示的话，则可以将e.Applied=true
+
+
+2011-12-14升级：
+BusinessListBase新增功能：可通过GetRecordCount()函数获取指定条件下的记录数：
+
+    /// <summary>
+    /// 获取记录数量
+    /// </summary>
+    /// <param name="criteriaExpression">条件表达式</param>
+    public static long GetRecordCount(CriteriaExpression criteriaExpression)
+ 
+
+2011-12-19升级：
+类似下面的语句可以产生Exists、UnExists语句：
+
+
+WorkingProcessLocks = ProcessLockList.Fetch(
+        ProcessLock.AllowexecuteProperty == true & ProcessLock.NameProperty == "a"& ProcessLockList.Exists(ProcessLock.AllowexecuteProperty == false));
+
+Command Text="select  PL_NAME,PL_ALLOWEXECUTE,PL_TIME,PL_USERNUMBER,PL_REMARK from PH_PROCESSLOCK where ((  PL_ALLOWEXECUTE  = :PK_PL_ALLOWEXECUTE689faafad8d2  and   PL_NAME  = :POCESSLOCK_PL_NAME0a99cadeeaee )and ( exists (select * from PH_PROCESSLOCK where   PL_ALLOWEXECUTE  = :PK_PL_ALLOWEXECUTEae66969bf88a )))
+
+
+2011-12-21升级：
+排除SQLServer数据库下的bug。
+ 
+
+2011-12-26升级：
+加入“权限管理、系统应用框架”源码。
+请留意版权声明：Phenix.license.txt
+ 
+
+2012-01-16升级：
+纠正Phenix.Services.Host.exe在Win7-64位旗舰版下注册Phenix.Addin不到VS2010执行目录下的情况。
+ 
+
+2012-03-31升级：
+1，支持简繁体；
+2，纠正一些细小bug；
+
+ 
+2012-05-13升级：
+1，重新整理授权规则类及配套的辅助代码生成Addin工具；
+2，内含系列说明书：
+《Phenix Framework Tools.使用指南.01.简介》
+《Phenix Framework Tools.使用指南.02.部署开发环境》
+《Phenix Framework Tools.使用指南.03.Addin工具使用方法》
+《Phenix Framework Tools.使用指南.04.登录应用系统》
+《Phenix Framework Tools.使用指南.05.业务对象公共接口的授权》
+《Phenix Framework Tools.使用指南.06.ReadWriteAuthorization组件》
+《Phenix Framework Tools.使用指南.07.ExecuteAuthorization组件》
+ 
+
+2012-5-16升级：
+添加说明书：
+《Phenix Framework Tools.使用指南.08.业务对象公共接口的数据验证》
+《Phenix Framework Tools.使用指南.09.EditValidation组件》
+ 
+
+2012-6-25升级：
+添加说明书并整理公共接口：
+《Phenix Framework Tools.使用指南.10.BarManager组件》
+《Phenix Framework Tools.使用指南.11.业务对象生命周期及其状态》
+《Phenix Framework Tools.使用指南.12.业务结构对象模型》
+ 
+
+2012-8-30升级：
+1，CSLA封装到4.3.12版本
+2，增加分页Fetch机制：Phenix.Business.BusinessListPageBase
+3，添加说明书并整理公共接口：
+《Phenix Framework Tools.使用指南.13.日志服务》
+《Phenix Framework Tools.使用指南.14.过程锁》
+《Phenix Framework Tools.使用指南.15.业务码》
+《Phenix Framework Tools.使用指南.16.分页检索业务对象》
+《Phenix Framework Tools.使用指南.17.条件检索业务对象》
+《Phenix Framework Tools.使用指南.18.数据库设计规则》
+《Phenix Framework Tools.使用指南.19.缓存》
+《Phenix Framework Tools.使用指南.20.动态刷新》
+4，CSLA封装到4.3.13版本
+5，优化业务对象缓存机制的性能
+ 
+
+2012-12-05
+1，全面优化性能
+2，支持SQLserver能力已经验证
+3，加强Fetch的查询条件表达式
+
+ 
+2012-12-31
+支持诸如下述Fetch方法：
+List<string> names = new List<string>() {"ADMIN"};
+ProcessLockList.Fetch(mm => !names.Contains(mm.Name));
+
+
+2013-1-27
+1，支持诸如下述Fetch方法：
+List<string> shopcodelist = pdlist.Select(mm => mm.ShopCode).ToList();
+SPA_Business.Shop_BaseList ssl = SPA_Business.Shop_BaseList.Fetch(mm => shopcodelist.Contains(mm.Shopcode));
+2，补充：BusinessBase类RefreshLink()函数
+3，修正bug：对SqlServer的支持等
+4，修正bug：分页功能、计算字段功能、GetLink功能
+5，完善：允许混合LAN和WAN环境下连同一应用服务器
+6，优化Addin工具: 枚举的Caption属性带字段缓存
+7，优化性能
+8，优化升级客户端文件性能
+
+
+2013-2-4
+修正bug：带CheckDirtyOnSaving = true乐观锁机制的删除，当未能删除时应该抛CheckDirtyException异常
+
+
+2013-2-7
+支持诸如下述Fetch方法：
+ProcessLockList.Fetch(mm => mm.Name.Contains("ADMIN");
+
+
+2013-2-14
+支持同构/异构节点的树状业务类：Phenix.Business.BusinessTreeBase、Phenix.Business.BusinessTreeNodeBase
+对应的窗体组件：Phenix.Windows.TreeListDragDropManager，管理TreeList控件的构建和拖拽等功能
+
+
+2013-3-14
+1，修正bug：对SqlServer的支持等
+2，重构：BusinessListPageBase
+
+
+2013-3-17
+1，优化性能等
+2，FieldAggregateAttribute增加ToDoOnUpdate属性：控制在update的时候是否需要ToDo主表的对应字段
+
+
+2013-3-21
+发布：Phenix.Web.Mvc源码
+
+
+2013-4-7
+扩展Phenix.Windows.BarManager组件：
+解决因Execl文档存在多个Sheet且未指定Sheet名称或Sheet名称错误的问题而影响导入，可通过弹出“输入Execl的Sheet名称”对话框来让用户更改Sheet的名称，起到系统容错的作用
+
+
+2013-4-8
+添加Addin工具新功能：对于映射视图的业务/查询类，当使用“初始化/编辑业务类”、“初始化/编辑查询类”时，会自动为当前工程添加或重写该视图的SQL文件，文件名为视图名.SQL
+
+
+2013-4-9
+添加说明书：
+《Phenix Framework Tools.权限管理.01.简介》
+《Phenix Framework Tools.权限管理.02.搭建解决方案》
+
+
+2013-4-15
+1，优化全景数据获取
+2，优化Selected清单与界面的交互方式
+3，添加说明书：
+《Phenix Framework Tools.权限管理.03.角色管理工程.勾选清单》
+
+
+2013-4-28
+1，重构树状业务类：Phenix.Business.BusinessTreeBase、Phenix.Business.BusinessTreeNodeBase，仅支持同构节点
+2，对应的窗体组件：Phenix.Windows.TreeListManager，管理TreeList控件的属性设置、拖拽权限验证等功能
+3，添加说明书：
+《Phenix Framework Tools.权限管理.04.岗位管理工程.树状结构》
+《Phenix Framework Tools.权限管理.05.部门管理工程.快捷导航》
+
+
+2013-5-27
+1，完善带属性联结表的多对多数据处理方法
+2，完善执行规则验证机制，可支持传递给验证类的上下文Phenix.Business.Rules.AuthorizationContext带Arguments参数供判断
+3，升级CSLA到4.3.14版本
+4，升级Phenix.Extended支持到12.2.X版本DevExpress控件包
+5，升级配置库：需重启Phenix.Services.Host.exe以便自动升级
+6，添加说明书：
+《Phenix Framework Tools.权限管理.06.表过滤器管理工程.级联选择》
+《Phenix Framework Tools.权限管理.07.切片管理工程.勾选编辑》
+《Phenix Framework Tools.权限管理.08.用户管理工程.执行规则》
+《Phenix Framework Tools.权限管理.09.用户日志管理工程.勾选删除》
+
+
+2013-6-22
+1，优化主从数据处理Filter方法及性能
+2，支持带主从层级关系GridView的GridControl
+3，支持Linq条件中带Array的Fetch方法
+4，优化业务对象缓存机制的性能
+5，添加说明书：
+《Phenix Framework Tools.权限管理.10.程序集管理工程.主从结构》
+《Phenix Framework Tools.使用案例.业务数据的缺省值-序号》
+《Phenix Framework Tools.使用案例.业务数据的读写-加解密》
+《Phenix Framework Tools.权限管理.11.自动解除用户登录失败锁工程.服务插件》
+
+
+2013-6-23
+修正bug：当业务对象的AllowEdit属性值为false而业务对象集合的AllowEditItem属性值为true时，BarManager的Edit功能按钮应该是不允许被点击的
+
+
+2013-6-27
+修正bug：恢复支持带非long类型主键的类，这些对象在new时主键不会被赋值，也不会在尝试赋值时抛出异常
+
+
+2013-6-29
+重构Phenix.StandardRule.Information：添加简单的评审流程
+
+
+2013-7-4
+1，提供Phenix.Core.Net.RemotingConfig.Timeout配置属性，控制remoting请求在超时前等待的毫秒数
+2，提供Phenix.Core.Data.DbConnectionInfo.MSSqlConnectTimeout配置属性，控制MSSql数据库的Connect Timeout超时等待时间(秒)
+3，提供Fetch超时配置属性：在你要Fetch的业务（集合）类里，覆写
+
+    /// <summary>
+    /// 等待Fetch命令执行的时间(秒数）, null 指示不限制
+    /// 默认值为 null
+    /// </summary>
+    public virtual int? FetchTimeout
+    {
+      get { return null; }
+    }
+
+
+2013-7-19
+添加SHB.Charge.Subject演示工程和视频链接
+
+
+2013-8-23
+1，修正组件有时会发生序列化错误的问题
+2，Phenix.Windows的BarManager组件中添加两事件：
+
+    /// <summary>
+    /// 删除按钮触发提示被否决后事件
+    /// </summary>
+    public event EventHandler<BarItemDeleteEventArgs> DeleteRejected;
+
+    /// <summary>
+    /// 取消按钮触发提示被否决后事件
+    /// </summary>
+    public event EventHandler<BarItemClickEventArgs> CancelRejected;
+
+
+2013-9-2
+1，扩展EditValidation、ReadWriteAuthorization，可支持DevExpress.XtraTreeList.Columns.TreeList
+2，修正bug：对SqlServer的支持
+
+
+2013-9-24
+修正Addin工具中构建编辑业务类界面上的配置属性AllowReservedColumn，使之与IsBusinessCodeColumn、IsInputerColumn等配置属性无关联
+
+
+2013-10-18
+扩充业务基类、业务集合基类的：
+
+    /// <summary>
+    /// 构建本业务对象之前
+    /// 在运行持久层的程序域里被调用
+    /// </summary>
+    /// <param name="connection">数据库连接</param>
+    /// <param name="command">DbCommand</param>
+    /// <param name="criterions">条件集</param>
+    protected virtual void OnFetchingSelf(DbConnection connection, DbCommand command, Criterions criterions)
+
+    /// <summary>
+    /// 构建本业务对象之前
+    /// 在运行持久层的程序域里被调用
+    /// </summary>
+    /// <param name="transaction">数据库事务</param>
+    /// <param name="command">DbCommand</param>
+    /// <param name="criterions">条件集</param>
+    protected virtual void OnFetchingSelf(DbTransaction transaction, DbCommand command, Criterions criterions)
+
+可重载后对command.CommandText进行处理，如果被赋过SQL语句，则会跳过框架持久层引擎自动拼装SQL的功能，也就是可以干预数据提取过程
+
+
+2013-10-26
+1，增加host服务程序的监控功能，崩溃时可启动新进程：Phenix.Services.Host.Monitor.exe，64位执行Phenix.Services.Host.Monitor.x64.bat、32位执行Phenix.Services.Host.Monitor.x86.bat
+2，重构分页业务类：Phenix.Business.BusinessListPageBase、Phenix.Business.BusinessPageBase，业务对象含分页号PageNo属性，可用于界面BindingSource.Filter的过滤显示
+3，重写说明书：
+《Phenix Framework Tools.使用指南.16.分页检索业务对象》
+4，配置库表PH_AssemblyClass添加AC_Authorised字段，默认下只有AC_Type = Phenix.Core.Dictionary.AssemblyClassType.Form时才AC_Authorised = 1，也就是窗体上的控件、组件可被授权控制，
+其他如业务类等对象，普通应用场景下不会要求权限控制到属性级别，所以AC_Authorised = 0，当然，如果改成了1，框架就允许授权控制到它
+5，重新梳理业务类的GetLink和GetDetail函数，解决了缓存不完善的情况发生
+
+
+2013-11-7
+1，可选择仅允许一个用户一个IP地址登录系统
+2，提醒密码复杂度(长度大于6位且含数字和大小写字母或特殊字符)
+3，提醒密码过期天数
+
+
+2013-11-16
+1，针对调用编辑函数时抛出的Csla.Core.UndoException，提供更为详细的提示信息，比如可指出业务对象与Parent之间EditLevel的不一致、业务对象中含有未打上[Csla.NotUndoable]标签的业务对象字段等现象；
+2，Link对象可跟随业务对象一起编辑、提交，本功能可用业务对象的下列属性开关：
+
+    /// <summary>
+    /// 可自动保存关联的业务对象
+    /// 缺省为 true
+    /// </summary>
+    public virtual bool AutoSaveLinks
+    {
+      get { return true; }
+    }
+
+3，Addin工具在构建业务对象代码时， 提供了自动生成工厂方法New()函数代码的功能，可提供新建业务对象强类型传参填充所有字段的功能，方便设计大批量数据导入功能的业务场景；当然，如果倾向于通用性且能忍受反射机制带来的性能损耗，也可调用BusinessListBase提供的工厂方法New()函数：
+
+    /// <summary>
+    /// 新增业务对象集合
+    /// </summary>
+    /// <param name="source">数据源</param>
+    /// <param name="propertyInfos">数据属性信息队列, 顺序与数据源columnIndex一致, 当为null、空队列时按source列名与业务类属性名匹配条件进行数据填充</param>
+    public static T New(DataTable source, IList<Phenix.Core.Mapping.IPropertyInfo> propertyInfos)
+
+
+2013-11-29
+废弃Phenix.Core.Mapping.CriteriaOperate中大小写相关枚举，新增Phenix.Core.Mapping.CriteriaFieldAttribute大小写相关属性：
+
+    /// <summary>
+    /// 条件操作忽略大小写
+    /// 仅针对字符串类型的字段
+    /// 缺省为 false
+    /// </summary>
+    public bool OperateIgnoreCase { get; set; }
+
+Phenix.Core.Mapping.CriteriaExpression的构建函数新增大小写控制的ignoreCase参数
+
+2013-12-6
+1，添加说明书：
+《Phenix Framework Tools.使用案例.Web服务开发注意事项》
+2，Phenix.Core.Mapping.ClassAttribute新增属性：
+
+    /// <summary>
+    /// 是否从服务器获取序号
+    /// 在New业务对象时为PrimaryKey字段赋服务器上的唯一值, 这在本地处于多进程环境里是更加稳妥的
+    /// 缺省为 false, 也就是从本地(一个进程有一个)序号生成器获取，性能高
+    /// </summary>
+    public bool SequenceFromServer { get; set; }
+
+
+2014-1-17
+增加：
+    /// <summary>
+    /// 清除关联业务对象Cache
+    /// </summary>
+    protected void ClearLinkCache(Type type)
+
+    /// <summary>
+    /// 清除从业务对象Cache
+    /// </summary>
+    protected void ClearDetailCache(Type type)
+
+
+2014-2-26
+1，增加：Phenix.Business.Tunnel.FastSaveCommand，提供快速批量Save数据功能，具体见：
+《Phenix Framework Tools.使用案例.业务数据的读写-快速Save》
+2，改进：将业务类的GetDetail()拆分为GetCompositionDetail()、GetAggregationDetail()，以区分“组合关系”、“聚合关系”，
+对于GetAggregationDetail()，当业务对象被删除时，其Detail业务对象仅清空外键字段，不做级联删除；而GetCompositionDetail()，就是原来的GetDetail()，可做级联删除
+3，支持：32/64位Win7操作系统、Visual Studio 2010/2012/2013上，Addin工具的注册
+4，添加说明书：
+《Phenix Framework Tools.权限管理.12.重置口令.工作流》
+5，BusinessListBase新增功能：与GetRecordCount()函数用法相同，可根据指定条件删除记录：
+    
+    /// <summary>
+    /// 删除记录
+    /// </summary>
+    /// <param name="criteriaExpression">条件表达式</param>
+    public static int DeleteRecord(CriteriaExpression criteriaExpression)
+
+比如：删除用户工号等于"3333"的用户记录：UserList.DeleteRecord(User.UserNumberProperty == "3333");
+
+
+2014-3-27
+1，添加说明书：
+《Phenix Framework Tools.使用指南.21.异构服务集群》
+《Phenix Framework Tools.权限管理.13.打印用户清单.自定义报表》
+2，解除Phenix.Windows.Client.csproj安全性异常
+3，纠正Phenix.Services.Host.x86/x64.exe初始化时无法搭建配置库的问题
+4，支持DevExpressComponents-13.2.X版本；
+5，允许映射视图的类含多个表的主键时可自动提交主表数据，见测试工程：
+    Phenix.Test.使用指南.12.8.1.1
+    Phenix.Test.使用指南.12.8.1.2
+
+
+2014-5-22
+1，补充：BusinessBase类NewPure函数，可新增未初始化字段值的业务对象
+2，新增测试工程：
+    Phenix.Test.使用指南.11.2.1
+    Phenix.Test.使用指南.11.2.2
+    Phenix.Test.使用指南.11.2.3
+    Phenix.Test.使用指南.11.2.4
+    Phenix.Test.使用指南.11.2.5
+    Phenix.Test.使用指南.11.3.2.1.4
+    Phenix.Test.使用指南.11.3.2.2
+    Phenix.Test.使用指南.11.5.1.1
+    Phenix.Test.使用指南.11.5.2.2
+    Phenix.Test.使用指南.12.6.2.1
+    Phenix.Test.使用指南.12.6.2.2
+    Phenix.Test.使用指南.12.6.2.8
+    Phenix.Test.使用指南.12.6.2.12 
+    Phenix.Test.使用指南.15.6
+    Phenix.Test.使用指南.16.3
+    Phenix.Test.使用指南.17.3
+3，重构Phenix.Windows.CriteriaCombineControl动态查询条件功能，重构Phenix.Security.Windows.UserManage以演示动态查询条件功能
+4，Phenix.Core.AppSettings新增可自定义config文件路径配置属性：ConfigFilename，见测试工程：
+    Phenix.Test.使用指南.3.13.1
+5，BusinessBase、BusinessListBase类新增以下方法：
+
+    /// <summary>
+    /// 检索出从业务对象队列
+    /// </summary>
+    public IList<TDetailBusiness> FindDetailBusinesses<TDetailBusiness>()
+      where TDetailBusiness : BusinessBase<TDetailBusiness>
+      
+6，修正web应用中Phenix.Business.Security.UserPrincipal.User的缓存问题
+7，修正IDE环境下调试web应用时Phenix.Core.AppConfig.AppType不等于AppType.Webform的现象
+
+
+2014-6-24
+1，新增测试工程：
+    Phenix.Test.使用指南.12.6.2.5.1
+    Phenix.Test.使用指南.12.8.4
+2，修正了Phenix.Business、Phenix.Addin、Phenix.Workflow的一些bug
+3，废弃Phenix.Workflow的Phenix.Business.Workflow.ResumeCommand，将
+    Phenix.Business.Workflow.ResumeCommand.Execute(workflowTaskInfo);
+  改成
+    workflowTaskInfo.ProceedWorkflow();
+4，修正bug：对SqlServer日期数据的支持
+5，业务对象Fetch提速
+
+
+2014-8-8
+1，Phenix.Windows的BarManager组件新增属性：
+
+    /// <summary>
+    /// OnFetched时是否自动进入编辑状态
+    /// </summary>
+    [DefaultValue(false), Description("OnFetched时是否自动进入编辑状态?\n点击Fetch功能按钮检索到数据后自动点击Edit功能按钮"), Category("Phenix")]
+    public bool AutoEditOnFetched { get; set; }
+
+    /// <summary>
+    /// OnSaved时是否自动进入编辑状态
+    /// </summary>
+    [DefaultValue(false), Description("OnSaved时是否自动进入编辑状态?\n点击Save功能按钮保存好数据后自动点击Edit功能按钮"), Category("Phenix")]
+    public bool AutoEditOnSaved { get; set; }
+
+    /// <summary>
+    /// 双击编辑控件时是否自动进入编辑状态
+    /// </summary>
+    [DefaultValue(false), Description("双击编辑控件时是否自动进入编辑状态?\n双击编辑控件后自动点击Edit功能按钮"), Category("Phenix")]
+    public bool AutoEditOnEditControlByDoubleClick { get; set; }
+    
+    /// <summary>
+    /// 需要过程锁独占窗体, 一旦发现被他人占用将提示 ProcessLockException 信息
+    /// </summary>
+    [DefaultValue(false), Description("需要过程锁独占窗体, 一旦发现被他人占用将提示 ProcessLockException 信息"), Category("Phenix")]
+    public bool NeedLockProcess
+    
+2，整理动态刷新程序集，拆分出Phenix.Renovate.Client.Core.dll，便于业务层使用
+3，BusinessListBase类新增一次下载全部从业务对象的系列函数FetchDetail()，可与BusinessBase类中带(TDetail source)参数的GetDetail()函数组合使用，将它们过滤进各主业务对象的Detail缓存中，具体使用方法见测试工程：
+    Phenix.Test.使用指南.11.3.2.2
+4，Addin工具"初始化/编辑业务类"功能，新增ClassDetailAttribute的所见即所得设置界面
+5，如显式声明ClassDetailAttribute的CascadingDelete=false，在级联删除时自动将子表的外键字段赋值为null
+6，撤销FieldLinkAttribute的CascadingSave、CascadingDelete属性及其功能
+7，新增测试工程：
+    Phenix.Test.使用指南.12.6.2.7
+    Phenix.Test.使用指南.12.7.4
+    Phenix.Test.使用指南.17.1.8.2
+    Phenix.Test.使用指南.20
+8，优化Phenix.Windows的BarManager组件性能，添加对DevExpress.XtraVerticalGrid.VGridControl控件的支持
+9，添加说明书：
+《Phenix Framework Tools.设计规范.数据库设计规范》
+《Phenix Framework Tools.设计规范.分析模型技术方案》
+10，Phenix.Windows的UnifyControlLayout组件新增属性：
+
+    /// <summary>
+    /// 统一 GridView 焦点行颜色
+    /// 当为 Color.Empty 时禁用本功能
+    /// </summary>
+    public static Color GridViewFocusedRowColor { get; set; }
+
+
+2014-9-19
+1，Addin工具"初始化/编辑业务类"功能，纠正树状表结构无法自动生成代码的错误
+2，Phenix.Windows的BarManager组件，不仅在点击编辑、新增等按钮时可以自动将焦点定位到BindingSource属性指定的控件上，当界面初始化、点击检索按钮时也可以
+3，修补在两层架构（客户端直连数据库）下数据访问安全漏洞；修补后，在IDE里调试程序可以不用每次都输入数据库连接串，而直接运行时每次都会要求重新输入数据库连接串
+4，优化业务对象缓存机制的性能
+5，Phenix.Windows的BarManager组件新增属性：
+
+    /// <summary>
+    /// 需要单步提交时锁死游标
+    /// </summary>
+    [DefaultValue(false), Description("单步提交时锁死游标\n当 AllowMultistepSubmit = false 或者 AllowMultistepSubmitMaster = false 状态下设置为 true 时, 不允许移动当前编辑的游标"), Category("Phenix")]
+    public bool NeedLockPositionInOnestepSubmit { get; set; }
+
+6，添加说明书：
+《Phenix Framework Tools.使用案例.如何将枚举属性绑定到LookUpEdit》
+
+
+2014-10-30
+1，Phenix.Windows添加UnifyControlEnvironmental组件，可通过以下静态配置属性统一界面上的：
+    
+    /// <summary>
+    /// 统一控件 Font
+    /// 当为 SystemFonts.DefaultFont 时禁用本功能
+    /// </summary>
+    public static Font Font
+
+    /// <summary>
+    /// 统一控件 BackColor
+    /// 当为 Color.Empty 时禁用本功能
+    /// </summary>
+    public static Color BackColor
+
+    /// <summary>
+    /// 统一控件 ForeColor
+    /// 当为 Color.Empty 时禁用本功能
+    /// </summary>
+    public static Color ForeColor
+
+    /// <summary>
+    /// 统一控件 RightToLeft
+    /// 当为 RightToLeft.Inherit 时禁用本功能
+    /// </summary>
+    public static RightToLeft RightToLeft
+
+2，Host服务程序增加MarkUpgraded功能按钮：点击确认后，之前连接的终端会在请求服务时被提示“服务已升级，您操作的版本已不匹配，请退出系统重新登录！”使用本功能，建议在应用于系统升级时的步骤：客户端和服务端都开启状况 -> 关闭服务Host -> Host下目录及子目录更新新的dll -> 启动服务Host -> 点击MarkUpgraded功能按钮并确认 -> 之前登录的客户端在操作数据时会弹出提示
+3，Phenix.Core.Cache.ObjectCache，在现有Extremely属性开关可控制是否在本地磁盘上做缓存外，还增加以下属性作为它的阀值：
+
+    /// <summary>
+    /// 极端方式最小阈值: 缓存流长度
+    /// 缺省为 1024 * 1024 / 2
+    /// </summary>
+    public static int ExtremelyThresholdMin
+
+    /// <summary>
+    /// 极端方式最大阈值: 缓存流长度
+    /// 缺省为 1024 * 1024 * 4
+    /// </summary>
+    public static int ExtremelyThresholdMax
+
+4，增加：Phenix.Business.Tunnel.FastFetchCommand，提供快速批量Fetch数据功能，具体见：
+《Phenix Framework Tools.使用案例.业务数据的读写-快速Fetch》
+5，新增测试工程：
+    Phenix.Test.使用案例.业务数据的读写-快速Save
+    Phenix.Test.使用案例.业务数据的读写-快速Fetch
+6，BusinessListBase类Filter()系列函数，新增按条件表达式过滤出业务对象集合的功能，使用案例见新增测试工程：
+    Phenix.Test.使用指南.11.3.2.6
+7，BusinessListBase类新增OrderBy()系列函数的排序功能，使用案例见新增测试工程：
+    Phenix.Test.使用指南.11.3.2.7
+8，Phenix.Services.Client.Security.LogOn组件增加UpgradeFileSubdirectoryName属性（缺省是"ClientLibrary"子目录），使得服务端可为不同的客户端提供指定子目录下的文件下载升级
+
+
+2014-11-14
+1，Addin工具“初始化/编辑业务类”功能，可自动生成三个文件：虚拟类、可编辑类、不可编辑类，不可编辑类是通过在其Class上加Phenix.Core.Mapping.ReadOnlyAttribute标签来定义的
+2，Addin工具添加“刷新视图”功能
+3，解决在WEB架构下Phenix.Business.Security.User的Identity属性内容乱码的问题
+4，解决高并发下业务对象缓存机制的持久化偶尔会死锁的问题
+5，解决在'提交时填充值'模式下的业务码未能填充的问题，并重写测试工程：
+    Phenix.Test.使用指南.15.6
+
+
+2014-12-18
+1，配置表PH_AssemblyClassMethod上增加了字段，可用于自己开发的权限模块里，针对窗体的菜单进行配置：
+  AM_AllowVisible NUMERIC(1) NULL, --是否允许显示即使没权限(null: 默认、0:允许显示、1:不允许显示)，针对AC_Type = Form上的功能按钮
+  AM_AM_ID NUMERIC(15) NULL,       --所属程序集类方法(针对AC_Type = Form上的树状菜单，为便于查看可在自己的权限配置界面上手工调整到与实际菜单结构一致)
+2，ADDIN工具的“初始化/编辑业务类”设计界面中：
+  添加“Build Easy Entity”功能按钮，可生成轻量级的Entity对象，继承自Phenix.Core.Mapping.EntityBase<T>
+  添加“Instance Variable List”页，不仅可浏览、定位到所有实例字段，还能为它打上或撤销Csla.NotUndoableAttribute标签
+3，Phenix.Core.Mapping.EntityBase<T>提供简单的回滚机制：
+
+    /// <summary>
+    /// 启动编辑
+    /// 开始记录编辑过程
+    /// </summary>
+    void BeginEdit();
+
+    /// <summary>
+    /// 取消编辑
+    /// 将当前状态恢复回原始状态
+    /// </summary>
+    void CancelEdit();
+
+    /// <summary>
+    /// 提交编辑
+    /// 将原始状态更新为当前状态
+    /// </summary>
+    void ApplyEdit();
+
+4, 新增测试工程：
+    Phenix.Test.使用指南.03.3
+    Phenix.Test.使用指南.03.5
+5，将Phenix.Core.Net.RemotingConfig.CompressionSupported配置属性的默认值调整为false，因为在分析实际应用中Remoting的报文交互，发现压缩过程会出现timeout报文，由此废弃的连接时而会有所堆积增加，使得可供连接的余量会有所下降，影响到并发响应带宽（如果应用系统是千位级别下的并发连接可忽略此影响），为此建议在带宽充足、特别是要求千位级别以上的连接响应请求的场景下关闭本功能
+
+
+2015-1-15
+1，修正bug：BusinessCode流水号未能归零的缺陷
+2，Host服务程序SystemInfo配置界面Security页上添加NoLogin选项，允许禁用用户登录验证服务（返回的User.Identity.IsAuthenticated=false），但其他服务仍然可被调用
+3，为Phenix.Core.Mapping.EntityBase<T>添加配套的EntityListBase<T, TEntity>，并能通过ADDIN工具自动生成
+4，在Phenix.Services.Client.Library.Registration注册器上添加连接服务的测试速度函数：
+
+    /// <summary>
+    /// 测试连接速度
+    /// </summary>
+    /// <param name="servicesAddress">主机IP地址</param>
+    /// <returns>历时毫米数</returns>
+    public static double TestServicesSpeed(string servicesAddress)
+
+
+2015-2-1
+为了编程风格的统一，在Phenix.Business里继承了EntityBase<T>、EntityListBase<T, TEntity>，可直接在这些类里调用静态的Fetch()函数，且可通过ADDIN工具生成代码
+
+
+2015-3-24
+1，优化配置数据（比如程序集信息）的缓存机制
+2，优化透明的持久化机制
+3，打上Flags标记的枚举值，可在数据库查询中拼装出按位与（AND）的条件表达式，
+    对于类似“executeModify & ExecuteModify.NonnullToNull) == ExecuteModify.NonnullToNull”的条件操作符为CriteriaOperate.Like
+    对于类似“executeModify & ExecuteModify.NonnullToNull) <> ExecuteModify.NonnullToNull”的条件操作符为CriteriaOperate.Unlike
+
+
+2015-4-23
+1，优化内存提升性能
+2，优化权限验证功能
+3，优化界面验证功能
+4，排除在服务端代码里修改业务对象属性值未能回传给客户端的缺陷（可用“Phenix.Test.使用指南.12.6.2.2”测试）
+
+
+2015-6-17
+1，为EntityBase<T>、EntityListBase<T, TEntity>，添加IsNew、IsDeleted、IsSelfDirty等状态属性及Save()函数，可按Entity的状态提交数据库增删改表记录，并重写测试工程：
+    Phenix.Test.使用指南.03.5
+2，优化BarManager组件处理业务对象属性值验证的提示功能
+3，添加Phenix.Business.EntityPageBase<T>、Phenix.Business.EntityListPageBase<T, TEntity>以支持分页
+4，添加Phenix.Core.Data.ServiceBase<T>、Phenix.Business.ServiceBase<T>以支持批量的业务逻辑处理的服务
+5，将冗余字段的隐式（默认）自动处理方法改成需显式申明才能生效，具体见《使用指南》的12.9.2章节，以及《权限管理》的7.3.3章节
+6，Phenix.Web.Mvc增加"检查安全"标签CheckSecurityAttribute，可自动验证Controller调用方的权限，并自动注册后台服务的代理
+7，Host服务程序SystemInfo配置界面Security页上添加PasswordExpirationRemindDays（密码变更天数提醒）、PasswordExpirationDays（密码失效过期天数）输入项，可对登录用户的密码变更情况进行控制
+
+
+2015-7-29
+1，增强跨域用户验证安全性
+2，解决客户端登录升级大文件时被杀毒软件扫描锁住造成无法继续下载升级的问题
+3，轻量级的Entity对象，推荐使用Phenix.Core.dll的Phenix.Core.Data命名空间下的EntityBase<T>、EntityListBase<T, TEntity>、EntityPageBase<T>、EntityListPageBase<T, TEntity>、ServiceBase<T>
+4，强化对OleDb的封装，除了继承CSLA的类仍保留OracleConnection/SqlConnection外，只要涉及到持久化的代码都使用OleDbConnection，建议利用Phenix.Core.Data.DbCommandHelper操作数据库，需注意OleDb是要求按次序CreateParameter的
+5，Phenix.Core.Windows.BaseForm和Phenix.Windows.BaseForm，新增PgUpMoveBackControl属性，默认“当输入上页键时选择上一个可用控件并使其成为活动控件”
+6，AddIn工具的业务类编辑界面，添加Reset All Property - Switch GetSet Method菜单，可改GetProperty()、SetProperty()代码为直接操作字段，也可以切换回来
+7，部门资料Phenix.Core.Security.DepartmentInfo类增加InHeadquarters属性，可用来判断当前用户是否属于总部，比如：
+
+        Phenix.Core.Security.DepartmentInfo department = Phenix.Business.Security.UserPrincipal.User.Identity.Department;
+        bool inHeadquarters = department != null && department.InHeadquarters.HasValue && department.InHeadquarters.Value;
+
+   为此，Phenix.Security.Windows.DepartmentManage工程亦添加对这个属性的设置功能，具体开发方法参考：
+《Phenix Framework Tools.权限管理.05.部门管理工程.添加属性》
+8，对于含禁用字段（FieldAttribute.IsDisabledColumn）的业务对象，作废“新增对象时, 如唯一键冲突则作废新对象并将原对象上禁用字段置为Phenix.Core.Mapping.CodingStandards.DefaultDisabledFalseValue”功能。现改为直接抛出异常，在这个异常的InnerException属性里包含了CheckRepeatedException异常对象（抽取方法可使用Phenix.Core.AppUtilities.FindException<CheckRepeatedException>(异常)函数），可依此自行判断处理（建议业务系统要么提供恢复禁用的功能，要么提示用户修改这个业务对象的唯一键内容）
+
+   
+2015-8-17
+1，提供Phenix.VSPackage.vsix以支持Microsoft Visual Studio 2015
+2，修正映射到数字型表字段的decimal业务类属性在被赋值时，框架自动处理其精度范围规则时产生的一个bug缺陷
+3，Phenix.Core.Data.EntityListBase<T, TEntity>新增UpdateRecord()、DeleteRecord()系列静态函数，可按条件批量更新、批量删除
+4，在Phenix.Extensions解决方案里添加Phenix.Security.Plugin.Authoriser工程，可支持扩展的权限验证功能，具体开发方法参考：
+《Phenix Framework Tools.权限管理.13.扩展为AD用户权限验证.服务插件》
+
+
+2015-9-30
+1，提供基于ASP.NET WebAPI的服务（“\Bin.Top”目录，需运行在.NET Framework 4.5以上环境），具体见：
+《Phenix Framework Tools.使用指南.21.WebAPI服务》
+2，提供基于HttpClient的客户端程序集Phenix.Web.Client.DLL及其工程源码，示例见测试工程：
+    Phenix.Test.使用指南.21.3
+    Phenix.Test.使用指南.21.5
+3，新增Web浏览器AJAX应用的开发示例：
+    Phenix.Test.使用指南.21.3.html
+4，优化：BarManager组件Fetch功能，添加ParallelFetch属性，默认为在阻塞主线程下并行Fetch多个数据集的方法, 本功能仅适用于主数据集且其IsAsynchronousFetch=false
+5，优化：BusinessBase类IsDirty、IsSelfDirty、IsDeleted、IsSelfDeleted属性相关功能的优化，可提升Save性能
+6，优化：BusinessBase类Selected属性不参与CSLA的Undoable功能
+7，优化：BusinessBase、BusinessListBase类新增NotUndoable属性，默认(false)为参与多级撤销，如果覆写它并返回true的话则不参与并阻断Detail对象的多级撤销，BarManager组件的检索功能按钮被点击后将直接进入到可编辑状态，编辑功能按钮已无必要（将不可操作），而取消功能按钮、提交功能按钮都始终保持着可操作状态，具体参考：
+《Phenix Framework Tools.使用指南.11.业务对象生命周期及其状态》第11.5.3章节
+8，弃用：Phenix.Business.CheckSavableException，改由Csla.Rules.ValidationException替代
+9，弃用：BusinessBase、BusinessListBase类的IgnoreSaveError、SaveErrors属性及其功能，改由AloneTransaction属性替代，为此改写了《Phenix Framework Tools.使用指南.12.业务结构对象模型》第12.6.2.10章节
+    
+
+2015-10-31
+1，修复最近优化中产生的bug
+2，优化：丰富BusinessBase、BusinessListBase类的CheckRules()、CheckSelfRules()、CheckObjectRules()、CheckSelfObjectRules()系列方法
+3，优化：BusinessBase、BusinessListBase类Save()时，在客户端会自动检查全部的Rules，传到服务端的业务对象在持久化之前仅自动检查ObjectRules
+4，优化：Phenix.Business.CriteriaBase添加数据源键DataSourceKey属性，可指定Fetch哪个数据源，具体见：
+《Phenix Framework Tools.使用指南.22.数据库集群》
+5，优化：BarManager组件添加“恢复”按钮，可恢复当前禁用对象
+6，优化：BarManager组件提交对象时，如发现因唯一键原因提交失败，则会判断是否是与被禁用对象冲突，并提示用户可恢复被禁用对象并加入到当前集合中供继续编辑
+7，实现WebAPI数据服务的Fetch()、Save()、Execute()功能，具体见：
+《Phenix Framework Tools.使用指南.21.WebAPI服务》
+
+
+2015-12-26
+1，Host服务程序SystemInfo配置界面System页上，添加定时清理日志的配置项，可自动清理几个月之前的日志
+2，提供全新的Phenix.Core.Clip.dll、Phenix.Web.Client，可支持Xamarin的开发
+3，AddIn工具，添加以业务类、查询类为模板自动生成Phenix.Core.Clip的实体类、查询类的功能
+4，重写开发示例：
+    Phenix.Test.使用指南.21.3
+    Phenix.Test.使用指南.21.5
+5，修复多Host服务环境下配置权限后未能自动刷新的bug
+6，添加说明书：
+《Phenix Framework Tools.使用案例.如何利用监控手段辅助调试》
+《Phenix Framework Tools.使用案例.如何绕过默认的持久层操作》
+
+
+2016-1-20
+1，添加直接获取业务码功能，提升批量处理性能，具体见《Phenix Framework Tools.使用指南.15.业务码》15.6.5章节，并重写开发示例：
+    Phenix.Test.使用指南.15.6
+2，Phenix.Core.Data.ServiceBase<T>添加异步服务功能，具体见《Phenix Framework Tools.使用指南.23.异步服务》及测试工程：
+    Phenix.Test.使用指南.23.2
+3，当 Phenix.Core.Net.NetConfig.ServicesFixed = true 时，登录界面（Phenix.Services.Client.Security.LogOnDialog）的服务IP输入框会被隐藏掉，此时需在代码里向Phenix.Core.Net.NetConfig.ServicesAddress赋值上正确的服务IP或配置在config文件里
+4，当 Phenix.Core.Net.NetConfig.ServicesFixed = false 时，登录界面（Phenix.Services.Client.Security.LogOnDialog）的服务IP输入框会根据以往登录历史，被自动填充上一个曾经最快登录过的服务IP（为默认服务IP）
+5，组件Phenix.Services.Client.Security.LogOn增加UpgradeServicesAddress属性，可指定升级（客户端的）服务器地址
+
+
+2016-3-3
+WebAPI数据服务的Fetch()，允许匿名获取数据，只要在服务端的业务类、实体类上将ClassAttribute的属性值 OnAnonymity = true
+
+
+2016-4-15
+1，修复业务属性的缺省值定义未能起作用的缺陷等
+2，新增Phenix.Algorithm程序集，提供ZeroOneDynamicProgramming类"0-1背包问题"算法，使用方法示例见工程：
+    Phenix.Test.背包问题
+3，添加说明书：
+《Phenix Framework Tools.研发规范.系统部署升级要点》
+4，Phenix.Addin的注册方法，改成运行Bin.Top目录下的Host服务程序，要求开发环境的操作系统部署.NET4.5或以上版本
+
+
+2016-5-30
+1，为Phenix.Security.Windows.FormClassManage工程添加文档：
+《Phenix Framework Tools.权限管理.14.窗体管理.刷新权限配置信息》
+2，提供phenix.js用于AJAX+WebAPI的应用开发
+3，新增Web浏览器AJAX应用的开发示例：
+    Phenix.Test.使用指南.21.5.html
+4，CSLA、Phenix.Core和Phenix.Business等程序集都引用到Newtonsoft.Json.dll，支持业务类、实体类的JSON序列化(MemberSerialization.OptOut模式)
+5，Addin工具，可自动生成支持JSON序列化(MemberSerialization.OptOut模式)的业务类、实体类的构造函数
+6，优化WebAPI服务，改写《Phenix Framework Tools.使用指南.21.WebAPI服务》
+7，业务集合对象、实体集合对象按照查询时带入的OrderByInfo及字段上的FieldOrderByAttribute标签维持排序状态，具体见《Phenix Framework Tools.使用指南.12.业务结构对象模型》第12.6.1.3段落及测试工程：
+    Phenix.Test.使用指南.12.6.1.3
+
+
+2016-6-30
+1，为《Phenix Framework Tools.使用指南.04.登录应用系统》添加"4.1.5 指定升级服务的地址"章节，示例工程：
+    Phenix.Test.使用指南.04.1.5
+2，修订Phenix.Windows的BarManager组件，阻止快速点击功能按钮
+3，优化Phenix.Algorithm程序集的ZeroOneDynamicProgramming类，可支持需撑满背包且在一个超载范围内的问题，使用方法示例见工程：
+    Phenix.Test.背包问题
+
+
+2016-7-14
+优化Phenix.Algorithm程序集的ZeroOneDynamicProgramming类，可利用IGoodsGroup接口以支持物品的分组问题，使用方法示例见工程：
+    Phenix.Test.背包问题
+
+
+2016-8-17
+1，修正两层架构下数据安全问题
+2，修正本地缓存业务对象刷新问题
+
+
+2016-9-13
+1，添加Addin工具新功能：可依照函数及其参数内容自动生成Command类的框架代码，并在该函数代码段内添加执行Command对象的示例语句
+2，在Phenix.Extensions解决方案里添加Phenix.StandardService工程，借客户端和服务端同步数据库时钟为例，介绍将业务逻辑代码仅部署在服务端的方法
+3，在Phenix.Extensions解决方案里添加Phenix.StandardPush工程，借客户端和服务端同步数据库时钟为例，介绍通过Socket将数据库时钟推送到客户端的方法
+
+
+2016-10-20
+1，补充BusinessBase类、CommandBase类的函数FetchExecuteAction()，可查询到当前对象曾经被改写过的历史痕迹（需在对象的ClassAttribute标签上设置PermanentExecuteAction = ExecuteAction.Update、希望留痕的字段FieldAttribute标签上设置PermanentExecuteModify属性（类型为ExecuteModify）来申明当本字段值属于哪种新旧值变换状况下才需要记录下操作痕迹），具体见：
+《Phenix Framework Tools.使用指南.13.日志服务》
+2，Phenix.Windows的BarManager组件，修订了Fetch后界面状态应正确变换的问题，在状态栏上增加了显示和查看当前业务对象的历史操作痕迹的功能
+3，修正Fetch()传linq表达式时含Contains函数的处理问题，测试代码见：
+    Phenix.Test.使用指南.17.3
+
+
+2016-11-10
+1，在Web应用（部署在IIS）下，Phenix.Core.AppConfig.TempDirectory属性值返回系统临时文件夹下的目录名
+2，Bin.Top目录新增Phenix.Addin.Install.exe程序，可直接部署Phenix.Addin，请以超级管理员身份运行
+
+
+2016-12-13
+1，优化业务对象缓存机制的持久化性能
+2，修正Phenix.Algorithm程序集的ZeroOneDynamicProgramming类处理分组问题的缺陷
+3，数据库连接池增加MinPoolSize、MaxPoolSize、ConnectionLifetime的config配置内容
+
+
+2017-01-24
+1，优化业务对象缓存机制的持久化过程，减轻对数据库的压力
+2，配置缓存数据的存放目录从TempDirectory改为CacheDirectory，有关web应用的项目需注意的问题，请参考《Phenix Framework Tools.使用案例.IISWeb服务开发注意事项》
+3，业务类的FieldAttribute标签新增IsFillSysdateColumn属性，可设置为该字段内容应自动填充自系统时间
+
+
+2017-03-31
+1，改造Phenix.Addin.VSPackage.vsix和Phenix.Addin.Install.exe（请以超级管理员身份运行），以支持Microsoft Visual Studio 2017
+2，发布第一版Phenix Teamwork Tools功能，具体见：
+《Phenix Teamwork Tools.使用指南.01.简介》
+《Phenix Teamwork Tools.使用指南.02.缺陷管理》
+
+
+2017-04-25
+1，修正无物理外键场景下的从表级联删除问题
+2，修正Addin工具菜单灰亮问题等缺陷
+3，丰富部分说明书内容
+4，为保证概念完整性，用new标记来关闭CSLA中有可能带来误导的virtual函数：
+    在BusinessBase类里关闭的函数：
+      public new T Save()
+      protected new void OnPropertyChanging(IPropertyInfo propertyInfo)
+      protected new void OnPropertyChanged(IPropertyInfo propertyInfo)
+      protected new void MarkOld()
+      请统一从以下函数override：
+      public virtual T Save(bool needCheckDirty, IBusiness[] firstTransactionData, IBusiness[] lastTransactionData)
+      protected virtual void OnPropertyChanging(string propertyName)
+      protected virtual void OnPropertyChanged(string propertyName)
+      protected virtual void MarkOld(bool resetOldFieldValues)
+    在BusinessListBase类里关闭的函数：
+      public new T Save()
+      请统一从以下函数override：
+      public virtual T Save(bool needCheckDirty, IBusiness[] firstTransactionData, IBusiness[] lastTransactionData)
+5，新增测试工程：
+    Phenix.Test.使用指南.11.5.1.3
+
+
+2017-05-26
+1，Host服务程序SystemInfo配置界面System页上，添加客户端下载目录、服务端升级目录的设置功能，为能仅从一处目录来升级系统提供方便
+2，修正Selected清单未能与业务对象一起CancelEdit的问题     
+3，优化配置信息及数据字典的检索性能
+4，优化处理业务对象link关系时的性能
+5，link关系中，如果外键字段不允许为空，则当Unlink时，外键字段将被赋值为其缺省值（建议在表结构定义中设置其缺省值为-1，以代表无外键关联），业务对象属性在SetProperty时会自动将null转换为缺省值
+6，补充《Phenix Framework Tools.设计规范.数据库设计规范》有关枚举与表结构的设计方法
+7，查询条件表达式（参考Phenix.Security.Windows.UserManage工程）的存储格式改成JSON，CriteriaCombineControl中旧的自定义查询条件作废，需重新设置
+8，查询条件表达式持久化时亦存储Caption内容，配置库需升级（运行一次Host服务程序连接上数据库即可）
+
+
+2017-06-27
+1，修正近期优化过程中埋下的缺陷
+2，Phenix.Core.Data.DbCommandHelper的ExecuteNonQuery()、ExecuteReader()、ExecuteScalar()函数，Phenix.Core.Data.DataSetHelper的ExecuteReader()函数，都带上了“params ParamValue[] parameters”参数，以便直接为DbCommand的执行传入参数值
+3，Phenix.Core.Data.EntityListBase<T, TEntity>的UpdateRecord()函数的传参参数，改为“params PropertyValue[] propertyValues”
+4，以上2、3的示例见：
+《Phenix Framework Tools.设计规范.排版格式一致化编码习惯一贯性》
+5，升级Addin工具“构建业务类”的“Detail Table List”功能，以支持新版Phenix.Core.Mapping.ClassDetailAttribute的代码生成，部署请运行Phenix.Addin.Install.exe程序
+6，对于匿名的公共数据检索服务，只要在服务端的Business或Entity类、Command或Service类上将ClassAttribute的属性值 OnAnonymity = true，其Fetch()或Execute()功能就不再被权限控制约束；另外提醒一下，只要调用Business或Entity对象带 DbConnection、DbTransaction 参数的函数，也是不受权限控制约束的
+7，修改 Phenix.Core.Net.NetConfig.ServicesFixed = true 时的登录界面（Phenix.Services.Client.Security.LogOnDialog）逻辑（false时仍维持原有逻辑），服务IP输入框下拉清单由登录者自行维护（组合键Ctrl+Del可将当前输入框内容从下拉清单中剔除），默认值请配置在客户端程序的config文件里，例如:
+        <add key="Phenix.Core.Net.NetConfig.ServicesFixed." value="True" />
+        <add key="Phenix.Core.Net.NetConfig.ServicesAddress." value="192.168.1.100" />
+        <add key="Phenix.Core.Net.NetConfig.ServicesAddresses." value="192.168.1.100 #-*-# 192.168.1.101 #-*-# " />
+8，废弃Phenix.Services.Client.Security.LogOnDialog、LogOn的属性UpgradeFileSubdirectoryName，而仅使用Host服务程序SystemInfo配置界面System页上的客户端下载目录，且Host会为这个目录自动添加“Own”子目录，用于个性化的客户端程序集或其他文件的升级下载，相应的，实施人员须为登录用户配置上所属部门，所属部门的最顶层（一级）部门的代码，将作为“Own”下某子目录的名字（由实施人员添加这某子目录），这些个性化文档部署到这某子目录里，举例：
+  假设客户端下载目录为“\\192.168.1.100\ClientLibrary\”，Host会自动为其添加“Own”子目录，再假设登录用户所属部门的顶层部门代码为“SGWY”，则其个性化文档部署在“\\192.168.1.100\ClientLibrary\Own\SGWY\”，同名同深度的文件“\\192.168.1.100\ClientLibrary\Test.dll”和“\\192.168.1.100\ClientLibrary\Own\SGWY\Test.dll”，被下载升级的是后者
+9，补充《Phenix Framework Tools.使用指南.21.WebAPI服务》直接操作Phenix.Core.AppHub.DataProxy的示例代码
+10，如果业务类的字段 IsInputTimeColumn = true，则其必定是 IsFillSysdateColumn = true（须 CheckDirtyOnSaving = false 时有效），保存对象时自动填充数据库时间
+11，升级Phenix.Algorithm程序集DataStructures命名空间下的数据结构类，可支持多线程安全和Serializable序列化
+12，如果登录用户有所属部门，则其所属部门可用于限制程序集类方法的操作，比如绑定到Phenix.Services.Client.Security.ExecuteAuthorization组件的窗体按钮（相当于程序集类方法）可配置为与某些顶层部门进行关联，ExecuteAuthorization组件就可以控制它们仅限于这些顶层部门下的用户操作（灰亮或隐藏），本功能须升级配置库（运行一次Host服务程序连接上数据库即可），会自动新增PH_AssemblyClassMethod_Departm表：
+CREATE TABLE PH_AssemblyClassMethod_Departm (   --程序集类方法-部门(如未指定所属部门则不限制)
+  AD_ID NUMERIC(15) NOT NULL,
+  AD_AM_ID NUMERIC(15) NOT NULL,                --所属程序集类方法
+  AD_DP_ID NUMERIC(15) NOT NULL,                --所属部门
+  PRIMARY KEY(AD_ID),
+  UNIQUE(AD_AM_ID, AD_RL_ID)
+)
+表内容的配置界面请自行开发（参考Phenix.Security.Windows.FormClassManage工程中对PH_AssemblyClassMethod_Role表的操作）
+
+
+2017-07-26
+1，Phenix.Core.IO命名空间内新增SerialPortFastReader、SerialPortDirectReader，封装SerialPort用于读取COM口设备传来的数据，可同时侦听多个COM口
+2，新增后缀为“_NEWTIME”的Date类型的默认字段处理方法，如字段未按规则命名的可以显式标记FieldAttribute的IsNewTimeColumn=true，相当于标记了IsFillSysdateColumn=true && IsWatermarkColumn=true
+3，新增BusinessListBase类函数
+  public IList<TBusiness> FilterSelf(Expression<Func<TBusiness, bool>> expression)
+用于从队列中(非删除)过滤掉符合条件的业务对象
+
+
+2017-08-18
+1，修正业务对象被调用CancelEdit()、ApplyEdit()到EditLevel=0时应恢复到的正确状态
+2，修正BindingSource级联Fetch刷新界面问题
+3，新增后缀为“_ORIGINATOR”的VARCHAR2类型、“_ORIGINATETIME”的Date类型的默认字段处理方法，如字段未按规则命名的可以显式标记FieldAttribute的IsOriginatorColumn=true、IsOriginateTimeColumn=true，相当于标记了IsInputerColumn=true && IsWatermarkColumn=true、IsFillSysdateColumn=true && IsWatermarkColumn=true
+4，支持匿名用户登录，请运行Host为用户表添加'Guest'记录，匿名用户仅能调用到服务端上Business或Entity类、Command或Service类的ClassAttribute属性值OnAnonymity = true的功能
+
+
+2017-09-15
+1，修正登录界面的修改密码功能
+2，Phenix.Core.Mapping.CriteriaHelper的：
+    string JsonPack(object criteria)
+    T JsonUnpack<T>(string sourceJson)
+    object JsonUnpack(Type targetType, string sourceJson)
+函数，优先打包/解包Phenix.Core.Mapping.CriteriaFieldAttribute标签的字段，如没有才打包/解包Phenix.Core.Mapping.PropertyAttribute(Serializable = true)标签的属性
+
+
+2017-10-09
+1，Bin.Top目录下的Host服务程序，新增WebAPI端口8081，TransferMode = TransferMode.Streamed
+2，Phenix.Extensions\Phenix.Web.Client.Ajax\jquery目录下jquery.min.js版本从v1.11.3升级为v3.2.1
+3，Phenix.Core.Data.ServiceBase、Phenix.Business.CommandBase基类，提供了在客户端上传/下载文件的函数：
+    T UploadFiles(params string[] fileNames)
+    void DownloadFile(string fileName)
+对应的有执行在服务端的处理已传入/待下载文件的函数：
+    virtual void DoUploadFiles(IDictionary<string, Stream> fileStreams)
+    virtual Stream DoDownloadFile()
+如需同时持久化业务数据，可改为覆写以下函数：
+    virtual void DoUploadFiles(DbConnection connection, IDictionary<string, Stream> fileStreams)
+    virtual void DoUploadFiles(DbTransaction transaction, IDictionary<string, Stream> fileStreams)
+    virtual Stream DoDownloadFile(DbConnection connection)
+    virtual Stream DoDownloadFile(DbTransaction transaction)
+测试代码见：
+    Phenix.Test.使用指南.21.5.csproj
+    Phenix.Test.使用指南.21.5.Business.csproj
+4，Phenix.Web.Client.Ajax的phenix.js、Phenix.Web.Client的DataProxy类，提供了uploadFiles()、downloadFile()函数上传/下载文件，需配套Bin.Top目录下的WebAPI服务Host，唤起指定服务对象（继承Phenix.Core.Data.ServiceBase、Phenix.Business.CommandBase基类），测试代码见：
+    Phenix.Test.使用指南.21.5.html
+    Phenix.Test.使用指南.21.5.Business.csproj
+5，补充《Phenix Framework Tools.使用指南.21.WebAPI服务》有关UploadFiles、DownloadFile功能的介绍段落
+
+
+2017-10-27
+1，Phenix.Extensions\Phenix.Web.Client.Ajax\jquery目录下添加base64-binary.js，且路径有调整
+2，Phenix.Core.Data.ServiceBase、Phenix.Business.CommandBase基类，提供了在客户端上传/下载大文件的函数：
+    T UploadBigFile(string fileName, Func<object, FileChunkInfo, bool> doProgress)
+    void DownloadBigFile(string fileName, Func<object, FileChunkInfo, bool> doProgress)
+对应的有执行在服务端的处理已传入/待下载大文件的函数：
+    virtual void DoUploadBigFile(FileChunkInfo fileChunkInfo)
+    virtual FileChunkInfo DoDownloadBigFile(int chunkNumber)
+如需同时持久化业务数据，可改为覆写以下函数：
+    virtual voidDoUploadBigFile(DbConnection connection, FileChunkInfo fileChunkInfo)
+    virtual void DoUploadBigFile(DbTransaction transaction, FileChunkInfo fileChunkInfo)
+    virtual FileChunkInfo DoDownloadBigFile(DbConnection connection, int chunkNumber)
+    virtual FileChunkInfo DoDownloadBigFile(DbTransaction transaction, int chunkNumber)
+测试代码见：
+    Phenix.Test.使用指南.21.5.csproj
+    Phenix.Test.使用指南.21.5.Business.csproj
+3，Phenix.Web.Client.Ajax的phenix.js、Phenix.Web.Client的DataProxy类，提供了uploadBigFile()、downloadBigFile()函数上传/下载大文件，需配套Bin.Top目录下的WebAPI服务Host，唤起指定服务对象（继承Phenix.Core.Data.ServiceBase、Phenix.Business.CommandBase基类），测试代码见：
+    Phenix.Test.使用指南.21.5.html
+    Phenix.Test.使用指南.21.5.Business.csproj
+4，补充《Phenix Framework Tools.使用指南.21.WebAPI服务》有关UploadBigFile、DownloadBigFile功能的介绍段落
+5，在Phenix.Extensions解决方案里添加Phenix.Security.Plugin.TranslationUserNumber工程，以演示如何控制权限验证，将登录时输入的用户名、手机号、邮箱等等之一信息转换为登录工号以通过权限验证
+
+
+2017-11-08
+1，Phenix.Core.Data.DataHub新增服务函数，可从服务端批量获取64位序号：
+    public static long[] GetSequenceValues(int count)
+2，支持数据库日期字段的缺省值定义，如果有定义，新增业务对象时，会取系统当前时间，不过仍然需要显式标记FieldAttribute的IsFillSysdateColumn、IsWatermarkColumn来控制持久化时是否需要用数据库时间填充字段，或者也可以将NeedUpdate=false使得数据库的缺省值功能生效
+3，查询类支持给字段打上FieldRuleAttribute、给字段和属性打上ValidationAttribute，以控制其属性的有效性校验，而且可以与EditValidation组件配套使用，以影响界面交互效果
+4，FieldAttribute的InBusinessRule属性改为InValidation
+5，更新《Phenix Framework Tools.使用指南.08.业务对象公共接口的数据验证》
+6，从WebAPI下载的数据，日期属性的格式为："yyyy'-'MM'-'dd' 'HH':'mm':'ss"
+
+
+2017-11-19
+Phenix.Core.Mapping.PropertyAttribute支持桥接属性的构造函数，改为：
+
+    /// <summary>
+    /// 初始化
+    /// </summary>
+    /// <param name="bridgingPropertyName">指示该属性桥接的属性名</param>
+    /// <param name="bridgingType">指示该属性桥接嵌套的类</param>
+    /// <param name="bridgingTypePropertyName">指示该属性桥接嵌套的类属性名</param>
+    public PropertyAttribute(string bridgingPropertyName, Type bridgingType, string bridgingTypePropertyName)
+
+相应的，AddIn工具的“桥接嵌套类属性”功能有改动以配套它，请执行Phenix.Addin.Install.exe升级。如果现有应用中有用到本桥接方法，请编译发现需升级的代码行，在第一个参数前添加当前类里被桥接属性的名称
+
+
+2017-11-22
+如果登录用户有所属部门，可利用其是否属于哪个部门来控制是否允许其操作哪些服务对象（继承Phenix.Core.Data.ServiceBase、Phenix.Business.CommandBase基类）的权限，本功能须升级配置库（运行一次Host服务程序连接上数据库即可），会自动新增PH_AssemblyClass_Department表：
+CREATE TABLE PH_AssemblyClass_Department ( --程序集类-部门(如未指定所属部门则不限制)
+  AD_ID NUMERIC(15) NOT NULL,
+  AD_AC_ID NUMERIC(15) NOT NULL,           --所属程序集类
+  AD_DP_ID NUMERIC(15) NOT NULL,           --所属部门
+  PRIMARY KEY(AD_ID),
+  UNIQUE(AD_AC_ID, AD_DP_ID)
+)
+如果服务对象无需被权限控制则不必添加它，表记录仅存储有哪些服务可以被哪些部门的用户操作的信息，配置界面请自行开发（参考Phenix.Security.Windows.FormClassManage工程中对PH_AssemblyClass_Role表的操作）
+
+
+2017-11-25
+添加说明书：
+《Phenix Framework Tools.使用指南.25.持久层开发助手》
+测试代码见：
+  Phenix.Test.使用指南.25.4.csproj
+    
+
+2017-11-28
+统一引用Newtonsoft.Json的10.0.3版本
+
+
+2017-12-12
+权限选项EasyAuthorization配置信息，改为存放在PH_SystemInfo表SI_EasyAuthorization字段里，本功能须升级配置库（运行一次Host服务程序连接上数据库即可）；因默认是宽松的授权（只要用户拥有的角色之一不在禁用角色队列里，就不被禁用），如需严格控制，请在Host服务程序的SystemInfo配置界面Security页上取消这个项的勾选
+
+
+2018-01-08
+Phenix.Core.Data.DbCommandHelper添加了调用存储过程的系列函数：
+  void ExecuteStoredProc(string storedProcedure, params ParamValue[] parameters)
+  void ExecuteStoredProc(DbConnection connection, string storedProcedure, params ParamValue[] parameters)
+  void ExecuteStoredProc(DbTransaction transaction, string storedProcedure, params ParamValue[] parameters)
+已规避某些版本Oracle客户端（比如ODAC_x64）存储过程调用后返回参数字符串会被截取一半的问题
+
+
+2018-02-03
+改写说明书《Phenix Framework Tools.使用指南.12.业务结构对象模型》的12.6.2.6、12.6.2.7章节，解释CompositionDetail/AggregationDetail的用法
+
+
+2018-02-27
+升级了Bin.Top目录下的Host服务程序所引用的程序集版本，Host服务程序需运行在.NET Framework 4.6以上环境，统一引用Newtonsoft.Json.11.0.1版本
+
+
+2018-03-24
+修订Addin工具中通过业务类构建的衍生类（比如xxxEasy.cs），它们的命名空间和存放目录与其所属业务类保持一致，升级请运行Phenix.Addin.Install.exe程序
+
+
+2018-04-11
+Phenix.Core.Net.NetConfig的ServicesAddress属性可赋值为除了IP地址外允许后缀端口号（用":"分隔），也就是说登录界面的“服务”输入框可指定IP:Port
+
+
+2018-05-03
+解决Guest用户有提示“登录后静止超过xxx分钟”的问题，不对Guest用户做控制
+
+
+2018-06-12
+在Bin.Top目录下新增Phenix.Services.Host.WebCluster.exe程序，可部署在（浏览器/APP）客户端与 WebAPI & WebSocket Host 服务集群之间，既能作为服务集群的负载均衡分拨器，也能作为代理服务（起到防火墙的作用）使得服务集群与数据库都能被部署到局域网内不直接被外网访问
+
+
+2018-06-18
+升级WebAPI服务，以满足能通过“等保三级”评测认证的要求，具体见：
+《Phenix Framework Tools.使用指南.21.WebAPI服务》
+
+
+2018-07-25
+增强Addin工具以支持Phenix.Business.BusinessPageBase<T>，升级请运行Phenix.Addin.Install.exe程序
+
+
+2018-07-27
+Phenix.Core.Security.UserIdentity静态属性LoginExpiresMinutes（见Host服务程序SystemInfo配置界面Security页）改成SessionExpiresMinutes，为会话过期时间(分钟)，默认为0不做控制，不对Guest用户做控制
+
+
+2018-07-29
+全面升级remoting/WCF协议下的服务访问安全机制，与WebAPI服务保持一致
+
+
+2018-08-06
+WebAPI服务可支持匿名或登录用户访问自定义ApiController，ApiController所在程序集以Plugin插件形式嵌入到服务端，具体见：
+《Phenix Framework Tools.使用指南.21.WebAPI服务》"21.7公开访问自定义ApiController"章节
+测试代码见：
+    Phenix.Test.使用指南.21.7.csproj
+    Phenix.Test.使用指南.21.7.Plugin.csproj
+
+
+2018-08-20
+增强Addin工具，可生成自定义ApiController框架代码，升级请运行Phenix.Addin.Install.exe程序，具体见：
+《Phenix Framework Tools.使用指南.21.WebAPI服务》"21.8用户访问自定义ApiController"章节
+
+
+2018-08-28
+修正因.NET32位和64位版本字符串哈希算法的不同而造成跨域传哈希值比对不上的问题
+
+
+2018-08-31
+提供了简易的消息收发功能，可向某工号用户发送消息，支持接收方的推送/拉取模式，WabAPI的用法见：
+《Phenix Framework Tools.使用指南.21.WebAPI服务》"21.9推送/拉取消息"章节
+测试代码见：
+    Phenix.Test.使用指南.21.9.csproj
+
+
+2018-09-02
+WebAPI客户端新增了CanXXX系列函数，提供控制UI交互权限的功能，具体见：
+《Phenix Framework Tools.使用指南.21.WebAPI服务》"21.4权限控制"章节
+测试代码见：
+    Phenix.Test.使用指南.21.5.csproj
+
+
+2018-10-15
+修正业务类在编辑对象时无法自动更新Inputer等属性的问题
+
+
+2018-11-28
+FieldAttribute标签InAuthorization设置为false时，关联属性的读写不受权限控制，不受界面BarManager、ReadWriteAuthorization组件控制
+
+
+2018-12-11
+业务（或集合）类提供分库归档及查询的功能，具体见：
+《Phenix Framework Tools.使用指南.24.分库归档及查询》"21.4权限控制"章节
+测试代码见：
+    Phenix.Test.使用指南.24.csproj
+
+
+2018-12-16
+Phenix.Services.Library的IAuthoriser接口函数Translation返回值改为UserIdentity，可同时转译用户工号及获取动态口令（函数实现中return new UserIdentity(登录工号, 动态密码);），具体见：
+《Phenix Framework Tools.使用指南.21.WebAPI服务》"21.3.5转译用户工号及获取动态口令"章节
+示例代码见：
+    Phenix.Security.Plugin.TranslationUserNumber.csproj
+
+
+2018-12-20
+Phenix.Services.Host.WebCluster程序，增加对SSL协议的支持，配置方法见SystemInfo配置功能窗体
+
+
+2019-01-31
+Phenix.Services.Library的IAuthoriser接口函数Translationd返回的动态口令，可与PH_User表里的静态口令一起使用，同时响应不同的客户端（比如PC用动态口令，APP用静态口令，同时发起调用服务）
+
+
+2019-02-21
+修正在分布式服务环境下，当用户修改完口令后首次调用服务时可能会返回口令验证异常的缺陷
+
+
+2019-04-05
+1，升级Phenix.Addin.Install.exe（请以超级管理员身份运行），以支持Microsoft Visual Studio 2019（Phenix.Addin.VSPackage_2019.vsix）
+
+
+2019-04-08
+修正在挑选枚举清单并提交时无法自动删除被勾去的子表记录的问题
+测试代码见：
+    Phenix.Test.使用指南.12.10.3
+
+
+2019-06-14
+1，服务端Thread.CurrentThread.CurrentCulture与登录用户客户端的值保持一致，以支持客户端的多语言环境
+2，EnumCaptionAttribute新增EnCaption属性，当客户端环境为英文时Caption属性返回的是EnCaption属性值
+
+
+2019-06-24
+将登录界面功能模块LogOnDialog从Phenix.Services.Client.Security命名空间复制到Phenix.Windows程序集的Phenix.Windows.Security命名空间，可重构以适应系统个性化开发
+
+
+2019-07-22
+修正当用户注销后又重新注册，在多服务器及身份转译策略环境下做身份验证时，用户资料缓存未及时清理的问题
+
+
+2019-08-13
+继承自Phenix.Core.Web.ApiController<T>的控制器，打上[AllowAnonymous]后允许匿名访问，即为公共服务
+测试代码见：
+    Phenix.Test.使用指南.21.7
+文档更新：
+    Phenix Framework Tools.使用指南.21.WebAPI服务
+
+
+2019-08-15
+Host主动注册外挂插件的控制器到WebAPI容器里
+
+
+2019-08-20
+优化业务集合对象在提交时的性能，特别是集合里有超上万个对象而仅更新其中极少数脏对象时，大致可缩短到1/3时间；如果要更快的话，可使用Phenix.Business.Tunnel.FastSaveCommand类，传入过滤出来的脏对象list即可，使用方法见《Phenix Framework Tools.使用案例.业务数据的读写-快速Save》
+
+
+2019-12-26
+1，修正三层物理架构下，无法基于数据库表字段默认值填充新增业务对象默认值的缺陷
+2，新增用户时，自动填充默认口令为与其登录名一致，写法参考Phenix.Security.Business的User类：
+    /// <summary>
+    /// 新增本对象数据之后(运行在持久层的程序域里)
+    /// </summary>
+    /// <param name="transaction">数据库事务</param>
+    protected override void OnInsertedSelf(DbTransaction transaction)
+    {
+      Phenix.Core.Security.UserIdentity.ChangePassword(transaction, UserNumber, UserNumber);
+    }
+
+
+2020-02-25
+修订SqlServer下拼装insert语句时，除了第一个getdate外剩余都是sysdate的问题
+
+
+2020-03-22
+如果字段带' _DATE'后缀，但是打了FieldAttribute.IsNewTimeColumn=true/IsFillSysdateColumn=true/IsOriginateTimeColumn=true/IsInputTimeColumn=true标记之一的话，仍然会被填充时间，除非显式IsDateNotContainTimeColumn=true
+
+
+2020-03-25
+优化配置信息及数据字典的检索性能
+
+
+2020-04-01
+添加《Phenix Framework Tools.使用指南.21.WebAPI服务》内容：21.10	代理服务+SSL
+
+
+2020-04-19
+提供Phenix.InstallAssembly工程，可编译执行，将当前目录下的程序集分拆为客户端和服务端两个目录
+
+
+2020-05-08
+用户自己修改口令用的ChangePassword(string newPassword)会校验口令复杂度，管理员为用户重置口令用的ResetPassword(string userNumber)、ResetPassword(DbTransaction transaction, string userNumber)、ChangePassword(DbTransaction transaction, string userNumber, string newPassword)都不会校验口令复杂度
+
+
+2020-06-02
+修正服务端在事务里Fetch业务对象偶尔会有"DbCommand 的 Transaction 属性尚未初始化"的问题
+
+
+2020-06-06
+提供配置Phenix.NET7的"/api/security/one-off-key-pair"服务访问地址，当用户通过WebAPI登录成功后可用Phenix.NET7服务提供的公钥加密登录口令并返回
+Phenix.Services.Host.x64.exe.config配置项：
+        <add key="Phenix.Services.Host.Service.Web.SecurityController.ExistThirdParty."
+            value="True" />
+        <add key="Phenix.Services.Host.Service.Web.SecurityController.ThirdPartyService."
+            value="http://localhost:5000" />
+
+
+2020-07-09
+为Phenix.Windows的BarManager组件添加Initialized事件，在初始化Host的Shown之后触发
+
+
+2020-10-23
+如果数据库里存在有仅靠大小写区分的多个表，持久层引擎仅映射其中一个表，而忽略其他的表
+
+
+
+
+

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Test.使用指南._17._1._8._2.AssemblyCriteria">
+    <Position X="0.5" Y="0.5" Width="4.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACAIAAAAAQAAAAAAAAABEQAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyCriteria.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AssemblyClassCriteria" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Test.使用指南._17._1._8._2.AssemblyClassPropertyCriteria">
+    <Position X="8.75" Y="3.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyClassPropertyCriteria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Test.使用指南._17._1._8._2.AssemblyClassMethodCriteria">
+    <Position X="3.75" Y="3.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AssemblyClassMethodCriteria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Test.使用指南._17._1._8._2.AssemblyClassCriteria">
+    <Position X="6.75" Y="0.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="AssemblyClassPropertyCriteria" Type="Phenix.Test.使用指南._17._1._8._2.AssemblyClassPropertyCriteria">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.008" Y="0.079" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAAAMAAAAAAAAAAACAAAAAQEAAAMAAAAAIAAAAAAQAA=</HashCode>
+      <FileName>AssemblyClassCriteria.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AssemblyClassMethodCriteria" />
+      <Property Name="AssemblyClassPropertyCriteria" />
+      <Property Name="AssemblyClassMethodCriteria2" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Phenix.Workflow.Activities</name>
+    </assembly>
+    <members>
+        <member name="T:Phenix.Workflow.Activities.AsyncCodeActivity">
+            <summary>
+            自始至终管理异步代码活动的执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.AsyncCodeActivity.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:Phenix.Workflow.Activities.AsyncCodeActivity`1">
+            <summary>
+            自始至终管理指定类型活动的异步代码活动的执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.AsyncCodeActivity`1.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:Phenix.Workflow.Activities.CodeActivity">
+            <summary>
+            用于创建具有强制行为（该行为是使用 Execute 方法定义的，利用该方法可以访问变量以及参数解析和扩展）的自定义活动
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.CodeActivity.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:Phenix.Workflow.Activities.CodeActivity`1">
+            <summary>
+            用于创建具有强制行为（该行为使用 Execute 方法定义）的自定义活动，从而提供对变量和参数解析及扩展的访问
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.CodeActivity`1.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="T:Phenix.Workflow.Activities.JointActivity">
+            <summary>
+            断点活动
+            </summary>
+        </member>
+        <member name="T:Phenix.Workflow.Activities.NativeActivity">
+            <summary>
+            适用于特定自定义活动（这些活动使用 Execute 方法实现执行逻辑，该方法具有对运行时功能的完全访问权限）的抽象基类
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.NativeActivity.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.JointActivity.Execute(System.Activities.NativeActivityContext)">
+            <summary>
+            运行活动的执行逻辑
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.JointActivity.BookmarkCallback(System.Activities.NativeActivityContext,System.Activities.Bookmark,System.Object)">
+            <summary>
+            当通知指示要 NativeActivity 恢复时，要调用的方法
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity.PluginAssemblyName">
+            <summary>
+            插件程序集名
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity.WorkerRole">
+            <summary>
+            作业角色
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity.Caption">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity.Urgent">
+            <summary>
+            是否急件
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity.CanInduceIdle">
+            <summary>
+            指示活动是否会使工作流进入空闲状态
+            </summary>
+        </member>
+        <member name="T:Phenix.Workflow.Activities.JointActivity`1">
+            <summary>
+            断点活动
+            </summary>
+        </member>
+        <member name="T:Phenix.Workflow.Activities.NativeActivity`1">
+            <summary>
+            适用于特定自定义活动（这些活动使用 Execute 方法实现执行逻辑，该方法具有对运行时功能的完全访问权限）的抽象基类
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.NativeActivity`1.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.JointActivity`1.Execute(System.Activities.NativeActivityContext)">
+            <summary>
+            运行活动的执行逻辑
+            </summary>
+        </member>
+        <member name="M:Phenix.Workflow.Activities.JointActivity`1.BookmarkCallback(System.Activities.NativeActivityContext,System.Activities.Bookmark,System.Object)">
+            <summary>
+            当通知指示要 NativeActivity 恢复时，要调用的方法
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity`1.PluginAssemblyName">
+            <summary>
+            插件程序集名
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity`1.WorkerRole">
+            <summary>
+            作业角色
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity`1.Caption">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity`1.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity`1.Urgent">
+            <summary>
+            是否急件
+            </summary>
+        </member>
+        <member name="P:Phenix.Workflow.Activities.JointActivity`1.CanInduceIdle">
+            <summary>
+            指示活动是否会使工作流进入空闲状态
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Windows.BarManager">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Phenix.Windows.BarManager.SetBindingSourceData">
+        <Compartments>
+          <Compartment Name="Fields" Collapsed="true" />
+        </Compartments>
+        <TypeIdentifier>
+          <NewMemberFileName>BarManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>u9ffvV76+m4gtk13/3fe09677bhHA+1H/vOL24O5t68=</HashCode>
+      <FileName>BarManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="OperateState" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="BindingSources" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Phenix.Windows.BarItemClickEventArgs">
+    <Position X="4.5" Y="21.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAkAAAAAAAAAAAAAEABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BarManager\BarItemClickEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.EnumBindingSourceStatus">
+    <Position X="7.25" Y="11.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAABAAAAABAAAAQAgAAA=</HashCode>
+      <FileName>BarManager\EnumBindingSourceStatus.cs</FileName>
+      <NewMemberFileName>BindingSourceStatus.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.BindingSourceChangeEventArgs">
+    <Position X="4.5" Y="19" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>BarManager\BindingSourceChangeEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.PromptCodeBindingSourceStatus">
+    <Position X="7.25" Y="7.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAFAEAAAAAgQAAIQIAEAAAAAAABAAAAABAAAQQAgAAU=</HashCode>
+      <FileName>BarManager\PromptCodeBindingSourceStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.BindingSourceStatus">
+    <Position X="4.75" Y="7.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAFQAAQAAQpUgaYBACIAAKUsBQBQRIgAAFACSYAoAAU=</HashCode>
+      <FileName>BarManager\BindingSourceStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.BarItemSaveEventArgs">
+    <Position X="6.75" Y="21.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAAAAAABFAAgAAAIAAEAAAAAAAEAAAA=</HashCode>
+      <FileName>BarManager\BarItemSaveEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.BarItemDeleteEventArgs">
+    <Position X="9" Y="21.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BarManager\BarItemDeleteEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Windows.BarItemImportEventArgs">
+    <Position X="4.5" Y="24.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BarManager\BarItemImportEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Phenix.Windows.DataOperateState">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAIgAAAAAAAAAAAAAAAAEAAAEAAAAAAAAAAAEAABI=</HashCode>
+      <FileName>BarManager\DataOperateState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Phenix.Windows.BarItemId">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAIICASAAIBAAAIAEgBBAAAAEAAAAAIAAAAAUEAAA=</HashCode>
+      <FileName>BarManager\BarItemId.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

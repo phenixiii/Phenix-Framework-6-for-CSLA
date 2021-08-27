@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C5ADC681-3FB4-4AA3-A402-CF700C80F395}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Phenix.Services.Client</RootNamespace>
+    <AssemblyName>Phenix.Services.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/Phenix.Services.Client/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin.Top\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Top</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <DocumentationFile>..\Bin.Top\Phenix.Services.Client.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin.Top\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>..\Bin.Top\Phenix.Services.Client.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Phenix.Business" />
+    <Reference Include="Phenix.Core" />
+    <Reference Include="Phenix.Services.Contract" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Design\BusinessSelectorEditor.cs" />
+    <Compile Include="Design\ClassSelectorEditor.cs" />
+    <Compile Include="Design\CollectionEditor.cs" />
+    <Compile Include="Design\ComponentPropertyDesigner.cs" />
+    <Compile Include="Design\DesignerHelper.cs" />
+    <Compile Include="Design\EnumSelectorEditor.cs" />
+    <Compile Include="Library\DataDictionaryProxy.cs" />
+    <Compile Include="Library\DataPortalProxy.cs">
+    </Compile>
+    <Compile Include="Library\DataProxy.cs" />
+    <Compile Include="Library\DataSecurityProxy.cs">
+    </Compile>
+    <Compile Include="Library\DataRuleProxy.cs" />
+    <Compile Include="AppUtilities.cs" />
+    <Compile Include="Library\MessageProxy.cs" />
+    <Compile Include="Library\Wcf\DataDictionaryProxy.cs" />
+    <Compile Include="Library\Wcf\DataPortalProxy.cs" />
+    <Compile Include="Library\Wcf\DataProxy.cs" />
+    <Compile Include="Library\Wcf\DataRuleProxy.cs" />
+    <Compile Include="Library\Wcf\MessageProxy.cs" />
+    <Compile Include="Library\Wcf\ObjectCacheSynchroProxy.cs" />
+    <Compile Include="Library\Wcf\PermanentLogProxy.cs" />
+    <Compile Include="Library\Wcf\WorkflowProxy.cs" />
+    <Compile Include="Library\WorkflowProxy.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\ExecuteAuthorizationDesigner.cs" />
+    <Compile Include="Security\LogOnHelper.cs" />
+    <Compile Include="Security\ReadWriteAuthorizationDesigner.cs" />
+    <Compile Include="Security\ExecuteRuleMethodArgumentStatus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UpgradeFile\DownloadFileEventArgs.cs" />
+    <Compile Include="UpgradeFile\DownloadFileInfoEventArgs.cs" />
+    <Compile Include="Library\DownloadFilesProxy.cs">
+    </Compile>
+    <Compile Include="Library\ObjectCacheSynchroProxy.cs" />
+    <Compile Include="Library\PermanentLogProxy.cs" />
+    <Compile Include="Library\Registration.cs" />
+    <Compile Include="Library\Wcf\DataSecurityProxy.cs" />
+    <Compile Include="Library\Wcf\DownloadFilesProxy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Security\ChangePasswordDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\ChangePasswordDialog.Designer.cs">
+      <DependentUpon>ChangePasswordDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpgradeFile\DownloadFiles.cs" />
+    <Compile Include="Security\ExecuteRule.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Security\LogOn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Security\LogOnDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\LogOnDialog.Designer.cs">
+      <DependentUpon>LogOnDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\ExecuteAuthorization.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Security\ReadWriteAuthorization.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Validation\EditValidation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Validation\EditValidationDesigner.cs">
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.zh-CHS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CHT.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-TW.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-Hans.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-Hant.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\ChangePasswordDialog.resx">
+      <DependentUpon>ChangePasswordDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Security\LogOn.bmp" />
+    <EmbeddedResource Include="Security\LogOnDialog.resx">
+      <DependentUpon>LogOnDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Security\ExecuteAuthorization.bmp" />
+    <EmbeddedResource Include="Security\ReadWriteAuthorization.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Validation\EditValidation.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1324 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Phenix.Web.Client</name>
+    </assembly>
+    <members>
+        <member name="T:Phenix.Web.Client.DataProxy">
+            <summary>
+            数据代理
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.#ctor(Phenix.Web.Client.HttpClient)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchSequenceValueAsync">
+            <summary>
+            获取64位序号
+            </summary>
+            <returns>64位序号</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchSequenceValue">
+            <summary>
+            获取64位序号
+            </summary>
+            <returns>64位序号</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanFetchAsync``1">
+            <summary>
+            是否允许Fetch
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanFetchAsync``1(System.String)">
+            <summary>
+            是否允许Fetch
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体/实体集合类全名(需实现IEntity/IEntityCollection接口)</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanFetch``1">
+            <summary>
+            是否允许Fetch
+            </summary>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanFetch``1(System.String)">
+            <summary>
+            是否允许Fetch
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体/实体集合类全名(需实现IEntity/IEntityCollection接口)</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanCreateAsync``1">
+            <summary>
+            是否允许Create
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanCreateAsync``1(System.String)">
+            <summary>
+            是否允许Create
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体/实体集合类全名(需实现IEntity/IEntityCollection接口)</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanCreate``1">
+            <summary>
+            是否允许Create
+            </summary>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanCreate``1(System.String)">
+            <summary>
+            是否允许Create
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体/实体集合类全名(需实现IEntity/IEntityCollection接口)</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanEditAsync``1">
+            <summary>
+            是否允许Edit
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanEditAsync``1(System.String)">
+            <summary>
+            是否允许Edit
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体/实体集合类全名(需实现IEntity/IEntityCollection接口)</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanEdit``1">
+            <summary>
+            是否允许Edit
+            </summary>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanEdit``1(System.String)">
+            <summary>
+            是否允许Edit
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体/实体集合类全名(需实现IEntity/IEntityCollection接口)</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanDeleteAsync``1">
+            <summary>
+            是否允许Delete
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanDeleteAsync``1(System.String)">
+            <summary>
+            是否允许Delete
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体/实体集合类全名(需实现IEntity/IEntityCollection接口)</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanDelete``1">
+            <summary>
+            是否允许Delete
+            </summary>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanDelete``1(System.String)">
+            <summary>
+            是否允许Delete
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体/实体集合类全名(需实现IEntity/IEntityCollection接口)</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanExecuteAsync``1">
+            <summary>
+            是否允许Execute
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanExecuteAsync``1(System.String)">
+            <summary>
+            是否允许Execute
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanExecute``1">
+            <summary>
+            是否允许Execute
+            </summary>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.CanExecute``1(System.String)">
+            <summary>
+            是否允许Execute
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchAsync``1(System.Int64)">
+            <summary>
+            获取实体
+            </summary>
+            <param name="id">主键值</param>
+            <returns>实体</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchAsync``1(System.String,System.Int64)">
+            <summary>
+            获取实体
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntity接口)</param>
+            <param name="id">主键值</param>
+            <returns>实体</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.Fetch``1(System.Int64)">
+            <summary>
+            获取实体
+            </summary>
+            <param name="id">主键值</param>
+            <returns>实体</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.Fetch``1(System.String,System.Int64)">
+            <summary>
+            获取实体
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntity接口)</param>
+            <param name="id">主键值</param>
+            <returns>实体</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1">
+            <summary>
+            获取实体集合
+            </summary>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1(System.Int32,System.Int32)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1(Phenix.Core.Mapping.ICriteria)">
+            <summary>
+            获取实体集合
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="criteria">条件对象</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1(Phenix.Core.Mapping.ICriteria,System.Int32,System.Int32)">
+            <summary>
+            获取实体集合
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="criteria">条件对象</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1(System.String,System.String,System.Object,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntityCollection接口)</param>
+            <param name="criteriaName">条件名, 在服务端定义的条件类全名(需实现ICriteria接口)</param>
+            <param name="criteria">JSON格式条件对象, 在服务端将被反序列化为criteriaName指定条件类的对象</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1">
+            <summary>
+            获取实体集合
+            </summary>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1(System.Int32,System.Int32)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1(Phenix.Core.Mapping.ICriteria)">
+            <summary>
+            获取实体集合
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="criteria">条件对象</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1(Phenix.Core.Mapping.ICriteria,System.Int32,System.Int32)">
+            <summary>
+            获取实体集合
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="criteria">条件对象</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1(System.String,System.String,System.Object,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntityCollection接口)</param>
+            <param name="criteriaName">条件名, 在服务端定义的条件类全名(需实现ICriteria接口)</param>
+            <param name="criteria">JSON格式条件对象, 在服务端将被反序列化为criteriaName指定条件类的对象</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1(Phenix.Core.Mapping.IEntity,System.String)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1(Phenix.Core.Mapping.IEntity,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1(Phenix.Core.Mapping.IEntity,System.String,Phenix.Core.Mapping.ICriteria)">
+            <summary>
+            获取实体集合
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteria">条件对象</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1(Phenix.Core.Mapping.IEntity,System.String,Phenix.Core.Mapping.ICriteria,System.Int32,System.Int32)">
+            <summary>
+            获取实体集合
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteria">条件对象</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchListAsync``1(System.String,System.String,System.Object,System.String,System.String,System.Object,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntityCollection接口)</param>
+            <param name="masterName">主对象名, 在服务端注册的实体类全名(需实现IEntity接口)</param>
+            <param name="master">主对象(也可以是主键ID), 在服务端将被反序列化为masterName指定实体类的对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteriaName">条件名, 在服务端定义的条件类全名(需实现ICriteria接口)</param>
+            <param name="criteria">JSON格式条件对象, 在服务端将被反序列化为criteriaName指定条件类的对象</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1(Phenix.Core.Mapping.IEntity,System.String)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1(Phenix.Core.Mapping.IEntity,System.String,System.Int32,System.Int32)">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1(Phenix.Core.Mapping.IEntity,System.String,Phenix.Core.Mapping.ICriteria)">
+            <summary>
+            获取实体集合
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteria">条件对象</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1(Phenix.Core.Mapping.IEntity,System.String,Phenix.Core.Mapping.ICriteria,System.Int32,System.Int32)">
+            <summary>
+            获取实体集合
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteria">条件对象</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.FetchList``1(System.String,System.String,System.Object,System.String,System.String,System.Object,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            获取实体集合
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntityCollection接口)</param>
+            <param name="masterName">主对象名, 在服务端注册的实体类全名(需实现IEntity接口)</param>
+            <param name="master">主对象(也可以是主键ID), 在服务端将被反序列化为masterName指定实体类的对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteriaName">条件名, 在服务端定义的条件类全名(需实现ICriteria接口)</param>
+            <param name="criteria">JSON格式条件对象, 在服务端将被反序列化为criteriaName指定条件类的对象</param>
+            <param name="pageSize">分页大小</param>
+            <param name="pageNo">分页号, 从1起始</param>
+            <returns>实体集合</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCountAsync``1">
+            <summary>
+            获取记录数量
+            </summary>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCountAsync``1(Phenix.Core.Mapping.ICriteria)">
+            <summary>
+            获取记录数量
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="criteria">条件对象</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCountAsync``1(System.String,System.String,System.Object)">
+            <summary>
+            获取记录数量
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntityCollection接口)</param>
+            <param name="criteriaName">条件名, 在服务端定义的条件类全名(需实现ICriteria接口)</param>
+            <param name="criteria">JSON格式条件对象, 在服务端将被反序列化为criteriaName指定条件类的对象</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCount``1">
+            <summary>
+            获取记录数量
+            </summary>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCount``1(Phenix.Core.Mapping.ICriteria)">
+            <summary>
+            获取记录数量
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="criteria">条件对象</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCount``1(System.String,System.String,System.Object)">
+            <summary>
+            获取记录数量
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntityCollection接口)</param>
+            <param name="criteriaName">条件名, 在服务端定义的条件类全名(需实现ICriteria接口)</param>
+            <param name="criteria">JSON格式条件对象, 在服务端将被反序列化为criteriaName指定条件类的对象</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCountAsync``1(Phenix.Core.Mapping.IEntity,System.String)">
+            <summary>
+            获取记录数量
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCountAsync``1(Phenix.Core.Mapping.IEntity,System.String,Phenix.Core.Mapping.ICriteria)">
+            <summary>
+            获取记录数量
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteria">条件对象</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCountAsync``1(System.String,System.String,System.Object,System.String,System.String,System.Object)">
+            <summary>
+            获取记录数量
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntityCollection接口)</param>
+            <param name="masterName">主对象名, 在服务端注册的实体类全名(需实现IEntity接口)</param>
+            <param name="master">主对象(也可以是主键ID), 在服务端将被反序列化为masterName指定实体类的对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteriaName">条件名, 在服务端定义的条件类全名(需实现ICriteria接口)</param>
+            <param name="criteria">JSON格式条件对象, 在服务端将被反序列化为criteriaName指定条件类的对象</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCount``1(Phenix.Core.Mapping.IEntity,System.String)">
+            <summary>
+            获取记录数量
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCount``1(Phenix.Core.Mapping.IEntity,System.String,Phenix.Core.Mapping.ICriteria)">
+            <summary>
+            获取记录数量
+            如果服务端未定义criteria对象的类则要求服务端的实体类上申明了(ClassAttribute.DefaultCriteriaType)缺省条件类或者实体类程序集里定义有带同名Criteria后缀的条件类(需实现ICriteria接口)
+            </summary>
+            <param name="master">主对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteria">条件对象</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.GetRecordCount``1(System.String,System.String,System.Object,System.String,System.String,System.String)">
+            <summary>
+            获取记录数量
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntityCollection接口)</param>
+            <param name="masterName">主对象名, 在服务端注册的实体类全名(需实现IEntity接口)</param>
+            <param name="master">主对象(也可以是主键ID), 在服务端将被反序列化为masterName指定实体类的对象</param>
+            <param name="groupName">分组名, null代表全部</param>
+            <param name="criteriaName">条件名, 在服务端定义的条件类全名(需实现ICriteria接口)</param>
+            <param name="criteria">JSON格式条件对象, 在服务端将被反序列化为criteriaName指定条件类的对象</param>
+            <returns>记录数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.SaveAsync(Phenix.Core.Mapping.IEntity)">
+            <summary>
+            提交实体
+            </summary>
+            <param name="entity">实体</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.SaveAsync(System.String,Phenix.Core.Mapping.IEntity)">
+            <summary>
+            提交实体
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体类全名(需实现IEntity接口)</param>
+            <param name="entity">实体</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.Save(Phenix.Core.Mapping.IEntity)">
+            <summary>
+            提交实体
+            </summary>
+            <param name="entity">实体</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.Save(System.String,Phenix.Core.Mapping.IEntity)">
+            <summary>
+            提交实体
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体类全名(需实现IEntity接口)</param>
+            <param name="entity">实体</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.SaveAsync(Phenix.Core.Mapping.IEntityCollection)">
+            <summary>
+            提交实体集合
+            </summary>
+            <param name="entityCollection">实体集合</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.SaveAsync(System.String,Phenix.Core.Mapping.IEntityCollection)">
+            <summary>
+            提交实体集合
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类/实体类全名(需实现IEntityCollection/IEntity接口)</param>
+            <param name="entityCollection">实体集合</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.Save(Phenix.Core.Mapping.IEntityCollection)">
+            <summary>
+            提交实体集合
+            </summary>
+            <param name="entityCollection">实体集合</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.Save(System.String,Phenix.Core.Mapping.IEntityCollection)">
+            <summary>
+            提交实体集合
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类/实体类全名(需实现IEntityCollection/IEntity接口)</param>
+            <param name="entityCollection">实体集合</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.SaveAsync(System.String,System.Object)">
+            <summary>
+            提交对象
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类/实体类全名(需实现IEntityCollection/IEntity接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端, 需包含IsNew、IsSelfDeleted、IsSelfDirty属性以指明对象状态</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.Save(System.String,System.Object)">
+            <summary>
+            提交对象
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类/实体类全名(需实现IEntityCollection/IEntity接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端, 需包含IsNew、IsSelfDeleted、IsSelfDirty属性以指明对象状态</param>
+            <returns>成功数量</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.ExecuteAsync``1(``0)">
+            <summary>
+            执行服务
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.ExecuteAsync(System.String,System.Object)">
+            <summary>
+            执行服务
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.Execute``1(``0)">
+            <summary>
+            执行服务
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.Execute(System.String,System.Object)">
+            <summary>
+            执行服务
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadFilesAsync``1(``0,System.String[])">
+            <summary>
+            上传文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileNames">待上传的文件路径</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadFilesAsync(System.String,System.Object,System.String[])">
+            <summary>
+            上传文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <param name="fileNames">待上传的文件路径</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadFiles``1(``0,System.String[])">
+            <summary>
+            上传文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileNames">待上传的文件路径</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadFiles(System.String,System.Object,System.String[])">
+            <summary>
+            上传文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="fileNames">待上传的文件路径</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadFilesAsync``1(``0,System.Collections.Generic.IDictionary{System.String,System.IO.Stream})">
+            <summary>
+            上传文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileStreams">待上传的文件流</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadFilesAsync(System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.IO.Stream})">
+            <summary>
+            上传文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <param name="fileStreams">待上传的文件流</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadFiles``1(``0,System.Collections.Generic.IDictionary{System.String,System.IO.Stream})">
+            <summary>
+            上传文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileStreams">待上传的文件流</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadFiles(System.String,System.Object,System.Collections.Generic.IDictionary{System.String,System.IO.Stream})">
+            <summary>
+            上传文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="fileStreams">待上传的文件流</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFileAsync``1(``0,System.String,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileName">待上传的文件路径</param>
+            <param name="doProgress">执行进度干预</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFileAsync(System.String,System.Object,System.String,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <param name="fileName">待上传的文件路径</param>
+            <param name="doProgress">执行进度干预</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFile``1(``0,System.String,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileName">待上传的文件路径</param>
+            <param name="doProgress">执行进度干预</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFile(System.String,System.Object,System.String,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="fileName">待上传的文件路径</param>
+            <param name="doProgress">执行进度干预</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFileAsync``1(``0,System.String,System.IO.Stream,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileName">待上传的文件名</param>
+            <param name="fileStream">待上传的文件流</param>
+            <param name="doProgress">执行进度干预</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFileAsync(System.String,System.Object,System.String,System.IO.Stream,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <param name="fileName">待上传的文件名</param>
+            <param name="fileStream">待上传的文件流</param>
+            <param name="doProgress">执行进度干预</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFile``1(``0,System.String,System.IO.Stream,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileName">待上传的文件名</param>
+            <param name="fileStream">待上传的文件流</param>
+            <param name="doProgress">执行进度干预</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFile(System.String,System.Object,System.String,System.IO.Stream,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            上传文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="fileName">待上传的文件名</param>
+            <param name="fileStream">待上传的文件流</param>
+            <param name="doProgress">执行进度干预</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFileAsync``1(``0,Phenix.Core.IO.FileChunkInfo)">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileChunkInfo">待处理的文件块信息</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFileAsync(System.String,System.Object,Phenix.Core.IO.FileChunkInfo)">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <param name="fileChunkInfo">待处理的文件块信息</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFile``1(``0,Phenix.Core.IO.FileChunkInfo)">
+            <summary>
+            上传大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileChunkInfo">待处理的文件块信息</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.UploadBigFile(System.String,System.Object,Phenix.Core.IO.FileChunkInfo)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="fileChunkInfo">待处理的文件块信息</param>
+            <returns>服务结果</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadFileAsync``1(``0,System.String)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileName">待保存的文件路径</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadFileAsync(System.String,System.Object,System.String)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <param name="fileName">待保存的文件路径</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadFile``1(``0,System.String)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileName">待保存的文件路径</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadFile(System.String,System.Object,System.String)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="fileName">待保存的文件路径</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadFileAsync``1(``0)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <returns>已下载的文件流</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadFileAsync(System.String,System.Object)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <returns>已下载的文件流</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadFile``1(``0)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <returns>已下载的文件流</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadFile(System.String,System.Object)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <returns>已下载的文件流</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFileAsync``1(``0,System.String,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            下载大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileName">待保存的文件路径</param>
+            <param name="doProgress">执行进度干预</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFileAsync(System.String,System.Object,System.String,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            下载大文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <param name="fileName">待保存的文件路径</param>
+            <param name="doProgress">执行进度干预</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFile``1(``0,System.String,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            下载大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileName">待保存的文件路径</param>
+            <param name="doProgress">执行进度干预</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFile(System.String,System.Object,System.String,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            下载大文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="fileName">待保存的文件路径</param>
+            <param name="doProgress">执行进度干预</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFileAsync``1(``0,System.IO.Stream,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            下载大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileStream">待保存的文件流</param>
+            <param name="doProgress">执行进度干预</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFileAsync(System.String,System.Object,System.IO.Stream,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            下载大文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="fileStream">待保存的文件流</param>
+            <param name="doProgress">执行进度干预</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFile``1(``0,System.IO.Stream,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            下载大文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="fileStream">待保存的文件流</param>
+            <param name="doProgress">执行进度干预</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFile(System.String,System.Object,System.IO.Stream,System.Func{System.Object,Phenix.Core.IO.FileChunkInfo,System.Boolean})">
+            <summary>
+            下载大文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="fileStream">待保存的文件流</param>
+            <param name="doProgress">执行进度干预</param>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFileAsync``1(``0,System.Int32)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="chunkNumber">块号</param>
+            <returns>文件块信息</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFileAsync(System.String,System.Object,System.Int32)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">JSON格式对象, 将被传到服务端</param>
+            <param name="chunkNumber">块号</param>
+            <returns>文件块信息</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFile``1(``0,System.Int32)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="service">服务对象, 将被序列化传到服务端</param>
+            <param name="chunkNumber">块号</param>
+            <returns>文件块信息</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.DataProxy.DownloadBigFile(System.String,System.Object,System.Int32)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="serviceName">服务名, 在服务端注册的服务类全名(需实现IService接口)</param>
+            <param name="obj">对象, 将被序列化传到服务端</param>
+            <param name="chunkNumber">块号</param>
+            <returns>文件块信息</returns>
+        </member>
+        <member name="P:Phenix.Web.Client.DataProxy.HttpClient">
+            <summary>
+            HttpClient
+            </summary>
+        </member>
+        <member name="T:Phenix.Web.Client.HttpClient">
+            <summary>
+            HttpClient
+            配套Bin.Top目录下Host程序提供的WabAPI服务
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.#ctor(System.Uri,Phenix.Web.Client.Security.UserIdentity)">
+            <summary>
+            初始化
+            </summary>
+            <param name="baseAddress">服务地址</param>
+            <param name="userIdentity">用户身份</param>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.#ctor(System.String,Phenix.Web.Client.Security.UserIdentity)">
+            <summary>
+            初始化
+            </summary>
+            <param name="host">服务地址</param>
+            <param name="userIdentity">用户身份</param>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.#ctor(System.String,System.Int32,Phenix.Web.Client.Security.UserIdentity)">
+            <summary>
+            初始化
+            </summary>
+            <param name="host">服务地址</param>
+            <param name="port">端口号</param>
+            <param name="userIdentity">用户身份</param>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.#ctor(System.Uri,Phenix.Web.Client.Security.UserIdentity,System.Boolean,System.Boolean)">
+            <summary>
+            初始化
+            </summary>
+            <param name="baseAddress">服务地址</param>
+            <param name="userIdentity">用户身份</param>
+            <param name="contentVerifing">报文核实</param>
+            <param name="contentEncrypted">报文加密</param>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.#ctor(System.String,Phenix.Web.Client.Security.UserIdentity,System.Boolean,System.Boolean)">
+            <summary>
+            初始化
+            </summary>
+            <param name="host">服务地址</param>
+            <param name="userIdentity">用户身份</param>
+            <param name="contentVerifing">报文核实</param>
+            <param name="contentEncrypted">报文加密</param>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.#ctor(System.String,System.Int32,Phenix.Web.Client.Security.UserIdentity,System.Boolean,System.Boolean)">
+            <summary>
+            初始化
+            </summary>
+            <param name="host">服务地址</param>
+            <param name="port">端口号</param>
+            <param name="userIdentity">用户身份</param>
+            <param name="contentVerifing">报文核实</param>
+            <param name="contentEncrypted">报文加密</param>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.Dispose(System.Boolean)">
+            <summary>
+            释放
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.CanCallAsync(System.String,System.String)">
+            <summary>
+            是否允许Call
+            </summary>
+            <param name="controllerName">标识服务端ApiController名称</param>
+            <param name="actionName">标识服务端ApiController函数名</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.CanCall(System.String,System.String)">
+            <summary>
+            是否允许Call
+            </summary>
+            <param name="controllerName">标识服务端ApiController名称</param>
+            <param name="actionName">标识服务端ApiController函数名</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.CallAsync``1(System.Net.Http.HttpMethod,System.String,System.Object)">
+            <summary>
+            呼叫
+            actionName = null
+            parameters = null
+            </summary>
+            <param name="method">请求方法</param>
+            <param name="controllerName">标识服务端ApiController名称</param>
+            <param name="data">传到服务端的数据</param>
+            <returns>返回对象</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.CallAsync``1(System.Net.Http.HttpMethod,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Object)">
+            <summary>
+            呼叫
+            </summary>
+            <param name="method">请求方法</param>
+            <param name="controllerName">标识服务端ApiController名称</param>
+            <param name="actionName">标识服务端ApiController函数名</param>
+            <param name="parameters">标识服务端ApiController函数参数集合</param>
+            <param name="data">传到服务端的数据</param>
+            <returns>返回对象</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.Call``1(System.Net.Http.HttpMethod,System.String,System.Object)">
+            <summary>
+            呼叫
+            actionName = null
+            parameters = null
+            </summary>
+            <param name="method">请求方法</param>
+            <param name="controllerName">标识服务端ApiController名称</param>
+            <param name="data">传到服务端的数据</param>
+            <returns>返回对象</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.HttpClient.Call``1(System.Net.Http.HttpMethod,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Object)">
+            <summary>
+            呼叫
+            </summary>
+            <param name="method">请求方法</param>
+            <param name="controllerName">标识服务端的ApiController名称</param>
+            <param name="actionName">标识服务端的ApiController函数名称</param>
+            <param name="parameters">标识服务端ApiController函数参数集合</param>
+            <param name="data">传到服务端的数据</param>
+            <returns>返回对象</returns>
+        </member>
+        <member name="P:Phenix.Web.Client.HttpClient.UserIdentity">
+            <summary>
+            用户身份
+            </summary>
+        </member>
+        <member name="P:Phenix.Web.Client.HttpClient.SecurityProxy">
+            <summary>
+            安全代理
+            </summary>
+        </member>
+        <member name="P:Phenix.Web.Client.HttpClient.DataProxy">
+            <summary>
+            数据代理
+            </summary>
+        </member>
+        <member name="P:Phenix.Web.Client.HttpClient.MessageProxy">
+            <summary>
+            消息代理
+            </summary>
+        </member>
+        <member name="T:Phenix.Web.Client.MessageProxy">
+            <summary>
+            消息代理
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.#ctor(Phenix.Web.Client.HttpClient)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.Dispose">
+            <summary>
+            释放
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.SendAsync(System.String,System.String)">
+            <summary>
+            发送消息
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.Send(System.String,System.String)">
+            <summary>
+            发送消息
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.ReceiveAsync">
+            <summary>
+            收取消息
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.Receive">
+            <summary>
+            收取消息
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.AffirmReceivedAsync(System.Int64)">
+            <summary>
+            确认收到
+            burn = true
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.AffirmReceivedAsync(System.Int64,System.Boolean)">
+            <summary>
+            确认收到
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.AffirmReceived(System.Int64)">
+            <summary>
+            确认收到
+            burn = true
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.AffirmReceived(System.Int64,System.Boolean)">
+            <summary>
+            确认收到
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.SubscribeAsync(System.Action{Phenix.Core.Web.IMessageProxy,System.Collections.Generic.IDictionary{System.Int64,System.String}},System.Action{Phenix.Core.Web.IMessageProxy,System.String})">
+            <summary>
+            订阅消息
+            port = DEFAULT_SUBSCRIBE_PORT
+            </summary>
+            <param name="onReceived">处理收到消息</param>
+            <param name="onError">处理收到错误消息</param>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.SubscribeAsync(System.Int32,System.Action{Phenix.Core.Web.IMessageProxy,System.Collections.Generic.IDictionary{System.Int64,System.String}},System.Action{Phenix.Core.Web.IMessageProxy,System.String})">
+            <summary>
+            订阅消息
+            </summary>
+            <param name="port">端口号</param>
+            <param name="onReceived">处理收到消息</param>
+            <param name="onError">处理收到错误消息</param>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.Subscribe(System.Action{Phenix.Core.Web.IMessageProxy,System.Collections.Generic.IDictionary{System.Int64,System.String}},System.Action{Phenix.Core.Web.IMessageProxy,System.String})">
+            <summary>
+            订阅消息
+            port = DEFAULT_SUBSCRIBE_PORT
+            </summary>
+            <param name="onReceived">处理收到消息</param>
+            <param name="onError">处理收到错误消息</param>
+        </member>
+        <member name="M:Phenix.Web.Client.MessageProxy.Subscribe(System.Int32,System.Action{Phenix.Core.Web.IMessageProxy,System.Collections.Generic.IDictionary{System.Int64,System.String}},System.Action{Phenix.Core.Web.IMessageProxy,System.String})">
+            <summary>
+            订阅消息
+            </summary>
+            <param name="port">端口号</param>
+            <param name="onReceived">处理收到消息</param>
+            <param name="onError">处理收到错误消息</param>
+        </member>
+        <member name="P:Phenix.Web.Client.MessageProxy.HttpClient">
+            <summary>
+            HttpClient
+            </summary>
+        </member>
+        <member name="T:Phenix.Web.Client.SecurityProxy">
+            <summary>
+            消息代理
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.#ctor(Phenix.Web.Client.HttpClient)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.IsByDenyAsync``1(Phenix.Core.Mapping.ExecuteAction)">
+            <summary>
+            是否允许操作
+            </summary>
+            <param name="action">执行动作</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.IsByDenyAsync``1(System.String,Phenix.Core.Mapping.ExecuteAction)">
+            <summary>
+            是否允许操作
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体/实体集合/服务类全名(需实现IEntity/IEntityCollection/IService接口)</param>
+            <param name="action">执行动作</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.IsByDeny``1(Phenix.Core.Mapping.ExecuteAction)">
+            <summary>
+            是否允许操作
+            </summary>
+            <param name="action">执行动作</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.IsByDeny``1(System.String,Phenix.Core.Mapping.ExecuteAction)">
+            <summary>
+            是否允许操作
+            </summary>
+            <param name="dataName">数据名, 在服务端注册的实体集合类全名(需实现IEntity/IEntityCollection/IService接口)</param>
+            <param name="action">执行动作</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.IsByDenyAsync(System.String,System.String)">
+            <summary>
+            是否允许操作
+            </summary>
+            <param name="controllerName">标识服务端ApiController名称</param>
+            <param name="actionName">标识服务端ApiController函数名</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.IsByDeny(System.String,System.String)">
+            <summary>
+            是否允许操作
+            </summary>
+            <param name="controllerName">标识服务端ApiController名称</param>
+            <param name="actionName">标识服务端ApiController函数名</param>
+            <returns>是否被拒绝</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.LogOnAsync">
+            <summary>
+            登录验证
+            </summary>
+            <returns>成功否</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.LogOn">
+            <summary>
+            登录验证
+            </summary>
+            <returns>成功否</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.TryLogOnAsync">
+            <summary>
+            登录验证
+            </summary>
+            <returns>返回HttpResponseMessage的Content.ReadAsStringAsync()可获取提示信息</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.TryLogOn">
+            <summary>
+            登录验证
+            </summary>
+            <returns>返回HttpResponseMessage的Content.ReadAsStringAsync()可获取提示信息</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.LogOnVerifyAsync(System.String)">
+            <summary>
+            登录核实
+            </summary>
+            <param name="tag">标签</param>
+            <returns>成功否</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.LogOnVerify(System.String)">
+            <summary>
+            登录核实
+            </summary>
+            <param name="tag">标签</param>
+            <returns>成功否</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.TryLogOnVerifyAsync(System.String)">
+            <summary>
+            登录核实
+            </summary>
+            <param name="tag">标签</param>
+            <returns>返回HttpResponseMessage的Content.ReadAsStringAsync()可获取提示信息</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.TryLogOnVerify(System.String)">
+            <summary>
+            登录核实
+            </summary>
+            <returns>返回HttpResponseMessage的Content.ReadAsStringAsync()可获取提示信息</returns>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.ChangePasswordAsync(System.String)">
+            <summary>
+            修改登录口令
+            </summary>
+            <param name="newPassword">新登录口令</param>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.ChangePassword(System.String)">
+            <summary>
+            修改登录口令
+            </summary>
+            <param name="newPassword">新登录口令</param>
+        </member>
+        <member name="M:Phenix.Web.Client.SecurityProxy.LogOffAsync">
+            <summary>
+            登出
+            </summary>
+        </member>
+        <member name="P:Phenix.Web.Client.SecurityProxy.HttpClient">
+            <summary>
+            HttpClient
+            </summary>
+        </member>
+        <member name="T:Phenix.Web.Client.Security.UserIdentity">
+            <summary>
+            用户身份
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.Security.UserIdentity.#ctor(System.String,System.String)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Web.Client.Security.UserIdentity.CreateGuest">
+            <summary>
+            构建匿名用户
+            </summary>
+        </member>
+        <member name="P:Phenix.Web.Client.Security.UserIdentity.IsAuthenticated">
+            <summary>
+            已验证?
+            </summary>
+        </member>
+        <member name="P:Phenix.Web.Client.Security.UserIdentity.AuthenticatedMessage">
+            <summary>
+            验证消息
+            </summary>
+        </member>
+    </members>
+</doc>

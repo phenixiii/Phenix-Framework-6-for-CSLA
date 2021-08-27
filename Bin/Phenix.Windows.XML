@@ -1,0 +1,4102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Phenix.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:Phenix.Windows.BarItemDeleteEventArgs">
+            <summary>
+            菜单项Delete事件数据: Deleting、Deleted、DeleteCanceled
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarItemDeleteEventArgs.#ctor(DevExpress.XtraBars.BarItem,System.Windows.Forms.BindingSource)">
+            <summary>
+            初始化
+            </summary>
+            <param name="item">BarItem</param>
+            <param name="source">BindingSource</param>
+        </member>
+        <member name="T:Phenix.Windows.BarItemImportEventArgs">
+            <summary>
+            菜单项Click事件数据: Importing、Imported
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarItemImportEventArgs.#ctor(DevExpress.XtraBars.BarItem,System.Windows.Forms.BindingSource)">
+            <summary>
+            初始化
+            </summary>
+            <param name="item">BarItem</param>
+            <param name="source">BindingSource</param>
+        </member>
+        <member name="P:Phenix.Windows.BarItemImportEventArgs.SheetName">
+            <summary>
+            表单名
+            如为空则取Execl表单第一个Sheet内数据
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarItemImportEventArgs.PropertyInfos">
+            <summary>
+            属性信息队列, 顺序与表单columnIndex一致
+            如为空则按Execl表单列名与业务类属性名匹配条件进行数据填充
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.BarItemSaveEventArgs">
+            <summary>
+            菜单项Save事件数据: Saving、Saved
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarItemSaveEventArgs.#ctor(DevExpress.XtraBars.BarItem,System.Windows.Forms.BindingSource)">
+            <summary>
+            初始化
+            </summary>
+            <param name="item">BarItem</param>
+            <param name="source">BindingSource</param>
+        </member>
+        <member name="P:Phenix.Windows.BarItemSaveEventArgs.NeedCheckDirty">
+            <summary>
+            校验数据库数据在下载到提交期间是否被更改过, 一旦发现将报错: CheckDirtyException
+            缺省为 true
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarItemSaveEventArgs.OnlySaveSelected">
+            <summary>
+            仅提交被勾选的业务对象
+            设置为 null 时, 以Source上的 OnlySaveSelected 属性值为准
+            仅适用于业务集合对象的提交
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarItemSaveEventArgs.FirstTransactionData">
+            <summary>
+            与Source数据在一个事务里提交数据库, 并提前于Source数据执行保存操作
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarItemSaveEventArgs.LastTransactionData">
+            <summary>
+            与Source数据在一个事务里提交数据库, 并滞后于Source数据执行保存操作
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.BindingSourceChangeEventArgs">
+            <summary>
+            属性BindingSource值更改事件数据: Changing、Changed
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceChangeEventArgs.#ctor(System.Windows.Forms.BindingSource,System.Windows.Forms.BindingSource)">
+            <summary>
+            初始化
+            </summary>
+            <param name="oldValue">原值</param>
+            <param name="newValue">新值</param>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceChangeEventArgs.OldValue">
+            <summary>
+            原值
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceChangeEventArgs.NewValue">
+            <summary>
+            新值
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.BindingSourceStatus">
+            <summary>
+            数据源状况
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceStatus.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceStatus.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.BindingSourceIsDetail">
+            <summary>
+            数据源是从数据集
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.MasterBindingSource">
+            <summary>
+            主数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.MasterBindingSourceType">
+            <summary>
+            主数据源的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.MasterBindingSourceItemType">
+            <summary>
+            主数据源项的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.BindingSource">
+            <summary>
+            数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.BindingSourceType">
+            <summary>
+            数据源的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.BindingSourceCoreType">
+            <summary>
+            数据源项的核心类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.CriteriaBindingSource">
+            <summary>
+            条件数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.CriteriaBindingSourceType">
+            <summary>
+            条件数据源的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.CriteriaCombineControl">
+            <summary>
+            查询组合框控件
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.AutoRefresh">
+            <summary>
+            是否自动刷新?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.AutoRefreshValue">
+            <summary>
+            是否自动刷新?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.AutoFetch">
+            <summary>
+            是否自动Fetch?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.AutoFetchValue">
+            <summary>
+            是否自动Fetch?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.InFetch">
+            <summary>
+            是否用于Fetch功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.InFetchValue">
+            <summary>
+            是否用于Fetch功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.MustFetch">
+            <summary>
+            必须用于Fetch功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.MustFetchValue">
+            <summary>
+            必须用于Fetch功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.IsAsynchronousFetch">
+            <summary>
+            是否异步Fetch?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.IsAsynchronousFetchValue">
+            <summary>
+            是否异步Fetch?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.CacheEnabled">
+            <summary>
+            Fetch时是否需要缓存对象?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.CacheEnabledValue">
+            <summary>
+            Fetch时是否需要缓存对象?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.IncludeDisabled">
+            <summary>
+            Fetch时是否包含禁用记录?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.IncludeDisabledValue">
+            <summary>
+            Fetch时是否包含禁用记录?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.AutoStoreCriteria">
+            <summary>
+            是否自动保存和恢复Criterian内容?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.GroupName">
+            <summary>
+            分组名
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.Editabled">
+            <summary>
+            是否可编辑的?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.AllowLoopAdd">
+            <summary>
+            是否允许循环添加?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.AllowLoopAddValue">
+            <summary>
+            是否允许循环添加?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.HyperResetAuthorization">
+            <summary>
+            超灵敏重置授权?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.CurrentBusinessList">
+            <summary>
+            当前业务对象集合
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.CurrentBusiness">
+            <summary>
+            当前业务对象
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BindingSourceStatus.CurrentCriteria">
+            <summary>
+            当前条件对象
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceStatus.GetViewControls(System.Windows.Forms.Control)">
+            <summary>
+            提取视图控件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceStatus.GetEditControls(System.Windows.Forms.Control)">
+            <summary>
+            提取编辑控件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceStatus.GetCriteriaControls(System.Windows.Forms.Control)">
+            <summary>
+            提取条件控件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceStatus.ResetControlAuthorizationRules(System.Windows.Forms.Control,System.Boolean,System.Boolean)">
+            <summary>
+            重置控件容器内控件的读写授权
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="editMode">编辑状态</param>
+            <param name="readOnly">只读</param>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceStatus.CheckRules(System.Windows.Forms.Control,System.Boolean,DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider)">
+            <summary>
+            校验控件容器内编辑控件的失效数据
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="toFocused">聚焦失效控件</param>
+            <param name="errorProvider">DXErrorProvider</param>
+            <returns>失效数据事件数据</returns>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceStatus.ResetErrorProvider(System.Windows.Forms.Control,DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider)">
+            <summary>
+            重置ErrorProvider
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="errorProvider">DXErrorProvider</param>
+        </member>
+        <member name="M:Phenix.Windows.BindingSourceStatus.MustFetchBy(System.String)">
+            <summary>
+            必须用于Fetch功能?
+            </summary>
+            <param name="groupName">分组名</param>
+        </member>
+        <member name="T:Phenix.Windows.BarItemClickEventArgs">
+            <summary>
+            菜单项Click事件数据
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarItemClickEventArgs.#ctor(DevExpress.XtraBars.BarItem,System.Windows.Forms.BindingSource)">
+            <summary>
+            初始化
+            </summary>
+            <param name="item">BarItem</param>
+            <param name="source">BindingSource</param>
+        </member>
+        <member name="P:Phenix.Windows.BarItemClickEventArgs.Item">
+            <summary>
+            BarItem
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarItemClickEventArgs.Source">
+            <summary>
+            BindingSource
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.BarItemId">
+            <summary>
+            菜单项ID
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Fetch">
+            <summary>
+            检索
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Reset">
+            <summary>
+            复位
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Restore">
+            <summary>
+            恢复
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Add">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.AddClone">
+            <summary>
+            克隆
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Modify">
+            <summary>
+            编辑
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Locate">
+            <summary>
+            定位
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Cancel">
+            <summary>
+            取消
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Save">
+            <summary>
+            保存
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Import">
+            <summary>
+            导入
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Export">
+            <summary>
+            导出
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Print">
+            <summary>
+            打印
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Help">
+            <summary>
+            帮助
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Setup">
+            <summary>
+            设置
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Exit">
+            <summary>
+            退出
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.DataOperateState">
+            <summary>
+            操作状态
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.DataRecordState">
+            <summary>
+            记录状态
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BarItemId.Hint">
+            <summary>
+            提示
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.FormSetupDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.FormSetupDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.FormSetupDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.SheetNameSetDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.SheetNameSetDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.SheetNameSetDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.BaseForm">
+            <summary>
+            基础窗体
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BaseForm.#ctor">
+            <summary>
+            基础窗体
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BaseForm.KeyPreview">
+            <summary>
+            指示在将键事件传递到具有焦点的控件前窗体是否将接收此键事件
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BaseForm.EnterMoveNextControl">
+            <summary>
+            当输入回车键时选择下一个可用控件并使其成为活动控件
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BaseForm.PgUpMoveBackControl">
+            <summary>
+            当输入上页键时选择上一个可用控件并使其成为活动控件
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BaseForm.WorkSource">
+            <summary>
+            操作数据源
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BaseForm.OnShown(System.EventArgs)">
+            <summary>
+            OnShown
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BaseForm.OnFormClosed(System.Windows.Forms.FormClosedEventArgs)">
+            <summary>
+            OnFormClosed
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BaseForm.OnKeyPress(System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            OnKeyPress
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BaseForm.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            OnKeyDown
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BaseForm.AnalyseMessage(System.Object)">
+            <summary>
+            分析消息
+            由 PluginHost 调用
+            </summary>
+            <param name="message">消息</param>
+            <returns>按需返回</returns>
+        </member>
+        <member name="M:Phenix.Windows.BaseForm.Activate(System.Windows.Forms.Form)">
+            <summary>
+            激活MDI窗体
+            </summary>
+            <param name="mdiParent">主窗体</param>
+        </member>
+        <member name="F:Phenix.Windows.BaseForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BaseForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.BaseForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.BusinessGroupControl">
+            <summary>
+            标准业务栏控件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BusinessGroupControl.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BusinessGroupControl.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.BusinessGroupControl.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BusinessGroupControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.BusinessGroupControl.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaCombineItemBooleanValueControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemBooleanValueControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemBooleanValueControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaCombineItemColorValueControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemColorValueControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemColorValueControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaCombineItemControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaCombineItemDateTimeValueControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemDateTimeValueControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemDateTimeValueControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaCombineItemEnumValueControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemEnumValueControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemEnumValueControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaCombineItemValueBaseControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemValueBaseControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemValueBaseControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaCombineItemValueControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemValueControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineItemValueControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaExpressionNewDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaExpressionNewDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaExpressionNewDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.DataOperateState">
+            <summary>
+            数据操作状态
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.DataOperateState.None">
+            <summary>
+            无
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.DataOperateState.Fetching">
+            <summary>
+            检索中
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.DataOperateState.FetchSuspend">
+            <summary>
+            检索中断
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.DataOperateState.FetchAborted">
+            <summary>
+            检索失败
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.DataOperateState.Browse">
+            <summary>
+            浏览
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.DataOperateState.Add">
+            <summary>
+            新增
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.DataOperateState.Modify">
+            <summary>
+            编辑
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.DataOperateState.Delete">
+            <summary>
+            删除
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.EnumBindingSourceStatus">
+            <summary>
+            枚举数据源状况
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.EnumBindingSourceStatus.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.EnumBindingSourceStatus.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.EnumBindingSourceStatus.BindingSource">
+            <summary>
+            枚举数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.EnumBindingSourceStatus.BindingSourceType">
+            <summary>
+            数据源的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.EnumBindingSourceStatus.BindingSourceItemType">
+            <summary>
+            数据源项的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.EnumBindingSourceStatus.AutoFetch">
+            <summary>
+            是否自动Fetch?
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaExpressionPropertySelectDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaExpressionPropertySelectDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaExpressionPropertySelectDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.Helper.DXErrorProviderExtentions">
+            <summary>
+            DXErrorProvider扩展
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.DXErrorProviderExtentions.CheckRules(DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider,System.Windows.Forms.Control,System.Windows.Forms.BindingSource,System.Boolean)">
+            <summary>
+            校验控件容器内编辑控件的失效数据
+            </summary>
+            <param name="errorProvider">DXErrorProvider</param>
+            <param name="container">控件容器</param>
+            <param name="source">数据源</param>
+            <param name="toFocused">聚焦失效控件</param>
+            <returns>失效数据事件数据</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.DXErrorProviderExtentions.CheckRule(DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider,System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            校验编辑控件的失效数据
+            </summary>
+            <param name="errorProvider">DXErrorProvider</param>
+            <param name="control">控件</param>
+            <param name="toFocused">聚焦失效控件</param>
+            <returns>失效数据事件数据</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.DXErrorProviderExtentions.InvokeSetError(DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider,System.Windows.Forms.Control,System.String,DevExpress.XtraEditors.DXErrorProvider.ErrorType)">
+            <summary>
+            显示失效数据信息（线程安全）
+            </summary>
+            <param name="errorProvider">DXErrorProvider</param>
+            <param name="control">控件</param>
+            <param name="errorMessage">信息</param>
+            <param name="errorType">类型</param>
+        </member>
+        <member name="T:Phenix.Windows.Helper.VGridControlHelper">
+            <summary>
+            VGridControl助手
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Helper.VGridControlHelper.LocalCacheDirectory">
+            <summary>
+            本地缓存目录
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.FindGridControl(System.Collections.Generic.IList{DevExpress.XtraVerticalGrid.VGridControl},System.Windows.Forms.BindingSource)">
+            <summary>
+            检索第一个匹配VGridControl
+            </summary>
+            <param name="grids">VGridControl队列</param>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.FocusGridControl(System.Collections.Generic.IList{DevExpress.XtraVerticalGrid.VGridControl},System.Windows.Forms.BindingSource)">
+            <summary>
+            搜索第一个匹配的VGridControl，并定位焦点
+            </summary>
+            <param name="grids">VGridControl队列</param>
+            <param name="source">数据源</param>
+            <returns>被定位焦点的VGridControl</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.FocusEditableGridControl(System.Collections.Generic.IList{DevExpress.XtraVerticalGrid.VGridControl},System.Windows.Forms.BindingSource)">
+            <summary>
+            搜索第一个匹配的可编辑VGridControl，并定位焦点
+            </summary>
+            <param name="grids">VGridControl队列</param>
+            <param name="source">数据源</param>
+            <returns>被定位焦点的VGridControl</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.Export(DevExpress.XtraVerticalGrid.VGridControlBase)">
+            <summary>
+            导出报表
+            </summary>
+            <param name="grid">GridControl</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.Export(DevExpress.XtraVerticalGrid.VGridControlBase,System.String)">
+            <summary>
+            导出报表
+            </summary>
+            <param name="grid">GridControl</param>
+            <param name="title">Title</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.Export(DevExpress.XtraVerticalGrid.VGridControlBase,System.String,System.String)">
+            <summary>
+            导出报表
+            </summary>
+            <param name="grid">VGridControlBase</param>
+            <param name="title">Title</param>
+            <param name="filter">Filter</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.SaveLayout(System.Windows.Forms.Control,DevExpress.XtraVerticalGrid.VGridControl)">
+            <summary>
+            保存布局
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="grid">VGridControl</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.RestoreLayout(System.Windows.Forms.Control,DevExpress.XtraVerticalGrid.VGridControl)">
+            <summary>
+            恢复布局
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="grid">VGridControl</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.ResetLayout(System.Windows.Forms.Control,DevExpress.XtraVerticalGrid.VGridControl)">
+            <summary>
+            重置布局
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="grid">VGridControl</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.VGridControlHelper.PostEditor(System.Collections.Generic.IList{DevExpress.XtraVerticalGrid.VGridControl})">
+            <summary>
+            交付编辑
+            </summary>
+            <param name="grids">GridControl队列</param>
+        </member>
+        <member name="F:Phenix.Windows.Helper.DesignForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.DesignForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.DesignForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Helper.PreviewForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PreviewForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PreviewForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.Helper.TemplateFile">
+            <summary>
+            模板文件
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Helper.TemplateFile.OriginalReport">
+            <summary>
+            原始报表
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Helper.TemplateFile.Report">
+            <summary>
+            报表
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Helper.TemplateFile.TemplateName">
+            <summary>
+            模板名
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Helper.TemplateFile.Path">
+            <summary>
+            路径
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Helper.TemplateFile.IsDefaultTemplate">
+            <summary>
+            是否为默认模板
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.TemplateFile.GetHashCode">
+            <summary>
+            取哈希值
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.TemplateFile.Equals(System.Object)">
+            <summary>
+            比较对象
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.TemplateFile.Save">
+            <summary>
+            保存模板
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.TemplateFile.TidyTemplateName(System.String)">
+            <summary>
+            整理模板名
+            </summary>
+            <param name="templateName">模板名</param>
+            <returns>模板名</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.TemplateFile.GetDirectory(DevExpress.XtraReports.UI.XtraReport)">
+            <summary>
+            获取模板目录
+            </summary>
+            <param name="report">报表</param>
+            <returns>模板目录</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.TemplateFile.GetTemplates(DevExpress.XtraReports.UI.XtraReport)">
+            <summary>
+            获取模板文件
+            </summary>
+            <param name="report">报表</param>
+            <returns>模板文件队列</returns>
+        </member>
+        <member name="F:Phenix.Windows.Helper.TemplateSetDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.TemplateSetDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.TemplateSetDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.Helper.XtraReportExtentions">
+            <summary>
+            XtraReport扩展
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportExtentions.ShowPreviewDialog(DevExpress.XtraReports.UI.XtraReport)">
+            <summary>
+            显示报表预览
+            canDesign = true
+            </summary>
+            <param name="report">报表</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportExtentions.ShowPreviewDialog(DevExpress.XtraReports.UI.XtraReport,System.Boolean)">
+            <summary>
+            显示报表预览
+            </summary>
+            <param name="report">报表</param>
+            <param name="canDesign">是否可以编辑报表模板</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportExtentions.ShowPreviewDialog(DevExpress.XtraReports.UI.XtraReport,System.Object)">
+            <summary>
+            显示报表预览
+            canDesign = true
+            </summary>
+            <param name="report">报表</param>
+            <param name="dataSource">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportExtentions.ShowPreviewDialog(DevExpress.XtraReports.UI.XtraReport,System.Object,System.Boolean)">
+            <summary>
+            显示报表预览
+            </summary>
+            <param name="report">报表</param>
+            <param name="dataSource">数据源</param>
+            <param name="canDesign">是否可以编辑报表模板</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportExtentions.ShowDesignerDialog(DevExpress.XtraReports.UI.XtraReport)">
+            <summary>
+            显示报表设计窗口
+            </summary>
+            <param name="report"></param>
+        </member>
+        <member name="T:Phenix.Windows.Helper.EditControlHelper">
+            <summary>
+            EditControl助手
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.EditControlHelper.FocusControl(System.Collections.Generic.IList{System.Windows.Forms.Control})">
+            <summary>
+            搜索第一个匹配的控件，并定位焦点
+            </summary>
+            <param name="controls">控件队列</param>
+            <returns>被定位焦点的编辑控件</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.EditControlHelper.FocusControl(System.Windows.Forms.Control,System.Windows.Forms.BindingSource)">
+            <summary>
+            搜索第一个匹配的控件，并定位焦点
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="source">数据源</param>
+            <returns>被定位焦点的编辑控件</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.EditControlHelper.FocusEditableControl(System.Collections.Generic.IList{System.Windows.Forms.Control})">
+            <summary>
+            搜索第一个匹配的可编辑控件，并定位焦点
+            </summary>
+            <param name="controls">控件队列</param>
+            <returns>被定位焦点的编辑控件</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.EditControlHelper.FocusEditableControl(System.Windows.Forms.Control,System.Windows.Forms.BindingSource)">
+            <summary>
+            搜索第一个匹配的可编辑控件，并定位焦点
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="source">数据源</param>
+            <returns>被定位焦点的编辑控件</returns>
+        </member>
+        <member name="T:Phenix.Windows.Helper.ExcelHelper">
+            <summary>
+            Excel助手
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.ExcelHelper.Import">
+            <summary>
+            读取Excel文件
+            取第一个表单数据
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.ExcelHelper.Import(System.String)">
+            <summary>
+            读取Excel文件
+            取指定表单数据
+            </summary>
+            <param name="sheetName">表单名</param>
+        </member>
+        <member name="T:Phenix.Windows.Helper.GridViewExtentions">
+            <summary>
+            GridView扩展
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridViewExtentions.SetBackColor(DevExpress.XtraGrid.Views.Grid.GridView,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            设置背景色
+            </summary>
+            <param name="view">GridView</param>
+            <param name="oddRowColor">view.Appearance.OddRow.BackColor</param>
+            <param name="evenRowColor">view.Appearance.EvenRow.BackColor</param>
+            <param name="focusedRowColor">view.Appearance.FocusedRow.BackColor</param>
+        </member>
+        <member name="T:Phenix.Windows.Helper.GridControlHelper">
+            <summary>
+            GridControl助手
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Helper.GridControlHelper.LocalCacheDirectory">
+            <summary>
+            本地缓存目录
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.FindGridControl(System.Collections.Generic.IList{DevExpress.XtraGrid.GridControl},System.Windows.Forms.BindingSource)">
+            <summary>
+            检索第一个匹配GridControl
+            </summary>
+            <param name="grids">GridControl队列</param>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.FocusColumn(System.Collections.Generic.IList{DevExpress.XtraGrid.GridControl},System.Windows.Forms.BindingSource)">
+            <summary>
+            搜索第一个匹配的GridControl，并定位列焦点
+            </summary>
+            <param name="grids">GridControl队列</param>
+            <param name="source">数据源</param>
+            <returns>被定位焦点的GridControl</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.FocusEditableColumn(System.Collections.Generic.IList{DevExpress.XtraGrid.GridControl},System.Windows.Forms.BindingSource)">
+            <summary>
+            搜索第一个匹配的GridControl，并定位可编辑的列焦点
+            </summary>
+            <param name="grids">GridControl队列</param>
+            <param name="source">数据源</param>
+            <returns>被定位焦点的GridControl</returns>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.SetMultiSelect(System.Collections.Generic.IList{DevExpress.XtraGrid.GridControl},System.Windows.Forms.BindingSource,System.Boolean)">
+            <summary>
+            设置多选值
+            </summary>
+            <param name="grids">GridControl队列</param>
+            <param name="source">数据源</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.FindMultiSelected(System.Collections.Generic.IList{DevExpress.XtraGrid.GridControl},System.Windows.Forms.BindingSource)">
+            <summary>
+            检索被多选选择的对象
+            </summary>
+            <param name="grids">GridControl队列</param>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.FindGridLevelNode(DevExpress.XtraGrid.Views.Base.ColumnView)">
+            <summary>
+            检索匹配的GridLevelNode
+            </summary>
+            <param name="view">ColumnView</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.FindDataSourceType(DevExpress.XtraGrid.Views.Base.ColumnView)">
+            <summary>
+            检索ColumnView关联的类
+            </summary>
+            <param name="view">GridView</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.Export(DevExpress.XtraGrid.GridControl)">
+            <summary>
+            导出报表
+            </summary>
+            <param name="grid">GridControl</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.Export(DevExpress.XtraGrid.GridControl,System.String)">
+            <summary>
+            导出报表
+            </summary>
+            <param name="grid">GridControl</param>
+            <param name="title">Title</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.Export(DevExpress.XtraGrid.GridControl,System.String,System.String)">
+            <summary>
+            导出报表
+            </summary>
+            <param name="grid">GridControl</param>
+            <param name="title">Title</param>
+            <param name="filter">Filter</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.SaveLayout(System.Windows.Forms.Control)">
+            <summary>
+            保存布局
+            </summary>
+            <param name="container">控件容器</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.SaveLayout(System.Windows.Forms.Control,DevExpress.XtraGrid.GridControl)">
+            <summary>
+            保存布局
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="grid">GridControl</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.RestoreLayout(System.Windows.Forms.Control)">
+            <summary>
+            恢复布局
+            </summary>
+            <param name="container">控件容器</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.RestoreLayout(System.Windows.Forms.Control,DevExpress.XtraGrid.GridControl)">
+            <summary>
+            恢复布局
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="grid">GridControl</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.ResetLayout(System.Windows.Forms.Control,DevExpress.XtraGrid.GridControl)">
+            <summary>
+            重置布局
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="grid">GridControl</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.GridControlHelper.PostEditor(System.Collections.Generic.IList{DevExpress.XtraGrid.GridControl})">
+            <summary>
+            交付编辑
+            </summary>
+            <param name="grids">GridControl队列</param>
+        </member>
+        <member name="T:Phenix.Windows.Helper.LayoutControlHelper">
+            <summary>
+            LayoutControl助手
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Helper.LayoutControlHelper.LocalCacheDirectory">
+            <summary>
+            本地缓存目录
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.LayoutControlHelper.FindLayoutControlItem(System.Windows.Forms.Control)">
+            <summary>
+            取控件关联的LayoutControlItem
+            </summary>
+            <param name="control">控件</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.LayoutControlHelper.SaveLayout(System.Windows.Forms.Control)">
+            <summary>
+            保存布局
+            </summary>
+            <param name="container">控件容器</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.LayoutControlHelper.SaveLayout(System.Windows.Forms.Control,DevExpress.XtraLayout.LayoutControl)">
+            <summary>
+            保存布局
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="layout">layout</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.LayoutControlHelper.RestoreLayout(System.Windows.Forms.Control)">
+            <summary>
+            恢复布局
+            </summary>
+            <param name="container">控件容器</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.LayoutControlHelper.RestoreLayout(System.Windows.Forms.Control,DevExpress.XtraLayout.LayoutControl)">
+            <summary>
+            恢复布局
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="layout">layout</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.LayoutControlHelper.ResetLayout(System.Windows.Forms.Control,DevExpress.XtraLayout.LayoutControl)">
+            <summary>
+            重置布局
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="layout">layout</param>
+        </member>
+        <member name="T:Phenix.Windows.Helper.PersistentHelper">
+            <summary>
+            持久化助手
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute(System.Action,System.String)">
+            <summary>
+            提交数据
+            throwIfException = false
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute(System.Action,System.String,System.Boolean)">
+            <summary>
+            提交数据
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+            <param name="throwIfException">如果为 true, 则会在截获异常时抛出; 如果为 false, 则在处理完异常后返回 false</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute(System.Func{System.Boolean},System.String)">
+            <summary>
+            提交数据
+            throwIfException = false
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute(System.Func{System.Boolean},System.String,System.Boolean)">
+            <summary>
+            提交数据
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+            <param name="throwIfException">如果为 true, 则会在截获异常时抛出; 如果为 false, 则在处理完异常后返回 false</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute(System.Action{System.Boolean},System.String,System.Boolean)">
+            <summary>
+            提交数据
+            throwIfException = false
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+            <param name="needCheckDirty">校验数据库数据在下载到提交期间是否被更改过, 一旦发现将报错: CheckDirtyException; 如果ClassAttribute.AllowIgnoreCheckDirty = false本功能无效, 必定报错: CheckSaveException</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute(System.Action{System.Boolean},System.String,System.Boolean,System.Boolean)">
+            <summary>
+            提交数据
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+            <param name="needCheckDirty">校验数据库数据在下载到提交期间是否被更改过, 一旦发现将报错: CheckDirtyException; 如果ClassAttribute.AllowIgnoreCheckDirty = false本功能无效, 必定报错: CheckSaveException</param>
+            <param name="throwIfException">如果为 true, 则会在截获异常时抛出; 如果为 false, 则在处理完异常后返回 false</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute(System.Func{System.Boolean,System.Boolean},System.String,System.Boolean)">
+            <summary>
+            提交数据
+            throwIfException = false
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+            <param name="needCheckDirty">校验数据库数据在下载到提交期间是否被更改过, 一旦发现将报错: CheckDirtyException; 如果ClassAttribute.AllowIgnoreCheckDirty = false本功能无效, 必定报错: CheckSaveException</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute(System.Func{System.Boolean,System.Boolean},System.String,System.Boolean,System.Boolean)">
+            <summary>
+            提交数据
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+            <param name="needCheckDirty">校验数据库数据在下载到提交期间是否被更改过, 一旦发现将报错: CheckDirtyException; 如果ClassAttribute.AllowIgnoreCheckDirty = false本功能无效, 必定报错: CheckSaveException</param>
+            <param name="throwIfException">如果为 true, 则会在截获异常时抛出; 如果为 false, 则在处理完异常后返回 false</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute``1(System.Func{``0},System.String)">
+            <summary>
+            提交数据
+            throwIfException = false
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute``1(System.Func{``0},System.String,System.Boolean)">
+            <summary>
+            提交数据
+            </summary>
+            <param name="doExecute">执行数据库操作处理函数</param>
+            <param name="hint">提示信息</param>
+            <param name="throwIfException">如果为 true, 则会在截获异常时抛出; 如果为 false, 则在处理完异常后返回 false</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute``1(``0,System.String)">
+            <summary>
+            提交数据
+            throwIfException = false
+            </summary>
+            <param name="command">指令</param>
+            <param name="hint">提示信息</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.PersistentHelper.Execute``1(``0,System.String,System.Boolean)">
+            <summary>
+            提交数据
+            </summary>
+            <param name="command">指令</param>
+            <param name="hint">提示信息</param>
+            <param name="throwIfException">如果为 true, 则会在截获异常时抛出; 如果为 false, 则在处理完异常后返回 false</param>
+        </member>
+        <member name="T:Phenix.Windows.Helper.TreeListExtentions">
+            <summary>
+            TreeList扩展
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.TreeListExtentions.SetBackColor(DevExpress.XtraTreeList.TreeList,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            设置背景色
+            </summary>
+            <param name="treeList">TreeList</param>
+            <param name="oddRowColor">OddRow背景色</param>
+            <param name="evenRowColor">EvenRow背景色</param>
+        </member>
+        <member name="T:Phenix.Windows.Helper.XtraReportHelper">
+            <summary>
+            XtraReport助手
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportHelper.ShowPreviewDialog``1">
+            <summary>
+            显示报表预览
+            canDesign = true
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportHelper.ShowPreviewDialog``1(System.Boolean)">
+            <summary>
+            显示报表预览
+            </summary>
+            <param name="canDesign">是否可以编辑报表模板</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportHelper.ShowPreviewDialog``1(System.Object)">
+            <summary>
+            显示报表预览
+            canDesign = true
+            </summary>
+            <param name="dataSource">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportHelper.ShowPreviewDialog``1(System.Object,System.Boolean)">
+            <summary>
+            显示报表预览
+            </summary>
+            <param name="dataSource">数据源</param>
+            <param name="canDesign">是否可以编辑报表模板</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportHelper.ShowPreviewDialog(System.Type)">
+            <summary>
+            显示报表预览
+            canDesign = true
+            </summary>
+            <param name="reportType">报表类型</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportHelper.ShowPreviewDialog(System.Type,System.Boolean)">
+            <summary>
+            显示报表预览
+            </summary>
+            <param name="reportType">报表类型</param>
+            <param name="canDesign">是否可以编辑报表模板</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportHelper.ShowPreviewDialog(System.Type,System.Object)">
+            <summary>
+            显示报表预览
+            canDesign = true
+            </summary>
+            <param name="reportType">报表类型</param>
+            <param name="dataSource">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.Helper.XtraReportHelper.ShowPreviewDialog(System.Type,System.Object,System.Boolean)">
+            <summary>
+            显示报表预览
+            </summary>
+            <param name="reportType">报表类型</param>
+            <param name="dataSource">数据源</param>
+            <param name="canDesign">是否可以编辑报表模板</param>
+        </member>
+        <member name="T:Phenix.Windows.DialogForm">
+            <summary>
+            基础窗体
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.DialogForm.#ctor">
+            <summary>
+            基础窗体
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.DialogForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.DialogForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.DialogForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.CriteriaGroupControl">
+            <summary>
+            标准检索栏控件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaGroupControl.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaGroupControl.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaGroupControl.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaGroupControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaGroupControl.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.CriteriaCombineControl">
+            <summary>
+            查询组合框控件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineControl.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.CriteriaCombineControl.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.CriteriaCombineControl.OperateClassType">
+            <summary>
+            数据源项的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.CriteriaCombineControl.CriteriaExpressionName">
+            <summary>
+            条件表达式名称
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.CriteriaCombineControl.CriteriaExpressionNameValue">
+            <summary>
+            条件表达式名称
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.CriteriaCombineControl.DefaultReadLevel">
+            <summary>
+            缺省读取级别
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.CriteriaCombineControl.WorkingCriteriaExpression">
+            <summary>
+            当前操作的条件表达式
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineControl.BeginInit">
+            <summary>
+             开始初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineControl.EndInit">
+            <summary>
+             结束初始化
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.CriteriaCombineControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.CriteriaCombineControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.PromptCodeBindingSourceStatus">
+            <summary>
+            提示码数据源状况
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.PromptCodeBindingSourceStatus.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.PromptCodeBindingSourceStatus.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.BindingSource">
+            <summary>
+            提示码数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.BindingSourceType">
+            <summary>
+            数据源的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.PromptCodeName">
+            <summary>
+            提示码名
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.DefaultReadLevel">
+            <summary>
+            缺省读取级别
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.PromptCodeBindingSourceStatus._autoRefresh">
+            <summary>
+            是否自动刷新?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.AutoRefresh">
+            <summary>
+            是否自动刷新?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.AutoFetch">
+            <summary>
+            是否自动Fetch?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.InFetch">
+            <summary>
+            是否用于Fetch功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.MustFetch">
+            <summary>
+            必须用于Fetch功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.IsAsynchronousFetch">
+            <summary>
+            是否异步Fetch?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.CacheEnabled">
+            <summary>
+            Fetch时是否需要缓存对象?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.PromptCodeBindingSourceStatus.GroupName">
+            <summary>
+            分组名
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.PromptCodeBindingSourceStatus.MustFetchBy(System.String)">
+            <summary>
+            必须用于Fetch功能?
+            </summary>
+            <param name="groupName">分组名</param>
+        </member>
+        <member name="F:Phenix.Windows.PromptCodeEditDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.PromptCodeEditDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.PromptCodeEditDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.ProcessControl">
+            <summary>
+             进度条
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.ProcessControl.#ctor">
+            <summary>
+             进度条
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.ProcessControl.#ctor(System.String,System.Int32,System.Int32,System.Int32,System.Windows.Forms.Form)">
+            <summary>
+             进度条
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.ProcessControl.Reset(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+             重置
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.ProcessControl.PerformStep(System.String)">
+            <summary>
+             执行
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.ProcessControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.ProcessControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.ProcessControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.Culture">
+            <summary>
+              重写当前线程的 CurrentUICulture 属性
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.BindingSourceFilling">
+            <summary>
+              查找类似 Fill {0} {1} data... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.BindingSourcePropertyIsNull">
+            <summary>
+              查找类似 BindingSource Property do not allow null! 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ConfirmCancel">
+            <summary>
+              查找类似 Are you sure you want to forsake editor of {0} content? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ConfirmDelete">
+            <summary>
+              查找类似 Are you sure you want to delete {0} {1} record? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ConfirmDeleteMultistepSubmit">
+            <summary>
+              查找类似 Are you sure you want to delete {0} {1} record? In the finished editing and click the submit button will be officially removed 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ConfirmExecute">
+            <summary>
+              查找类似 Are you sure you want to execute {0}? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ConfirmExit">
+            <summary>
+              查找类似 The current state in the editing, are you sure you want to exit? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ConfirmFetch">
+            <summary>
+              查找类似 The current state in the editing, are you sure you want to refresh? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataAdding">
+            <summary>
+              查找类似 Records have been added, please complete the editing is submitted or cancelled 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataAddingOrAllowFetch">
+            <summary>
+              查找类似 Records have been added, please complete the editing submitted or canceled, and allow in accordance with the current in content retrieval 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataBrowse">
+            <summary>
+              查找类似 Browse 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataCanceled">
+            <summary>
+              查找类似 Has cancelled edit {0} content 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataDelete">
+            <summary>
+              查找类似 Delete records 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataDeleteAborted">
+            <summary>
+              查找类似 Delete records {0} {1} failure: {2} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataDeleting">
+            <summary>
+              查找类似 Records have been deleted, may submit or cancelled 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataExport">
+            <summary>
+              查找类似 Export record 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataExportAborted">
+            <summary>
+              查找类似 Export records to file {0} failure, whether to continue to try? : {1} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataExporting">
+            <summary>
+              查找类似 Export records to {0}... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataExportOpenFile">
+            <summary>
+              查找类似 Records have been export to file {0}, whether to need to open it? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataFetch">
+            <summary>
+              查找类似 Retrieval records 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataFetchAborted">
+            <summary>
+              查找类似 Retrieval records failure: {0} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataFetching">
+            <summary>
+              查找类似 Retrieval records {0}... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataFetchSucceed">
+            <summary>
+              查找类似 Successful retrieval {0} record of article {1}, download only {2} seconds 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataFetchSuspend">
+            <summary>
+              查找类似 Retrieval record interrupt 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataImport">
+            <summary>
+              查找类似 Import record (note the first line is listed, and all order shall not disorder) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataImportAborted">
+            <summary>
+              查找类似 Import record files {0} failure, whether to continue to try? : {1} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataImporting">
+            <summary>
+              查找类似 Import record files {0}... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataImportSucceed">
+            <summary>
+              查找类似 The successful implementation of {0} record of article {1}, filling, used when the {2: F3} seconds, binding used when the {3: F3} seconds, total {4: F3} seconds 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataModifying">
+            <summary>
+              查找类似 Edit record, please complete the editing is submitted or cancelled 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataReset">
+            <summary>
+              查找类似 Reset 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataResetAborted">
+            <summary>
+              查找类似 Reset failure: {0} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataReseting">
+            <summary>
+              查找类似 Reset... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataResetSucceed">
+            <summary>
+              查找类似 Successful reset 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataRestore">
+            <summary>
+              查找类似 Restore records 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataRestoreAborted">
+            <summary>
+              查找类似 Restore records {0} {1} failure: {2} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataSave">
+            <summary>
+              查找类似 Submit records 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataSaveAborted">
+            <summary>
+              查找类似 Submit {0} {1} record failure: {2} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataSaveForcibly">
+            <summary>
+              查找类似 Submit {0} {1} failure record, whether to force kept? : {2}. 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataSaveSucceed">
+            <summary>
+              查找类似 Successful submission {0} record 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DataSaving">
+            <summary>
+              查找类似 Submit records {0} {1}... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DefTemplateName">
+            <summary>
+              查找类似 DefTemplate 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DeleteTemplate">
+            <summary>
+              查找类似 Delete Template 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.DeleteTemplateHint">
+            <summary>
+              查找类似 Are you sure you want to delete the template {0}? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.EditTemplate">
+            <summary>
+              查找类似 Edit Template 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.Empty">
+            <summary>
+              查找类似 null 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ExcelImportFilter">
+            <summary>
+              查找类似 Excel files (*. XLS) | *. XLS | Excel 2007 files (*. XLSX) | *. XLSX 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ExecutAborted">
+            <summary>
+              查找类似 execute {0} failure: {1} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ExecuteMethod">
+            <summary>
+              查找类似 Execute method 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ExecuteSucceed">
+            <summary>
+              查找类似 Successful execute {0} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.Executing">
+            <summary>
+              查找类似 {0} executing... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.GridExportFilter">
+            <summary>
+              查找类似 Excel files (*. XLS) | *. XLS | Excel 2007 files (*. XLSX) | *. XLSX | text files (*. TXT) | *. TXT | page files (*. HTML) | *. HTML 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.HaveTemplate">
+            <summary>
+              查找类似 Have template  {0} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.LockingPosition">
+            <summary>
+              查找类似 The position have locked, such as mobile will be cancelled editor status, whether or not to continue? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.LockProcessHint">
+            <summary>
+              查找类似 This form can open after unlock 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.OpenFileAborted">
+            <summary>
+              查找类似 Open the file {0} failure, but not influence you to continue to homework. Please dispose of: {1} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ResetBindingSources">
+            <summary>
+              查找类似 Reset BindingSources 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ResetBindingSourcesSucceed">
+            <summary>
+              查找类似 Reset BindingSources succeed 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ResetBindingSourcesUnchanged">
+            <summary>
+              查找类似 Reset BindingSources unchanged 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ResetTemplate">
+            <summary>
+              查找类似 Reset Template 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ResetTreeListRules">
+            <summary>
+              查找类似 Reset TreeListRules 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ResetTreeListRulesSucceed">
+            <summary>
+              查找类似 Already Reset TreeListRules, please check is correct 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.RuleChecked">
+            <summary>
+              查找类似 Data validation finished 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.RuleCheckHint">
+            <summary>
+              查找类似 The current record is invalid, please check: {0} 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.SwitchEditTemplate">
+            <summary>
+              查找类似 Switch Template 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.SwitchEditTemplateHint">
+            <summary>
+              查找类似 {0} has been changed, save? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.Template">
+            <summary>
+              查找类似 Template 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarAddBodyTip">
+            <summary>
+              查找类似 New records 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarAddCloneBodyTip">
+            <summary>
+              查找类似 New cloned 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarAddCloneHeaderTip">
+            <summary>
+              查找类似 Clone(&amp;C) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarAddHeaderTip">
+            <summary>
+              查找类似 New(&amp;N) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarCancelBodyTip">
+            <summary>
+              查找类似 Back to the last time submit/loading condition 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarCancelHeaderTip">
+            <summary>
+              查找类似 Cancel(&amp;Z) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarDeleteBodyTip">
+            <summary>
+              查找类似 Delete the choice of a single/more records 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarDeleteHeaderTip">
+            <summary>
+              查找类似 Delete(&amp;D) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarExitBodyTip">
+            <summary>
+              查找类似 Exit 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarExitHeaderTip">
+            <summary>
+              查找类似 Exit(&amp;X) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarExportBodyTip">
+            <summary>
+              查找类似 Export the current record... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarExportHeaderTip">
+            <summary>
+              查找类似 Export(&amp;O) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarFetchBodyTip">
+            <summary>
+              查找类似 Retrieve records 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarFetchHeaderTip">
+            <summary>
+              查找类似 Fetch(&amp;F) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarHelpBodyTip">
+            <summary>
+              查找类似 Help 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarHelpHeaderTip">
+            <summary>
+              查找类似 Help(&amp;H) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarImportBodyTip">
+            <summary>
+              查找类似 From the Excel import record... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarImportHeaderTip">
+            <summary>
+              查找类似 Import(&amp;I) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarLocateBodyTip">
+            <summary>
+              查找类似 Positioning to edit record 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarLocateHeaderTip">
+            <summary>
+              查找类似 Locate(&amp;L) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarModifyBodyTip">
+            <summary>
+              查找类似 Edit record 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarModifyHeaderTip">
+            <summary>
+              查找类似 Modify(&amp;E) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarPrintBodyTip">
+            <summary>
+              查找类似 Print the current record... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarPrintHeaderTip">
+            <summary>
+              查找类似 Print(&amp;P) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarResetBodyTip">
+            <summary>
+              查找类似 Reset 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarResetHeaderTip">
+            <summary>
+              查找类似 Reset 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarRestoreBodyTip">
+            <summary>
+              查找类似 Restore... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarRestoreHeaderTip">
+            <summary>
+              查找类似 Restore(&amp;R) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarSaveBodyTip">
+            <summary>
+              查找类似 Submit records 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarSaveHeaderTip">
+            <summary>
+              查找类似 Save(&amp;S) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarSetupBodyTip">
+            <summary>
+              查找类似 Setup... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Properties.Resources.ToolBarSetupHeaderTip">
+            <summary>
+              查找类似 Setup(&amp;T) 的本地化字符串。
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.BarManager">
+            <summary>
+            Bar管理器
+            
+            集成EditValidation、ReadWriteAuthorization组件
+            
+            通过当前BindingSource以及当前用户的权限, 控制Tools Bar、Status Bar的灰亮、显示内容及绑定数据控件的读写规则、验证规则等
+            
+            Tools Bar上的按钮除了Help外，都有缺省的处理过程
+            
+            不推荐自行处理Tools Bar按钮事件, 可通过处理本组件的相关按钮的触发前事件、触发后事件来实现相应的过程
+            
+            在触发前事件里，可将e.Applied置为true, 屏蔽掉本组件的缺省处理过程, 由自己来掌控数据集的增删改等过程
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.Form">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AutoStoreGridControlLayout">
+            <summary>
+            是否自动保存和恢复GridControl布局
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AutoStoreLayoutControlLayout">
+            <summary>
+            是否自动保存和恢复LayoutControl布局
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.BindingSources">
+            <summary>
+            数据源队列
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.EnumBindingSources">
+            <summary>
+            枚举数据源队列
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.PromptCodeBindingSources">
+            <summary>
+            提示码数据源队列
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.MasterBindingSource">
+            <summary>
+            主数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.BindingSource">
+            <summary>
+            数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.BindingSourceCoreType">
+            <summary>
+            数据源项的核心类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.CriteriaBindingSource">
+            <summary>
+            条件数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.CriteriaCombineControl">
+            <summary>
+            查询组合框控件
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.ReportType">
+            <summary>
+            输出报表的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.GroupName">
+            <summary>
+            分组名
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.BindingSourceEditabled">
+            <summary>
+            是否允许编辑
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.BindingSourceAllowLoopAdd">
+            <summary>
+            是否允许循环添加
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.HyperResetAuthorization">
+            <summary>
+            超灵敏重置授权?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AutoEditOnFetched">
+            <summary>
+            OnFetched时是否自动进入编辑状态
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AutoEditOnSaved">
+            <summary>
+            OnSaved时是否自动进入编辑状态
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AutoEditOnEditControlByDoubleClick">
+            <summary>
+            双击编辑控件时是否自动进入编辑状态
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AllowMultistepSubmit">
+            <summary>
+            允许多步提交
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AllowMultistepSubmitMaster">
+            <summary>
+            允许多步提交主业务
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.InMultistepSubmitMode">
+            <summary>
+            处于多步提交模式
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.NeedLockPositionInOnestepSubmit">
+            <summary>
+            需要单步提交时锁死游标
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.CurrentBusinessList">
+            <summary>
+            当前业务对象集合
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.CurrentBusiness">
+            <summary>
+            当前业务对象
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.CurrentBusinessRoot">
+            <summary>
+            当前业务根对象
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.CurrentCriteria">
+            <summary>
+            当前条件对象
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.OperateState">
+            <summary>
+            操作状态
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.EditMode">
+            <summary>
+            在编辑状态
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.EditDirty">
+            <summary>
+            更改过数据
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.NotUndoable">
+            <summary>
+            不参与回滚机制并阻断Detail的回滚处理
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.ReadOnly">
+            <summary>
+            在只读状态
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AllowAdd">
+            <summary>
+            允许Add
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AllowModify">
+            <summary>
+            允许Modify
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.AllowDelete">
+            <summary>
+            允许Delete
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.CurrentPosition">
+            <summary>
+            当前游标
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.EditBindingSource">
+            <summary>
+            编辑数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.EditObject">
+            <summary>
+            编辑对象
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.EditPosition">
+            <summary>
+            编辑游标
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.PromptInFetching">
+            <summary>
+            在编辑状态下检索数据时提示当前处于编辑状态且已更改过数据
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.PromptInDeleting">
+            <summary>
+            删除前提示确认删除操作
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.PromptInCanceling">
+            <summary>
+            取消前提示确认取消操作
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.PromptInSaved">
+            <summary>
+            保存后提示保存成功
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.PromptInClosing">
+            <summary>
+            在编辑状态下关闭窗体时提示当前处于编辑状态且已更改过数据
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.NeedLockProcess">
+            <summary>
+            需要过程锁独占窗体, 一旦发现被他人占用将提示 ProcessLockException 信息
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.ParallelFetch">
+            <summary>
+            是否并行Fetch?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.InFetchBindingSources">
+            <summary>
+            是否处于Fetch中
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.LocatePositionMaximum">
+            <summary>
+            定位游标极限 
+            缺省为 1000
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.BarManager.ToAddLast">
+            <summary>
+            Add到集合末尾?
+            缺省为 true
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.GetFriendlyCaption(System.Windows.Forms.Control)">
+            <summary>
+            友好性标签
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.SetFriendlyCaption(System.Windows.Forms.Control,System.ComponentModel.Component)">
+            <summary>
+            友好性标签
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.BindingSourceChanging">
+            <summary>
+            属性BindingSource值发生更改时
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.BindingSourceChanged">
+            <summary>
+            属性BindingSource值发生更改后
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.GroupNameChanged">
+            <summary>
+            属性GroupName值发生了更改
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.OperateStateChanged">
+            <summary>
+            属性OperateState值发生了更改
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.RulesApplied">
+            <summary>
+            规则已被应用
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.DataInvalid">
+            <summary>
+            数据失效
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.SaveFailed">
+            <summary>
+            保存失败
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Fetching">
+            <summary>
+            检索按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Fetched">
+            <summary>
+            检索按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Resetting">
+            <summary>
+            复位按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Reset">
+            <summary>
+            复位按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Restoring">
+            <summary>
+            恢复按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Restored">
+            <summary>
+            恢复按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Adding">
+            <summary>
+            新增按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Added">
+            <summary>
+            新增按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.AddCloning">
+            <summary>
+            克隆按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.AddCloned">
+            <summary>
+            克隆按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Modifying">
+            <summary>
+            编辑按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Modified">
+            <summary>
+            编辑按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Deleting">
+            <summary>
+            删除按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Deleted">
+            <summary>
+            删除按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.DeleteRejected">
+            <summary>
+            删除按钮触发提示被否决后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Locating">
+            <summary>
+            定位按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Located">
+            <summary>
+            定位按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Canceling">
+            <summary>
+            取消按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Canceled">
+            <summary>
+            取消按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.CancelRejected">
+            <summary>
+            取消按钮触发提示被否决后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Saving">
+            <summary>
+            提交按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Saved">
+            <summary>
+            提交按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Importing">
+            <summary>
+            导入按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Imported">
+            <summary>
+            导入按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Exporting">
+            <summary>
+            导出按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Exported">
+            <summary>
+            导出按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Printing">
+            <summary>
+            打印按钮触发前触发
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Printed">
+            <summary>
+            打印按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Helping">
+            <summary>
+            帮助按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Helped">
+            <summary>
+            帮助按钮触发后事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Exiting">
+            <summary>
+            退出按钮触发前事件
+            </summary>
+        </member>
+        <member name="E:Phenix.Windows.BarManager.Exited">
+            <summary>
+            退出按钮触发后事件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.CanExtend(System.Object)">
+            <summary>
+            是否可以将扩展程序属性提供给指定的对象
+            </summary>
+            <param name="extendee">要接收扩展程序属性的对象</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.OnLoaded">
+            <summary>
+            加载后
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.AnalyseFormWorkSource">
+            <summary>
+            分析Form操作数据源
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.FindBindingSource(Phenix.Business.IBusinessObject)">
+            <summary>
+            检索匹配的BindingSource
+            </summary>
+            <param name="business">业务对象</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.FindBindingSource(Phenix.Business.IBusinessCollection)">
+            <summary>
+            检索匹配的BindingSource
+            </summary>
+            <param name="businesses">业务集合对象</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.FindBindingSource(DevExpress.XtraGrid.Views.Base.BaseView)">
+            <summary>
+            检索匹配的BindingSource
+            </summary>
+            <param name="view">BaseView</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.FocusControl(System.Windows.Forms.BindingSource)">
+            <summary>
+            搜索第一个匹配的控件，并定位焦点
+            </summary>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.FocusEditableControl(System.Windows.Forms.BindingSource)">
+            <summary>
+            搜索第一个匹配的可编辑控件，并定位焦点
+            </summary>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.FindBarItem(Phenix.Windows.BarItemId)">
+            <summary>
+            检索指定的菜单项
+            </summary>
+            <param name="barItemId">菜单项ID</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickFetchButton">
+            <summary>
+            点击检索按钮（线程安全）
+            e = null
+            needPrompt = PromptInFetching
+            reset = true
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickFetchButton">
+            <summary>
+            点击检索按钮
+            e = null
+            needPrompt = PromptInFetching
+            reset = true
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickFetchButton(System.Boolean)">
+            <summary>
+            点击检索按钮
+            e = null
+            reset = true
+            </summary>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickFetchButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击检索按钮
+            needPrompt = PromptInFetching
+            reset = true
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickFetchButton(DevExpress.XtraBars.ItemClickEventArgs,System.Boolean)">
+            <summary>
+            点击检索按钮
+            reset = true
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickFetchButton(DevExpress.XtraBars.ItemClickEventArgs,System.Boolean,System.Boolean)">
+            <summary>
+            点击检索按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="needPrompt">是否需要提示</param>
+            <param name="reset">是否强制覆盖, true表示虽然数据源已有数据也将被覆盖</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.FetchGroup(System.String,System.Boolean)">
+            <summary>
+            检索
+            </summary>
+            <param name="groupName">分组名</param>
+            <param name="reset">是否强制覆盖, true表示虽然数据源已有数据也将被覆盖</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.Fetch(Phenix.Windows.BindingSourceStatus,System.Boolean)">
+            <summary>
+            检索
+            source = status.BindingSource
+            criteriaSource = status.CriteriaBindingSource
+            criteriaCombineControl =  status.CriteriaCombineControl
+            cacheEnabled = status.CacheEnabledValue
+            includeDisabled = status.IncludeDisabledValue
+            isAsynchronous = status.IsAsynchronousFetchValue
+            </summary>
+            <param name="status">数据源状况</param>
+            <param name="reset">是否强制覆盖, true表示虽然数据源已有数据也将被覆盖</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.Fetch(Phenix.Windows.BindingSourceStatus,System.Boolean,System.Boolean)">
+            <summary>
+            检索
+            source = status.BindingSource
+            criteriaSource = status.CriteriaBindingSource
+            criteriaCombineControl =  status.CriteriaCombineControl
+            cacheEnabled = status.CacheEnabledValue
+            includeDisabled = status.IncludeDisabledValue
+            </summary>
+            <param name="status">数据源状况</param>
+            <param name="reset">是否强制覆盖, true表示虽然数据源已有数据也将被覆盖</param>
+            <param name="isAsynchronous">是否异步Fetch?</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.Fetch(System.Windows.Forms.BindingSource,System.Windows.Forms.BindingSource,System.Boolean,System.Boolean)">
+            <summary>
+            检索
+            criteriaCombineControl = null
+            cacheEnabled = true
+            includeDisabled = false
+            </summary>
+            <param name="source">数据源</param>
+            <param name="criteriaSource">条件数据源</param>
+            <param name="reset">是否强制覆盖, true表示虽然数据源已有数据也将被覆盖</param>
+            <param name="isAsynchronous">是否异步Fetch?</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.Fetch(System.Windows.Forms.BindingSource,System.Windows.Forms.BindingSource,Phenix.Windows.CriteriaCombineControl,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            检索
+            </summary>
+            <param name="source">数据源</param>
+            <param name="criteriaSource">条件数据源</param>
+            <param name="criteriaCombineControl">查询组合框控件</param>
+            <param name="cacheEnabled">是否需要缓存对象?</param>
+            <param name="includeDisabled">是否包含禁用记录?</param>
+            <param name="reset">是否强制覆盖, true表示虽然数据源已有数据也将被覆盖</param>
+            <param name="isAsynchronous">是否异步Fetch?</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.Fetch(System.Windows.Forms.BindingSource,System.Object,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            检索
+            </summary>
+            <param name="source">数据源</param>
+            <param name="criteria">条件对象</param>
+            <param name="cacheEnabled">是否需要缓存对象?</param>
+            <param name="includeDisabled">是否包含禁用记录?</param>
+            <param name="reset">是否强制覆盖, true表示虽然数据源已有数据也将被覆盖</param>
+            <param name="isAsynchronous">是否异步Fetch?</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickResetButton">
+            <summary>
+            点击复位按钮（线程安全）
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickResetButton">
+            <summary>
+            点击复位按钮
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickResetButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击复位按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickRestoreButton">
+            <summary>
+            点击恢复按钮（线程安全）
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickRestoreButton">
+            <summary>
+            点击恢复按钮
+            e = null
+            source = BindingSource
+            needPrompt = PromptInSaved
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickRestoreButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击恢复按钮
+            source = BindingSource
+            needPrompt = PromptInSaved
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickRestoreButton(DevExpress.XtraBars.ItemClickEventArgs,System.Boolean)">
+            <summary>
+            点击恢复按钮
+            source = BindingSource
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickRestoreButton(System.Boolean)">
+            <summary>
+            点击恢复按钮
+            e = null
+            source = BindingSource
+            </summary>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickRestoreButton(System.Windows.Forms.BindingSource)">
+            <summary>
+            点击恢复按钮
+            e = null
+            needPrompt = PromptInSaved
+            </summary>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickRestoreButton(System.Windows.Forms.BindingSource,System.Boolean)">
+            <summary>
+            点击恢复按钮
+            e = null
+            </summary>
+            <param name="source">数据源</param>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickRestoreButton(DevExpress.XtraBars.ItemClickEventArgs,System.Windows.Forms.BindingSource,System.Boolean)">
+            <summary>
+            点击恢复按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="source">数据源</param>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickAddButton">
+            <summary>
+            点击增加按钮（线程安全）
+            e = null
+            source = BindingSource
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickAddButton">
+            <summary>
+            点击增加按钮
+            e = null
+            source = BindingSource
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickAddButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击增加按钮
+            source = BindingSource
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickAddButton(System.Windows.Forms.BindingSource)">
+            <summary>
+            点击增加按钮
+            e = null 
+            </summary>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickAddButton(DevExpress.XtraBars.ItemClickEventArgs,System.Windows.Forms.BindingSource)">
+            <summary>
+            点击增加按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickAddCloneButton">
+            <summary>
+            点击克隆按钮（线程安全）
+            e = null
+            source = BindingSource
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickAddCloneButton">
+            <summary>
+            点击克隆按钮
+            e = null
+            source = BindingSource
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickAddCloneButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击克隆按钮
+            source = BindingSource
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickAddCloneButton(System.Windows.Forms.BindingSource)">
+            <summary>
+            点击克隆按钮
+            e = null
+            </summary>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickAddCloneButton(DevExpress.XtraBars.ItemClickEventArgs,System.Windows.Forms.BindingSource)">
+            <summary>
+            点击克隆按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickModifyButton">
+            <summary>
+            点击编辑按钮（线程安全）
+            e = null
+            source = BindingSource
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickModifyButton">
+            <summary>
+            点击编辑按钮
+            e = null
+            source = BindingSource
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickModifyButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击编辑按钮
+            source = BindingSource
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickModifyButton(System.Windows.Forms.BindingSource)">
+            <summary>
+            点击编辑按钮
+            e = null
+            </summary>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickModifyButton(DevExpress.XtraBars.ItemClickEventArgs,System.Windows.Forms.BindingSource)">
+            <summary>
+            点击编辑按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickDeleteButton">
+            <summary>
+            点击删除按钮（线程安全）
+            e = null
+            source = BindingSource
+            needPrompt = PromptInDeleting
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickDeleteButton">
+            <summary>
+            点击删除按钮
+            e = null
+            source = BindingSource
+            needPrompt = PromptInDeleting
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickDeleteButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击删除按钮
+            source = BindingSource
+            needPrompt = PromptInDeleting
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickDeleteButton(DevExpress.XtraBars.ItemClickEventArgs,System.Boolean)">
+            <summary>
+            点击删除按钮
+            source = BindingSource
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickDeleteButton(System.Boolean)">
+            <summary>
+            点击删除按钮
+            e = null
+            source = BindingSource
+            </summary>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickDeleteButton(System.Windows.Forms.BindingSource)">
+            <summary>
+            点击删除按钮
+            e = null
+            needPrompt = PromptInDeleting
+            </summary>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickDeleteButton(System.Windows.Forms.BindingSource,System.Boolean)">
+            <summary>
+            点击删除按钮
+            e = null
+            </summary>
+            <param name="source">数据源</param>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickDeleteButton(DevExpress.XtraBars.ItemClickEventArgs,System.Windows.Forms.BindingSource,System.Boolean)">
+            <summary>
+            点击删除按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="source">数据源</param>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickLocateButton">
+            <summary>
+            点击定位按钮（线程安全）
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickLocateButton">
+            <summary>
+            点击定位按钮
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickLocateButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击定位按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickCancelButton">
+            <summary>
+            点击取消按钮（线程安全）
+            e = null
+            needPrompt = PromptInCanceling
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickCancelButton">
+            <summary>
+            点击取消按钮
+            e = null
+            needPrompt = PromptInCanceling
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickCancelButton(System.Boolean)">
+            <summary>
+            点击取消按钮
+            e = null
+            </summary>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickCancelButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击取消按钮
+            needPrompt = PromptInCanceling
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickCancelButton(DevExpress.XtraBars.ItemClickEventArgs,System.Boolean)">
+            <summary>
+            点击取消按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickSaveButton">
+            <summary>
+            点击保存按钮（线程安全）
+            e = null
+            needPrompt = PromptInSaved
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickSaveButton">
+            <summary>
+            点击保存按钮
+            e = null
+            needPrompt = PromptInSaved
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickSaveButton(System.Boolean)">
+            <summary>
+            点击保存按钮
+            e = null
+            </summary>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickSaveButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击保存按钮
+            needPrompt = PromptInCanceling
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickSaveButton(DevExpress.XtraBars.ItemClickEventArgs,System.Boolean)">
+            <summary>
+            点击保存按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="needPrompt">是否需要提示</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickImportButton">
+            <summary>
+            点击导入按钮（线程安全）
+            e = null
+            source = BindingSource
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickImportButton">
+            <summary>
+            点击导入按钮
+            e = null
+            source = BindingSource
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickImportButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击导入按钮
+            source = BindingSource
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickImportButton(System.Windows.Forms.BindingSource)">
+            <summary>
+            点击导入按钮
+            e = null
+            </summary>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickImportButton(DevExpress.XtraBars.ItemClickEventArgs,System.Windows.Forms.BindingSource)">
+            <summary>
+            点击导入按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+            <param name="source">数据源</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickExportButton">
+            <summary>
+            点击导出按钮（线程安全）
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickExportButton">
+            <summary>
+            点击导出按钮
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickExportButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击导出按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickPrintButton">
+            <summary>
+            点击打印按钮（线程安全）
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickPrintButton">
+            <summary>
+            点击打印按钮
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickPrintButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击打印按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickHelpButton">
+            <summary>
+            点击帮助按钮（线程安全）
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickHelpButton">
+            <summary>
+            点击帮助按钮
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickHelpButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击帮助按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeClickExitButton">
+            <summary>
+            点击退出按钮（线程安全）
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickExitButton">
+            <summary>
+            点击退出按钮
+            e = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ClickExitButton(DevExpress.XtraBars.ItemClickEventArgs)">
+            <summary>
+            点击退出按钮
+            </summary>
+            <param name="e">点击按钮事件数据</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.LocateEditObject">
+            <summary>
+            定位编辑对象
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.CheckRules(System.Windows.Forms.BindingSource,System.Boolean)">
+            <summary>
+            校验控件容器内编辑控件的失效数据
+            </summary>
+            <param name="source">数据源</param>
+            <param name="toFocused">聚焦失效控件</param>
+            <returns>失效数据事件数据</returns>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.CheckValid(System.Windows.Forms.Control)">
+            <summary>
+            校验数据是否有效
+            </summary>
+            <param name="control">控件</param>
+            <returns>有效</returns>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.CheckValid(System.Windows.Forms.BindingSource,System.Boolean)">
+            <summary>
+            校验数据是否有效
+            </summary>
+            <param name="source">数据源</param>
+            <param name="onlyOldError">仅检查原有错误</param>
+            <returns>存在无效项</returns>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.CheckAllValid(System.Windows.Forms.BindingSource,System.Boolean)">
+            <summary>
+            校验数据是否有效
+            </summary>
+            <param name="source">数据源</param>
+            <param name="onlyOldError">仅检查原有错误</param>
+            <returns>存在无效项</returns>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ResetControlAuthorizationRules(System.Windows.Forms.BindingSource[])">
+            <summary>
+            重置控件读写授权
+            </summary>
+            <param name="sources">数据源队列</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ResetControlAuthorizationRules(System.Boolean,System.Windows.Forms.BindingSource[])">
+            <summary>
+            重置控件读写授权
+            </summary>
+            <param name="readOnly">只读</param>
+            <param name="sources">数据源队列</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.DenyExecute(System.ComponentModel.Component)">
+            <summary>
+            是否拒绝执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ResetComponentAuthorizationRules">
+            <summary>
+            重置组件执行规则
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ResetRecordState">
+            <summary>
+            重置状态栏
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InvokeShowHint(System.String)">
+            <summary>
+            显示提示信息（线程安全）
+            </summary>
+            <param name="text">文本</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.ShowHint(System.String)">
+            <summary>
+            显示提示信息
+            </summary>
+            <param name="text">文本</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.SetBindingSourceData.CompareTo(System.Object)">
+            <summary>
+            比较对象
+            </summary>
+            <param name="obj">对象</param>
+        </member>
+        <member name="F:Phenix.Windows.BarManager.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.BarManager.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.BarManagerDesigner">
+            <summary>
+            Bar管理器设计器
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.ShowExecuteActionForm.Execute(Phenix.Business.IBusinessObject)">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.ShowExecuteActionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.ShowExecuteActionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.ShowExecuteActionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.Security.ChangePasswordDialog">
+            <summary>
+            修改登录口令窗体
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.ChangePasswordDialog.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.ChangePasswordDialog.Execute">
+            <summary>
+            修改登录口令窗体
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.ChangePasswordDialog.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.ChangePasswordDialog.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Windows.Security.ChangePasswordDialog.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.Security.LogOn">
+            <summary>
+            登录组件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOn.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOn.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOn.Title">
+            <summary>
+            登陆界面的标题
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOn.Logo">
+            <summary>
+            登陆界面的标志
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOn.UpgradeProxyType">
+            <summary>
+            升级文件的代理类型
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ProxyType
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOn.UpgradeServicesAddress">
+            <summary>
+            升级文件的服务地址
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ServicesAddress
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOn.UpgradeFileFilters">
+            <summary>
+            升级文件的过滤器集
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOn.Execute">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOn.Execute``1">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.Security.LogOnDialog">
+            <summary>
+            登录界面
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.Execute``1">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.Execute``1(System.String,System.Drawing.Image,System.Nullable{Phenix.Core.Net.ProxyType},System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOnDialog.Logo">
+            <summary>
+            登陆界面的标志
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOnDialog.UpgradeProxyType">
+            <summary>
+            升级文件的代理类型
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ProxyType
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOnDialog.UpgradeServicesAddress">
+            <summary>
+            升级文件的服务地址
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ServicesAddress
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOnDialog.UpgradeFileFilters">
+            <summary>
+            升级文件的过滤器集
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.Security.LogOnDialog.UserNumberCached">
+            <summary>
+            是否缓存UserNumber
+            缺省为 true
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.Humanistic">
+            <summary>
+            个性化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.ApplyRules">
+            <summary>
+            应用规则
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.Login">
+            <summary>
+            登录
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.ChangePassword">
+            <summary>
+            修改口令
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.Quit">
+            <summary>
+            退出
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.hostComboBox">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.hostLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.quitButton">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.logOnButton">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.passwordTextBox">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.userNumberTextBox">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.passwordLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.userNumberLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.logoPictureBox">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.HintLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Windows.Security.LogOnDialog.changePasswordButton">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.Security.LogOnHelper">
+            <summary>
+            登录助手
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnHelper.LogOn(System.String,System.String)">
+            <summary>
+            登录
+            </summary>
+            <param name="userNumber">工号</param>
+            <param name="password">口令</param>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnHelper.TryLogOn(System.String,System.String,System.String,Phenix.Core.Security.DataSecurityContext@)">
+            <summary>
+            尝试登录
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+            <param name="userNumber">工号</param>
+            <param name="password">口令</param>
+            <param name="context">数据安全上下文</param>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnHelper.LogOff">
+            <summary>
+            登出
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.Security.LogOnHelper.ChangePassword(System.String,System.String,Phenix.Core.Security.UserIdentity)">
+            <summary>
+            修改登录口令
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+            <param name="newPassword">新登录口令</param>
+            <param name="identity">用户身份</param>
+        </member>
+        <member name="T:Phenix.Windows.TextEditManager">
+            <summary>
+            TextEdit管理组件 
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TextEditManager.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TextEditManager.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+            <param name="container">组件容器</param>
+        </member>
+        <member name="P:Phenix.Windows.TextEditManager.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TextEditManager.GetSelectAllOnEnter(DevExpress.XtraEditors.TextEdit)">
+            <summary>
+            切入焦点时可将文本设置为全选状态
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TextEditManager.SetSelectAllOnEnter(DevExpress.XtraEditors.TextEdit,System.Boolean)">
+            <summary>
+            切入焦点时可将文本设置为全选状态
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TextEditManager.CanExtend(System.Object)">
+            <summary>
+            是否可以将扩展程序属性提供给指定的对象
+            </summary>
+            <param name="extendee">要接收扩展程序属性的对象</param>
+        </member>
+        <member name="M:Phenix.Windows.TextEditManager.BeginInit">
+            <summary>
+             开始初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TextEditManager.EndInit">
+            <summary>
+             结束初始化
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.TreeListManager">
+            <summary>
+            TreeList管理组件
+            与IBusinessTreeNode互动
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TreeListManager.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TreeListManager.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+            <param name="container">组件容器</param>
+        </member>
+        <member name="P:Phenix.Windows.TreeListManager.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TreeListManager.GetApply(DevExpress.XtraTreeList.TreeList)">
+            <summary>
+            被应用到TreeList管理
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TreeListManager.SetApply(DevExpress.XtraTreeList.TreeList,System.Boolean)">
+            <summary>
+            被应用到TreeList管理
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TreeListManager.CanExtend(System.Object)">
+            <summary>
+            是否可以将扩展程序属性提供给指定的对象
+            </summary>
+            <param name="extendee">要接收扩展程序属性的对象</param>
+        </member>
+        <member name="M:Phenix.Windows.TreeListManager.BeginInit">
+            <summary>
+             开始初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TreeListManager.EndInit">
+            <summary>
+             结束初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.TreeListManager.ResetAuthorizationRules(System.Boolean)">
+            <summary>
+            重置执行授权
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.UnifyControlEnvironmental">
+            <summary>
+            统一控件环境属性组件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+            <param name="container">组件容器</param>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlEnvironmental.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlEnvironmental.Font">
+            <summary>
+            统一控件 Font
+            当为 SystemFonts.DefaultFont 时禁用本功能
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlEnvironmental.FontDisabled">
+            <summary>
+            禁用"统一控件 Font"功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlEnvironmental.BackColor">
+            <summary>
+            统一控件 BackColor
+            当为 Color.Empty 时禁用本功能
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlEnvironmental.BackColorDisabled">
+            <summary>
+            禁用"统一控件 BackColor"功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlEnvironmental.ForeColor">
+            <summary>
+            统一控件 ForeColor
+            当为 Color.Empty 时禁用本功能
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlEnvironmental.ForeColorDisabled">
+            <summary>
+            禁用"统一控件 ForeColor"功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlEnvironmental.RightToLeft">
+            <summary>
+            统一控件 RightToLeft
+            当为 RightToLeft.Inherit 时禁用本功能
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlEnvironmental.RightToLeftDisabled">
+            <summary>
+            禁用"统一控件 RightToLeft"功能?
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.GetSetFont(System.ComponentModel.Component)">
+            <summary>
+            统一设置控件Font
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.SetSetFont(System.ComponentModel.Component,System.Boolean)">
+            <summary>
+            统一设置控件Font
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.GetSetBackColor(System.ComponentModel.Component)">
+            <summary>
+            统一设置控件BackColor
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.SetSetBackColor(System.ComponentModel.Component,System.Boolean)">
+            <summary>
+            统一设置控件BackColor
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.GetSetForeColor(System.ComponentModel.Component)">
+            <summary>
+            统一设置控件ForeColor
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.SetSetForeColor(System.ComponentModel.Component,System.Boolean)">
+            <summary>
+            统一设置控件ForeColor
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.GetSetRightToLeft(System.ComponentModel.Component)">
+            <summary>
+            统一设置控件RightToLeft
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.SetSetRightToLeft(System.ComponentModel.Component,System.Boolean)">
+            <summary>
+            统一设置控件RightToLeft
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.CanExtend(System.Object)">
+            <summary>
+            是否可以将扩展程序属性提供给指定的对象
+            </summary>
+            <param name="extendee">要接收扩展程序属性的对象</param>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.BeginInit">
+            <summary>
+             开始初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.EndInit">
+            <summary>
+             结束初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.ResetRule(System.Windows.Forms.Control)">
+            <summary>
+            重置规则
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlEnvironmental.ResetRule(System.ComponentModel.Component)">
+            <summary>
+            重置规则
+            </summary>
+        </member>
+        <member name="T:Phenix.Windows.UnifyControlLayout">
+            <summary>
+            统一界面风格组件
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+            <param name="container">组件容器</param>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlLayout.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlLayout.GridViewOddRowColor">
+            <summary>
+            统一 GridView 奇数行颜色
+            当为 Color.Empty 时禁用本功能
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlLayout.GridViewOddRowColorDisabled">
+            <summary>
+            禁用"统一 GridView 奇数行颜色"功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlLayout.GridViewEvenRowColor">
+            <summary>
+            统一 GridView 偶数行颜色
+            当为 Color.Empty 时禁用本功能
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlLayout.GridViewEvenRowColorDisabled">
+            <summary>
+            禁用"统一 GridView 偶数行颜色"功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlLayout.GridViewFocusedRowColor">
+            <summary>
+            统一 GridView 焦点行颜色
+            当为 Color.Empty 时禁用本功能
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlLayout.GridViewFocusedRowColorDisabled">
+            <summary>
+            禁用"统一 GridView 焦点行颜色"功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Windows.UnifyControlLayout.GridViewDisplayRowNumber">
+            <summary>
+            统一显示GridView行号?
+            缺省为 true
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.GetSetGridViewBackColor(System.ComponentModel.Component)">
+            <summary>
+            统一设置GridView背景色
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.SetSetGridViewBackColor(System.ComponentModel.Component,System.Boolean)">
+            <summary>
+            统一设置GridView背景色
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.GetDisplayRowNumber(System.ComponentModel.Component)">
+            <summary>
+            统一显示GridView行号
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.SetDisplayRowNumber(System.ComponentModel.Component,System.Boolean)">
+            <summary>
+            统一显示GridView行号
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.CanExtend(System.Object)">
+            <summary>
+            是否可以将扩展程序属性提供给指定的对象
+            </summary>
+            <param name="extendee">要接收扩展程序属性的对象</param>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.BeginInit">
+            <summary>
+             开始初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.EndInit">
+            <summary>
+             结束初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.ResetRule(DevExpress.XtraGrid.Views.Grid.GridView)">
+            <summary>
+            重置规则
+            </summary>
+        </member>
+        <member name="M:Phenix.Windows.UnifyControlLayout.ResetRule(DevExpress.XtraTreeList.TreeList)">
+            <summary>
+            重置规则
+            </summary>
+        </member>
+    </members>
+</doc>

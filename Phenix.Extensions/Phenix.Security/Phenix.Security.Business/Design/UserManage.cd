@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Security.Business.User">
+    <Position X="2.5" Y="3.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAQAAgAAAAAAAAAAAAIAAAAAAAhAggACAGAAAhAABA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="UserRoles" />
+      <Property Name="SelectableRoles" />
+      <Property Name="UserGrantRoles" />
+      <Property Name="SelectableGrantRoles" />
+      <Property Name="UserSections" />
+      <Property Name="SelectableSections" />
+      <Property Name="UserLogs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Phenix.Security.Business.User&lt;T&gt;">
+    <Position X="0.5" Y="3.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAIgggAEgAIACCgQAAAEYAIEIASBASAegQImQQwAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserCriteria">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAACAAQAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserCriteria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.RoleReadOnly">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.Role&lt;T&gt;">
+    <Position X="8" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAIAgAAgAAAAAAAAAAAAQAAAAAAAAICAAAQAAAgIA=</HashCode>
+      <FileName>Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.SectionReadOnly">
+    <Position X="5.75" Y="10.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Section.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.Section&lt;T&gt;">
+    <Position X="8" Y="10.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAIAgAAgAAAAAAAAAAAQQAAAIAAAAACAAAQAAAgAA=</HashCode>
+      <FileName>Section.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserGrantRole">
+    <Position X="6.25" Y="6.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserGrantRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserGrantRole&lt;T&gt;">
+    <Position X="8.75" Y="6.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAgAAIAAAQAACEAEhQAAAAACAAEBAAAAACBAEAAgAA=</HashCode>
+      <FileName>UserGrantRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserRole">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserRole&lt;T&gt;">
+    <Position X="10.5" Y="5.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAQIgAEAAAAAAAAACEAABBABAAACAEAEgAQ=</HashCode>
+      <FileName>UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserSection">
+    <Position X="7.5" Y="9.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserSection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserSection&lt;T&gt;">
+    <Position X="9.75" Y="9.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAEQAAAEAAAAAAQAQCEAABAAAAKAAAEBMgAA=</HashCode>
+      <FileName>UserSection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserLog">
+    <Position X="2.25" Y="10.75" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>UserLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserLog&lt;T&gt;">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAEAAAACAgQAAAEIAAEAAAAAAASgQIEQAgAA=</HashCode>
+      <FileName>UserLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Security.Business.UserList">
+    <Position X="2.5" Y="0.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

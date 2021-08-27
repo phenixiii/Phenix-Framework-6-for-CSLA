@@ -1,0 +1,4 @@
+﻿1、绑定带IInformation接口的数据源
+2、根据上述数据源的InformationStatus值自动控制上述按钮组按钮的灰亮显示
+3、点击上述按钮组按钮，自动变更上述数据源的InformationStatus、InformationVerifyStatus值并提交
+4、支持单对象或对象队列，及多选场景

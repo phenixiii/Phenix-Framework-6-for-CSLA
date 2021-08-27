@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="af443a38-5935-44ce-b226-e36230a6825a" name="Phenix.Windows.DataOperateState" linkedPackageId="c0e03aa4-9cde-4362-911d-e6528339c40d" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="ac00a054-4c8d-4ed0-8fee-d1c2ff6d0c05" name="Phenix.Windows.DataOperateState" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="a22ba94b-4b9e-4b25-8d3a-fb4a3ff89792" />
+        <nodes>
+          <opaqueAction Id="d3269d7b-673c-4e98-b005-564db1621e0a" name="Fetch" isLeaf="false">
+            <description>检索</description>
+            <elementDefinition Id="634071a7-15d0-40aa-be38-a93c2c09c604" />
+            <flowNodeTargets>
+              <controlFlow Id="cf16c348-8315-4e6d-84a0-da34bc214186" guard="Fetching" isLeaf="false">
+                <forkNodeMoniker Id="6071ea6f-5f6b-4e0b-8192-e78129687787" LastKnownName="FetchFork" />
+                <elementDefinition Id="377e3032-9268-4609-a864-15a649e63b04" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="f62a9224-9c93-49e8-a43e-774295cf8e64" name="Add" isLeaf="false">
+            <description>新增</description>
+            <elementDefinition Id="9d4707e4-b22e-47fe-a980-ffc2cabe08fa" />
+            <flowNodeTargets>
+              <controlFlow Id="b104e8a9-e392-4910-8d1f-b9d263b66dd3" guard="Add" isLeaf="false">
+                <opaqueActionMoniker Id="87dd02c6-a32b-4e91-8acc-1476b0463612" LastKnownName="Save" />
+                <elementDefinition Id="f0d21c4d-34e1-4f65-810c-309f98131526" />
+              </controlFlow>
+              <controlFlow Id="cd496cb8-ac23-427b-af22-79ba8f920c3e" guard="Add" isLeaf="false">
+                <opaqueActionMoniker Id="2e011916-7a84-4ba2-b6ca-e6aa25dca0a1" LastKnownName="Cancel" />
+                <elementDefinition Id="bd762134-9b1e-4bc4-8f20-2020a8d808eb" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="d6363df0-b0a9-464a-a504-4601d8f121bf" name="Modify" isLeaf="false">
+            <description>编辑</description>
+            <elementDefinition Id="9e63b7b8-5acb-4b6a-9d5a-aad3990c0da7" />
+            <flowNodeTargets>
+              <controlFlow Id="fe998e2a-ec48-4600-998a-ec5ccbcc2fc8" guard="Modify" isLeaf="false">
+                <opaqueActionMoniker Id="87dd02c6-a32b-4e91-8acc-1476b0463612" LastKnownName="Save" />
+                <elementDefinition Id="ee0d4940-caf3-4e07-af77-de5c9a3546b6" />
+              </controlFlow>
+              <controlFlow Id="5f55f2c2-ff09-47f6-bce0-a9158e422fbc" guard="Modify" isLeaf="false">
+                <opaqueActionMoniker Id="2e011916-7a84-4ba2-b6ca-e6aa25dca0a1" LastKnownName="Cancel" />
+                <elementDefinition Id="6baf58ab-7fb4-429e-ab3b-13523060bf35" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="99c62b05-8ea5-4af0-a5aa-0f93970463c5" name="Delete" isLeaf="false">
+            <description>删除</description>
+            <elementDefinition Id="dead5697-42c6-47a1-9f60-7713014989cf" />
+            <flowNodeTargets>
+              <controlFlow Id="502556f0-a4d6-4caf-afb3-1fb65832a399" guard="Delete" isLeaf="false">
+                <opaqueActionMoniker Id="87dd02c6-a32b-4e91-8acc-1476b0463612" LastKnownName="Save" />
+                <elementDefinition Id="22b8c5d5-08e1-4a20-aa41-c0aa7947baf5" />
+              </controlFlow>
+              <controlFlow Id="de94dc50-cf40-4ca1-b390-1b743f15d447" guard="Delete" isLeaf="false">
+                <opaqueActionMoniker Id="2e011916-7a84-4ba2-b6ca-e6aa25dca0a1" LastKnownName="Cancel" />
+                <elementDefinition Id="d5905ce1-3b55-4d8f-b11d-ea440a02737b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="2e011916-7a84-4ba2-b6ca-e6aa25dca0a1" name="Cancel" isLeaf="false">
+            <description>取消</description>
+            <elementDefinition Id="9dc5e1a9-61af-4041-ac34-1d35a2a0b507" />
+            <flowNodeTargets>
+              <controlFlow Id="50f4cc2a-953c-4499-9b58-1664c9ef377b" guard="Browse" isLeaf="false">
+                <opaqueActionMoniker Id="d3269d7b-673c-4e98-b005-564db1621e0a" LastKnownName="Fetch" />
+                <elementDefinition Id="3a13f636-4c2e-453d-9bcc-989f654f3c03" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="87dd02c6-a32b-4e91-8acc-1476b0463612" name="Save" isLeaf="false">
+            <description>提交</description>
+            <elementDefinition Id="054e95fa-110e-4230-b2a7-decc501f01df" />
+            <flowNodeTargets>
+              <controlFlow Id="0f74d533-e4d4-4427-8bd6-21c29312fc71" guard="Browse" isLeaf="false">
+                <opaqueActionMoniker Id="d3269d7b-673c-4e98-b005-564db1621e0a" LastKnownName="Fetch" />
+                <elementDefinition Id="2f16c43a-c28b-45ca-b227-c0518603b03d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <forkNode Id="6071ea6f-5f6b-4e0b-8192-e78129687787" name="FetchFork" isLeaf="false">
+            <elementDefinition Id="cc25a729-57b4-4c54-9dac-4ee8e0a92ebf" />
+            <flowNodeTargets>
+              <controlFlow Id="0a0588fe-f5c3-4eed-95ab-780172f2e7c3" guard="FetchSuspend/FetchAborted" isLeaf="false">
+                <opaqueActionMoniker Id="d3269d7b-673c-4e98-b005-564db1621e0a" LastKnownName="Fetch" />
+                <elementDefinition Id="cbe34d04-6a53-4374-a669-178c798ab89f" />
+              </controlFlow>
+              <controlFlow Id="8bdd1189-67da-458b-b672-195724d5e620" guard="Browse" isLeaf="false">
+                <opaqueActionMoniker Id="f62a9224-9c93-49e8-a43e-774295cf8e64" LastKnownName="Add" />
+                <elementDefinition Id="d85e47b8-e88f-40fd-a884-f064db106e50" />
+              </controlFlow>
+              <controlFlow Id="3b52dc53-db85-4898-a3bb-3555625602e9" guard="Browse" isLeaf="false">
+                <opaqueActionMoniker Id="99c62b05-8ea5-4af0-a5aa-0f93970463c5" LastKnownName="Delete" />
+                <elementDefinition Id="2e806268-1db9-4c09-ac01-5832cc0a635b" />
+              </controlFlow>
+              <controlFlow Id="e32d6f4c-8273-4598-b176-c70a9dd8f3b8" guard="Browse" isLeaf="false">
+                <opaqueActionMoniker Id="d6363df0-b0a9-464a-a504-4601d8f121bf" LastKnownName="Modify" />
+                <elementDefinition Id="503cf85c-5d29-4d75-a2e5-d0727d80d034" />
+              </controlFlow>
+            </flowNodeTargets>
+          </forkNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="c0e03aa4-9cde-4362-911d-e6528339c40d" name="Phenix.Windows.Modeling">
+    <elementDefinition Id="77ba82d9-944c-4ffe-aa79-174778a5bb4a" />
+    <profileInstances>
+      <packageHasProfileInstances Id="ed8fe0da-896c-46e5-805c-0a614d5e7849">
+        <profileInstance Id="71a8d554-053d-4cd7-9723-45c4b860acfa" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="9e9a9d97-08d6-4b17-bfb3-3eca1a9c4911">
+        <profileInstance Id="c53cee96-ae92-4df8-a657-82740dc80b10" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>

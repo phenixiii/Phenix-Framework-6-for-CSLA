@@ -1,0 +1,2 @@
+﻿本程序集在客户端和服务端都需部署，被Phenix.StandardPush.Business和Phenix.StandardPush.Plugin引用，起到解绑强耦的作用
+AppHub.Worker属性，由Phenix.StandardService.Plugin的WorkerPlugin插件在Host启动时自动赋值，可被跨到服务端的Command对象调用到

@@ -1,0 +1,11 @@
+Phenix.Security："Phenix.NET企业应用软件快速开发平台.权限管理"功能模块源码
+Phenix.StandardMessage：
+Phenix.StandardPush：借客户端和服务端同步数据库时钟为例，介绍通过Socket将数据库时钟推送到客户端的方法
+Phenix.StandardRule：示例Rule与枚举的用法
+Phenix.StandardService：借客户端和服务端同步数据库时钟为例，介绍将业务逻辑代码仅部署在服务端的方法
+Phenix.TeamHub.Prober：示例业务系统如何整合到TeamHub平台的方法
+Phenix.Web.Client：支持ASP.NET-WebAPI的客户端HttpClient源码
+Phenix.Web.Client.Ajax：支持ASP.NET-WebAPI的客户端JavaScript源码
+Phenix.Windows：WinForm客户端框架源码
+Phenix.Windows.Client：示例WinForm客户端程序、主窗体程序集及其与子窗体插件交互方法的代码
+Phenix.Workflow：支持WF工作流的功能扩展

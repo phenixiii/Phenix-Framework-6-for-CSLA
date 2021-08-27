@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Phenix.TeamHub.Prober.Business</name>
+    </assembly>
+    <members>
+        <member name="T:Phenix.TeamHub.Prober.Business.SubmitLogCommand">
+            <summary>
+            提交日志
+            </summary>
+        </member>
+        <member name="M:Phenix.TeamHub.Prober.Business.SubmitLogCommand.#ctor(System.String,System.Reflection.MethodBase,System.Exception)">
+            <summary>
+            提交日志
+            </summary>
+            <param name="message">消息</param>
+            <param name="method">函数的信息</param>
+            <param name="exception">错误</param>
+        </member>
+        <member name="M:Phenix.TeamHub.Prober.Business.SubmitLogCommand.DoExecute">
+            <summary>
+            处理执行指令
+            在运行持久层的程序域里被调用
+            请使用Phenix.Core.Data.DefaultDatabase、Phenix.Core.Data.DbCommandHelper与数据库交互以保证可扩展性
+            如果希望框架提供事务控制，就不要重载本函数，请将代码写在DoExecute(DbTransaction transaction)中
+            </summary>
+        </member>
+        <member name="T:Phenix.TeamHub.Prober.Business.Worker">
+            <summary>
+            操作者
+            </summary>
+        </member>
+        <member name="M:Phenix.TeamHub.Prober.Business.Worker.Register">
+            <summary>
+            注册
+            </summary>
+        </member>
+        <member name="M:Phenix.TeamHub.Prober.Business.Worker.Phenix#TeamHub#Prober#IWorker#SubmitLog(System.String,System.Reflection.MethodBase,System.Exception)">
+            <summary>
+            提交日志
+            </summary>
+        </member>
+    </members>
+</doc>

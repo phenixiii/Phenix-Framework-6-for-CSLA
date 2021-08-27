@@ -1,0 +1,964 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Phenix.Services.Client</name>
+    </assembly>
+    <members>
+        <member name="T:Phenix.Services.Client.Design.BusinessSelectorEditor">
+            <summary>
+            业务选择编辑器
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Design.ClassSelectorEditor">
+            <summary>
+            类选择编辑器
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Design.ClassSelectorEditor.#ctor">
+            <summary>
+            类选择编辑器
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Design.ClassSelectorEditor.FillTreeWithData(System.ComponentModel.Design.ObjectSelectorEditor.Selector,System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider)">
+            <summary>
+            填充标记项的分层集合
+            每个标记项用一个 System.Windows.Forms.TreeNode 来表示
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Design.ClassSelectorEditor.IsDropDownResizable">
+            <summary>
+            指示是否应该由用户调整下拉编辑器的大小
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Design.ClassSelectorEditor.AssemblyClassType">
+            <summary>
+            程序集类类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Design.ClassSelectorEditor.SubclassOfType">
+            <summary>
+            所继承的类
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Design.BusinessSelectorEditor.AssemblyClassType">
+            <summary>
+            程序集类类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Design.BusinessSelectorEditor.SubclassOfType">
+            <summary>
+            所继承的类
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Design.CollectionEditor">
+            <summary>
+            集合编辑器
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Design.CollectionEditor.#ctor(System.Type)">
+            <summary>
+            集合编辑器
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Design.CollectionEditor.CreateCollectionForm">
+            <summary>
+            创建新的窗体以显示和编辑当前集合
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Design.ComponentPropertyDesigner">
+            <summary>
+            组件属性设计器
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Design.ComponentPropertyDesigner.PostFilterProperties(System.Collections.IDictionary)">
+            <summary>
+            允许设计器从通过 System.ComponentModel.TypeDescriptor 公开的属性集中更改或移除项
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Design.DesignerHelper">
+            <summary>
+            设计器助手
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Design.DesignerHelper.ReferenceAssembly(System.ComponentModel.Design.ITypeResolutionService,System.String)">
+            <summary>
+            添加程序集
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Design.EnumSelectorEditor">
+            <summary>
+            枚举选择编辑器
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Design.EnumSelectorEditor.AssemblyClassType">
+            <summary>
+            程序集类类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Design.EnumSelectorEditor.SubclassOfType">
+            <summary>
+            所继承的类
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.AppUtilities">
+            <summary>
+            应用系统工具集
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.Download">
+            <summary>
+              查找类似 Download 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.File">
+            <summary>
+              查找类似 File 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.InputPasswordPlease">
+            <summary>
+              查找类似 Input password please 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.LogOnFailed">
+            <summary>
+              查找类似 Login failed! 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ModifyPasswordFailed">
+            <summary>
+              查找类似 Modify password failure 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ModifyPasswordSucceed">
+            <summary>
+              查找类似 Modify password was successful 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.QuitConfirm">
+            <summary>
+              查找类似 Sure you want to cancel the login? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResetEditFriendlyCaptions">
+            <summary>
+              查找类似 Reset EditFriendlyCaptions 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResetEditFriendlyCaptionsSucceed">
+            <summary>
+              查找类似 Already Reset EditFriendlyCaptions, please check is correct 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResetFormRules">
+            <summary>
+              查找类似 Reset FormRules 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResetFormRulesSucceed">
+            <summary>
+              查找类似 Already Reset FormRules, please check is correct 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResetGridFriendlyCaptions">
+            <summary>
+              查找类似 Reset GridFriendlyCaptions 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResetGridFriendlyCaptionsSucceed">
+            <summary>
+              查找类似 Already Reset GridFriendlyCaptions, please check is correct 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResetGridFriendlyLayouts">
+            <summary>
+              查找类似 Reset GridFriendlyLayouts 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResetGridFriendlyLayoutsAbort">
+            <summary>
+              查找类似 Reset GridFriendlyLayouts is the unfinished. Please check the binding of Business class that controls the mapping relationship 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ResetGridFriendlyLayoutsSucceed">
+            <summary>
+              查找类似 Already Reset GridFriendlyLayouts, please check is correct 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ShowExecuteAuthorizationRules">
+            <summary>
+              查找类似 Show ExecuteAuthorizationRules 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.ShowReadWriteAuthorizationRules">
+            <summary>
+              查找类似 Show ReadWriteAuthorizationRules 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.Trying">
+            <summary>
+              查找类似 Trying... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.UpgradeFile">
+            <summary>
+              查找类似 Upgrade file 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.UpgradeFileFailed">
+            <summary>
+              查找类似 Upgrade failure 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.UpgradeFileSucceed">
+            <summary>
+              查找类似 Upgrade was successful 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.UpgradeFileTry">
+            <summary>
+              查找类似 Upgrade failure, whether to continue trying to download? 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.UpgradeProgramFile">
+            <summary>
+              查找类似 The program has been upgraded, please exit after login again 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Properties.Resources.Wait">
+            <summary>
+              查找类似 ... 的本地化字符串。
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Security.LogOnHelper">
+            <summary>
+            登录助手
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnHelper.LogOn(System.String,System.String)">
+            <summary>
+            登录
+            </summary>
+            <param name="userNumber">工号</param>
+            <param name="password">口令</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnHelper.TryLogOn(System.String,System.String,System.String,Phenix.Core.Security.DataSecurityContext@)">
+            <summary>
+            尝试登录
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+            <param name="userNumber">工号</param>
+            <param name="password">口令</param>
+            <param name="context">数据安全上下文</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnHelper.LogOff">
+            <summary>
+            登出
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnHelper.ChangePassword(System.String,System.String,System.String,System.String)">
+            <summary>
+            修改登录口令
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+            <param name="userNumber">登录工号</param>
+            <param name="oldPassword">旧登录口令</param>
+            <param name="newPassword">新登录口令</param>
+        </member>
+        <member name="T:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus">
+            <summary>
+            执行方法规则上下文参数
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.GetContextArgumentValue">
+            <summary>
+            取上下文参数值
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.BindingSource">
+            <summary>
+            数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.BindingSourceType">
+            <summary>
+            数据源的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.BindingSourceItemType">
+            <summary>
+            数据源项的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.TypePropertyName">
+            <summary>
+            数据源类型的属性名
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.ItemTypePropertyName">
+            <summary>
+            数据源项类型的属性名
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.TypePropertyType">
+            <summary>
+            数据源类型的属性类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.ItemTypePropertyType">
+            <summary>
+            数据源项类型的属性类型
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Library.Registration">
+            <summary>
+            注册器
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterEmbeddedWorker">
+            <summary>
+            注册嵌入式实施者
+            reset = true
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterEmbeddedWorker(System.Boolean)">
+            <summary>
+            注册嵌入式实施者
+            </summary>
+            <param name="reset">重新设定</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker(System.String)">
+            <summary>
+            注册实施者
+            reset = true
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker(System.Boolean)">
+            <summary>
+            注册实施者
+            </summary>
+            <param name="reset">重新设定</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker(System.String,System.Boolean)">
+            <summary>
+            注册实施者
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+            <param name="reset">重新设定</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker">
+            <summary>
+            注册实施者
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.TestServicesSpeed(System.String)">
+            <summary>
+            测试连接速度
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+            <returns>历时毫米数</returns>
+        </member>
+        <member name="P:Phenix.Services.Client.Library.Registration.Registered">
+            <summary>
+            已注册
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Security.ChangePasswordDialog">
+            <summary>
+            修改登录口令窗体
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ChangePasswordDialog.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ChangePasswordDialog.Execute">
+            <summary>
+            修改登录口令窗体
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.ChangePasswordDialog.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ChangePasswordDialog.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ChangePasswordDialog.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Security.ExecuteRule">
+            <summary>
+            执行规则
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteRule.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteRule.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteRule.DenyExecute">
+            <summary>
+            是否拒绝执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteRule.ToString">
+            <summary>
+            字符串表示
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.BindingSource">
+            <summary>
+            数据源
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.BindingSourceType">
+            <summary>
+            数据源的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.BindingSourceItemType">
+            <summary>
+            数据源项的类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.TypePropertyName">
+            <summary>
+            数据源类型的属性名
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.TypeMethodName">
+            <summary>
+            数据源类型的方法名
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.ItemTypePropertyName">
+            <summary>
+            数据源项类型的属性名
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.ItemTypeMethodName">
+            <summary>
+            数据源项类型的方法名
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.TypePropertyType">
+            <summary>
+            数据源类型的属性类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.ItemTypePropertyType">
+            <summary>
+            数据源项类型的属性类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.DenyExecuteRuleByTypePropertyValue">
+            <summary>
+            根据数据源对象的属性值提供拒绝执行的规则
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.DenyExecuteRuleByItemTypePropertyValue">
+            <summary>
+            根据数据源项对象的属性值提供拒绝执行的规则
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteRule.CheckExecuteMethodContextArguments">
+            <summary>
+            根据执行规则上下文参数提供检查执行方法的规则
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Security.LogOn">
+            <summary>
+            登录组件
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOn.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOn.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOn.Execute">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOn.Execute``1">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOn.Title">
+            <summary>
+            登陆界面的标题
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOn.Logo">
+            <summary>
+            登陆界面的标志
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOn.UpgradeProxyType">
+            <summary>
+            升级文件的代理类型
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ProxyType
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOn.UpgradeServicesAddress">
+            <summary>
+            升级文件的服务地址
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ServicesAddress
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOn.UpgradeFileFilters">
+            <summary>
+            升级文件的过滤器集
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Security.LogOnDialog">
+            <summary>
+            登录界面
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.Execute``1">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.Execute``1(System.String,System.Drawing.Image,System.Nullable{Phenix.Core.Net.ProxyType},System.String,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.Humanistic">
+            <summary>
+            个性化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.ApplyRules">
+            <summary>
+            应用规则
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.Login">
+            <summary>
+            登录
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.ChangePassword">
+            <summary>
+            修改口令
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.Quit">
+            <summary>
+            退出
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOnDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.hostComboBox">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.hostLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.quitButton">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.logOnButton">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.passwordTextBox">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.userNumberTextBox">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.passwordLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.userNumberLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.logoPictureBox">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.HintLabel">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Phenix.Services.Client.Security.LogOnDialog.changePasswordButton">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.Logo">
+            <summary>
+            登陆界面的标志
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UpgradeProxyType">
+            <summary>
+            升级文件的代理类型
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ProxyType
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UpgradeServicesAddress">
+            <summary>
+            升级文件的服务地址
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ServicesAddress
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UpgradeFileFilters">
+            <summary>
+            升级文件的过滤器集
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UserNumberCached">
+            <summary>
+            是否缓存UserNumber
+            缺省为 true
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Security.ExecuteAuthorization">
+            <summary>
+            执行授权组件
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+            <param name="container">组件容器</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.GetApplyAuthorization(System.ComponentModel.Component)">
+            <summary>
+            被应用到授权控制
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.SetApplyAuthorization(System.ComponentModel.Component,System.Boolean)">
+            <summary>
+            被应用到授权控制
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.GetAllowVisible(System.ComponentModel.Component)">
+            <summary>
+            是否允许可见
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.SetAllowVisible(System.ComponentModel.Component,System.Boolean)">
+            <summary>
+            是否允许可见
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.GetApplyRuleItems(System.ComponentModel.Component)">
+            <summary>
+            执行授权规则内容
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.CanExtend(System.Object)">
+            <summary>
+            是否可以将扩展程序属性提供给指定的对象
+            </summary>
+            <param name="extendee">要接收扩展程序属性的对象</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.BeginInit">
+            <summary>
+             开始初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.EndInit">
+            <summary>
+             结束初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.DenyExecute(System.ComponentModel.Component)">
+            <summary>
+            是否拒绝执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.ResetComponentAuthorizationRules">
+            <summary>
+            重置组件的执行授权
+            component = null
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.ResetComponentAuthorizationRules(System.ComponentModel.Component)">
+            <summary>
+            重置组件的执行授权
+            </summary>
+            <param name="component">组件</param>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteAuthorization.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Security.ReadWriteAuthorization">
+            <summary>
+            读写属性授权组件
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ReadWriteAuthorization.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ReadWriteAuthorization.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+            <param name="container">组件容器</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ReadWriteAuthorization.GetApplyAuthorization(System.Windows.Forms.Control)">
+            <summary>
+            被应用到授权控制
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ReadWriteAuthorization.SetApplyAuthorization(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            被应用到授权控制
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ReadWriteAuthorization.CanExtend(System.Object)">
+            <summary>
+            是否可以将扩展程序属性提供给指定的对象
+            </summary>
+            <param name="extendee">要接收扩展程序属性的对象</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ReadWriteAuthorization.ResetControlAuthorizationRules(System.Boolean,System.Boolean,System.Windows.Forms.BindingSource[])">
+            <summary>
+            重置控件的读写授权
+            </summary>
+            <param name="editMode">编辑状态</param>
+            <param name="readOnly">只读</param>
+            <param name="sources">数据源队列</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ReadWriteAuthorization.ResetControlAuthorizationRules(System.Collections.Generic.IList{System.Windows.Forms.Control},System.Boolean,System.Boolean,System.Windows.Forms.BindingSource[])">
+            <summary>
+            重置控件的读写授权
+            </summary>
+            <param name="controls">控件队列</param>
+            <param name="editMode">编辑状态</param>
+            <param name="readOnly">只读</param>
+            <param name="sources">数据源队列</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ReadWriteAuthorization.ResetControlAuthorizationRules(System.Windows.Forms.Control,System.Boolean,System.Boolean,System.Windows.Forms.BindingSource[])">
+            <summary>
+            重置控件容器内控件的读写授权
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="editMode">编辑状态</param>
+            <param name="readOnly">只读</param>
+            <param name="sources">数据源队列</param>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ReadWriteAuthorization.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Validation.EditValidation">
+            <summary>
+            有效性校验组件
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            初始化
+            </summary>
+            <param name="container">组件容器</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.GetFriendlyCaption(System.Windows.Forms.Control)">
+            <summary>
+            友好性标签
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.SetFriendlyCaption(System.Windows.Forms.Control,System.ComponentModel.Component)">
+            <summary>
+            友好性标签
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.CanExtend(System.Object)">
+            <summary>
+            是否可以将扩展程序属性提供给指定的对象
+            </summary>
+            <param name="extendee">要接收扩展程序属性的对象</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.BeginInit">
+            <summary>
+             开始初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.EndInit">
+            <summary>
+             结束初始化
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.MateFriendlyCaption(System.Windows.Forms.Control)">
+            <summary>
+            匹配友好性标签并填充友好名
+            </summary>
+            <param name="control">控件</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.ResetEditValidationRules">
+            <summary>
+            重置Edit有效性校验
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.ResetEditValidationRules(System.Windows.Forms.Control,System.Windows.Forms.BindingSource[])">
+            <summary>
+            重置控件容器内Edit有效性校验
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="sources">数据源队列</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.ResetEditFriendlyCaptions">
+            <summary>
+            重置Edit友好性标签
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.ResetEditFriendlyCaptions(System.Collections.Generic.IDictionary{System.Windows.Forms.Control,System.ComponentModel.Component},System.Windows.Forms.BindingSource[])">
+            <summary>
+            重置Edit友好性标签
+            </summary>
+            <param name="friendlyCaptionSources">友好标签集合</param>
+            <param name="sources">数据源队列</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.ResetGridFriendlyCaptions">
+            <summary>
+            重置Grid友好性标签
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.ResetGridFriendlyCaptions(System.Windows.Forms.Control)">
+            <summary>
+            重置控件容器内Grid友好性标签
+            </summary>
+            <param name="container">控件容器</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.ResetGridFriendlyCaptions(System.Windows.Forms.Control,System.Windows.Forms.BindingSource,System.String)">
+            <summary>
+            重置控件容器内Grid友好性标签
+            </summary>
+            <param name="container">控件容器</param>
+            <param name="source">数据源</param>
+            <param name="text">文本</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.ResetGridFriendlyLayouts(System.Windows.Forms.Control)">
+            <summary>
+            重置Grid友好性布局
+            </summary>
+            <param name="container">控件容器</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Validation.EditValidation.ResetRules(System.Windows.Forms.Control)">
+            <summary>
+            重置Edit规则
+            </summary>
+            <param name="container">控件容器</param>
+        </member>
+        <member name="P:Phenix.Services.Client.Validation.EditValidation.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Validation.EditValidation.RequiredCaptionForeColor">
+            <summary>
+            统一必输栏的关联标签控件前景色
+            当为 Color.Empty 时禁用本功能
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Validation.EditValidation.RequiredCaptionForeColorDisabled">
+            <summary>
+            禁用"统一必输栏的关联标签控件前景色"功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Validation.EditValidation.NeedResetFriendlyCaption">
+            <summary>
+            是否在运行期重置标签的友好名?
+            缺省为 false
+            </summary>
+        </member>
+    </members>
+</doc>

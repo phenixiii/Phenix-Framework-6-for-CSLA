@@ -1,3 +1,12 @@
+Phenix Framework 6 for CSLA
+Copyright ? 2007, 2021 Phenixヾ Studio
+基于.NET Framework 4.5 和 CSLA 4.3.14.0 的 开发框架
+
+发布地址：https://github.com/phenixiii/Phenix-Framework-6-for-CSLA
+技术交流群：206648373
+
+
+
 2007-11-09  1，完成 RemotingAgent 组件。为 Client 程序集提供统一的 remoting 参数设置和远程对象代理工厂；
             2，完成 Login 组件。为 Client 程序集提供统一的登录界面和用户校验机制，同时，自动进行文件的升级、本地与数据库的对时等功能；
             3，初步构建了一个应用服务容器，除了为 Login 等组件提供服务外，可自动加载当前目录下的 Service 程序集；
@@ -1251,6 +1260,7 @@ Phenix.Services.Host.x64.exe.config配置项：
 如果数据库里存在有仅靠大小写区分的多个表，持久层引擎仅映射其中一个表，而忽略其他的表
 
 
-
+2021-12-17
+登录失败反馈提示信息模糊化
 
 

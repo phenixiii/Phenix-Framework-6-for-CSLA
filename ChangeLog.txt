@@ -1264,3 +1264,6 @@ Phenix.Services.Host.x64.exe.config配置项：
 登录失败反馈提示信息模糊化
 
 
+2022-07-11
+升级了Bin.Top目录下的Host服务程序，可运行在.NET Framework 4.6.1以上环境
+

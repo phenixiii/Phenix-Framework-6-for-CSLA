@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Core.Web.ApiController&lt;T&gt;">
+    <Position X="2.75" Y="0.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAUAEAAEAUAAAEAAAAAAAAAAAAAAAQAAAAAAMA=</HashCode>
+      <FileName>Web\ApiController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Web.Utilities">
+    <Position X="5.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAEAAAAAAAAAAAAAAAAAAAAAAAABAAAIA=</HashCode>
+      <FileName>Web\Utilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Web.AppHub">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQQAAAEAAAAAAAQAAAAAAAAAAAAgEAAAAAA=</HashCode>
+      <FileName>Web\AppHub.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DataProxy" />
+      <Property Name="MessageProxy" />
+      <Property Name="SecurityProxy" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="Phenix.Core.Web.IDataProxy">
+    <Position X="2.75" Y="5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AEgEKIBAACAgAAUAAGEABAAACMAEAAGGAACBQAQAAEg=</HashCode>
+      <FileName>Web\IDataProxy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Phenix.Core.Web.IMessageProxy">
+    <Position X="6" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AABAABAAAgAAAAAAAEAAAAAACAACAQAQABAAAAAAAAA=</HashCode>
+      <FileName>Web\IMessageProxy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Phenix.Core.Web.ISecurityProxy">
+    <Position X="0.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAIAAAAwAAAgAAAAAEACAgAKAAEAAABIABAAAA=</HashCode>
+      <FileName>Web\ISecurityProxy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

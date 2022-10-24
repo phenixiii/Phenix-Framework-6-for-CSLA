@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddtimeFriendlyName" xml:space="preserve">
+    <value>添加时间</value>
+  </data>
+  <data name="CaptionFriendlyName" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="CheckOccupiedException" xml:space="preserve">
+    <value>记录 {0} 存在详细记录: {1}</value>
+  </data>
+  <data name="CheckRepeatedException" xml:space="preserve">
+    <value>记录 {0} 在表中存在重复内容: {1} [{2}]</value>
+  </data>
+  <data name="DatabaseConnectionFailed" xml:space="preserve">
+    <value>数据库连接失败</value>
+  </data>
+  <data name="DatabaseConnectionSucceed" xml:space="preserve">
+    <value>数据库连接成功</value>
+  </data>
+  <data name="KeyFriendlyName" xml:space="preserve">
+    <value>键</value>
+  </data>
+  <data name="MethodNotImplemented" xml:space="preserve">
+    <value>尚未实现</value>
+  </data>
+  <data name="NoService" xml:space="preserve">
+    <value>当前服务失效, 请先注册服务代理</value>
+  </data>
+  <data name="PleaseRegisterEnable" xml:space="preserve">
+    <value>请注册并激活{0}</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>请稍候</value>
+  </data>
+  <data name="ProcessLockException" xml:space="preserve">
+    <value>{0} 已被 {1} 锁定({2} -&gt; {3}: {4}), 必须由 {1} 解锁</value>
+  </data>
+  <data name="ReadLevelFriendlyName" xml:space="preserve">
+    <value>读取级别</value>
+  </data>
+  <data name="SelectedFriendlyName" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="SetDataSourceHint" xml:space="preserve">
+    <value>{0}, 绑定用时{1}秒</value>
+  </data>
+  <data name="UserNumberFriendlyName" xml:space="preserve">
+    <value>登录工号</value>
+  </data>
+  <data name="UserVerifyException" xml:space="preserve">
+    <value>非法操作-用户未经验证通过: {0}</value>
+  </data>
+  <data name="ValueFriendlyName" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="PropertyFriendlyName" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="BusinessCodeFormatException" xml:space="preserve">
+    <value>{0} 业务码格式错误: {1}</value>
+  </data>
+  <data name="CriteriaExpressionFriendlyName" xml:space="preserve">
+    <value>条件表达式</value>
+  </data>
+  <data name="FlagFriendlyName" xml:space="preserve">
+    <value>标记</value>
+  </data>
+  <data name="PromptCodeFriendlyName" xml:space="preserve">
+    <value>提示码</value>
+  </data>
+  <data name="EnabledFriendlyName" xml:space="preserve">
+    <value>可用</value>
+  </data>
+  <data name="IndexNumberFriendlyName" xml:space="preserve">
+    <value>索引</value>
+  </data>
+  <data name="CannotConnectTo" xml:space="preserve">
+    <value>无法连接到 {0}</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="NoSuchMethod" xml:space="preserve">
+    <value>不存在指定的方法 {0}</value>
+  </data>
+  <data name="WorkflowInfoDoesNotExist" xml:space="preserve">
+    <value>工作流信息 {0}.{1} 不存在</value>
+  </data>
+  <data name="PluginAssemblyNameRequired" xml:space="preserve">
+    <value>{0}({1}) PluginAssemblyName 不允许为空</value>
+  </data>
+  <data name="CriteriaFriendlyName" xml:space="preserve">
+    <value>条件</value>
+  </data>
+  <data name="CheckDirtyException" xml:space="preserve">
+    <value>保存记录 {0} 前已被其他用户更新过</value>
+  </data>
+  <data name="DeleteException" xml:space="preserve">
+    <value>删除记录 {0} 失败</value>
+  </data>
+  <data name="InsertException" xml:space="preserve">
+    <value>新增记录 {0} 失败</value>
+  </data>
+  <data name="UpdateException" xml:space="preserve">
+    <value>更新记录 {0} 失败</value>
+  </data>
+  <data name="UserLockedException" xml:space="preserve">
+    <value>{0}用户已被禁止登录, 请联系系统管理员解锁.</value>
+  </data>
+  <data name="UserNotFoundException" xml:space="preserve">
+    <value>{0}用户未经验证通过</value>
+  </data>
+  <data name="ValidationException" xml:space="preserve">
+    <value>对象含无效值: {0}</value>
+  </data>
+  <data name="MaxLengthRule" xml:space="preserve">
+    <value>{0}的值'{1}'不能大于{2}个字符</value>
+  </data>
+  <data name="MinLengthRule" xml:space="preserve">
+    <value>{0}的值'{1}'不能少于{2}个字符</value>
+  </data>
+  <data name="RequiredRule" xml:space="preserve">
+    <value>{0} 是必输项</value>
+  </data>
+  <data name="UserStillTimeoutException" xml:space="preserve">
+    <value>最近一次在{0}操作, 静止超过{1}分钟</value>
+  </data>
+  <data name="UserTimestampRepeatedException" xml:space="preserve">
+    <value>时间戳{0}有重复!</value>
+  </data>
+  <data name="UserMultipleAddressLoginException" xml:space="preserve">
+    <value>不允许多个地址登录</value>
+  </data>
+  <data name="UserSignatureException" xml:space="preserve">
+    <value>用户未经验证通过</value>
+  </data>
+  <data name="PasswordComplexityReminder" xml:space="preserve">
+    <value>口令过于简单(长度需大于{0}位且含数字和大小写字母或特殊字符的类别达到{1}种)</value>
+  </data>
+</root>

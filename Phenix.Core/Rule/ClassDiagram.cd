@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Core.Rule.EnumCaptionAttribute">
+    <Position X="7.25" Y="17.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAgAAQAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Rule\EnumCaptionAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Rule.EnumKeyCaption">
+    <Position X="3.5" Y="17.75" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAACAIAAoAAQAgBGAAgWABAAAAIAIDAFgAAAAAiA=</HashCode>
+      <FileName>Rule\EnumKeyCaption.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EnumCaptionAttribute" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Phenix.Core.Rule.EnumKeyCaptionCollection">
+    <Position X="0.5" Y="17.75" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAQAAAAAAAAAAIAAgCEAAAAEAAAAAIBACgAgKAAACBE=</HashCode>
+      <FileName>Rule\EnumKeyCaptionCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Rule.DataRuleHub">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AgQgoBAAAAAAACAAAABEAAiEAAABACAgAAAACAAEgQA=</HashCode>
+      <FileName>Rule\DataRuleHub.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Worker" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Rule.PromptCodeKeyCaption">
+    <Position X="3.75" Y="5.75" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAAAAABAAAAgAASAAQAAAAAAAAAAAAAAAAAgAAgAAAA=</HashCode>
+      <FileName>Rule\PromptCodeKeyCaption.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ReadLevel" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Phenix.Core.Rule.PromptCodeKeyCaptionCollection">
+    <Position X="0.5" Y="5.75" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIIAAAAAAAAAAgAEABAQAAAAQAAAACAAAAgAAABQ=</HashCode>
+      <FileName>Rule\PromptCodeKeyCaptionCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Rule.CriteriaExpressionKeyCaption">
+    <Position X="4.5" Y="9.75" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAAAAABAAAAgACSCAQAAAEAAAAAAAAAAAAAgAAgAAAA=</HashCode>
+      <FileName>Rule\CriteriaExpressionKeyCaption.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ReadLevel" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Phenix.Core.Rule.CriteriaExpressionKeyCaptionCollection">
+    <Position X="0.5" Y="9.75" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIIAAAAAAAAAEgAEABAQAAAAQAAAACACAAgAAABA=</HashCode>
+      <FileName>Rule\CriteriaExpressionKeyCaptionCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Rule.CriteriaExpressionPropertyKeyCaption">
+    <Position X="4.75" Y="14" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Rule\CriteriaExpressionPropertyKeyCaption.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Phenix.Core.Rule.CriteriaExpressionPropertyKeyCaptionCollection">
+    <Position X="0.5" Y="14" Width="4" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAoAAAAAAAAAICAAAAAAAABA=</HashCode>
+      <FileName>Rule\CriteriaExpressionPropertyKeyCaptionCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Phenix.Core.Rule.IDataRule">
+    <Position X="3.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoAAAAAAAACAAAABEAAiAAAABAAAAAAAACAAEAAA=</HashCode>
+      <FileName>Rule\IDataRule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Phenix.Core.Rule.ReadLevel">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAgAAAAAAAAEAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Rule\ReadLevel.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

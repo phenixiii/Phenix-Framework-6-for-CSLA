@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Phenix.Core.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DatabaseType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">数据库类型</Value>
+    </Setting>
+    <Setting Name="DataSource" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DataSource</Value>
+    </Setting>
+    <Setting Name="UserId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">UserId</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Password</Value>
+    </Setting>
+    <Setting Name="InitialCatalog" Type="System.String" Scope="User">
+      <Value Profile="(Default)">InitialCatalog</Value>
+    </Setting>
+    <Setting Name="Pooling" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Pooling</Value>
+    </Setting>
+    <Setting Name="Ok" Type="System.String" Scope="User">
+      <Value Profile="(Default)">确认</Value>
+    </Setting>
+    <Setting Name="Cancel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">取消</Value>
+    </Setting>
+    <Setting Name="DbConnection" Type="System.String" Scope="User">
+      <Value Profile="(Default)">连接数据库</Value>
+    </Setting>
+    <Setting Name="DataSourceKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">数据源键值</Value>
+    </Setting>
+    <Setting Name="Add" Type="System.String" Scope="User">
+      <Value Profile="(Default)">新建</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

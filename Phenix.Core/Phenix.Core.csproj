@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C8A08B69-46A5-433C-9892-1369EEA92397}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Phenix.Core</RootNamespace>
+    <AssemblyName>Phenix.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/Phenix.Core/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <DocumentationFile>..\Bin\Phenix.Core.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\Bin\Phenix.Core.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChnCharInfo" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.DurableInstancing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfig.cs" />
+    <Compile Include="AppSettings.cs" />
+    <Compile Include="AppType.cs" />
+    <Compile Include="AppUtilities.cs" />
+    <Compile Include="Cache\IObjectCacheKey.cs" />
+    <Compile Include="Cache\IObjectCacheSynchro.cs" />
+    <Compile Include="Cache\ObjectCacheAttribute.cs" />
+    <Compile Include="Cache\ObjectCacheInfo.cs" />
+    <Compile Include="Cache\ObjectCacheValue.cs" />
+    <Compile Include="Data\CriteriaBase.cs" />
+    <Compile Include="Data\DataBase.cs" />
+    <Compile Include="Data\IDataInvalidInfo.cs" />
+    <Compile Include="Data\ParamValue.cs" />
+    <Compile Include="IO\FileChunkInfo.cs" />
+    <Compile Include="IO\FileHelper.cs" />
+    <Compile Include="IO\SerialPortReader.cs" />
+    <Compile Include="IO\StreamHelper.cs" />
+    <Compile Include="Mapping\Exception\ValidationException.cs" />
+    <Compile Include="Mapping\HistoryAttribute.cs" />
+    <Compile Include="Mapping\IService.cs" />
+    <Compile Include="Data\ServiceBase.cs" />
+    <Compile Include="Data\Criterions.cs" />
+    <Compile Include="Data\EntityListPageBase.cs" />
+    <Compile Include="Data\EntityPageBase.cs" />
+    <Compile Include="Dictionary\Windows\BusinessCodeFormatEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Windows\BusinessCodeFormatEditDialog.designer.cs">
+      <DependentUpon>BusinessCodeFormatEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Windows\BusinessCodeFormatManageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Windows\BusinessCodeFormatManageDialog.designer.cs">
+      <DependentUpon>BusinessCodeFormatManageDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Windows\BusinessCodePlaceholderFormatAddDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Windows\BusinessCodePlaceholderFormatAddDialog.Designer.cs">
+      <DependentUpon>BusinessCodePlaceholderFormatAddDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Windows\BusinessCodeSerialFormatAddDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\Windows\BusinessCodeSerialFormatAddDialog.designer.cs">
+      <DependentUpon>BusinessCodeSerialFormatAddDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Windows\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Mapping\IEntityCollectionPage.cs" />
+    <Compile Include="Mapping\IEntityPage.cs" />
+    <Compile Include="Mapping\Exception\DeleteException.cs" />
+    <Compile Include="Data\EntityBase.cs" />
+    <Compile Include="Data\EntityListBase.cs" />
+    <Compile Include="Mapping\Exception\CheckDirtyException.cs" />
+    <Compile Include="Mapping\Exception\InsertException.cs" />
+    <Compile Include="Mapping\ISupportUndo.cs" />
+    <Compile Include="Mapping\MethodAction.cs" />
+    <Compile Include="Mapping\PropertyValue.cs" />
+    <Compile Include="Mapping\ReadOnlyAttribute.cs" />
+    <Compile Include="Mapping\Exception\UpdateException.cs" />
+    <Compile Include="Mapping\SelectSqlType.cs" />
+    <Compile Include="Message\MessageHub.cs" />
+    <Compile Include="Message\IMessage.cs" />
+    <Compile Include="Net\ServicesClusterAttribute.cs" />
+    <Compile Include="Net\SocketHelper.cs" />
+    <Compile Include="Plugin\PluginInfo.cs" />
+    <Compile Include="Plugin\Windows\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Plugin\Windows\PluginAssemblySelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plugin\Windows\PluginAssemblySelectDialog.Designer.cs">
+      <DependentUpon>PluginAssemblySelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reflection\DynamicFactory.cs" />
+    <Compile Include="Security\Cryptography\KeyPair.cs" />
+    <Compile Include="Security\Cryptography\MD5CryptoTextProvider.cs" />
+    <Compile Include="Security\Cryptography\RijndaelCryptoTextProvider.cs" />
+    <Compile Include="Security\Cryptography\RijndaelCryptoTextProvider7.cs" />
+    <Compile Include="Security\Cryptography\RSACryptoTextProvider.cs" />
+    <Compile Include="Security\Cryptography\RSACryptoTextProvider7.cs" />
+    <Compile Include="Security\Exception\UserLockedException.cs" />
+    <Compile Include="Security\Exception\UserNotFoundException.cs" />
+    <Compile Include="Security\Exception\UserPasswordComplexityException.cs" />
+    <Compile Include="Security\UserPrincipal.cs" />
+    <Compile Include="Security\Windows\RolesSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\Windows\RolesSelectDialog.Designer.cs">
+      <DependentUpon>RolesSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\Windows\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Security\Windows\RoleSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\Windows\RoleSelectDialog.Designer.cs">
+      <DependentUpon>RoleSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\Cryptography\AesCryptoTextProvider.cs" />
+    <Compile Include="SyncCollections\SynchronizedHashSet.cs" />
+    <Compile Include="Threading\AsyncResult.cs" />
+    <Compile Include="Threading\ComparableLocked.cs" />
+    <Compile Include="Threading\CompletedAsyncResult.cs" />
+    <Compile Include="Windows\DataInvalidEventArgs.cs" />
+    <Compile Include="Windows\ErrorProviderExtentions.cs" />
+    <Compile Include="Workflow\IActivity.cs" />
+    <Compile Include="Workflow\IJointActivity.cs" />
+    <Compile Include="Workflow\InstanceHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Workflow\InstanceStore.cs" />
+    <Compile Include="Workflow\IWorkflow.cs" />
+    <Compile Include="Workflow\IStartCommand.cs" />
+    <Compile Include="Workflow\TaskContext.cs" />
+    <Compile Include="Workflow\TaskState.cs" />
+    <Compile Include="ComponentModel\ComponentHelper.cs" />
+    <Compile Include="Dictionary\BusinessCodePlaceholderFormat.cs" />
+    <Compile Include="Data\DataHub.cs" />
+    <Compile Include="Data\DataReader.cs" />
+    <Compile Include="Data\DefaultDatabase.cs" />
+    <Compile Include="Data\ExcelHelper.cs" />
+    <Compile Include="Data\IData.cs" />
+    <Compile Include="Dictionary\BusinessCodeFormatException.cs" />
+    <Compile Include="Data\SafeDataReader.cs" />
+    <Compile Include="Data\Schema\Index.cs" />
+    <Compile Include="Data\Schema\Sheet.cs" />
+    <Compile Include="Data\Schema\Column.cs" />
+    <Compile Include="Data\Schema\Database.cs" />
+    <Compile Include="Data\Schema\ForeignKey.cs" />
+    <Compile Include="Data\Schema\InfoBase.cs" />
+    <Compile Include="Data\Schema\Table.cs" />
+    <Compile Include="Data\Schema\View.cs" />
+    <Compile Include="Data\Windows\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Configuration.cs" />
+    <Compile Include="Dictionary\DataDictionaryAttribute.cs" />
+    <Compile Include="Dictionary\TableFilterInfo.cs" />
+    <Compile Include="Dictionary\TableFilterSectionInfo.cs" />
+    <Compile Include="Data\BooleanOption.cs" />
+    <Compile Include="Code\Pinyin.cs" />
+    <Compile Include="Dictionary\AssemblyClassInfo.cs" />
+    <Compile Include="Dictionary\AssemblyClassMethodInfo.cs" />
+    <Compile Include="Dictionary\AssemblyClassPropertyInfo.cs" />
+    <Compile Include="Data\DataSetHelper.cs" />
+    <Compile Include="Data\DbConnectionHelper.cs" />
+    <Compile Include="EventArgs\MessageNotifyType.cs" />
+    <Compile Include="IO\DownloadFileInfo.cs" />
+    <Compile Include="IO\DownloadFileHelper.cs" />
+    <Compile Include="Log\EventLogInfo.cs" />
+    <Compile Include="Mapping\AggregateSign.cs" />
+    <Compile Include="Mapping\ClassDetailMapInfo.cs" />
+    <Compile Include="Mapping\ClassMapInfo.cs" />
+    <Compile Include="Mapping\CodingStandards.cs" />
+    <Compile Include="Mapping\CriteriaExpressionNode.cs" />
+    <Compile Include="Mapping\CriteriaExpressionSub.cs" />
+    <Compile Include="Mapping\CriteriaExpressionType.cs" />
+    <Compile Include="Mapping\CriteriaLinkAttribute.cs" />
+    <Compile Include="Mapping\CriteriaHelper.cs" />
+    <Compile Include="Mapping\ClassMemberHelper.cs" />
+    <Compile Include="Mapping\EntityLinkHelper.cs" />
+    <Compile Include="Mapping\EntityListHelper.cs" />
+    <Compile Include="Mapping\ExecuteModify.cs" />
+    <Compile Include="Mapping\FieldAggregateAttribute.cs" />
+    <Compile Include="Mapping\FieldAggregateMapInfo.cs" />
+    <Compile Include="Mapping\FieldUniqueMapInfo.cs" />
+    <Compile Include="Mapping\ICriteria.cs" />
+    <Compile Include="Mapping\ICriterions.cs" />
+    <Compile Include="Mapping\IEntity.cs" />
+    <Compile Include="Mapping\IEntityCollection.cs" />
+    <Compile Include="Mapping\IMemberInfo.cs" />
+    <Compile Include="Mapping\IMethodInfo.cs" />
+    <Compile Include="Mapping\MethodInfo.cs" />
+    <Compile Include="Mapping\OrderByInfo.cs" />
+    <Compile Include="Mapping\PropertyInfo.cs" />
+    <Compile Include="Mapping\PropertyType.cs" />
+    <Compile Include="Operate\IKeyCaption.cs" />
+    <Compile Include="Operate\IKeyCaptionCollection.cs" />
+    <Compile Include="Operate\KeyCaptionAttribute.cs" />
+    <Compile Include="Reflection\IFactory.cs" />
+    <Compile Include="Mapping\IPropertyInfo.cs" />
+    <Compile Include="Mapping\PropertyAttribute.cs" />
+    <Compile Include="Mapping\PropertyMapInfo.cs" />
+    <Compile Include="Net\RemotingConfig.cs" />
+    <Compile Include="Net\WcfConfig.cs" />
+    <Compile Include="Operate\ISelectable.cs" />
+    <Compile Include="Operate\ISelectableCollection.cs" />
+    <Compile Include="Operate\KeyCaption.cs" />
+    <Compile Include="Operate\KeyCaptionCollection.cs" />
+    <Compile Include="Operate\SelectedValueChangedEventArgs.cs" />
+    <Compile Include="Operate\SelectedValueChangingEventArgs.cs" />
+    <Compile Include="EventArgs\StopEventArgs.cs" />
+    <Compile Include="EventArgs\ShallEventArgs.cs" />
+    <Compile Include="Log\ExecuteActionInfo.cs" />
+    <Compile Include="Mapping\Exception\CheckOccupiedException.cs" />
+    <Compile Include="Mapping\Exception\CheckRepeatedException.cs" />
+    <Compile Include="Mapping\ClassDetailAttribute.cs" />
+    <Compile Include="Mapping\CriteriaExpression.cs" />
+    <Compile Include="Mapping\CriteriaFieldAttribute.cs" />
+    <Compile Include="Mapping\CriteriaFieldMapInfo.cs" />
+    <Compile Include="Mapping\CriteriaLogical.cs" />
+    <Compile Include="Mapping\CriteriaOperate.cs" />
+    <Compile Include="Mapping\ExecuteAction.cs" />
+    <Compile Include="Mapping\FieldOrderByAttribute.cs" />
+    <Compile Include="Mapping\FieldRuleAttribute.cs" />
+    <Compile Include="Mapping\IFieldMapInfo.cs" />
+    <Compile Include="Mapping\EntityHelper.cs" />
+    <Compile Include="Mapping\FieldMapInfo.cs" />
+    <Compile Include="Mapping\FieldLinkAttribute.cs" />
+    <Compile Include="Reflection\Reflect.cs" />
+    <Compile Include="Renovate\IAnalyser.cs" />
+    <Compile Include="Dictionary\BusinessCodeFormat.cs" />
+    <Compile Include="Dictionary\BusinessCodeSerialFormat.cs" />
+    <Compile Include="Dictionary\BusinessCodeFormatItemType.cs" />
+    <Compile Include="Dictionary\BusinessCodeSerialGroupMode.cs" />
+    <Compile Include="Dictionary\BusinessCodeSerialResetCycle.cs" />
+    <Compile Include="Rule\CriteriaExpressionKeyCaption.cs" />
+    <Compile Include="Rule\CriteriaExpressionKeyCaptionCollection.cs" />
+    <Compile Include="Rule\CriteriaExpressionPropertyKeyCaption.cs" />
+    <Compile Include="Rule\CriteriaExpressionPropertyKeyCaptionCollection.cs" />
+    <Compile Include="Rule\ReadLevel.cs" />
+    <Compile Include="Rule\EnumCaptionAttribute.cs" />
+    <Compile Include="Rule\EnumKeyCaptionCollection.cs" />
+    <Compile Include="Rule\EnumKeyCaption.cs" />
+    <Compile Include="Mapping\FieldUniqueAttribute.cs" />
+    <Compile Include="Mapping\MethodAttribute.cs" />
+    <Compile Include="Mapping\MethodMapInfo.cs" />
+    <Compile Include="Mapping\OperationSign.cs" />
+    <Compile Include="Mapping\OracleOptimizerMode.cs" />
+    <Compile Include="Mapping\OrderBy.cs" />
+    <Compile Include="Data\SqlHelper.cs" />
+    <Compile Include="Net\ProxyType.cs" />
+    <Compile Include="Net\RemotingCompression\CompressCommonHeaders.cs" />
+    <Compile Include="Net\RemotingCompression\CompressClientChannelSink.cs" />
+    <Compile Include="Net\RemotingCompression\CompressClientChannelSinkProvider.cs" />
+    <Compile Include="Net\RemotingCompression\CompressServerChannelSink.cs" />
+    <Compile Include="Net\RemotingCompression\CompressServerChannelSinkProvider.cs" />
+    <Compile Include="Net\RemotingCompression\ICompressible.cs" />
+    <Compile Include="Net\RemotingCompression\NonCompressibleAttribute.cs" />
+    <Compile Include="Net\WcfCompression\CompressEncoder.cs" />
+    <Compile Include="Net\WcfCompression\CompressEncoderFactory.cs" />
+    <Compile Include="Net\WcfCompression\CompressEncodingBindingElement.cs" />
+    <Compile Include="IO\CompressHelper.cs" />
+    <Compile Include="Net\WcfHelper.cs" />
+    <Compile Include="Net\WcfProtocolType.cs" />
+    <Compile Include="Plugin\IPlugin.cs" />
+    <Compile Include="Plugin\PluginAttribute.cs" />
+    <Compile Include="Plugin\PluginBase.cs" />
+    <Compile Include="Plugin\PluginEventArgs.cs" />
+    <Compile Include="Plugin\PluginHost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dictionary\AssemblyInfo.cs" />
+    <Compile Include="Dictionary\AssemblyClassType.cs" />
+    <Compile Include="Dictionary\DataDictionaryHub.cs" />
+    <Compile Include="Dictionary\IDataDictionary.cs" />
+    <Compile Include="Plugin\PluginState.cs" />
+    <Compile Include="Rule\PromptCodeKeyCaption.cs" />
+    <Compile Include="Rule\PromptCodeKeyCaptionCollection.cs" />
+    <Compile Include="Security\DataSecurityContext.cs" />
+    <Compile Include="Security\DataSecurityHub.cs" />
+    <Compile Include="Security\DepartmentInfo.cs" />
+    <Compile Include="Security\IDataSecurity.cs" />
+    <Compile Include="Security\IIdentity.cs" />
+    <Compile Include="Security\ISecurityInfo.cs" />
+    <Compile Include="Security\Exception\UserVerifyException.cs" />
+    <Compile Include="Security\IPrincipal.cs" />
+    <Compile Include="Security\PositionInfo.cs" />
+    <Compile Include="Security\Exception\ProcessLockException.cs" />
+    <Compile Include="Security\ProcessLockInfo.cs" />
+    <Compile Include="Dictionary\RoleInfo.cs" />
+    <Compile Include="Dictionary\SectionInfo.cs" />
+    <Compile Include="Security\UserIdentity.cs" />
+    <Compile Include="Reflection\Utilities.cs" />
+    <Compile Include="Rule\DataRuleHub.cs" />
+    <Compile Include="Rule\IDataRule.cs" />
+    <Compile Include="Win32\NativeMethods.cs" />
+    <Compile Include="Mapping\ClassAttribute.cs" />
+    <Compile Include="Net\NetConfig.cs" />
+    <Compile Include="Cache\ObjectCache.cs" />
+    <Compile Include="BaseDisposable.cs" />
+    <Compile Include="Code\Converter.cs" />
+    <Compile Include="Data\DbConnectionInfo.cs" />
+    <Compile Include="Data\DatabaseConverter.cs" />
+    <Compile Include="Data\DbCommandHelper.cs" />
+    <Compile Include="Data\DatabaseType.cs" />
+    <Compile Include="Mapping\Mapper.cs" />
+    <Compile Include="Security\Cryptography\DesCryptoTextProvider.cs" />
+    <Compile Include="Log\EventLog.cs" />
+    <Compile Include="Mapping\FieldAttribute.cs" />
+    <Compile Include="EventArgs\ExceptionEventArgs.cs" />
+    <Compile Include="Mapping\FieldValue.cs" />
+    <Compile Include="Log\IPermanentLog.cs" />
+    <Compile Include="EventArgs\MessageNotifyEventArgs.cs" />
+    <Compile Include="Log\PermanentLogHub.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Net\RemotingHelper.cs" />
+    <Compile Include="Net\RemotingProtocolType.cs" />
+    <Compile Include="Data\Sequence.cs" />
+    <Compile Include="SyncCollections\SynchronizedDictionary.cs" />
+    <Compile Include="SyncCollections\SynchronizedLinkedList.cs" />
+    <Compile Include="SyncCollections\SynchronizedList.cs" />
+    <Compile Include="SyncCollections\SynchronizedQueue.cs" />
+    <Compile Include="SyncCollections\SynchronizedSortedDictionary.cs" />
+    <Compile Include="SyncCollections\SynchronizedSortedList.cs" />
+    <Compile Include="SyncCollections\SynchronizedStack.cs" />
+    <Compile Include="Data\Windows\DbConnectionSetupDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\Windows\DbConnectionSetupDialog.designer.cs">
+      <DependentUpon>DbConnectionSetupDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BindingSourceHelper.cs" />
+    <Compile Include="Windows\ControlHelper.cs" />
+    <Compile Include="Windows\DialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\DialogForm.Designer.cs">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\IForm.cs" />
+    <Compile Include="Windows\ShowMessageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ShowMessageDialog.Designer.cs">
+      <DependentUpon>ShowMessageDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\Windows\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Workflow\Windows\WorkflowTypeSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workflow\Windows\WorkflowTypeSelectDialog.Designer.cs">
+      <DependentUpon>WorkflowTypeSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowHub.cs" />
+    <Compile Include="Workflow\WorkflowIdentityAttribute.cs" />
+    <Compile Include="Workflow\WorkflowIdentityInfo.cs" />
+    <Compile Include="Workflow\WorkflowInfo.cs" />
+    <Compile Include="Workflow\WorkflowTaskInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Cache\ClassDiagram.cd" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="Data\Schema\ClassDiagram.cd" />
+    <None Include="Mapping\Exception\ClassDiagram.cd" />
+    <None Include="Message\ClassDiagram.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Renovate\ClassDiagram.cd" />
+    <None Include="Code\ClassDiagram.cd" />
+    <None Include="ComponentModel\ClassDiagram.cd" />
+    <None Include="Data\ClassDiagram.cd" />
+    <None Include="Rule\ClassDiagram.cd" />
+    <None Include="EventArgs\ClassDiagram.cd" />
+    <None Include="IO\ClassDiagram.cd" />
+    <None Include="Log\ClassDiagram.cd" />
+    <None Include="Mapping\ClassDiagram.cd" />
+    <None Include="Net\ClassDiagram.cd" />
+    <None Include="Net\RemotingCompression\ClassDiagram.cd" />
+    <None Include="Net\WcfCompression\ClassDiagram.cd" />
+    <None Include="Operate\ClassDiagram.cd" />
+    <None Include="Plugin\ClassDiagram.cd" />
+    <None Include="Reflection\ClassDiagram.cd" />
+    <None Include="Security\ClassDiagram.cd" />
+    <None Include="Security\Cryptography\ClassDiagram.cd" />
+    <None Include="Security\Exception\ClassDiagram.cd" />
+    <None Include="SyncCollections\ClassDiagram.cd" />
+    <None Include="Dictionary\ClassDiagram.cd" />
+    <None Include="Threading\ClassDiagram.cd" />
+    <None Include="Win32\ClassDiagram.cd" />
+    <None Include="Windows\ClassDiagram.cd" />
+    <None Include="Workflow\ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Windows\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Windows\Resources.zh-CHS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Windows\Resources.zh-CHT.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Windows\Resources.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Windows\Resources.zh-TW.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Windows\Resources.zh-Hans.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Windows\Resources.zh-Hant.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\BusinessCodeFormatEditDialog.resx">
+      <DependentUpon>BusinessCodeFormatEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\BusinessCodeFormatManageDialog.resx">
+      <DependentUpon>BusinessCodeFormatManageDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\BusinessCodePlaceholderFormatAddDialog.resx">
+      <DependentUpon>BusinessCodePlaceholderFormatAddDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\BusinessCodeSerialFormatAddDialog.resx">
+      <DependentUpon>BusinessCodeSerialFormatAddDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\Resources.zh-CHS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\Resources.zh-CHT.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\Resources.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\Resources.zh-Hans.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\Resources.zh-Hant.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\Windows\Resources.zh-TW.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\Windows\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\Windows\Resources.zh-CHS.resx">
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\Windows\Resources.zh-CHT.resx" />
+    <EmbeddedResource Include="Plugin\Windows\Resources.zh-CN.resx">
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\Windows\Resources.zh-TW.resx" />
+    <EmbeddedResource Include="Plugin\Windows\PluginAssemblySelectDialog.resx">
+      <DependentUpon>PluginAssemblySelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\Windows\Resources.zh-Hans.resx">
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plugin\Windows\Resources.zh-Hant.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CHS.resx">
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\Windows\DbConnectionSetupDialog.resx">
+      <DependentUpon>DbConnectionSetupDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CHT.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-TW.resx" />
+    <EmbeddedResource Include="Properties\Resources.zh-Hans.resx">
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Windows\RolesSelectDialog.resx">
+      <DependentUpon>RolesSelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Windows\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Windows\Resources.zh-CHS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Windows\Resources.zh-CHT.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Windows\Resources.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Windows\Resources.zh-TW.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Windows\RoleSelectDialog.resx">
+      <DependentUpon>RoleSelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Windows\Resources.zh-Hans.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\Windows\Resources.zh-Hant.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\DialogForm.resx">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ShowMessageDialog.resx">
+      <DependentUpon>ShowMessageDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workflow\Windows\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workflow\Windows\Resources.zh-CHS.resx">
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workflow\Windows\Resources.zh-CHT.resx" />
+    <EmbeddedResource Include="Workflow\Windows\Resources.zh-CN.resx">
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workflow\Windows\Resources.zh-TW.resx" />
+    <EmbeddedResource Include="Workflow\Windows\WorkflowTypeSelectDialog.resx">
+      <DependentUpon>WorkflowTypeSelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-Hant.resx">
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workflow\Windows\Resources.zh-Hans.resx">
+      <LastGenOutput>Resources.zh-CHS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workflow\Windows\Resources.zh-Hant.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Plugin\PluginHost.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Mapping\OracleOptimizerMode.txt" />
+    <EmbeddedResource Include="Workflow\InstanceHost.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

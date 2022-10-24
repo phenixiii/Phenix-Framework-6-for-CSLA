@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddtimeFriendlyName" xml:space="preserve">
+    <value>Add time</value>
+  </data>
+  <data name="CaptionFriendlyName" xml:space="preserve">
+    <value>Caption</value>
+  </data>
+  <data name="CheckOccupiedException" xml:space="preserve">
+    <value>{0} exist detail records: {1}</value>
+  </data>
+  <data name="CheckRepeatedException" xml:space="preserve">
+    <value>{0} exist repeat records: {1} [{2}]</value>
+  </data>
+  <data name="DatabaseConnectionFailed" xml:space="preserve">
+    <value>Database connection failed</value>
+  </data>
+  <data name="DatabaseConnectionSucceed" xml:space="preserve">
+    <value>Database connection succeed</value>
+  </data>
+  <data name="KeyFriendlyName" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="MethodNotImplemented" xml:space="preserve">
+    <value>Not implemented</value>
+  </data>
+  <data name="NoService" xml:space="preserve">
+    <value>The failure of service</value>
+  </data>
+  <data name="PleaseRegisterEnable" xml:space="preserve">
+    <value>Please register &amp; enable {0}</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please wait</value>
+  </data>
+  <data name="ProcessLockException" xml:space="preserve">
+    <value>{0} has been {1} lock({2} -&gt; {3}: {4}), must by {1} to unlock</value>
+  </data>
+  <data name="ReadLevelFriendlyName" xml:space="preserve">
+    <value>Read level</value>
+  </data>
+  <data name="SelectedFriendlyName" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+  <data name="SetDataSourceHint" xml:space="preserve">
+    <value>{0}, consumed {1} seconds in set DataSource</value>
+  </data>
+  <data name="UserNumberFriendlyName" xml:space="preserve">
+    <value>User number</value>
+  </data>
+  <data name="UserVerifyException" xml:space="preserve">
+    <value>Invalid operation - user without verification through: {0}</value>
+  </data>
+  <data name="ValueFriendlyName" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="PropertyFriendlyName" xml:space="preserve">
+    <value>Property</value>
+  </data>
+  <data name="BusinessCodeFormatException" xml:space="preserve">
+    <value>{0} business code format error: {1}</value>
+  </data>
+  <data name="CriteriaExpressionFriendlyName" xml:space="preserve">
+    <value>CriteriaExpression</value>
+  </data>
+  <data name="FlagFriendlyName" xml:space="preserve">
+    <value>Flag</value>
+  </data>
+  <data name="PromptCodeFriendlyName" xml:space="preserve">
+    <value>Prompt code</value>
+  </data>
+  <data name="EnabledFriendlyName" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="IndexNumberFriendlyName" xml:space="preserve">
+    <value>Index number</value>
+  </data>
+  <data name="CannotConnectTo" xml:space="preserve">
+    <value>Cannot connect to the {0}</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="NoSuchMethod" xml:space="preserve">
+    <value>No such method {0}</value>
+  </data>
+  <data name="WorkflowInfoDoesNotExist" xml:space="preserve">
+    <value>WorkflowInfo {0}.{1}  does not exist</value>
+  </data>
+  <data name="PluginAssemblyNameRequired" xml:space="preserve">
+    <value>{0}({1}) PluginAssemblyName not allow empty</value>
+  </data>
+  <data name="CriteriaFriendlyName" xml:space="preserve">
+    <value>Criteria</value>
+  </data>
+  <data name="CheckDirtyException" xml:space="preserve">
+    <value>Before the update data {0} has been changed</value>
+  </data>
+  <data name="DeleteException" xml:space="preserve">
+    <value>Failure to delete data {0}</value>
+  </data>
+  <data name="InsertException" xml:space="preserve">
+    <value>Failure to insert data {0}</value>
+  </data>
+  <data name="UpdateException" xml:space="preserve">
+    <value>Failure to update data {0}</value>
+  </data>
+  <data name="UserLockedException" xml:space="preserve">
+    <value>{0} user has been banned login, please contact the system administrator to unlock.</value>
+  </data>
+  <data name="UserNotFoundException" xml:space="preserve">
+    <value>{0} user without verification through!</value>
+  </data>
+  <data name="ValidationException" xml:space="preserve">
+    <value>Object is invalid: {0}</value>
+  </data>
+  <data name="MaxLengthRule" xml:space="preserve">
+    <value>{0} value '{1}' can not exceed {2} characters</value>
+  </data>
+  <data name="MinLengthRule" xml:space="preserve">
+    <value>{0} value '{1}' must be at least {2} characters</value>
+  </data>
+  <data name="RequiredRule" xml:space="preserve">
+    <value>{0} not allow empty</value>
+  </data>
+  <data name="UserStillTimeoutException" xml:space="preserve">
+    <value>The last operation was at {0}, still for more than {1} minutes</value>
+  </data>
+  <data name="UserTimestampRepeatedException" xml:space="preserve">
+    <value>The timestamp {0} are repeated!</value>
+  </data>
+  <data name="UserMultipleAddressLoginException" xml:space="preserve">
+    <value>do not allow multiple address to log in</value>
+  </data>
+  <data name="UserSignatureException" xml:space="preserve">
+    <value>user without verification through!</value>
+  </data>
+  <data name="PasswordComplexityReminder" xml:space="preserve">
+    <value>the password is too simple(length is more than {0} and contain lowercase letters and numbers or special characters category more than {1})</value>
+  </data>
+</root>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Phenix.Core.Net.NetConfig">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAkDQEEAQAAEgECAgAABACAAAADIAAREgEUBAAAAEA=</HashCode>
+      <FileName>Net\NetConfig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ProxyType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Net.RemotingHelper">
+    <Position X="0.5" Y="4.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gCIAgAAAAAmAAkRwAFAIgAgAEJCOAAIAAAABFCMAAAA=</HashCode>
+      <FileName>Net\RemotingHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Net.WcfHelper">
+    <Position X="0.5" Y="10" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAgBAgAAAAAAAABAAAAAAAAAAAgAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Net\WcfHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Net.RemotingConfig">
+    <Position X="3.75" Y="4.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAAEAAAAAAAACABQhAAAAAgAAAAAIIAAAQARAAIEEA=</HashCode>
+      <FileName>Net\RemotingConfig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ServicesProtocolType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Net.WcfConfig">
+    <Position X="3" Y="10" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAgwAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Net\WcfConfig.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ServicesProtocolType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Phenix.Core.Net.ServicesClusterAttribute">
+    <Position X="5.75" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAGAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Net\ServicesClusterAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phenix.Core.Net.SocketHelper">
+    <Position X="0.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Net\SocketHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Phenix.Core.Net.RemotingProtocolType">
+    <Position X="7.25" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Net\RemotingProtocolType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Phenix.Core.Net.WcfProtocolType">
+    <Position X="6" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Net\WcfProtocolType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Phenix.Core.Net.ProxyType">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Net\ProxyType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

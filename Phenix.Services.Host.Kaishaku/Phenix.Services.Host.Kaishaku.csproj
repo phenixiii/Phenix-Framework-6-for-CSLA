@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Phenix.Core" />
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>

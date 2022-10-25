@@ -68,6 +68,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Phenix.Core" />
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>

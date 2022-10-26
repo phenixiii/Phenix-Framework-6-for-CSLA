@@ -1267,6 +1267,7 @@ Phenix.Services.Host.x64.exe.config配置项：
 2022-07-11
 升级了Bin.Top目录下的Host服务程序，可运行在.NET Framework 4.6.1以上环境
 
-2022-10-24
-开源Phenix.Core，除了Phenix.Core.Data和Phenix.Core.Mapping命名空间
+
+2022-10-26
+为提升性能，注册到配置库的类的配置信息仅限用于权限的控制，其他类似Caption等内容都以代码上的Attribute为准
 

@@ -1,5 +1,5 @@
 Phenix Framework 6 for CSLA
-Copyright ? 2007, 2021 Phenixヾ Studio
+Copyright ? 2007, 2022 Phenixヾ Studio
 基于.NET Framework 4.5 和 CSLA 4.3.14.0 的 开发框架
 
 发布地址：https://github.com/phenixiii/Phenix-Framework-6-for-CSLA

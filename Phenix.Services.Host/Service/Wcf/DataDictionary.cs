@@ -234,12 +234,12 @@ namespace Phenix.Services.Host.Service.Wcf
 
     [OperationBehavior(Impersonation = ImpersonationOption.Allowed)]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-    public object AddAssemblyClassInfo(string assemblyName, string assemblyCaption, string className, string classCaption, ExecuteAction? permanentExecuteAction, string[] groupNames, AssemblyClassType classType)
+    public object AddAssemblyClassInfo(string assemblyName, string assemblyCaption, string className, string classCaption,/* ExecuteAction? permanentExecuteAction,*/ string[] groupNames, AssemblyClassType classType)
     {
       try
       {
         ServiceManager.CheckActive();
-        DataDictionaryHub.AddAssemblyClassInfo(assemblyName, assemblyCaption, className, classCaption, permanentExecuteAction, groupNames, classType);
+        DataDictionaryHub.AddAssemblyClassInfo(assemblyName, assemblyCaption, className, classCaption,/* permanentExecuteAction,*/ groupNames, classType);
         return null;
       }
       catch (Exception ex)
@@ -250,13 +250,13 @@ namespace Phenix.Services.Host.Service.Wcf
 
     [OperationBehavior(Impersonation = ImpersonationOption.Allowed)]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-    public object AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions,
-      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies)
+    public object AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions/*,
+      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies*/)
     {
       try
       {
         ServiceManager.CheckActive();
-        DataDictionaryHub.AddAssemblyClassPropertyInfos(assemblyName, className, names, captions, tableNames, columnNames, aliases, permanentExecuteModifies);
+        DataDictionaryHub.AddAssemblyClassPropertyInfos(assemblyName, className, names, captions/*, tableNames, columnNames, aliases, permanentExecuteModifies*/);
         return null;
       }
       catch (Exception ex)
@@ -284,12 +284,12 @@ namespace Phenix.Services.Host.Service.Wcf
 
     [OperationBehavior(Impersonation = ImpersonationOption.Allowed)]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-    public object AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions, string[] tags, bool[] allowVisibles)
+    public object AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions/*, string[] tags, bool[] allowVisibles*/)
     {
       try
       {
         ServiceManager.CheckActive();
-        DataDictionaryHub.AddAssemblyClassMethodInfos(assemblyName, className, names, captions, tags, allowVisibles);
+        DataDictionaryHub.AddAssemblyClassMethodInfos(assemblyName, className, names, captions/*, tags, allowVisibles*/);
         return null;
       }
       catch (Exception ex)

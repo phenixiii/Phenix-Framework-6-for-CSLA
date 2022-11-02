@@ -57,7 +57,7 @@ $.support.cors = true;
 /*
     配套WabAPI服务(Bin.Top目录下Host服务程序)
 */
-var phAjax = (function ($) {
+var phAjax = (function($) {
     var SSL_COOKIE_NAME = "P-S";
     var HOST_COOKIE_NAME = "P-H";
     var PORT_COOKIE_NAME = "P-P";
@@ -68,7 +68,7 @@ var phAjax = (function ($) {
     var AUTHORIZATION_HEADER_NAME = "Phenix-Authorization";
     var METHOD_OVERRIDE_HEADER_NAME = "X-HTTP-Method-Override";
 
-    var _getSSL = function () {
+    var _getSSL = function() {
         var result;
         try {
             result = window.localStorage.getItem(SSL_COOKIE_NAME);
@@ -77,7 +77,7 @@ var phAjax = (function ($) {
         }
         return typeof result != "undefined" && result != null ? result : false;
     };
-    var _setSSL = function (value) {
+    var _setSSL = function(value) {
         try {
             window.localStorage.removeItem(SSL_COOKIE_NAME);
             window.localStorage.setItem(SSL_COOKIE_NAME, value);

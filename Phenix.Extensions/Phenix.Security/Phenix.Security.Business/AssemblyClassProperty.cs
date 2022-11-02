@@ -185,63 +185,7 @@ namespace Phenix.Security.Business
     public new string Caption
     {
       get { return GetProperty(CaptionProperty, _caption); }
-      set
-      {
-        SetProperty(CaptionProperty, ref _caption, value);
-        CaptionConfigured = true;
-      }
-    }
-
-    /// <summary>
-    /// 标签已被配置
-    /// </summary>
-    public static readonly Phenix.Business.PropertyInfo<bool?> CaptionConfiguredProperty = RegisterProperty<bool?>(c => c.CaptionConfigured);
-    [Phenix.Core.Mapping.Field(FriendlyName = "标签已被配置", Alias = "AP_CAPTIONCONFIGURED", TableName = "PH_ASSEMBLYCLASSPROPERTY", ColumnName = "AP_CAPTIONCONFIGURED", NeedUpdate = true)]
-    private bool? _captionConfigured;
-    /// <summary>
-    /// 标签已被配置
-    /// </summary>
-    [System.ComponentModel.DisplayName("标签已被配置")]
-    public bool? CaptionConfigured
-    {
-      get { return GetProperty(CaptionConfiguredProperty, _captionConfigured); }
-      private set { SetProperty(CaptionConfiguredProperty, ref _captionConfigured, value); }
-    }
-
-    /// <summary>
-    /// 指示当处于哪种执行变更时本字段需要记录新旧值
-    /// </summary>
-    public static readonly Phenix.Business.PropertyInfo<Phenix.Core.Mapping.ExecuteModify?> PermanentExecuteModifyProperty = RegisterProperty<Phenix.Core.Mapping.ExecuteModify?>(c => c.PermanentExecuteModify);
-    [Phenix.Core.Mapping.Field(FriendlyName = "指示当处于哪种执行变更时本字段需要记录新旧值", Alias = "AP_PERMANENTEXECUTEMODIFY", TableName = "PH_ASSEMBLYCLASSPROPERTY", ColumnName = "AP_PERMANENTEXECUTEMODIFY", NeedUpdate = true)]
-    private Phenix.Core.Mapping.ExecuteModify? _permanentExecuteModify;
-    /// <summary>
-    /// 指示当处于哪种执行变更时本字段需要记录新旧值
-    /// </summary>
-    [System.ComponentModel.DisplayName("指示当处于哪种执行变更时本字段需要记录新旧值")]
-    public Phenix.Core.Mapping.ExecuteModify? PermanentExecuteModify
-    {
-      get { return GetProperty(PermanentExecuteModifyProperty, _permanentExecuteModify); }
-      set
-      {
-        SetProperty(PermanentExecuteModifyProperty, ref _permanentExecuteModify, value);
-        PermanentExecuteConfigured = true;
-      }
-    }
-
-    /// <summary>
-    /// 持久化执行变更方式已被配置
-    /// </summary>
-    public static readonly Phenix.Business.PropertyInfo<bool?> PermanentExecuteConfiguredProperty = RegisterProperty<bool?>(c => c.PermanentExecuteConfigured);
-    [Phenix.Core.Mapping.Field(FriendlyName = "持久化执行变更方式已被配置", Alias = "AP_PERMANENTEXECUTECONFIGURED", TableName = "PH_ASSEMBLYCLASSPROPERTY", ColumnName = "AP_PERMANENTEXECUTECONFIGURED", NeedUpdate = true)]
-    private bool? _permanentExecuteConfigured;
-    /// <summary>
-    /// 持久化执行变更方式已被配置
-    /// </summary>
-    [System.ComponentModel.DisplayName("持久化执行变更方式已被配置")]
-    public bool? PermanentExecuteConfigured
-    {
-      get { return GetProperty(PermanentExecuteConfiguredProperty, _permanentExecuteConfigured); }
-      private set { SetProperty(PermanentExecuteConfiguredProperty, ref _permanentExecuteConfigured, value); }
+      set { SetProperty(CaptionProperty, ref _caption, value); }
     }
 
     /// <summary>
@@ -274,54 +218,6 @@ namespace Phenix.Security.Business
     {
       get { return GetProperty(ConfigValueProperty, _configValue); }
       set { SetProperty(ConfigValueProperty, ref _configValue, value); }
-    }
-
-    /// <summary>
-    /// 索引号
-    /// </summary>
-    public static readonly Phenix.Business.PropertyInfo<int?> IndexNumberProperty = RegisterProperty<int?>(c => c.IndexNumber);
-    [Phenix.Core.Mapping.Field(FriendlyName = "索引号", Alias = "AP_INDEXNUMBER", TableName = "PH_ASSEMBLYCLASSPROPERTY", ColumnName = "AP_INDEXNUMBER", NeedUpdate = true)]
-    private int? _indexNumber;
-    /// <summary>
-    /// 索引号
-    /// </summary>
-    [System.ComponentModel.DisplayName("索引号")]
-    public int? IndexNumber
-    {
-      get { return GetProperty(IndexNumberProperty, _indexNumber); }
-      set { SetProperty(IndexNumberProperty, ref _indexNumber, value); }
-    }
-    
-    /// <summary>
-    /// 是否必输
-    /// </summary>
-    public static readonly Phenix.Business.PropertyInfo<bool?> RequiredProperty = RegisterProperty<bool?>(c => c.Required);
-    [Phenix.Core.Mapping.Field(FriendlyName = "是否必输", Alias = "AP_REQUIRED", TableName = "PH_ASSEMBLYCLASSPROPERTY", ColumnName = "AP_REQUIRED", NeedUpdate = true)]
-    private bool? _required;
-    /// <summary>
-    /// 是否必输
-    /// </summary>
-    [System.ComponentModel.DisplayName("是否必输")]
-    public bool? Required
-    {
-      get { return GetProperty(RequiredProperty, _required); }
-      set { SetProperty(RequiredProperty, ref _required, value); }
-    }
-
-    /// <summary>
-    /// 是否可见
-    /// </summary>
-    public static readonly Phenix.Business.PropertyInfo<bool?> VisibleProperty = RegisterProperty<bool?>(c => c.Visible);
-    [Phenix.Core.Mapping.Field(FriendlyName = "是否可见", Alias = "AP_VISIBLE", TableName = "PH_ASSEMBLYCLASSPROPERTY", ColumnName = "AP_VISIBLE", NeedUpdate = true)]
-    private bool? _visible;
-    /// <summary>
-    /// 是否可见
-    /// </summary>
-    [System.ComponentModel.DisplayName("是否可见")]
-    public bool? Visible
-    {
-      get { return GetProperty(VisibleProperty, _visible); }
-      set { SetProperty(VisibleProperty, ref _visible, value); }
     }
   }
 }

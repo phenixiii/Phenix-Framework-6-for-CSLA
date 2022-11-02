@@ -109,6 +109,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Phenix.Core\Phenix.Core.Top.csproj">
+      <Project>{6cd6264f-245d-4533-b17d-0a507d1e9bb6}</Project>
+      <Name>Phenix.Core.Top</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

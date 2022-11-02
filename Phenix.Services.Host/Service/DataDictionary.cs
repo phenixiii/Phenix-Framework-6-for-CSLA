@@ -194,17 +194,17 @@ namespace Phenix.Services.Host.Service
       }
     }
     
-    public void AddAssemblyClassInfo(string assemblyName, string assemblyCaption, string className, string classCaption, ExecuteAction? permanentExecuteAction, string[] groupNames, AssemblyClassType classType)
+    public void AddAssemblyClassInfo(string assemblyName, string assemblyCaption, string className, string classCaption,/* ExecuteAction? permanentExecuteAction,*/ string[] groupNames, AssemblyClassType classType)
     {
       ServiceManager.CheckActive();
-      DataDictionaryHub.AddAssemblyClassInfo(assemblyName, assemblyCaption, className, classCaption, permanentExecuteAction, groupNames, classType);
+      DataDictionaryHub.AddAssemblyClassInfo(assemblyName, assemblyCaption, className, classCaption,/* permanentExecuteAction,*/ groupNames, classType);
     }
 
-    public void AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions,
-      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies)
+    public void AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions/*,
+      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies*/)
     {
       ServiceManager.CheckActive();
-      DataDictionaryHub.AddAssemblyClassPropertyInfos(assemblyName, className, names, captions, tableNames, columnNames, aliases, permanentExecuteModifies);
+      DataDictionaryHub.AddAssemblyClassPropertyInfos(assemblyName, className, names, captions/*, tableNames, columnNames, aliases, permanentExecuteModifies*/);
     }
 
     public void AddAssemblyClassPropertyConfigInfos(string assemblyName, string className, string[] names, string[] captions,
@@ -214,10 +214,10 @@ namespace Phenix.Services.Host.Service
       DataDictionaryHub.AddAssemblyClassPropertyInfos(assemblyName, className, names, captions, configurables, configKeys, configValues, classType);
     }
 
-    public void AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions, string[] tags, bool[] allowVisibles)
+    public void AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions/*, string[] tags, bool[] allowVisibles*/)
     {
       ServiceManager.CheckActive();
-      DataDictionaryHub.AddAssemblyClassMethodInfos(assemblyName, className, names, captions, tags, allowVisibles);
+      DataDictionaryHub.AddAssemblyClassMethodInfos(assemblyName, className, names, captions/*, tags, allowVisibles*/);
     }
 
     #region BusinessCode

@@ -189,44 +189,50 @@ namespace Phenix.StandardService.Plugin
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
     private void Execute()
     {
-      int interval = Interval * 1000;
-      bool needSynchronize = true;
-      //开始循环
-      while (!Disposing)
-        try
-        {
-          if (!Suspending && needSynchronize)
+      try
+      {
+        int interval = Interval * 1000;
+        bool needSynchronize = true;
+        while (!Disposing)
+          try
           {
-            Clock = DefaultDatabase.ExecuteGet(SynchronizeClock);
-            OnMessageNotify(Clock.HasValue
-              ? new MessageNotifyEventArgs(MessageNotifyType.Information, this.ToString(), Clock.Value.ToLongTimeString())
-              : new MessageNotifyEventArgs(MessageNotifyType.Warning, this.ToString(), Clock.HasValue.ToString()));
+            if (!Suspending && needSynchronize)
+            {
+              Clock = DefaultDatabase.ExecuteGet(SynchronizeClock);
+              OnMessageNotify(Clock.HasValue
+                ? new MessageNotifyEventArgs(MessageNotifyType.Information, this.ToString(), Clock.Value.ToLongTimeString())
+                : new MessageNotifyEventArgs(MessageNotifyType.Warning, this.ToString(), Clock.HasValue.ToString()));
+            }
+            Thread.Sleep(interval);
+            //递增并对时
+            if (Clock.HasValue)
+            {
+              Clock = Clock.Value.AddMilliseconds(interval);
+              needSynchronize = Math.Abs(DateTime.Now.Subtract(Clock.Value).Seconds) >= Deviation;
+            }
+            else
+              needSynchronize = true;
           }
-          Thread.Sleep(interval);
-          //递增并对时
-          if (Clock.HasValue)
+          catch (ObjectDisposedException)
           {
-            Clock = Clock.Value.AddMilliseconds(interval);
-            needSynchronize = Math.Abs(DateTime.Now.Subtract(Clock.Value).Seconds) >= Deviation;
+            return;
           }
-          else
+          catch (ThreadAbortException)
+          {
+            Thread.ResetAbort();
+            return;
+          }
+          catch (Exception ex)
+          {
+            OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, this.ToString(), ex));
             needSynchronize = true;
-        }
-        catch (ObjectDisposedException)
-        {
-          return;
-        }
-        catch (ThreadAbortException)
-        {
-          Thread.ResetAbort();
-          return;
-        }
-        catch (Exception ex)
-        {
-          OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, this.ToString(), ex));
-          needSynchronize = true;
-          Thread.Sleep(interval);
-        }
+            Thread.Sleep(interval);
+          }
+      }
+      finally
+      {
+        _thread = null;
+      }
     }
 
     public override string ToString()

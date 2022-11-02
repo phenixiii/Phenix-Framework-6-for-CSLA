@@ -361,14 +361,14 @@ namespace Phenix.Services.Client.Library
       } while (true);
     }
 
-    public void AddAssemblyClassInfo(string assemblyName, string assemblyCaption, string className, string classCaption, ExecuteAction? permanentExecuteAction, string[] groupNames, AssemblyClassType classType)
+    public void AddAssemblyClassInfo(string assemblyName, string assemblyCaption, string className, string classCaption,/* ExecuteAction? permanentExecuteAction,*/ string[] groupNames, AssemblyClassType classType)
     {
       NetConfig.InitializeSwitch();
       do
       {
         try
         {
-          Service.AddAssemblyClassInfo(assemblyName, assemblyCaption, className, classCaption, permanentExecuteAction, groupNames, classType);
+          Service.AddAssemblyClassInfo(assemblyName, assemblyCaption, className, classCaption,/* permanentExecuteAction,*/ groupNames, classType);
           break;
         }
         catch (SocketException)
@@ -380,15 +380,15 @@ namespace Phenix.Services.Client.Library
       } while (true);
     }
 
-    public void AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions,
-      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies)
+    public void AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions/*,
+      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies*/)
     {
       NetConfig.InitializeSwitch();
       do
       {
         try
         {
-          Service.AddAssemblyClassPropertyInfos(assemblyName, className, names, captions, tableNames, columnNames, aliases, permanentExecuteModifies);
+          Service.AddAssemblyClassPropertyInfos(assemblyName, className, names, captions/*, tableNames, columnNames, aliases, permanentExecuteModifies*/);
           break;
         }
         catch (SocketException)
@@ -420,14 +420,14 @@ namespace Phenix.Services.Client.Library
       } while (true);
     }
 
-    public void AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions, string[] tags, bool[] allowVisibles)
+    public void AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions/*, string[] tags, bool[] allowVisibles*/)
     {
       NetConfig.InitializeSwitch();
       do
       {
         try
         {
-          Service.AddAssemblyClassMethodInfos(assemblyName, className, names, captions, tags, allowVisibles);
+          Service.AddAssemblyClassMethodInfos(assemblyName, className, names, captions/*, tags, allowVisibles*/);
           break;
         }
         catch (SocketException)

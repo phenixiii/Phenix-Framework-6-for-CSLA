@@ -177,43 +177,7 @@ namespace Phenix.Security.Business
    public new string Caption
    {
      get { return GetProperty(CaptionProperty, _caption); }
-     set
-     {
-       SetProperty(CaptionProperty, ref _caption, value);
-       CaptionConfigured = true;
-     }
+     //set { SetProperty(CaptionProperty, ref _caption, value); }
    }
-
-   /// <summary>
-   /// 标签已被配置
-   /// </summary>
-   public static readonly Phenix.Business.PropertyInfo<bool?> CaptionConfiguredProperty = RegisterProperty<bool?>(c => c.CaptionConfigured);
-   [Phenix.Core.Mapping.Field(FriendlyName = "标签已被配置", Alias = "AM_CAPTIONCONFIGURED", TableName = "PH_ASSEMBLYCLASSMETHOD", ColumnName = "AM_CAPTIONCONFIGURED", NeedUpdate = true)]
-   private bool? _captionConfigured;
-   /// <summary>
-   /// 标签已被配置
-   /// </summary>
-   [System.ComponentModel.DisplayName("标签已被配置")]
-   public bool? CaptionConfigured
-   {
-     get { return GetProperty(CaptionConfiguredProperty, _captionConfigured); }
-     private set { SetProperty(CaptionConfiguredProperty, ref _captionConfigured, value); }
-   }
-
-   /// <summary>
-   /// 标记
-   /// </summary>
-   public static readonly Phenix.Business.PropertyInfo<string> TagProperty = RegisterProperty<string>(c => c.Tag);
-   [Phenix.Core.Mapping.Field(FriendlyName = "标记", Alias = "AM_TAG", TableName = "PH_ASSEMBLYCLASSMETHOD", ColumnName = "AM_TAG", NeedUpdate = true)]
-   private string _tag;
-   /// <summary>
-   /// 标记
-   /// </summary>
-   [System.ComponentModel.DisplayName("标记")]
-   public string Tag
-   {
-     get { return GetProperty(TagProperty, _tag); }
-     set { SetProperty(TagProperty, ref _tag, value); }
-   }
-  }
+ }
 }

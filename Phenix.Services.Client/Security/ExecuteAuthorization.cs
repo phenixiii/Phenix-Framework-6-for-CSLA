@@ -298,16 +298,16 @@ namespace Phenix.Services.Client.Security
       return false;
     }
 
-    private bool? IsAllowVisible(Component component)
-    {
-      if (ClassInfo != null && ClassInfo.Authorised)
-      {
-        AssemblyClassMethodInfo classMethodInfo = ClassInfo.GetClassMethodInfo(FindName(component));
-        if (classMethodInfo != null)
-          return classMethodInfo.AllowVisible;
-      }
-      return null;
-    }
+    //private bool? IsAllowVisible(Component component)
+    //{
+    //  if (ClassInfo != null && ClassInfo.Authorised)
+    //  {
+    //    AssemblyClassMethodInfo classMethodInfo = ClassInfo.GetClassMethodInfo(FindName(component));
+    //    if (classMethodInfo != null)
+    //      return classMethodInfo.AllowVisible;
+    //  }
+    //  return null;
+    //}
 
     /// <summary>
     /// 重置组件的执行授权
@@ -360,13 +360,13 @@ namespace Phenix.Services.Client.Security
           ComponentAuthorizationStatus status;
           if (_authorizationStatuses.TryGetValue(component, out status))
           {
-            bool? isAllowVisible = IsAllowVisible(component);
+            /*bool? isAllowVisible = IsAllowVisible(component);
             if (isAllowVisible.HasValue)
             {
               if (!isAllowVisible.Value)
                 ApplyVisibleRule(component, false, keepInvisible);
             }
-            else if (!status.AllowVisible)
+            else */if (!status.AllowVisible)
               ApplyVisibleRule(component, false, keepInvisible);
           }
         }
@@ -465,21 +465,21 @@ namespace Phenix.Services.Client.Security
       {
         List<string> methodNames = new List<string>(_authorizationStatuses.Count);
         List<string> methodCaptions = new List<string>(_authorizationStatuses.Count);
-        List<string> methodTags = new List<string>(_authorizationStatuses.Count);
-        List<bool> allowVisibles = new List<bool>(_authorizationStatuses.Count);
+        //List<string> methodTags = new List<string>(_authorizationStatuses.Count);
+        //List<bool> allowVisibles = new List<bool>(_authorizationStatuses.Count);
         foreach (KeyValuePair<Component, ComponentAuthorizationStatus> kvp in _authorizationStatuses)
           if (kvp.Value.Apply)
           {
             methodNames.Add(FindName(kvp.Key));
             methodCaptions.Add(FindCaption(kvp.Key));
-            methodTags.Add(FindTag(kvp.Key));
-            allowVisibles.Add(kvp.Value.AllowVisible);
+            //methodTags.Add(FindTag(kvp.Key));
+            //allowVisibles.Add(kvp.Value.AllowVisible);
           }
         if (methodNames.Count > 0)
         {
           Type type = Host.GetType();
           DataDictionaryHub.AddAssemblyClassInfo(type, Host.Text, AssemblyClassType.Form);
-          DataDictionaryHub.AddAssemblyClassMethodInfos(type, methodNames.ToArray(), methodCaptions.ToArray(), methodTags.ToArray(), allowVisibles.ToArray());
+          DataDictionaryHub.AddAssemblyClassMethodInfos(type, methodNames.ToArray(), methodCaptions.ToArray()/*, methodTags.ToArray(), allowVisibles.ToArray()*/);
         }
       }
     }

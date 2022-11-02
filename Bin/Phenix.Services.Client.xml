@@ -9,6 +9,16 @@
             业务选择编辑器
             </summary>
         </member>
+        <member name="P:Phenix.Services.Client.Design.BusinessSelectorEditor.AssemblyClassType">
+            <summary>
+            程序集类类型
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Design.BusinessSelectorEditor.SubclassOfType">
+            <summary>
+            所继承的类
+            </summary>
+        </member>
         <member name="T:Phenix.Services.Client.Design.ClassSelectorEditor">
             <summary>
             类选择编辑器
@@ -17,12 +27,6 @@
         <member name="M:Phenix.Services.Client.Design.ClassSelectorEditor.#ctor">
             <summary>
             类选择编辑器
-            </summary>
-        </member>
-        <member name="M:Phenix.Services.Client.Design.ClassSelectorEditor.FillTreeWithData(System.ComponentModel.Design.ObjectSelectorEditor.Selector,System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider)">
-            <summary>
-            填充标记项的分层集合
-            每个标记项用一个 System.Windows.Forms.TreeNode 来表示
             </summary>
         </member>
         <member name="P:Phenix.Services.Client.Design.ClassSelectorEditor.IsDropDownResizable">
@@ -40,14 +44,10 @@
             所继承的类
             </summary>
         </member>
-        <member name="P:Phenix.Services.Client.Design.BusinessSelectorEditor.AssemblyClassType">
+        <member name="M:Phenix.Services.Client.Design.ClassSelectorEditor.FillTreeWithData(System.ComponentModel.Design.ObjectSelectorEditor.Selector,System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider)">
             <summary>
-            程序集类类型
-            </summary>
-        </member>
-        <member name="P:Phenix.Services.Client.Design.BusinessSelectorEditor.SubclassOfType">
-            <summary>
-            所继承的类
+            填充标记项的分层集合
+            每个标记项用一个 System.Windows.Forms.TreeNode 来表示
             </summary>
         </member>
         <member name="T:Phenix.Services.Client.Design.CollectionEditor">
@@ -99,6 +99,60 @@
             <summary>
             所继承的类
             </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.Library.Registration">
+            <summary>
+            注册器
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Library.Registration.Registered">
+            <summary>
+            已注册
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterEmbeddedWorker">
+            <summary>
+            注册嵌入式实施者
+            reset = true
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterEmbeddedWorker(System.Boolean)">
+            <summary>
+            注册嵌入式实施者
+            </summary>
+            <param name="reset">重新设定</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker(System.String)">
+            <summary>
+            注册实施者
+            reset = true
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker(System.Boolean)">
+            <summary>
+            注册实施者
+            </summary>
+            <param name="reset">重新设定</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker(System.String,System.Boolean)">
+            <summary>
+            注册实施者
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+            <param name="reset">重新设定</param>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker">
+            <summary>
+            注册实施者
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Library.Registration.TestServicesSpeed(System.String)">
+            <summary>
+            测试连接速度
+            </summary>
+            <param name="servicesAddress">主机IP地址</param>
+            <returns>历时毫米数</returns>
         </member>
         <member name="T:Phenix.Services.Client.AppUtilities">
             <summary>
@@ -272,14 +326,13 @@
             登出
             </summary>
         </member>
-        <member name="M:Phenix.Services.Client.Security.LogOnHelper.ChangePassword(System.String,System.String,System.String,System.String)">
+        <member name="M:Phenix.Services.Client.Security.LogOnHelper.ChangePassword(System.String,System.String,Phenix.Core.Security.UserIdentity)">
             <summary>
             修改登录口令
             </summary>
             <param name="servicesAddress">主机IP地址</param>
-            <param name="userNumber">登录工号</param>
-            <param name="oldPassword">旧登录口令</param>
             <param name="newPassword">新登录口令</param>
+            <param name="identity">用户身份</param>
         </member>
         <member name="T:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus">
             <summary>
@@ -294,11 +347,6 @@
         <member name="M:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.#ctor(System.ComponentModel.IContainer)">
             <summary>
             初始化
-            </summary>
-        </member>
-        <member name="M:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.GetContextArgumentValue">
-            <summary>
-            取上下文参数值
             </summary>
         </member>
         <member name="P:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.BindingSource">
@@ -336,58 +384,9 @@
             数据源项类型的属性类型
             </summary>
         </member>
-        <member name="T:Phenix.Services.Client.Library.Registration">
+        <member name="M:Phenix.Services.Client.Security.ExecuteRuleMethodArgumentStatus.GetContextArgumentValue">
             <summary>
-            注册器
-            </summary>
-        </member>
-        <member name="M:Phenix.Services.Client.Library.Registration.RegisterEmbeddedWorker">
-            <summary>
-            注册嵌入式实施者
-            reset = true
-            </summary>
-        </member>
-        <member name="M:Phenix.Services.Client.Library.Registration.RegisterEmbeddedWorker(System.Boolean)">
-            <summary>
-            注册嵌入式实施者
-            </summary>
-            <param name="reset">重新设定</param>
-        </member>
-        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker(System.String)">
-            <summary>
-            注册实施者
-            reset = true
-            </summary>
-            <param name="servicesAddress">主机IP地址</param>
-        </member>
-        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker(System.Boolean)">
-            <summary>
-            注册实施者
-            </summary>
-            <param name="reset">重新设定</param>
-        </member>
-        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker(System.String,System.Boolean)">
-            <summary>
-            注册实施者
-            </summary>
-            <param name="servicesAddress">主机IP地址</param>
-            <param name="reset">重新设定</param>
-        </member>
-        <member name="M:Phenix.Services.Client.Library.Registration.RegisterWorker">
-            <summary>
-            注册实施者
-            </summary>
-        </member>
-        <member name="M:Phenix.Services.Client.Library.Registration.TestServicesSpeed(System.String)">
-            <summary>
-            测试连接速度
-            </summary>
-            <param name="servicesAddress">主机IP地址</param>
-            <returns>历时毫米数</returns>
-        </member>
-        <member name="P:Phenix.Services.Client.Library.Registration.Registered">
-            <summary>
-            已注册
+            取上下文参数值
             </summary>
         </member>
         <member name="T:Phenix.Services.Client.Security.ChangePasswordDialog">
@@ -435,16 +434,6 @@
         <member name="M:Phenix.Services.Client.Security.ExecuteRule.#ctor(System.ComponentModel.IContainer)">
             <summary>
             初始化
-            </summary>
-        </member>
-        <member name="M:Phenix.Services.Client.Security.ExecuteRule.DenyExecute">
-            <summary>
-            是否拒绝执行
-            </summary>
-        </member>
-        <member name="M:Phenix.Services.Client.Security.ExecuteRule.ToString">
-            <summary>
-            字符串表示
             </summary>
         </member>
         <member name="P:Phenix.Services.Client.Security.ExecuteRule.BindingSource">
@@ -507,6 +496,16 @@
             根据执行规则上下文参数提供检查执行方法的规则
             </summary>
         </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteRule.DenyExecute">
+            <summary>
+            是否拒绝执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.ExecuteRule.ToString">
+            <summary>
+            字符串表示
+            </summary>
+        </member>
         <member name="T:Phenix.Services.Client.Security.LogOn">
             <summary>
             登录组件
@@ -520,16 +519,6 @@
         <member name="M:Phenix.Services.Client.Security.LogOn.#ctor(System.ComponentModel.IContainer)">
             <summary>
             初始化
-            </summary>
-        </member>
-        <member name="M:Phenix.Services.Client.Security.LogOn.Execute">
-            <summary>
-            执行
-            </summary>
-        </member>
-        <member name="M:Phenix.Services.Client.Security.LogOn.Execute``1">
-            <summary>
-            执行
             </summary>
         </member>
         <member name="P:Phenix.Services.Client.Security.LogOn.Title">
@@ -559,6 +548,16 @@
             升级文件的过滤器集
             </summary>
         </member>
+        <member name="M:Phenix.Services.Client.Security.LogOn.Execute">
+            <summary>
+            执行
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.Security.LogOn.Execute``1">
+            <summary>
+            执行
+            </summary>
+        </member>
         <member name="T:Phenix.Services.Client.Security.LogOnDialog">
             <summary>
             登录界面
@@ -577,6 +576,34 @@
         <member name="M:Phenix.Services.Client.Security.LogOnDialog.Execute``1(System.String,System.Drawing.Image,System.Nullable{Phenix.Core.Net.ProxyType},System.String,System.Collections.Generic.ICollection{System.String})">
             <summary>
             执行
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.Logo">
+            <summary>
+            登陆界面的标志
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UpgradeProxyType">
+            <summary>
+            升级文件的代理类型
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ProxyType
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UpgradeServicesAddress">
+            <summary>
+            升级文件的服务地址
+            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ServicesAddress
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UpgradeFileFilters">
+            <summary>
+            升级文件的过滤器集
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UserNumberCached">
+            <summary>
+            是否缓存UserNumber
+            缺省为 true
             </summary>
         </member>
         <member name="M:Phenix.Services.Client.Security.LogOnDialog.Humanistic">
@@ -665,34 +692,6 @@
             <summary>
             </summary>
         </member>
-        <member name="P:Phenix.Services.Client.Security.LogOnDialog.Logo">
-            <summary>
-            登陆界面的标志
-            </summary>
-        </member>
-        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UpgradeProxyType">
-            <summary>
-            升级文件的代理类型
-            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ProxyType
-            </summary>
-        </member>
-        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UpgradeServicesAddress">
-            <summary>
-            升级文件的服务地址
-            缺省为 null 代表将默认使用 Phenix.Core.Net.NetConfig.ServicesAddress
-            </summary>
-        </member>
-        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UpgradeFileFilters">
-            <summary>
-            升级文件的过滤器集
-            </summary>
-        </member>
-        <member name="P:Phenix.Services.Client.Security.LogOnDialog.UserNumberCached">
-            <summary>
-            是否缓存UserNumber
-            缺省为 true
-            </summary>
-        </member>
         <member name="T:Phenix.Services.Client.Security.ExecuteAuthorization">
             <summary>
             执行授权组件
@@ -708,6 +707,11 @@
             初始化
             </summary>
             <param name="container">组件容器</param>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ExecuteAuthorization.Host">
+            <summary>
+            所属容器
+            </summary>
         </member>
         <member name="M:Phenix.Services.Client.Security.ExecuteAuthorization.GetApplyAuthorization(System.ComponentModel.Component)">
             <summary>
@@ -767,11 +771,6 @@
             </summary>
             <param name="component">组件</param>
         </member>
-        <member name="P:Phenix.Services.Client.Security.ExecuteAuthorization.Host">
-            <summary>
-            所属容器
-            </summary>
-        </member>
         <member name="T:Phenix.Services.Client.Security.ReadWriteAuthorization">
             <summary>
             读写属性授权组件
@@ -787,6 +786,11 @@
             初始化
             </summary>
             <param name="container">组件容器</param>
+        </member>
+        <member name="P:Phenix.Services.Client.Security.ReadWriteAuthorization.Host">
+            <summary>
+            所属容器
+            </summary>
         </member>
         <member name="M:Phenix.Services.Client.Security.ReadWriteAuthorization.GetApplyAuthorization(System.Windows.Forms.Control)">
             <summary>
@@ -830,9 +834,99 @@
             <param name="readOnly">只读</param>
             <param name="sources">数据源队列</param>
         </member>
-        <member name="P:Phenix.Services.Client.Security.ReadWriteAuthorization.Host">
+        <member name="T:Phenix.Services.Client.UpgradeFile.DownloadFileEventArgs">
             <summary>
-            所属容器
+            DownloadFileEventArgs
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.UpgradeFile.DownloadFileEventArgs.#ctor(System.IO.FileStream,Phenix.Core.IO.DownloadFileInfo)">
+            <summary>
+            DownloadFileEventArgs
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFileEventArgs.FileStream">
+            <summary>
+            FileStream
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFileEventArgs.Info">
+            <summary>
+            Info
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.UpgradeFile.DownloadFileInfoEventArgs">
+            <summary>
+            DownloadFileInfoEventArgs
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.UpgradeFile.DownloadFileInfoEventArgs.#ctor(System.String,System.String,System.Int32,System.DateTime)">
+            <summary>
+            DownloadFileInfoEventArgs
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFileInfoEventArgs.DirectoryName">
+            <summary>
+            DirectoryName
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFileInfoEventArgs.FileName">
+            <summary>
+            FileName
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFileInfoEventArgs.FileLength">
+            <summary>
+            FileLength
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFileInfoEventArgs.FileLastWriteTime">
+            <summary>
+            FileLastWriteTime
+            </summary>
+        </member>
+        <member name="T:Phenix.Services.Client.UpgradeFile.DownloadFiles">
+            <summary>
+            下载文件
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFiles.UpgradeProxyType">
+            <summary>
+            UpgradeProxyType
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFiles.UpgradeServicesAddress">
+            <summary>
+            UpgradeServicesAddress 
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFiles.SearchPatterns">
+            <summary>
+            SearchPatterns 
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.UpgradeFile.DownloadFiles.ShutDown">
+            <summary>
+            ShutDown
+            </summary>
+        </member>
+        <member name="E:Phenix.Services.Client.UpgradeFile.DownloadFiles.DownloadFileInfo">
+            <summary>
+            DownloadFileInfo
+            </summary>
+        </member>
+        <member name="E:Phenix.Services.Client.UpgradeFile.DownloadFiles.DownloadFile">
+            <summary>
+            DownloadFile
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.UpgradeFile.DownloadFiles.CheckNeedDownload(Phenix.Services.Client.UpgradeFile.DownloadFileInfoEventArgs)">
+            <summary>
+            CheckNeedDownload
+            </summary>
+        </member>
+        <member name="M:Phenix.Services.Client.UpgradeFile.DownloadFiles.Execute">
+            <summary>
+            Execute
             </summary>
         </member>
         <member name="T:Phenix.Services.Client.Validation.EditValidation">
@@ -850,6 +944,28 @@
             初始化
             </summary>
             <param name="container">组件容器</param>
+        </member>
+        <member name="P:Phenix.Services.Client.Validation.EditValidation.Host">
+            <summary>
+            所属容器
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Validation.EditValidation.RequiredCaptionForeColor">
+            <summary>
+            统一必输栏的关联标签控件前景色
+            当为 Color.Empty 时禁用本功能
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Validation.EditValidation.RequiredCaptionForeColorDisabled">
+            <summary>
+            禁用"统一必输栏的关联标签控件前景色"功能?
+            </summary>
+        </member>
+        <member name="P:Phenix.Services.Client.Validation.EditValidation.NeedResetFriendlyCaption">
+            <summary>
+            是否在运行期重置标签的友好名?
+            缺省为 false
+            </summary>
         </member>
         <member name="M:Phenix.Services.Client.Validation.EditValidation.GetFriendlyCaption(System.Windows.Forms.Control)">
             <summary>
@@ -937,28 +1053,6 @@
             重置Edit规则
             </summary>
             <param name="container">控件容器</param>
-        </member>
-        <member name="P:Phenix.Services.Client.Validation.EditValidation.Host">
-            <summary>
-            所属容器
-            </summary>
-        </member>
-        <member name="P:Phenix.Services.Client.Validation.EditValidation.RequiredCaptionForeColor">
-            <summary>
-            统一必输栏的关联标签控件前景色
-            当为 Color.Empty 时禁用本功能
-            </summary>
-        </member>
-        <member name="P:Phenix.Services.Client.Validation.EditValidation.RequiredCaptionForeColorDisabled">
-            <summary>
-            禁用"统一必输栏的关联标签控件前景色"功能?
-            </summary>
-        </member>
-        <member name="P:Phenix.Services.Client.Validation.EditValidation.NeedResetFriendlyCaption">
-            <summary>
-            是否在运行期重置标签的友好名?
-            缺省为 false
-            </summary>
         </member>
     </members>
 </doc>

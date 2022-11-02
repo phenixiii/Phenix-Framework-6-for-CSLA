@@ -192,63 +192,7 @@ namespace Phenix.Security.Business
     public new string Caption
     {
       get { return GetProperty(CaptionProperty, _caption); }
-      set
-      {
-        SetProperty(CaptionProperty, ref _caption, value);
-        CaptionConfigured = true;
-      }
-    }
-
-    /// <summary>
-    /// 标签已被配置
-    /// </summary>
-    public static readonly Phenix.Business.PropertyInfo<bool?> CaptionConfiguredProperty = RegisterProperty<bool?>(c => c.CaptionConfigured);
-    [Phenix.Core.Mapping.Field(FriendlyName = "标签已被配置", Alias = "AC_CAPTIONCONFIGURED", TableName = "PH_ASSEMBLYCLASS", ColumnName = "AC_CAPTIONCONFIGURED", NeedUpdate = true)]
-    private bool? _captionConfigured;
-    /// <summary>
-    /// 标签已被配置
-    /// </summary>
-    [System.ComponentModel.DisplayName("标签已被配置")]
-    public bool? CaptionConfigured
-    {
-      get { return GetProperty(CaptionConfiguredProperty, _captionConfigured); }
-      private set { SetProperty(CaptionConfiguredProperty, ref _captionConfigured, value); }
-    }
-    
-    /// <summary>
-    /// 指示当处于哪种执行动作时本字段需要记录新旧值
-    /// </summary>
-    public static readonly Phenix.Business.PropertyInfo<Phenix.Core.Mapping.ExecuteAction?> PermanentExecuteActionProperty = RegisterProperty<Phenix.Core.Mapping.ExecuteAction?>(c => c.PermanentExecuteAction);
-    [Phenix.Core.Mapping.Field(FriendlyName = "指示当处于哪种执行动作时本字段需要记录新旧值", Alias = "AC_PERMANENTEXECUTEACTION", TableName = "PH_ASSEMBLYCLASS", ColumnName = "AC_PERMANENTEXECUTEACTION", NeedUpdate = true)]
-    private Phenix.Core.Mapping.ExecuteAction? _permanentExecuteAction;
-    /// <summary>
-    /// 指示当处于哪种执行动作时本字段需要记录新旧值
-    /// </summary>
-    [System.ComponentModel.DisplayName("指示当处于哪种执行动作时本字段需要记录新旧值")]
-    public Phenix.Core.Mapping.ExecuteAction? PermanentExecuteAction
-    {
-      get { return GetProperty(PermanentExecuteActionProperty, _permanentExecuteAction); }
-      set 
-      { 
-        SetProperty(PermanentExecuteActionProperty, ref _permanentExecuteAction, value);
-        PermanentExecuteConfigured = true;
-      }
-    }
-
-    /// <summary>
-    /// 持久化执行变更方式已被配置
-    /// </summary>
-    public static readonly Phenix.Business.PropertyInfo<bool?> PermanentExecuteConfiguredProperty = RegisterProperty<bool?>(c => c.PermanentExecuteConfigured);
-    [Phenix.Core.Mapping.Field(FriendlyName = "持久化执行变更方式已被配置", Alias = "AC_PERMANENTEXECUTECONFIGURED", TableName = "PH_ASSEMBLYCLASS", ColumnName = "AC_PERMANENTEXECUTECONFIGURED", NeedUpdate = true)]
-    private bool? _permanentExecuteConfigured;
-    /// <summary>
-    /// 持久化执行变更方式已被配置
-    /// </summary>
-    [System.ComponentModel.DisplayName("持久化执行变更方式已被配置")]
-    public bool? PermanentExecuteConfigured
-    {
-      get { return GetProperty(PermanentExecuteConfiguredProperty, _permanentExecuteConfigured); }
-      private set { SetProperty(PermanentExecuteConfiguredProperty, ref _permanentExecuteConfigured, value); }
+      set { SetProperty(CaptionProperty, ref _caption, value); }
     }
 
     /// <summary>

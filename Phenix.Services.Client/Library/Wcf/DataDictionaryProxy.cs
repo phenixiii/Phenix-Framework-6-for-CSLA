@@ -555,7 +555,7 @@ namespace Phenix.Services.Client.Library.Wcf
     }
 
     public void AddAssemblyClassInfo(string assemblyName, string assemblyCaption,
-      string className, string classCaption, ExecuteAction? permanentExecuteAction, string[] groupNames, AssemblyClassType classType)
+      string className, string classCaption,/* ExecuteAction? permanentExecuteAction,*/ string[] groupNames, AssemblyClassType classType)
     {
       NetConfig.InitializeSwitch();
       do
@@ -567,7 +567,7 @@ namespace Phenix.Services.Client.Library.Wcf
           object result = null;
           try
           {
-            result = channel.AddAssemblyClassInfo(assemblyName, assemblyCaption, className, classCaption, permanentExecuteAction, groupNames, classType);
+            result = channel.AddAssemblyClassInfo(assemblyName, assemblyCaption, className, classCaption,/* permanentExecuteAction,*/ groupNames, classType);
             channelFactory.Close();
           }
           catch
@@ -588,8 +588,8 @@ namespace Phenix.Services.Client.Library.Wcf
       } while (true);
     }
 
-    public void AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions,
-      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies)
+    public void AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions/*,
+      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies*/)
     {
       NetConfig.InitializeSwitch();
       do
@@ -601,7 +601,7 @@ namespace Phenix.Services.Client.Library.Wcf
           object result = null;
           try
           {
-            result = channel.AddAssemblyClassPropertyInfos(assemblyName, className, names, captions, tableNames, columnNames, aliases, permanentExecuteModifies);
+            result = channel.AddAssemblyClassPropertyInfos(assemblyName, className, names, captions/*, tableNames, columnNames, aliases, permanentExecuteModifies*/);
             channelFactory.Close();
           }
           catch
@@ -656,7 +656,7 @@ namespace Phenix.Services.Client.Library.Wcf
       } while (true);
     }
 
-    public void AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions, string[] tags, bool[] allowVisibles)
+    public void AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions/*, string[] tags, bool[] allowVisibles*/)
     {
       NetConfig.InitializeSwitch();
       do
@@ -668,7 +668,7 @@ namespace Phenix.Services.Client.Library.Wcf
           object result = null;
           try
           {
-            result = channel.AddAssemblyClassMethodInfos(assemblyName, className, names, captions, tags, allowVisibles);
+            result = channel.AddAssemblyClassMethodInfos(assemblyName, className, names, captions/*, tags, allowVisibles*/);
             channelFactory.Close();
           }
           catch

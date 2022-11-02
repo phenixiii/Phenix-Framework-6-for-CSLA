@@ -140,15 +140,10 @@ CREATE TABLE PH_AssemblyClass (                                --程序集类
   AC_AS_ID NUMERIC(15) NOT NULL,                               --所属程序集
   AC_Name VARCHAR(255) NOT NULL,                               --名称
   AC_Caption VARCHAR(100) NULL,                                --标签
-  AC_CaptionConfigured NUMERIC(1) default 0 NOT NULL,          --标签已被配置
-  --AC_DataSourceKey VARCHAR(100) NULL,                          --数据源键
-  --AC_TableName VARCHAR(30) NULL,                               --映射哪张(主)表
-  --AC_FetchScript VARCHAR(30) NULL,                             --构建脚本
-  --AC_MappingConfigured NUMERIC(1) default 0 NOT NULL,          --映射已被配置
-  AC_PermanentExecuteAction NUMERIC(5) default 0 NOT NULL,     --指示当处于哪种执行动作时本字段需要记录新旧值(Phenix.Core.Mapping.ExecuteAction)
-  AC_PermanentExecuteConfigured NUMERIC(1) default 0 NOT NULL, --持久化执行变更方式已被配置
+  --AC_CaptionConfigured NUMERIC(1) default 0 NOT NULL,          --标签已被配置
+  --AC_PermanentExecuteAction NUMERIC(5) default 0 NOT NULL,     --指示当处于哪种执行动作时本字段需要记录新旧值(Phenix.Core.Mapping.ExecuteAction)
+  --AC_PermanentExecuteConfigured NUMERIC(1) default 0 NOT NULL, --持久化执行变更方式已被配置
   AC_Type NUMERIC(5) default 0 NOT NULL,                       --类型(Phenix.Core.Dictionary.AssemblyClassType)
-  --AC_Enabled NUMERIC(1) default 1 NOT NULL,                    --是否激活
   AC_Authorised NUMERIC(1) default 0 NOT NULL,                 --可被授权, 默认Phenix.Core.Dictionary.AssemblyClassType.Form/ApiController才可被授权(=1)，其余都是不受权限控制(=0)
   PRIMARY KEY(AC_ID),
   UNIQUE(AC_AS_ID, AC_Name)
@@ -187,21 +182,17 @@ CREATE TABLE PH_AssemblyClassProperty (                        --程序集类属
   AP_AC_ID NUMERIC(15) NOT NULL,                               --所属程序集类
   AP_Name VARCHAR(255) NOT NULL,                               --名称
   AP_Caption VARCHAR(100) NULL,                                --标签
-  AP_CaptionConfigured NUMERIC(1) default 0 NOT NULL,          --标签已被配置
-  AP_TableName VARCHAR(30) NULL,                               --映射对应的表名
-  AP_ColumnName VARCHAR(30) NULL,                              --映射对应的表列名
-  AP_Alias VARCHAR(30) NULL,                                   --映射对应的别名
-  --AP_LinkTableName VARCHAR(30) NULL,                           --映射关联表的表名
-  --AP_LinkColumnName VARCHAR(30) NULL,                          --映射关联表的表列名
-  --AP_MappingConfigured NUMERIC(1) default 0 NOT NULL,          --映射已被配置
-  AP_PermanentExecuteModify NUMERIC(5) default 7 NOT NULL,     --指示当处于哪种执行变更时本字段需要记录新旧值(Phenix.Core.Mapping.ExecuteModify)
-  AP_PermanentExecuteConfigured NUMERIC(1) default 0 NOT NULL, --持久化执行变更方式已被配置
+  --AP_CaptionConfigured NUMERIC(1) default 0 NOT NULL,          --标签已被配置
+  --AP_TableName VARCHAR(30) NULL,                               --映射对应的表名
+  --AP_ColumnName VARCHAR(30) NULL,                              --映射对应的表列名
+  --AP_Alias VARCHAR(30) NULL,                                   --映射对应的别名
+  --AP_PermanentExecuteModify NUMERIC(5) default 7 NOT NULL,     --指示当处于哪种执行变更时本字段需要记录新旧值(Phenix.Core.Mapping.ExecuteModify)
+  --AP_PermanentExecuteConfigured NUMERIC(1) default 0 NOT NULL, --持久化执行变更方式已被配置
   AP_Configurable NUMERIC(1) default 0 NOT NULL,               --是否可配置的
   AP_ConfigValue VARCHAR(2000) NULL,                           --配置的值
-  AP_IndexNumber NUMERIC(5) default -1 NOT NULL,               --索引号
-  AP_Required NUMERIC(1) NULL,                                 --是否必输(null: 默认、0:允许为空、1:不允许为空)
-  --AP_Enabled NUMERIC(1) default 1 NOT NULL,                    --是否激活
-  AP_Visible NUMERIC(1) default 1 NOT NULL,                    --是否可见
+  --AP_IndexNumber NUMERIC(5) default -1 NOT NULL,               --索引号
+  --AP_Required NUMERIC(1) NULL,                                 --是否必输(null: 默认、0:允许为空、1:不允许为空)
+  --AP_Visible NUMERIC(1) default 1 NOT NULL,                    --是否可见
   PRIMARY KEY(AP_ID),
   UNIQUE(AP_AC_ID, AP_Name)
 )
@@ -231,9 +222,9 @@ CREATE TABLE PH_AssemblyClassMethod (                 --程序集类方法
   AM_AC_ID NUMERIC(15) NOT NULL,                      --所属程序集类
   AM_Name VARCHAR(255) NOT NULL,                      --名称
   AM_Caption VARCHAR(100) NULL,                       --标签
-  AM_CaptionConfigured NUMERIC(1) default 0 NOT NULL, --标签已被配置
-  AM_Tag VARCHAR(4000) NULL,                          --标记
-  AM_AllowVisible NUMERIC(1) NULL,                    --是否允许显示即使没权限(null: 默认、0:允许显示、1:不允许显示)，针对AC_Type = Form上的功能按钮
+  --AM_CaptionConfigured NUMERIC(1) default 0 NOT NULL, --标签已被配置
+  --AM_Tag VARCHAR(4000) NULL,                          --标记
+  --AM_AllowVisible NUMERIC(1) NULL,                    --是否允许显示即使没权限(null: 默认、0:允许显示、1:不允许显示)，针对AC_Type = Form上的功能按钮
   AM_AM_ID NUMERIC(15) NULL,                          --所属程序集类方法(针对AC_Type = Form上的树状菜单，为便于查看可在自己的权限配置界面上手工调整到与实际菜单一致)
   PRIMARY KEY(AM_ID),
   UNIQUE(AM_AC_ID, AM_Name)
@@ -243,7 +234,6 @@ CREATE TABLE PH_AssemblyClassMethod_Role (         --程序集类方法-角色(�
   AR_ID NUMERIC(15) NOT NULL,
   AR_AM_ID NUMERIC(15) NOT NULL,                   --所属程序集类方法
   AR_RL_ID NUMERIC(15) NOT NULL,                   --所属角色
-  --AR_AllowExecute NUMERIC(1) default 1 NOT NULL,   --是否允许Execute，针对AC_Type = Form上的功能按钮
   PRIMARY KEY(AR_ID),
   UNIQUE(AR_AM_ID, AR_RL_ID)
 )

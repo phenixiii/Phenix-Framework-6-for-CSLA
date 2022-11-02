@@ -222,19 +222,19 @@ namespace Phenix.Services.Client.Security
           object current = BindingSourceHelper.GetDataSourceCurrent(bindingSource);
           if (current is ICriteria)
             continue;
-          PropertyType propertyType = PropertyType.Normal;
+          FieldConfineType fieldConfineType = FieldConfineType.Normal;
           IBusinessObject business = current as IBusinessObject;
           Type coreType = business != null ? business.GetType() : BindingSourceHelper.GetDataSourceCoreType(bindingSource);
           if (coreType != null)
           {
-            propertyType = ClassMemberHelper.GetPropertyType(coreType, item.BindingMemberInfo.BindingField);
-            if (propertyType == PropertyType.Unconfined)
+            fieldConfineType = ClassMemberHelper.GetFieldConfineType(coreType, item.BindingMemberInfo.BindingField);
+            if (fieldConfineType == FieldConfineType.Unconfined)
               continue;
           }
           ApplyReadRule(control, item, status, 
             business == null || business.AllowReadProperty(item.BindingMemberInfo.BindingField));
           ApplyWriteRule(control, item,
-            (propertyType == PropertyType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
+            (fieldConfineType == FieldConfineType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
             (editMode && !readOnly && (business == null || business.AllowWriteProperty(item.BindingMemberInfo.BindingField))));
           break;
         }
@@ -496,11 +496,11 @@ namespace Phenix.Services.Client.Security
                 string fieldNameValue = fieldNameInfo.GetValue(column, null) as string;
                 if (!String.IsNullOrEmpty(fieldNameValue))
                 {
-                  PropertyType propertyType = PropertyType.Normal;
+                  FieldConfineType fieldConfineType = FieldConfineType.Normal;
                   if (sourceType != null)
                   {
-                    propertyType = ClassMemberHelper.GetPropertyType(sourceType, fieldNameValue);
-                    if (propertyType == PropertyType.Unconfined)
+                    fieldConfineType = ClassMemberHelper.GetFieldConfineType(sourceType, fieldNameValue);
+                    if (fieldConfineType == FieldConfineType.Unconfined)
                       continue;
                   }
                   System.Reflection.PropertyInfo optionsColumnInfo = columnType.GetProperty("OptionsColumn");
@@ -509,7 +509,7 @@ namespace Phenix.Services.Client.Security
                     object optionsColumnValue = optionsColumnInfo.GetValue(column, null);
                     if (optionsColumnValue != null)
                       optionsColumnValue.GetType().GetProperty("ReadOnly").SetValue(optionsColumnValue,
-                        !((propertyType == PropertyType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
+                        !((fieldConfineType == FieldConfineType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
                         (editMode && !readOnly && (business == null || business.AllowWriteProperty(fieldNameValue)))), null);
                   }
                 }
@@ -548,17 +548,17 @@ namespace Phenix.Services.Client.Security
                 string fieldNameValue = fieldNameInfo.GetValue(itemValue, null) as string;
                 if (!String.IsNullOrEmpty(fieldNameValue))
                 {
-                  PropertyType propertyType = PropertyType.Normal;
+                  FieldConfineType fieldConfineType = FieldConfineType.Normal;
                   if (sourceType != null)
                   {
-                    propertyType = ClassMemberHelper.GetPropertyType(sourceType, fieldNameValue);
-                    if (propertyType == PropertyType.Unconfined)
+                    fieldConfineType = ClassMemberHelper.GetFieldConfineType(sourceType, fieldNameValue);
+                    if (fieldConfineType == FieldConfineType.Unconfined)
                       continue;
                   }
                   System.Reflection.PropertyInfo readOnlyInfo = itemType.GetProperty("ReadOnly");
                   if (readOnlyInfo != null)
                     readOnlyInfo.SetValue(itemValue,
-                    !((propertyType == PropertyType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
+                    !((fieldConfineType == FieldConfineType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
                     (editMode && !readOnly && (business == null || business.AllowWriteProperty(fieldNameValue)))), null);
                 }
                 break;
@@ -590,11 +590,11 @@ namespace Phenix.Services.Client.Security
             string fieldNameValue = fieldNameInfo.GetValue(column, null) as string;
             if (!String.IsNullOrEmpty(fieldNameValue))
             {
-              PropertyType propertyType = PropertyType.Normal;
+              FieldConfineType fieldConfineType = FieldConfineType.Normal;
               if (sourceType != null)
               {
-                propertyType = ClassMemberHelper.GetPropertyType(sourceType, fieldNameValue);
-                if (propertyType == PropertyType.Unconfined)
+                fieldConfineType = ClassMemberHelper.GetFieldConfineType(sourceType, fieldNameValue);
+                if (fieldConfineType == FieldConfineType.Unconfined)
                   continue;
               }
               System.Reflection.PropertyInfo optionsColumnInfo = columnType.GetProperty("OptionsColumn");
@@ -603,7 +603,7 @@ namespace Phenix.Services.Client.Security
                 object optionsColumnValue = optionsColumnInfo.GetValue(column, null);
                 if (optionsColumnValue != null)
                   optionsColumnValue.GetType().GetProperty("ReadOnly").SetValue(optionsColumnValue,
-                    !((propertyType == PropertyType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
+                    !((fieldConfineType == FieldConfineType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
                     (editMode && !readOnly && (business == null || business.AllowWriteProperty(fieldNameValue)))), null);
               }
             }
@@ -616,17 +616,17 @@ namespace Phenix.Services.Client.Security
             string dataPropertyNameValue = dataPropertyNameInfo.GetValue(column, null) as string;
             if (!String.IsNullOrEmpty(dataPropertyNameValue))
             {
-              PropertyType propertyType = PropertyType.Normal;
+              FieldConfineType fieldConfineType = FieldConfineType.Normal;
               if (sourceType != null)
               {
-                propertyType = ClassMemberHelper.GetPropertyType(sourceType, dataPropertyNameValue);
-                if (propertyType == PropertyType.Unconfined)
+                fieldConfineType = ClassMemberHelper.GetFieldConfineType(sourceType, dataPropertyNameValue);
+                if (fieldConfineType == FieldConfineType.Unconfined)
                   continue;
               }
               System.Reflection.PropertyInfo readOnlyInfo = columnType.GetProperty("ReadOnly");
               if (readOnlyInfo != null)
                 readOnlyInfo.SetValue(column,
-                  !((propertyType == PropertyType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
+                  !((fieldConfineType == FieldConfineType.Selectable && (business == null || !business.InSelectableList || editMode)) ||
                   (editMode && !readOnly && (business == null || business.AllowWriteProperty(dataPropertyNameValue)))), null);
             }
             continue;

@@ -120,7 +120,7 @@ namespace Phenix.Security.Business
     /// 录入时间
     /// </summary>
     public static readonly Phenix.Business.PropertyInfo<DateTime?> InputTimeProperty = RegisterProperty<DateTime?>(c => c.InputTime);
-    [Phenix.Core.Mapping.Field(FriendlyName = "录入时间", Alias = "UR_INPUTTIME", TableName = "PH_USER_ROLE", ColumnName = "UR_INPUTTIME", NeedUpdate = true, OverwritingOnUpdate = true, IsInputTimeColumn = true)]
+    [Phenix.Core.Mapping.Field(FriendlyName = "录入时间", Alias = "UR_INPUTTIME", TableName = "PH_USER_ROLE", ColumnName = "UR_INPUTTIME", NeedUpdate = true, OverwritingOnUpdate = true, IsInputTimeColumn = true, CheckDirtyOnSaving = true)]
     private DateTime? _inputTime;
     /// <summary>
     /// 录入时间

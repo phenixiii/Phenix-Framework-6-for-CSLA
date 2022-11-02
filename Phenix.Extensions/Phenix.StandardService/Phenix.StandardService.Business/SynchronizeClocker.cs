@@ -164,45 +164,51 @@ namespace Phenix.StandardService.Business
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
     private void Execute()
     {
-      int interval = Interval * 1000;
-      bool needSynchronize = true;
-      SynchronizeClockCommand command = new SynchronizeClockCommand();
-      //开始循环
-      while (!Disposing)
-        try
-        {
-          if (!Suspending && needSynchronize)
+      try
+      {
+        int interval = Interval * 1000;
+        bool needSynchronize = true;
+        SynchronizeClockCommand command = new SynchronizeClockCommand();
+        while (!Disposing)
+          try
           {
-            Value = SynchronizeClockCommand.Execute(command).Value;
-            OnMessageNotify(Value.HasValue
-              ? new MessageNotifyEventArgs(MessageNotifyType.Information, this.ToString(), Value.Value.ToLongTimeString())
-              : new MessageNotifyEventArgs(MessageNotifyType.Warning, this.ToString(), Value.HasValue.ToString()));
+            if (!Suspending && needSynchronize)
+            {
+              Value = SynchronizeClockCommand.Execute(command).Value;
+              OnMessageNotify(Value.HasValue
+                ? new MessageNotifyEventArgs(MessageNotifyType.Information, this.ToString(), Value.Value.ToLongTimeString())
+                : new MessageNotifyEventArgs(MessageNotifyType.Warning, this.ToString(), Value.HasValue.ToString()));
+            }
+            Thread.Sleep(interval);
+            //递增并对时
+            if (Value.HasValue)
+            {
+              Value = Value.Value.AddMilliseconds(interval);
+              needSynchronize = Math.Abs(DateTime.Now.Subtract(Value.Value).Seconds) >= Deviation;
+            }
+            else
+              needSynchronize = true;
           }
-          Thread.Sleep(interval);
-          //递增并对时
-          if (Value.HasValue)
+          catch (ObjectDisposedException)
           {
-            Value = Value.Value.AddMilliseconds(interval);
-            needSynchronize = Math.Abs(DateTime.Now.Subtract(Value.Value).Seconds) >= Deviation;
+            return;
           }
-          else
+          catch (ThreadAbortException)
+          {
+            Thread.ResetAbort();
+            return;
+          }
+          catch (Exception ex)
+          {
+            OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, this.ToString(), ex));
             needSynchronize = true;
-        }
-        catch (ObjectDisposedException)
-        {
-          return;
-        }
-        catch (ThreadAbortException)
-        {
-          Thread.ResetAbort();
-          return;
-        }
-        catch (Exception ex)
-        {
-          OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, this.ToString(), ex));
-          needSynchronize = true;
-          Thread.Sleep(interval);
-        }
+            Thread.Sleep(interval);
+          }
+      }
+      finally
+      {
+        _thread = null;
+      }
     }
 
     public override string ToString()

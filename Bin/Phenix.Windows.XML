@@ -2576,6 +2576,11 @@
             友好性标签
             </summary>
         </member>
+        <member name="E:Phenix.Windows.BarManager.Initialized">
+            <summary>
+            初始化Host的Shown之后触发
+            </summary>
+        </member>
         <member name="E:Phenix.Windows.BarManager.BindingSourceChanging">
             <summary>
             属性BindingSource值发生更改时

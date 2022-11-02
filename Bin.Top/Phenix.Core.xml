@@ -2536,15 +2536,15 @@
             <param name="objectType">类</param>
             <param name="propertyName">属性名</param>
         </member>
-        <member name="M:Phenix.Core.Mapping.ClassMemberHelper.GetPropertyType(Phenix.Core.Mapping.IPropertyInfo)">
+        <member name="M:Phenix.Core.Mapping.ClassMemberHelper.GetFieldConfineType(Phenix.Core.Mapping.IPropertyInfo)">
             <summary>
-            取属性类型
+            取字段约束类型
             </summary>
             <param name="propertyInfo">属性信息</param>
         </member>
-        <member name="M:Phenix.Core.Mapping.ClassMemberHelper.GetPropertyType(System.Type,System.String)">
+        <member name="M:Phenix.Core.Mapping.ClassMemberHelper.GetFieldConfineType(System.Type,System.String)">
             <summary>
-            取属性类型
+            取字段约束类型
             </summary>
             <param name="entityType">实体类型</param>
             <param name="propertyName">属性名</param>
@@ -3738,24 +3738,24 @@
             </summary>
             <param name="obj">对象</param>
         </member>
-        <member name="T:Phenix.Core.Mapping.PropertyType">
+        <member name="T:Phenix.Core.Mapping.FieldConfineType">
             <summary>
-            属性类型
+            字段约束类型
             </summary>
         </member>
-        <member name="F:Phenix.Core.Mapping.PropertyType.Normal">
+        <member name="F:Phenix.Core.Mapping.FieldConfineType.Normal">
             <summary>
             正常
             </summary>
         </member>
-        <member name="F:Phenix.Core.Mapping.PropertyType.Unconfined">
+        <member name="F:Phenix.Core.Mapping.FieldConfineType.Unconfined">
             <summary>
             无约束
             标记时优先级低于Selectable
             使用时优先级高于Selectable
             </summary>
         </member>
-        <member name="F:Phenix.Core.Mapping.PropertyType.Selectable">
+        <member name="F:Phenix.Core.Mapping.FieldConfineType.Selectable">
             <summary>
             可勾选
             标记时优先级高于Unconfined
@@ -6147,7 +6147,7 @@
         <member name="P:Phenix.Core.Mapping.MethodAttribute.InAuthorization">
             <summary>
             用于授权
-            缺省为 true
+            缺省为 false
             </summary>
         </member>
         <member name="T:Phenix.Core.Mapping.MethodMapInfo">
@@ -6553,13 +6553,6 @@
             缺省为 false
             </summary>
         </member>
-        <member name="P:Phenix.Core.Mapping.FieldAttribute.NoRegister">
-            <summary>
-            指示该字段不参与注册
-            在注册程序集的时候, 配置表PH_AssemblyClassProperty中不会被添加上本字段信息
-            缺省为 false
-            </summary>
-        </member>
         <member name="P:Phenix.Core.Mapping.FieldAttribute.TableName">
             <summary>
             指示该字段对应的表名; 如果为空, 则认为从ClassAttribute.TableName获取
@@ -6793,10 +6786,16 @@
             当 ClassAttribute.PermanentExecuteAction = Phenix.Core.Mapping.ExecuteAction.Update 时才有效
             </summary>
         </member>
+        <member name="P:Phenix.Core.Mapping.FieldAttribute.FieldConfineType">
+            <summary>
+            字段约束类型
+            </summary>
+        </member>
         <member name="P:Phenix.Core.Mapping.FieldAttribute.InAuthorization">
             <summary>
             用于授权
-            缺省为 true
+            缺省为 false
+            当 FieldConfineType = FieldConfineType.Normal 时才有效
             </summary>
         </member>
         <member name="P:Phenix.Core.Mapping.FieldAttribute.InValidation">
@@ -27519,26 +27518,6 @@
             名称
             </summary>
         </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassInfo.Caption">
-            <summary>
-            标签
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassInfo.CaptionConfigured">
-            <summary>
-            标签已被配置
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassInfo.PermanentExecuteAction">
-            <summary>
-            指示当处于哪种执行动作时本字段需要记录新旧值
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassInfo.PermanentExecuteConfigured">
-            <summary>
-            持久化执行变更方式已被配置
-            </summary>
-        </member>
         <member name="P:Phenix.Core.Dictionary.AssemblyClassInfo.ClassType">
             <summary>
             类型
@@ -27666,7 +27645,7 @@
             程序集类方法资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.AssemblyClassMethodInfo.#ctor(System.String,System.Boolean,System.String,System.Nullable{System.Boolean},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.Int64})">
+        <member name="M:Phenix.Core.Dictionary.AssemblyClassMethodInfo.#ctor(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.Int64})">
             <summary>
             初始化
             </summary>
@@ -27674,26 +27653,6 @@
         <member name="P:Phenix.Core.Dictionary.AssemblyClassMethodInfo.Owner">
             <summary>
             所属程序集类
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassMethodInfo.Caption">
-            <summary>
-            标签
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassMethodInfo.CaptionConfigured">
-            <summary>
-            标签已被配置
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassMethodInfo.Tag">
-            <summary>
-            标记
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassMethodInfo.AllowVisible">
-            <summary>
-            是否允许显示即使没权限
             </summary>
         </member>
         <member name="P:Phenix.Core.Dictionary.AssemblyClassMethodInfo.DenyExecuteRoles">
@@ -27727,7 +27686,7 @@
             程序集类属性资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.#ctor(System.String,System.Boolean,Phenix.Core.Mapping.ExecuteModify,System.Boolean,System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Boolean,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Int32,System.Nullable{System.Boolean},System.Boolean)">
+        <member name="M:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.#ctor(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Boolean,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
             <summary>
             初始化
             </summary>
@@ -27735,41 +27694,6 @@
         <member name="P:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.Owner">
             <summary>
             所属程序集类
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.Caption">
-            <summary>
-            标签
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.CaptionConfigured">
-            <summary>
-            标签已被配置
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.PermanentExecuteModify">
-            <summary>
-            指示当处于哪种执行变更时本字段需要记录新旧值
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.PermanentExecuteConfigured">
-            <summary>
-            持久化执行变更方式已被配置
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.IndexNumber">
-            <summary>
-            索引号
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.Required">
-            <summary>
-            是否必输
-            </summary>
-        </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.Visible">
-            <summary>
-            是否可见
             </summary>
         </member>
         <member name="P:Phenix.Core.Dictionary.AssemblyClassPropertyInfo.DenyReadRoles">
@@ -28161,7 +28085,7 @@
             程序集资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.AssemblyInfo.#ctor(System.String,System.String)">
+        <member name="M:Phenix.Core.Dictionary.AssemblyInfo.#ctor(System.String)">
             <summary>
             初始化
             </summary>
@@ -28171,17 +28095,12 @@
             名称
             </summary>
         </member>
-        <member name="P:Phenix.Core.Dictionary.AssemblyInfo.Caption">
-            <summary>
-            标签
-            </summary>
-        </member>
         <member name="P:Phenix.Core.Dictionary.AssemblyInfo.ClassInfos">
             <summary>
             类资料队列
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.AssemblyInfo.AddAssemblyClassInfo(System.String,System.String,System.Boolean,Phenix.Core.Mapping.ExecuteAction,System.Boolean,Phenix.Core.Dictionary.AssemblyClassType,System.Boolean,System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.Int64},System.Collections.Generic.IDictionary{System.String,Phenix.Core.Dictionary.AssemblyClassPropertyInfo},System.Collections.Generic.IDictionary{System.String,Phenix.Core.Dictionary.AssemblyClassMethodInfo})">
+        <member name="M:Phenix.Core.Dictionary.AssemblyInfo.AddAssemblyClassInfo(System.String,Phenix.Core.Dictionary.AssemblyClassType,System.Boolean,System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.Int64},System.Collections.Generic.IDictionary{System.String,Phenix.Core.Dictionary.AssemblyClassPropertyInfo},System.Collections.Generic.IDictionary{System.String,Phenix.Core.Dictionary.AssemblyClassMethodInfo})">
             <summary>
             添加类资料
             </summary>
@@ -28383,7 +28302,7 @@
             切片资料已更新
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassInfo(System.String,System.String,System.String,System.String,System.Nullable{Phenix.Core.Mapping.ExecuteAction},System.String[],Phenix.Core.Dictionary.AssemblyClassType)">
+        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassInfo(System.String,System.String,System.String,System.String,System.String[],Phenix.Core.Dictionary.AssemblyClassType)">
             <summary>
             新增程序集类资料
             </summary>
@@ -28393,17 +28312,17 @@
             新增程序集类资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassInfo(System.Type,System.String,System.Nullable{Phenix.Core.Mapping.ExecuteAction},System.String[],Phenix.Core.Dictionary.AssemblyClassType)">
+        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassInfo(System.Type,System.String,System.String[],Phenix.Core.Dictionary.AssemblyClassType)">
             <summary>
             新增程序集类资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassPropertyInfos(System.String,System.String,System.String[],System.String[],System.String[],System.String[],System.String[],Phenix.Core.Mapping.ExecuteModify[])">
+        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassPropertyInfos(System.String,System.String,System.String[],System.String[])">
             <summary>
             新增程序集类属性资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassPropertyInfos(System.Type,System.String[],System.String[],System.String[],System.String[],System.String[],Phenix.Core.Mapping.ExecuteModify[])">
+        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassPropertyInfos(System.Type,System.String[],System.String[])">
             <summary>
             新增程序集类属性资料
             </summary>
@@ -28413,27 +28332,17 @@
             新增程序集类属性资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassPropertyInfos(System.Type,System.String[],System.String[],Phenix.Core.Dictionary.AssemblyClassType)">
-            <summary>
-            新增程序集类属性资料
-            </summary>
-        </member>
         <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassPropertyInfo(System.Type,System.String,System.String,System.Boolean,System.String,System.String,Phenix.Core.Dictionary.AssemblyClassType)">
             <summary>
             新增程序集类属性资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassMethodInfos(System.String,System.String,System.String[],System.String[],System.String[],System.Boolean[])">
+        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassMethodInfos(System.String,System.String,System.String[],System.String[])">
             <summary>
             新增程序集类方法资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassMethodInfos(System.Type,System.String[],System.String[],System.String[])">
-            <summary>
-            新增程序集类方法资料
-            </summary>
-        </member>
-        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassMethodInfos(System.Type,System.String[],System.String[],System.String[],System.Boolean[])">
+        <member name="M:Phenix.Core.Dictionary.DataDictionaryHub.AddAssemblyClassMethodInfos(System.Type,System.String[],System.String[])">
             <summary>
             新增程序集类方法资料
             </summary>
@@ -28544,12 +28453,12 @@
             表结构已更新
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.IDataDictionary.AddAssemblyClassInfo(System.String,System.String,System.String,System.String,System.Nullable{Phenix.Core.Mapping.ExecuteAction},System.String[],Phenix.Core.Dictionary.AssemblyClassType)">
+        <member name="M:Phenix.Core.Dictionary.IDataDictionary.AddAssemblyClassInfo(System.String,System.String,System.String,System.String,System.String[],Phenix.Core.Dictionary.AssemblyClassType)">
             <summary>
             新增程序集类资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.IDataDictionary.AddAssemblyClassPropertyInfos(System.String,System.String,System.String[],System.String[],System.String[],System.String[],System.String[],Phenix.Core.Mapping.ExecuteModify[])">
+        <member name="M:Phenix.Core.Dictionary.IDataDictionary.AddAssemblyClassPropertyInfos(System.String,System.String,System.String[],System.String[])">
             <summary>
             新增程序集类属性资料
             </summary>
@@ -28559,7 +28468,7 @@
             新增程序集类属性资料
             </summary>
         </member>
-        <member name="M:Phenix.Core.Dictionary.IDataDictionary.AddAssemblyClassMethodInfos(System.String,System.String,System.String[],System.String[],System.String[],System.Boolean[])">
+        <member name="M:Phenix.Core.Dictionary.IDataDictionary.AddAssemblyClassMethodInfos(System.String,System.String,System.String[],System.String[])">
             <summary>
             新增程序集类方法资料
             </summary>

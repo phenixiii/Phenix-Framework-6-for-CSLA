@@ -76,11 +76,11 @@ namespace Phenix.Services.Contract.Wcf
 
     [OperationContract]
     [UseNetDataContract]
-    object AddAssemblyClassInfo(string assemblyName, string assemblyCaption, string className, string classCaption, ExecuteAction? permanentExecuteAction, string[] groupNames, AssemblyClassType classType);
+    object AddAssemblyClassInfo(string assemblyName, string assemblyCaption, string className, string classCaption,/* ExecuteAction? permanentExecuteAction,*/ string[] groupNames, AssemblyClassType classType);
 
     [OperationContract]
     [UseNetDataContract]
-    object AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions, string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies);
+    object AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions/*, string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies*/);
 
     [OperationContract]
     [UseNetDataContract]
@@ -89,7 +89,7 @@ namespace Phenix.Services.Contract.Wcf
 
     [OperationContract]
     [UseNetDataContract]
-    object AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions, string[] tags, bool[] allowVisibles);
+    object AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions/*, string[] tags, bool[] allowVisibles*/);
     
     #region BusinessCode
 

@@ -1551,6 +1551,10 @@ namespace Phenix.Windows
 
     private void BarManager_ItemClick(object sender, ItemClickEventArgs e)
     {
+      if (UserIdentity.CurrentIdentity.IsAdmin || UserIdentity.CurrentIdentity.HaveAdminRole)
+        if ((BarItemId)e.Item.Id != BarItemId.Fetch && (BarItemId)e.Item.Id != BarItemId.Exit)
+          return;
+
       switch ((BarItemId)e.Item.Id)
       {
         case BarItemId.Fetch:

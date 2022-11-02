@@ -11,7 +11,6 @@ using Phenix.Core.Cache;
 using Phenix.Core.Data;
 using Phenix.Core.Dictionary;
 using Phenix.Core.Log;
-using Phenix.Core.Mapping;
 using Phenix.Core.Reflection;
 using Phenix.Core.Security;
 using Phenix.Core.Threading;
@@ -296,17 +295,24 @@ namespace Phenix.Services.Library
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1809:AvoidExcessiveLocals")]
     private static IDictionary<string, AssemblyInfo> ExecuteGetAssemblyInfos(DbConnection connection)
     {
-        bool emptyRolesIsDeny = AppConfig.EmptyRolesIsDeny;
-        ICollection<string> roles = ExecuteGetRoleInfos(connection).Keys;
         using (DataSet
+//            assemblyDataSet = DataSetHelper.ExecuteReader(connection, @"
+//select AS_ID, AS_Name, AS_Caption
+//from PH_Assembly
+//order by AS_Name",
+//                false),
             assemblyDataSet = DataSetHelper.ExecuteReader(connection, @"
-select AS_ID, AS_Name, AS_Caption
+select AS_ID, AS_Name
 from PH_Assembly
 order by AS_Name",
                 false),
+//            classDataSet = DataSetHelper.ExecuteReader(connection, @"
+//select AC_AS_ID, AC_ID, AC_Name, AC_Caption, AC_CaptionConfigured,
+//  AC_PermanentExecuteAction, AC_PermanentExecuteConfigured, AC_Type, AC_Authorised
+//from PH_AssemblyClass",
+//                false),
             classDataSet = DataSetHelper.ExecuteReader(connection, @"
-select AC_AS_ID, AC_ID, AC_Name, AC_Caption, AC_CaptionConfigured,
-  AC_PermanentExecuteAction, AC_PermanentExecuteConfigured, AC_Type, AC_Authorised
+select AC_AS_ID, AC_ID, AC_Name, AC_Type, AC_Authorised
 from PH_AssemblyClass",
                 false),
             classRoleDataSet = DataSetHelper.ExecuteReader(connection, @"
@@ -318,11 +324,16 @@ where RL_ID = AR_RL_ID",
 select AD_AC_ID, AD_DP_ID
 from PH_AssemblyClass_Department",
                 false),
+//            classPropertyDataSet = DataSetHelper.ExecuteReader(connection, @"
+//select AP_AC_ID, AP_ID, AP_Name, AP_Caption, AP_CaptionConfigured,
+//  AP_PermanentExecuteModify, AP_PermanentExecuteConfigured,
+//  AP_Configurable, AP_ConfigValue,
+//  AP_IndexNumber, AP_Required, AP_Visible
+//from PH_AssemblyClassProperty",
+//                false),
             classPropertyDataSet = DataSetHelper.ExecuteReader(connection, @"
-select AP_AC_ID, AP_ID, AP_Name, AP_Caption, AP_CaptionConfigured,
-  AP_PermanentExecuteModify, AP_PermanentExecuteConfigured,
-  AP_Configurable, AP_ConfigValue,
-  AP_IndexNumber, AP_Required, AP_Visible
+select AP_AC_ID, AP_ID, AP_Name,
+  AP_Configurable, AP_ConfigValue
 from PH_AssemblyClassProperty",
                 false),
             classPropertyRoleDataSet = DataSetHelper.ExecuteReader(connection, @"
@@ -335,8 +346,12 @@ select AV_AP_ID, AV_ConfigKey, AV_ConfigValue
 from PH_AssemblyClassProperty_Value
 where AV_Configurable = 1",
                 false),
+//            classMethodDataSet = DataSetHelper.ExecuteReader(connection, @"
+//select AM_AC_ID, AM_ID, AM_Name, AM_Caption, AM_CaptionConfigured, AM_Tag, AM_AllowVisible
+//from PH_AssemblyClassMethod",
+//                false),
             classMethodDataSet = DataSetHelper.ExecuteReader(connection, @"
-select AM_AC_ID, AM_ID, AM_Name, AM_Caption, AM_CaptionConfigured, AM_Tag, AM_AllowVisible
+select AM_AC_ID, AM_ID, AM_Name
 from PH_AssemblyClassMethod",
                 false),
             classMethodRoleDataSet = DataSetHelper.ExecuteReader(connection, @"
@@ -362,9 +377,18 @@ from PH_AssemblyClassMethod_Departm",
                 classMethodDepartmentView = new DataView(classMethodDepartmentDataSet.Tables[0]))
             {
                 Dictionary<string, AssemblyInfo> result = new Dictionary<string, AssemblyInfo>(assemblyView.Count, StringComparer.OrdinalIgnoreCase);
+                ICollection<string> roles = ExecuteGetRoleInfos(connection).Keys;
+                if (roles.Count == 0)
+#if Top
+                    return new ReadOnlyDictionary<string, AssemblyInfo>(result);
+#else
+                    return result;
+#endif
+                bool emptyRolesIsDeny = AppConfig.EmptyRolesIsDeny;
                 foreach (DataRowView assemblyRow in assemblyView)
                 {
-                    AssemblyInfo assemblyInfo = new AssemblyInfo(assemblyRow[1] as string, assemblyRow[2] as string);
+                    //AssemblyInfo assemblyInfo = new AssemblyInfo(assemblyRow[1] as string, assemblyRow[2] as string);
+                    AssemblyInfo assemblyInfo = new AssemblyInfo(assemblyRow[1] as string);
                     classView.RowFilter = String.Format("AC_AS_ID={0}", assemblyRow[0]);
                     if (classView.Count > 0)
                     {
@@ -372,8 +396,8 @@ from PH_AssemblyClassMethod_Departm",
                         foreach (DataRowView classRow in classView)
                         {
                             string classId = classRow[1].ToString();
-                            AssemblyClassType classType = (AssemblyClassType) Utilities.ChangeType(classRow[7], typeof(AssemblyClassType));
-                            bool authorised = (bool) Utilities.ChangeType(classRow[8], typeof(bool));
+                            AssemblyClassType classType = (AssemblyClassType) Utilities.ChangeType(classRow[3], typeof(AssemblyClassType));
+                            bool authorised = (bool) Utilities.ChangeType(classRow[4], typeof(bool));
 
                             List<string> denyCreateRoles = null;
                             List<string> denyGetRoles = null;
@@ -484,18 +508,28 @@ from PH_AssemblyClassMethod_Departm",
                                             configValues.Add(classPropertyValueRow[1] as string, classPropertyValueRow[2] as string ?? String.Empty);
                                     }
 
+//                                    classPropertyInfos.Add(classPropertyRow[2] as string,
+//                                        new AssemblyClassPropertyInfo(
+//                                            classPropertyRow[3] as string, (bool) Utilities.ChangeType(classPropertyRow[4], typeof(bool)),
+//                                            (ExecuteModify) Utilities.ChangeType(classPropertyRow[5], typeof(ExecuteModify)), (bool) Utilities.ChangeType(classPropertyRow[6], typeof(bool)),
+//                                            denyReadRoles != null ? denyReadRoles.AsReadOnly() : null, denyWriteRoles != null ? denyWriteRoles.AsReadOnly() : null,
+//                                            (bool) Utilities.ChangeType(classPropertyRow[7], typeof(bool)), classPropertyRow[8] as string,
+//#if Top
+//                                            configValues != null ? new ReadOnlyDictionary<string, string>(configValues) : null,
+//#else
+//                                            configValues,
+//#endif
+//                                            (int) Utilities.ChangeType(classPropertyRow[9], typeof(int)), classPropertyRow[10] == DBNull.Value ? new bool?() : (bool) Utilities.ChangeType(classPropertyRow[10], typeof(bool)), /*(bool)Utilities.ChangeType(classPropertyRow[11], typeof(bool)), */(bool) Utilities.ChangeType(classPropertyRow[11], typeof(bool))));
                                     classPropertyInfos.Add(classPropertyRow[2] as string,
                                         new AssemblyClassPropertyInfo(
-                                            classPropertyRow[3] as string, (bool) Utilities.ChangeType(classPropertyRow[4], typeof(bool)),
-                                            (ExecuteModify) Utilities.ChangeType(classPropertyRow[5], typeof(ExecuteModify)), (bool) Utilities.ChangeType(classPropertyRow[6], typeof(bool)),
                                             denyReadRoles != null ? denyReadRoles.AsReadOnly() : null, denyWriteRoles != null ? denyWriteRoles.AsReadOnly() : null,
-                                            (bool) Utilities.ChangeType(classPropertyRow[7], typeof(bool)), classPropertyRow[8] as string,
+                                            (bool) Utilities.ChangeType(classPropertyRow[3], typeof(bool)), classPropertyRow[4] as string,
 #if Top
-                                            configValues != null ? new ReadOnlyDictionary<string, string>(configValues) : null,
+                                            configValues != null ? new ReadOnlyDictionary<string, string>(configValues) : null
 #else
-                      configValues,
+                                            configValues
 #endif
-                                            (int) Utilities.ChangeType(classPropertyRow[9], typeof(int)), classPropertyRow[10] == DBNull.Value ? new bool?() : (bool) Utilities.ChangeType(classPropertyRow[10], typeof(bool)), /*(bool)Utilities.ChangeType(classPropertyRow[11], typeof(bool)), */(bool) Utilities.ChangeType(classPropertyRow[11], typeof(bool))));
+                                           ));
                                 }
 
                             classMethodView.RowFilter = String.Format("AM_AC_ID={0}", classId);
@@ -537,17 +571,32 @@ from PH_AssemblyClassMethod_Departm",
                                             methodDepartmentIds.Add((long) Utilities.ChangeType(classMethodDepartmentRow[1], typeof(long)));
                                     }
 
+                                    //classMethodInfos.Add(classMethodRow[2] as string,
+                                    //    new AssemblyClassMethodInfo(
+                                    //        classMethodRow[3] as string, (bool) Utilities.ChangeType(classMethodRow[4], typeof(bool)), classMethodRow[5] as string,
+                                    //        classMethodRow[6] == DBNull.Value ? new bool?() : (decimal) classMethodRow[6] == 1,
+                                    //        denyExecuteRoles != null ? denyExecuteRoles.AsReadOnly() : null,
+                                    //        methodDepartmentIds != null ? methodDepartmentIds.AsReadOnly() : null));
                                     classMethodInfos.Add(classMethodRow[2] as string,
                                         new AssemblyClassMethodInfo(
-                                            classMethodRow[3] as string, (bool) Utilities.ChangeType(classMethodRow[4], typeof(bool)), classMethodRow[5] as string,
-                                            classMethodRow[6] == DBNull.Value ? new bool?() : (decimal) classMethodRow[6] == 1,
                                             denyExecuteRoles != null ? denyExecuteRoles.AsReadOnly() : null,
                                             methodDepartmentIds != null ? methodDepartmentIds.AsReadOnly() : null));
                                 }
 
+//                            assemblyInfo.AddAssemblyClassInfo(
+//                                classRow[2] as string, classRow[3] as string, (bool) Utilities.ChangeType(classRow[4], typeof(bool)),
+//                                (ExecuteAction) Utilities.ChangeType(classRow[5], typeof(ExecuteAction)), (bool) Utilities.ChangeType(classRow[6], typeof(bool)),
+//                                classType, authorised,
+//                                denyCreateRoles != null ? denyCreateRoles.AsReadOnly() : null, denyGetRoles != null ? denyGetRoles.AsReadOnly() : null,
+//                                denyEditRoles != null ? denyEditRoles.AsReadOnly() : null, denyDeleteRoles != null ? denyDeleteRoles.AsReadOnly() : null,
+//                                departmentIds != null ? departmentIds.AsReadOnly() : null,
+//#if Top
+//                                new ReadOnlyDictionary<string, AssemblyClassPropertyInfo>(classPropertyInfos), new ReadOnlyDictionary<string, AssemblyClassMethodInfo>(classMethodInfos));
+//#else
+//                                classPropertyInfos, classMethodInfos);
+//#endif
                             assemblyInfo.AddAssemblyClassInfo(
-                                classRow[2] as string, classRow[3] as string, (bool) Utilities.ChangeType(classRow[4], typeof(bool)),
-                                (ExecuteAction) Utilities.ChangeType(classRow[5], typeof(ExecuteAction)), (bool) Utilities.ChangeType(classRow[6], typeof(bool)),
+                                classRow[2] as string,
                                 classType, authorised,
                                 denyCreateRoles != null ? denyCreateRoles.AsReadOnly() : null, denyGetRoles != null ? denyGetRoles.AsReadOnly() : null,
                                 denyEditRoles != null ? denyEditRoles.AsReadOnly() : null, denyDeleteRoles != null ? denyDeleteRoles.AsReadOnly() : null,
@@ -582,7 +631,10 @@ from PH_AssemblyClassMethod_Departm",
       AssemblyInfo result = null;
       long assemblyId = 0;
       using (DataReader assemblyReader = new DataReader(connection,
-@"select AS_ID, AS_Name, AS_Caption
+//@"select AS_ID, AS_Name, AS_Caption
+//  from PH_Assembly
+//  where upper(AS_Name) = :AS_Name",
+@"select AS_ID, AS_Name
   from PH_Assembly
   where upper(AS_Name) = :AS_Name",
         CommandBehavior.SingleRow, false))
@@ -590,7 +642,8 @@ from PH_AssemblyClassMethod_Departm",
         assemblyReader.CreateParameter("AS_Name", assemblyName.ToUpper());
         if (assemblyReader.Read())
         {
-          result = new AssemblyInfo(assemblyReader.GetNullableString(1), assemblyReader.GetNullableString(2));
+          //result = new AssemblyInfo(assemblyReader.GetNullableString(1), assemblyReader.GetNullableString(2));
+          result = new AssemblyInfo(assemblyReader.GetNullableString(1));
           assemblyId = assemblyReader.GetInt64ForDecimal(0);
         }
       }
@@ -598,7 +651,10 @@ from PH_AssemblyClassMethod_Departm",
       {
         //如果assemblyName值为类全名
         using (DataReader assemblyReader = new DataReader(connection,
-@"select AS_ID, AS_Name, AS_Caption
+//@"select AS_ID, AS_Name, AS_Caption
+//  from PH_Assembly, PH_AssemblyClass
+//  where AS_ID = AC_AS_ID and AC_Name = :AC_Name",
+@"select AS_ID, AS_Name
   from PH_Assembly, PH_AssemblyClass
   where AS_ID = AC_AS_ID and AC_Name = :AC_Name",
           CommandBehavior.SingleRow, false))
@@ -606,19 +662,27 @@ from PH_AssemblyClassMethod_Departm",
           assemblyReader.CreateParameter("AC_Name", assemblyName);
           if (assemblyReader.Read())
           {
-            result = new AssemblyInfo(assemblyReader.GetNullableString(1), assemblyReader.GetNullableString(2));
+            //result = new AssemblyInfo(assemblyReader.GetNullableString(1), assemblyReader.GetNullableString(2));
+            result = new AssemblyInfo(assemblyReader.GetNullableString(1));
             assemblyId = assemblyReader.GetInt64ForDecimal(0);
           }
           else
             return null;
         }
       }
-      bool emptyRolesIsDeny = AppConfig.EmptyRolesIsDeny;
       ICollection<string> roles = ExecuteGetRoleInfos(connection).Keys;
+      if (roles.Count == 0)
+        return result;
+      bool emptyRolesIsDeny = AppConfig.EmptyRolesIsDeny;
       using (DataSet
-        classDataSet = DataSetHelper.ExecuteReader(connection,
-@"select AC_AS_ID, AC_ID, AC_Name, AC_Caption, AC_CaptionConfigured,
-    AC_PermanentExecuteAction, AC_PermanentExecuteConfigured, AC_Type, AC_Authorised
+//        classDataSet = DataSetHelper.ExecuteReader(connection,
+//@"select AC_AS_ID, AC_ID, AC_Name, AC_Caption, AC_CaptionConfigured,
+//    AC_PermanentExecuteAction, AC_PermanentExecuteConfigured, AC_Type, AC_Authorised
+//  from PH_AssemblyClass
+//  where AC_AS_ID = :AC_AS_ID",
+//          false, ParamValue.Input("AC_AS_ID", assemblyId)),
+        classDataSet = DataSetHelper.ExecuteReader(connection, 
+ @"select AC_AS_ID, AC_ID, AC_Name, AC_Type, AC_Authorised
   from PH_AssemblyClass
   where AC_AS_ID = :AC_AS_ID",
           false, ParamValue.Input("AC_AS_ID", assemblyId)),
@@ -628,15 +692,21 @@ from PH_AssemblyClassMethod_Departm",
   where RL_ID = AR_RL_ID and AR_AC_ID = AC_ID and AC_AS_ID = :AC_AS_ID",
           false, ParamValue.Input("AC_AS_ID", assemblyId)),
         classDepartmentDataSet = DataSetHelper.ExecuteReader(connection,
-          @"select AD_AC_ID, AD_DP_ID
+@"select AD_AC_ID, AD_DP_ID
   from PH_AssemblyClass_Department, PH_AssemblyClass
   where AD_AC_ID = AC_ID and AC_AS_ID = :AC_AS_ID",
           false, ParamValue.Input("AC_AS_ID", assemblyId)),
+//      classPropertyDataSet = DataSetHelper.ExecuteReader(connection,
+//@"select AP_AC_ID, AP_ID, AP_Name, AP_Caption, AP_CaptionConfigured,         
+//  AP_PermanentExecuteModify, AP_PermanentExecuteConfigured,
+//  AP_Configurable, AP_ConfigValue,
+//  AP_IndexNumber, AP_Required, AP_Visible
+//from PH_AssemblyClassProperty, PH_AssemblyClass
+//where AP_AC_ID = AC_ID and AC_AS_ID = :AC_AS_ID",
+//        false, ParamValue.Input("AC_AS_ID", assemblyId)),
         classPropertyDataSet = DataSetHelper.ExecuteReader(connection,
-@"select AP_AC_ID, AP_ID, AP_Name, AP_Caption, AP_CaptionConfigured,         
-    AP_PermanentExecuteModify, AP_PermanentExecuteConfigured,
-    AP_Configurable, AP_ConfigValue,
-    AP_IndexNumber, AP_Required, AP_Visible
+@"select AP_AC_ID, AP_ID, AP_Name,
+    AP_Configurable, AP_ConfigValue
   from PH_AssemblyClassProperty, PH_AssemblyClass
   where AP_AC_ID = AC_ID and AC_AS_ID = :AC_AS_ID",
           false, ParamValue.Input("AC_AS_ID", assemblyId)),
@@ -650,8 +720,13 @@ from PH_AssemblyClassMethod_Departm",
   from PH_AssemblyClassProperty_Value, PH_AssemblyClassProperty, PH_AssemblyClass
   where AV_Configurable = 1 and AV_AP_ID = AP_ID and AP_AC_ID = AC_ID and AC_AS_ID = :AC_AS_ID",
           false, ParamValue.Input("AC_AS_ID", assemblyId)),
+//        classMethodDataSet = DataSetHelper.ExecuteReader(connection,
+//@"select AM_AC_ID, AM_ID, AM_Name, AM_Caption, AM_CaptionConfigured, AM_Tag, AM_AllowVisible
+//  from PH_AssemblyClassMethod, PH_AssemblyClass
+//  where AM_AC_ID = AC_ID and AC_AS_ID = :AC_AS_ID",
+//          false, ParamValue.Input("AC_AS_ID", assemblyId)),
         classMethodDataSet = DataSetHelper.ExecuteReader(connection,
-@"select AM_AC_ID, AM_ID, AM_Name, AM_Caption, AM_CaptionConfigured, AM_Tag, AM_AllowVisible
+@"select AM_AC_ID, AM_ID, AM_Name
   from PH_AssemblyClassMethod, PH_AssemblyClass
   where AM_AC_ID = AC_ID and AC_AS_ID = :AC_AS_ID",
           false, ParamValue.Input("AC_AS_ID", assemblyId)),
@@ -683,8 +758,8 @@ from PH_AssemblyClassMethod_Departm",
             foreach (DataRowView classRow in classView)
             {
               string classId = classRow[1].ToString();
-              AssemblyClassType classType = (AssemblyClassType)Utilities.ChangeType(classRow[7], typeof(AssemblyClassType));
-              bool authorised = (bool)Utilities.ChangeType(classRow[8], typeof(bool));
+              AssemblyClassType classType = (AssemblyClassType)Utilities.ChangeType(classRow[3], typeof(AssemblyClassType));
+              bool authorised = (bool)Utilities.ChangeType(classRow[4], typeof(bool));
 
               List<string> denyCreateRoles = null;
               List<string> denyGetRoles = null;
@@ -791,18 +866,28 @@ from PH_AssemblyClassMethod_Departm",
                       configValues.Add(classPropertyValueRow[1] as string, classPropertyValueRow[2] as string ?? String.Empty);
                   }
 
+//                  classPropertyInfos.Add(classPropertyRow[2] as string,
+//                      new AssemblyClassPropertyInfo(
+//                          classPropertyRow[3] as string, (bool)Utilities.ChangeType(classPropertyRow[4], typeof(bool)),
+//                          (ExecuteModify)Utilities.ChangeType(classPropertyRow[5], typeof(ExecuteModify)), (bool)Utilities.ChangeType(classPropertyRow[6], typeof(bool)),
+//                          denyReadRoles != null ? denyReadRoles.AsReadOnly() : null, denyWriteRoles != null ? denyWriteRoles.AsReadOnly() : null,
+//                          (bool)Utilities.ChangeType(classPropertyRow[7], typeof(bool)), classPropertyRow[8] as string,
+//#if Top
+//                          configValues != null ? new ReadOnlyDictionary<string, string>(configValues) : null,
+//#else
+//                      configValues,
+//#endif
+//                          (int)Utilities.ChangeType(classPropertyRow[9], typeof(int)), classPropertyRow[10] == DBNull.Value ? new bool?() : (bool)Utilities.ChangeType(classPropertyRow[10], typeof(bool)), /*(bool)Utilities.ChangeType(classPropertyRow[11], typeof(bool)), */(bool)Utilities.ChangeType(classPropertyRow[11], typeof(bool))));
                   classPropertyInfos.Add(classPropertyRow[2] as string,
                     new AssemblyClassPropertyInfo(
-                      classPropertyRow[3] as string, (bool)Utilities.ChangeType(classPropertyRow[4], typeof(bool)),
-                      (ExecuteModify)Utilities.ChangeType(classPropertyRow[5], typeof(ExecuteModify)), (bool)Utilities.ChangeType(classPropertyRow[6], typeof(bool)),
                       denyReadRoles != null ? denyReadRoles.AsReadOnly() : null, denyWriteRoles != null ? denyWriteRoles.AsReadOnly() : null,
-                      (bool)Utilities.ChangeType(classPropertyRow[7], typeof(bool)), classPropertyRow[8] as string,
+                      (bool)Utilities.ChangeType(classPropertyRow[3], typeof(bool)), classPropertyRow[4] as string,
 #if Top
-                      configValues != null ? new ReadOnlyDictionary<string, string>(configValues) : null,
+                      configValues != null ? new ReadOnlyDictionary<string, string>(configValues) : null
 #else
-                      configValues,
+                      configValues
 #endif
-                      (int)Utilities.ChangeType(classPropertyRow[9], typeof(int)), classPropertyRow[10] == DBNull.Value ? new bool?() : (bool)Utilities.ChangeType(classPropertyRow[10], typeof(bool)), /*(bool)Utilities.ChangeType(classPropertyRow[11], typeof(bool)), */(bool)Utilities.ChangeType(classPropertyRow[11], typeof(bool))));
+                      ));
                 }
 
               classMethodView.RowFilter = String.Format("AM_AC_ID={0}", classId);
@@ -843,23 +928,38 @@ from PH_AssemblyClassMethod_Departm",
                       methodDepartmentIds.Add((long)Utilities.ChangeType(classMethodDepartmentRow[1], typeof(long)));
                   }
 
+                  //classMethodInfos.Add(classMethodRow[2] as string,
+                  //  new AssemblyClassMethodInfo(
+                  //    classMethodRow[3] as string, (bool)Utilities.ChangeType(classMethodRow[4], typeof(bool)), classMethodRow[5] as string,
+                  //    classMethodRow[6] == DBNull.Value ? new bool?() : (decimal)classMethodRow[6] == 1,
+                  //    denyExecuteRoles != null ? denyExecuteRoles.AsReadOnly() : null, 
+                  //    methodDepartmentIds != null ? methodDepartmentIds.AsReadOnly() : null));
                   classMethodInfos.Add(classMethodRow[2] as string,
-                    new AssemblyClassMethodInfo(
-                      classMethodRow[3] as string, (bool)Utilities.ChangeType(classMethodRow[4], typeof(bool)), classMethodRow[5] as string,
-                      classMethodRow[6] == DBNull.Value ? new bool?() : (decimal)classMethodRow[6] == 1,
-                      denyExecuteRoles != null ? denyExecuteRoles.AsReadOnly() : null, 
-                      methodDepartmentIds != null ? methodDepartmentIds.AsReadOnly() : null));
+                      new AssemblyClassMethodInfo(
+                          denyExecuteRoles != null ? denyExecuteRoles.AsReadOnly() : null, 
+                          methodDepartmentIds != null ? methodDepartmentIds.AsReadOnly() : null));
                 }
 
-              result.AddAssemblyClassInfo(
-                classRow[2] as string, classRow[3] as string, (bool)Utilities.ChangeType(classRow[4], typeof(bool)),
-                (ExecuteAction)Utilities.ChangeType(classRow[5], typeof(ExecuteAction)), (bool)Utilities.ChangeType(classRow[6], typeof(bool)),
-                classType, authorised,
-                denyCreateRoles != null ? denyCreateRoles.AsReadOnly() : null, denyGetRoles != null ? denyGetRoles.AsReadOnly() : null,
-                denyEditRoles != null ? denyEditRoles.AsReadOnly() : null, denyDeleteRoles != null ? denyDeleteRoles.AsReadOnly() : null,
-                departmentIds != null ? departmentIds.AsReadOnly() : null,
+//              result.AddAssemblyClassInfo(
+//                classRow[2] as string, classRow[3] as string, (bool)Utilities.ChangeType(classRow[4], typeof(bool)),
+//                (ExecuteAction)Utilities.ChangeType(classRow[5], typeof(ExecuteAction)), (bool)Utilities.ChangeType(classRow[6], typeof(bool)),
+//                classType, authorised,
+//                denyCreateRoles != null ? denyCreateRoles.AsReadOnly() : null, denyGetRoles != null ? denyGetRoles.AsReadOnly() : null,
+//                denyEditRoles != null ? denyEditRoles.AsReadOnly() : null, denyDeleteRoles != null ? denyDeleteRoles.AsReadOnly() : null,
+//                departmentIds != null ? departmentIds.AsReadOnly() : null,
+//#if Top
+//                new ReadOnlyDictionary<string, AssemblyClassPropertyInfo>(classPropertyInfos), new ReadOnlyDictionary<string, AssemblyClassMethodInfo>(classMethodInfos));
+//#else
+//                classPropertyInfos, classMethodInfos);
+//#endif
+                result.AddAssemblyClassInfo(
+                    classRow[2] as string, 
+                    classType, authorised,
+                    denyCreateRoles != null ? denyCreateRoles.AsReadOnly() : null, denyGetRoles != null ? denyGetRoles.AsReadOnly() : null,
+                    denyEditRoles != null ? denyEditRoles.AsReadOnly() : null, denyDeleteRoles != null ? denyDeleteRoles.AsReadOnly() : null,
+                    departmentIds != null ? departmentIds.AsReadOnly() : null,
 #if Top
-                new ReadOnlyDictionary<string, AssemblyClassPropertyInfo>(classPropertyInfos), new ReadOnlyDictionary<string, AssemblyClassMethodInfo>(classMethodInfos));
+                    new ReadOnlyDictionary<string, AssemblyClassPropertyInfo>(classPropertyInfos), new ReadOnlyDictionary<string, AssemblyClassMethodInfo>(classMethodInfos));
 #else
                 classPropertyInfos, classMethodInfos);
 #endif
@@ -940,11 +1040,11 @@ from PH_AssemblyClassMethod_Departm",
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
     public void AddAssemblyClassInfo(string assemblyName, string assemblyCaption, 
-      string className, string classCaption, ExecuteAction? permanentExecuteAction, string[] groupNames, AssemblyClassType classType)
+      string className, string classCaption,/* ExecuteAction? permanentExecuteAction,*/ string[] groupNames, AssemblyClassType classType)
     {
       try
       {
-        DefaultDatabase.ExecuteGet(ExecuteAddAssemblyClassInfo, assemblyName, assemblyCaption, className, classCaption, permanentExecuteAction, groupNames, classType);
+        DefaultDatabase.ExecuteGet(ExecuteAddAssemblyClassInfo, assemblyName, assemblyCaption, className, classCaption,/* permanentExecuteAction,*/ groupNames, classType);
         ObjectCache.RecordHasChanged("PH_Assembly");
         ObjectCache.RecordHasChanged("PH_AssemblyClass");
         ObjectCache.RecordHasChanged("PH_AssemblyClass_Group");
@@ -957,7 +1057,7 @@ from PH_AssemblyClassMethod_Departm",
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
     private static long ExecuteAddAssemblyClassInfo(DbTransaction transaction, string assemblyName, string assemblyCaption, 
-      string className, string classCaption, ExecuteAction? permanentExecuteAction, string[] groupNames, AssemblyClassType classType)
+      string className, string classCaption,/* ExecuteAction? permanentExecuteAction,*/ string[] groupNames, AssemblyClassType classType)
     {
       long? assemblyId = null;
       using (DataReader reader = new DataReader(transaction, 
@@ -1023,42 +1123,43 @@ from PH_AssemblyClassMethod_Departm",
         classId = Sequence.Value;
         using (DbCommand assemblyClassInsertCommand = DbCommandHelper.CreateCommand(transaction,
 @"insert into PH_AssemblyClass
-  (AC_ID, AC_AS_ID, AC_Name, AC_Type, AC_Authorised)
+  (AC_ID, AC_AS_ID, AC_Name, AC_Caption, AC_Type, AC_Authorised)
   values
-  (:AC_ID, :AC_AS_ID, :AC_Name, :AC_Type, :AC_Authorised)"))
+  (:AC_ID, :AC_AS_ID, :AC_Name, :AC_Caption, :AC_Type, :AC_Authorised)"))
         {
           DbCommandHelper.CreateParameter(assemblyClassInsertCommand, "AC_ID", classId);
           DbCommandHelper.CreateParameter(assemblyClassInsertCommand, "AC_AS_ID", assemblyId);
           DbCommandHelper.CreateParameter(assemblyClassInsertCommand, "AC_Name", className);
+          DbCommandHelper.CreateParameter(assemblyClassInsertCommand, "AC_Caption", classCaption);
           DbCommandHelper.CreateParameter(assemblyClassInsertCommand, "AC_Type", classType);
           DbCommandHelper.CreateParameter(assemblyClassInsertCommand, "AC_Authorised", classType == AssemblyClassType.Form || classType == AssemblyClassType.ApiController ? 1 : 0);
           DbCommandHelper.ExecuteNonQuery(assemblyClassInsertCommand, false);
         }
       }
-      if (!String.IsNullOrEmpty(classCaption))
-      {
-        using (DbCommand assemblyClassUpdateCaptionCommand = DbCommandHelper.CreateCommand(transaction,
-@"update PH_AssemblyClass set
-    AC_Caption = :AC_Caption
-  where AC_ID = :AC_ID and AC_CaptionConfigured = 0"))
-        {
-          DbCommandHelper.CreateParameter(assemblyClassUpdateCaptionCommand, "AC_Caption", classCaption);
-          DbCommandHelper.CreateParameter(assemblyClassUpdateCaptionCommand, "AC_ID", classId);
-          DbCommandHelper.ExecuteNonQuery(assemblyClassUpdateCaptionCommand, false);
-        }
-      }
-      if (permanentExecuteAction.HasValue)
-      {
-        using (DbCommand assemblyClassUpdatePermanentExecuteCommand = DbCommandHelper.CreateCommand(transaction,
-@"update PH_AssemblyClass set
-    AC_PermanentExecuteAction = :AC_PermanentExecuteAction
-  where AC_ID = :AC_ID and AC_PermanentExecuteConfigured = 0"))
-        {
-          DbCommandHelper.CreateParameter(assemblyClassUpdatePermanentExecuteCommand, "AC_PermanentExecuteAction", permanentExecuteAction.Value);
-          DbCommandHelper.CreateParameter(assemblyClassUpdatePermanentExecuteCommand, "AC_ID", classId);
-          DbCommandHelper.ExecuteNonQuery(assemblyClassUpdatePermanentExecuteCommand, false);
-        }
-      }
+//      if (!String.IsNullOrEmpty(classCaption))
+//      {
+//        using (DbCommand assemblyClassUpdateCaptionCommand = DbCommandHelper.CreateCommand(transaction,
+//@"update PH_AssemblyClass set
+//    AC_Caption = :AC_Caption
+//  where AC_ID = :AC_ID and AC_CaptionConfigured = 0"))
+//        {
+//          DbCommandHelper.CreateParameter(assemblyClassUpdateCaptionCommand, "AC_Caption", classCaption);
+//          DbCommandHelper.CreateParameter(assemblyClassUpdateCaptionCommand, "AC_ID", classId);
+//          DbCommandHelper.ExecuteNonQuery(assemblyClassUpdateCaptionCommand, false);
+//        }
+//      }
+//      if (permanentExecuteAction.HasValue)
+//      {
+//        using (DbCommand assemblyClassUpdatePermanentExecuteCommand = DbCommandHelper.CreateCommand(transaction,
+//@"update PH_AssemblyClass set
+//    AC_PermanentExecuteAction = :AC_PermanentExecuteAction
+//  where AC_ID = :AC_ID and AC_PermanentExecuteConfigured = 0"))
+//        {
+//          DbCommandHelper.CreateParameter(assemblyClassUpdatePermanentExecuteCommand, "AC_PermanentExecuteAction", permanentExecuteAction.Value);
+//          DbCommandHelper.CreateParameter(assemblyClassUpdatePermanentExecuteCommand, "AC_ID", classId);
+//          DbCommandHelper.ExecuteNonQuery(assemblyClassUpdatePermanentExecuteCommand, false);
+//        }
+//      }
       if (groupNames != null)
       {
         using (DbCommand assemblyClassGroupDeleteCommand = DbCommandHelper.CreateCommand(transaction,
@@ -1103,13 +1204,13 @@ from PH_AssemblyClassMethod_Departm",
     }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-    public void AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions,
-      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies)
+    public void AddAssemblyClassPropertyInfos(string assemblyName, string className, string[] names, string[] captions/*,
+      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies*/)
     {
       try
       {
-        DefaultDatabase.Execute(ExecuteAddAssemblyClassPropertyInfos, assemblyName, className, names, captions,
-          tableNames, columnNames, aliases, permanentExecuteModifies);
+        DefaultDatabase.Execute(ExecuteAddAssemblyClassPropertyInfos, assemblyName, className, names, captions/*,
+          tableNames, columnNames, aliases, permanentExecuteModifies*/);
         ObjectCache.RecordHasChanged("PH_AssemblyClassProperty");
         ObjectCache.RecordHasChanged("PH_AssemblyClassProperty_Role");
       }
@@ -1119,18 +1220,18 @@ from PH_AssemblyClassMethod_Departm",
       }
     }
 
-    private static void ExecuteAddAssemblyClassPropertyInfos(DbTransaction transaction, string assemblyName, string className, string[] names, string[] captions,
-      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies)
+    private static void ExecuteAddAssemblyClassPropertyInfos(DbTransaction transaction, string assemblyName, string className, string[] names, string[] captions/*,
+      string[] tableNames, string[] columnNames, string[] aliases, ExecuteModify[] permanentExecuteModifies*/)
     {
       long classId = GetClassId(transaction, assemblyName, className) ??
-        ExecuteAddAssemblyClassInfo(transaction, assemblyName, null, className, null, null, null, AssemblyClassType.Business);
+        ExecuteAddAssemblyClassInfo(transaction, assemblyName, null, className, null,/* null,*/ null, AssemblyClassType.Business);
 
       using (DbCommand
         assemblyClassPropertyInsertCommand = DbCommandHelper.CreateCommand(transaction,
 @"insert into PH_AssemblyClassProperty
-  (AP_ID, AP_AC_ID, AP_Name)
+  (AP_ID, AP_AC_ID, AP_Name, AP_Caption)
   values
-  (:AP_ID, :AP_AC_ID, :AP_Name)"),
+  (:AP_ID, :AP_AC_ID, :AP_Name, :AP_Caption)")/*,
         assemblyClassPropertyUpdateCaptionCommand = DbCommandHelper.CreateCommand(transaction,
 @"update PH_AssemblyClassProperty set
     AP_Caption = :AP_Caption
@@ -1140,11 +1241,11 @@ from PH_AssemblyClassMethod_Departm",
     AP_TableName = :AP_TableName,
     AP_ColumnName = :AP_ColumnName,
     AP_Alias = :AP_Alias
-  where AP_ID = :AP_ID"), 
+  where AP_ID = :AP_ID"),
         assemblyClassPropertyUpdatePermanentExecuteCommand = DbCommandHelper.CreateCommand(transaction,
 @"update PH_AssemblyClassProperty set
     AP_PermanentExecuteModify = :AP_PermanentExecuteModify
-  where AP_ID = :AP_ID and AP_PermanentExecuteConfigured = 0"))
+  where AP_ID = :AP_ID and AP_PermanentExecuteConfigured = 0")*/)
       {
         for (int i = 0; i < names.Length; i++)
         {
@@ -1166,28 +1267,29 @@ from PH_AssemblyClassMethod_Departm",
             DbCommandHelper.CreateParameter(assemblyClassPropertyInsertCommand, "AP_ID", classPropertyId);
             DbCommandHelper.CreateParameter(assemblyClassPropertyInsertCommand, "AP_AC_ID", classId);
             DbCommandHelper.CreateParameter(assemblyClassPropertyInsertCommand, "AP_Name", names[i]);
+            DbCommandHelper.CreateParameter(assemblyClassPropertyInsertCommand, "AP_Caption", captions[i]);
             DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyInsertCommand, false);
           }
-          if (!String.IsNullOrEmpty(captions[i]))
-          {
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateCaptionCommand, "AP_Caption", captions[i]);
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateCaptionCommand, "AP_ID", classPropertyId);
-            DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyUpdateCaptionCommand, false);
-          }
-          if (tableNames != null)
-          {
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateMappingCommand, "AP_TableName", tableNames[i]);
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateMappingCommand, "AP_ColumnName", columnNames[i]);
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateMappingCommand, "AP_Alias", aliases[i]);
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateMappingCommand, "AP_ID", classPropertyId);
-            DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyUpdateMappingCommand, false);
-          }
-          if (permanentExecuteModifies != null)
-          {
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdatePermanentExecuteCommand, "AP_PermanentExecuteModify", permanentExecuteModifies[i]);
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdatePermanentExecuteCommand, "AP_ID", classPropertyId);
-            DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyUpdatePermanentExecuteCommand, false);
-          }
+          //if (!String.IsNullOrEmpty(captions[i]))
+          //{
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateCaptionCommand, "AP_Caption", captions[i]);
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateCaptionCommand, "AP_ID", classPropertyId);
+          //  DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyUpdateCaptionCommand, false);
+          //}
+          //if (tableNames != null)
+          //{
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateMappingCommand, "AP_TableName", tableNames[i]);
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateMappingCommand, "AP_ColumnName", columnNames[i]);
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateMappingCommand, "AP_Alias", aliases[i]);
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateMappingCommand, "AP_ID", classPropertyId);
+          //  DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyUpdateMappingCommand, false);
+          //}
+          //if (permanentExecuteModifies != null)
+          //{
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdatePermanentExecuteCommand, "AP_PermanentExecuteModify", permanentExecuteModifies[i]);
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdatePermanentExecuteCommand, "AP_ID", classPropertyId);
+          //  DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyUpdatePermanentExecuteCommand, false);
+          //}
         }
       }
     }
@@ -1212,18 +1314,18 @@ from PH_AssemblyClassMethod_Departm",
       bool[] configurables, string[] configKeys, string[] configValues, AssemblyClassType classType)
     {
       long classId = GetClassId(transaction, assemblyName, className) ??
-        ExecuteAddAssemblyClassInfo(transaction, assemblyName, null, className, null, null, null, classType);
+        ExecuteAddAssemblyClassInfo(transaction, assemblyName, null, className, null,/* null,*/ null, classType);
 
       using (DbCommand
         assemblyClassPropertyInsertCommand = DbCommandHelper.CreateCommand(transaction,
 @"insert into PH_AssemblyClassProperty
-  (AP_ID, AP_AC_ID, AP_Name)
+  (AP_ID, AP_AC_ID, AP_Name, AP_Caption)
   values
-  (:AP_ID, :AP_AC_ID, :AP_Name)"),
-        assemblyClassPropertyUpdateCaptionCommand = DbCommandHelper.CreateCommand(transaction,
-@"update PH_AssemblyClassProperty set
-    AP_Caption = :AP_Caption
-  where AP_ID = :AP_ID and AP_CaptionConfigured = 0"),
+  (:AP_ID, :AP_AC_ID, :AP_Name, :AP_Caption)"),
+//        assemblyClassPropertyUpdateCaptionCommand = DbCommandHelper.CreateCommand(transaction,
+//@"update PH_AssemblyClassProperty set
+//    AP_Caption = :AP_Caption
+//  where AP_ID = :AP_ID and AP_CaptionConfigured = 0"),
         assemblyClassPropertyUpdateConfigCommand = DbCommandHelper.CreateCommand(transaction,
 @"update PH_AssemblyClassProperty set
     AP_Configurable = :AP_Configurable,
@@ -1260,14 +1362,15 @@ from PH_AssemblyClassMethod_Departm",
             DbCommandHelper.CreateParameter(assemblyClassPropertyInsertCommand, "AP_ID", classPropertyId);
             DbCommandHelper.CreateParameter(assemblyClassPropertyInsertCommand, "AP_AC_ID", classId);
             DbCommandHelper.CreateParameter(assemblyClassPropertyInsertCommand, "AP_Name", names[i]);
+            DbCommandHelper.CreateParameter(assemblyClassPropertyInsertCommand, "AP_Caption", captions[i]);
             DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyInsertCommand, false);
           }
-          if (!String.IsNullOrEmpty(captions[i]))
-          {
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateCaptionCommand, "AP_Caption", captions[i]);
-            DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateCaptionCommand, "AP_ID", classPropertyId);
-            DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyUpdateCaptionCommand, false);
-          }
+          //if (!String.IsNullOrEmpty(captions[i]))
+          //{
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateCaptionCommand, "AP_Caption", captions[i]);
+          //  DbCommandHelper.CreateParameter(assemblyClassPropertyUpdateCaptionCommand, "AP_ID", classPropertyId);
+          //  DbCommandHelper.ExecuteNonQuery(assemblyClassPropertyUpdateCaptionCommand, false);
+          //}
           if (configurables != null)
           {
             if (configKeys == null || String.IsNullOrEmpty(configKeys[i]))
@@ -1310,12 +1413,12 @@ from PH_AssemblyClassMethod_Departm",
     }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-    public void AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions, string[] tags,
-      bool[] allowVisibles)
+    public void AddAssemblyClassMethodInfos(string assemblyName, string className, string[] names, string[] captions/*, string[] tags,
+      bool[] allowVisibles*/)
     {
       try
       {
-        DefaultDatabase.Execute(ExecuteAddAssemblyClassMethodInfos, assemblyName, className, names, captions, tags, allowVisibles);
+        DefaultDatabase.Execute(ExecuteAddAssemblyClassMethodInfos, assemblyName, className, names, captions/*, tags, allowVisibles*/);
         ObjectCache.RecordHasChanged("PH_AssemblyClassMethod");
         ObjectCache.RecordHasChanged("PH_AssemblyClassMethod_Role");
         ObjectCache.RecordHasChanged("PH_AssemblyClassMethod_Departm");
@@ -1327,17 +1430,17 @@ from PH_AssemblyClassMethod_Departm",
     }
 
     private static void ExecuteAddAssemblyClassMethodInfos(DbTransaction transaction, string assemblyName, string className,
-      string[] names, string[] captions, string[] tags, bool[] allowVisibles)
+      string[] names, string[] captions/*, string[] tags, bool[] allowVisibles*/)
     {
       long classId = GetClassId(transaction, assemblyName, className) ??
-        ExecuteAddAssemblyClassInfo(transaction, assemblyName, null, className, null, null, null, AssemblyClassType.Ordinary);
+        ExecuteAddAssemblyClassInfo(transaction, assemblyName, null, className, null,/* null,*/ null, AssemblyClassType.Ordinary);
 
       using (DbCommand
         assemblyClassMethodInsertCommand = DbCommandHelper.CreateCommand(transaction,
 @"insert into PH_AssemblyClassMethod
-  (AM_ID, AM_AC_ID, AM_Name)
+  (AM_ID, AM_AC_ID, AM_Name, AM_Caption)
   values
-  (:AM_ID, :AM_AC_ID, :AM_Name)"),
+  (:AM_ID, :AM_AC_ID, :AM_Name, :AM_Caption)")/*,
         assemblyClassMethodUpdateCaptionCommand = DbCommandHelper.CreateCommand(transaction,
 @"update PH_AssemblyClassMethod set
     AM_Caption = :AM_Caption
@@ -1349,7 +1452,7 @@ from PH_AssemblyClassMethod_Departm",
         assemblyClassMethodUpdateAllowVisibleCommand = DbCommandHelper.CreateCommand(transaction,
 @"update PH_AssemblyClassMethod set
     AM_AllowVisible = :AM_AllowVisible
-  where AM_ID = :AM_ID"))
+  where AM_ID = :AM_ID")*/)
       {
         for (int i = 0; i < names.Length; i++)
         {
@@ -1371,26 +1474,27 @@ from PH_AssemblyClassMethod_Departm",
             DbCommandHelper.CreateParameter(assemblyClassMethodInsertCommand, "AM_ID", classMethodId);
             DbCommandHelper.CreateParameter(assemblyClassMethodInsertCommand, "AM_AC_ID", classId);
             DbCommandHelper.CreateParameter(assemblyClassMethodInsertCommand, "AM_Name", names[i]);
+            DbCommandHelper.CreateParameter(assemblyClassMethodInsertCommand, "AM_Caption", captions[i]);
             DbCommandHelper.ExecuteNonQuery(assemblyClassMethodInsertCommand, false);
           }
-          if (!String.IsNullOrEmpty(captions[i]))
-          {
-            DbCommandHelper.CreateParameter(assemblyClassMethodUpdateCaptionCommand, "AM_Caption", captions[i]);
-            DbCommandHelper.CreateParameter(assemblyClassMethodUpdateCaptionCommand, "AM_ID", classMethodId);
-            DbCommandHelper.ExecuteNonQuery(assemblyClassMethodUpdateCaptionCommand, false);
-          }
-          if (!String.IsNullOrEmpty(tags[i]))
-          {
-            DbCommandHelper.CreateParameter(assemblyClassMethodUpdateTagCommand, "AM_Tag", tags[i]);
-            DbCommandHelper.CreateParameter(assemblyClassMethodUpdateTagCommand, "AM_ID", classMethodId);
-            DbCommandHelper.ExecuteNonQuery(assemblyClassMethodUpdateTagCommand, false);
-          }
-          if (allowVisibles != null)
-          {
-            DbCommandHelper.CreateParameter(assemblyClassMethodUpdateAllowVisibleCommand, "AM_AllowVisible", allowVisibles[i]);
-            DbCommandHelper.CreateParameter(assemblyClassMethodUpdateAllowVisibleCommand, "AM_ID", classMethodId);
-            DbCommandHelper.ExecuteNonQuery(assemblyClassMethodUpdateAllowVisibleCommand, false);
-          }
+          //if (!String.IsNullOrEmpty(captions[i]))
+          //{
+          //  DbCommandHelper.CreateParameter(assemblyClassMethodUpdateCaptionCommand, "AM_Caption", captions[i]);
+          //  DbCommandHelper.CreateParameter(assemblyClassMethodUpdateCaptionCommand, "AM_ID", classMethodId);
+          //  DbCommandHelper.ExecuteNonQuery(assemblyClassMethodUpdateCaptionCommand, false);
+          //}
+          //if (!String.IsNullOrEmpty(tags[i]))
+          //{
+          //  DbCommandHelper.CreateParameter(assemblyClassMethodUpdateTagCommand, "AM_Tag", tags[i]);
+          //  DbCommandHelper.CreateParameter(assemblyClassMethodUpdateTagCommand, "AM_ID", classMethodId);
+          //  DbCommandHelper.ExecuteNonQuery(assemblyClassMethodUpdateTagCommand, false);
+          //}
+          //if (allowVisibles != null)
+          //{
+          //  DbCommandHelper.CreateParameter(assemblyClassMethodUpdateAllowVisibleCommand, "AM_AllowVisible", allowVisibles[i]);
+          //  DbCommandHelper.CreateParameter(assemblyClassMethodUpdateAllowVisibleCommand, "AM_ID", classMethodId);
+          //  DbCommandHelper.ExecuteNonQuery(assemblyClassMethodUpdateAllowVisibleCommand, false);
+          //}
         }
       }
     }

@@ -620,30 +620,30 @@ namespace Phenix.Services.Host.Core
           OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Upgrade v5.6.X.X the following the configuration database", ex));
           return false;
         }
-      //升级 v5.7.X.X 以下配置库
-      if (actualVersion.Major < 5 ||
-        (actualVersion.Major == 5 && actualVersion.Minor <= 7))
-        try
-        {
-          if (connection == null)
-          {
-            OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Warning, "Upgrade v5.7.X.X the following the configuration database",
-              String.Format(Phenix.Core.Properties.Resources.CannotConnectTo, DefaultDatabase.DbConnectionInfo.Key)));
-            return false;
-          }
-          else
-          {
-            if (Upgrade_5_7(connection))
-              OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Information, "Upgrade v5.7.X.X the following the configuration database", Phenix.Services.Host.Properties.Resources.Finished));
-            else
-              result = false;
-          }
-        }
-        catch (Exception ex)
-        {
-          OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Upgrade v5.7.X.X the following the configuration database", ex));
-          return false;
-        }
+      ////升级 v5.7.X.X 以下配置库
+      //if (actualVersion.Major < 5 ||
+      //  (actualVersion.Major == 5 && actualVersion.Minor <= 7))
+      //  try
+      //  {
+      //    if (connection == null)
+      //    {
+      //      OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Warning, "Upgrade v5.7.X.X the following the configuration database",
+      //        String.Format(Phenix.Core.Properties.Resources.CannotConnectTo, DefaultDatabase.DbConnectionInfo.Key)));
+      //      return false;
+      //    }
+      //    else
+      //    {
+      //      if (Upgrade_5_7(connection))
+      //        OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Information, "Upgrade v5.7.X.X the following the configuration database", Phenix.Services.Host.Properties.Resources.Finished));
+      //      else
+      //        result = false;
+      //    }
+      //  }
+      //  catch (Exception ex)
+      //  {
+      //    OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Upgrade v5.7.X.X the following the configuration database", ex));
+      //    return false;
+      //  }
       //升级 v5.8.X.X 以下配置库
       if (actualVersion.Major < 5 ||
         (actualVersion.Major == 5 && actualVersion.Minor <= 8))
@@ -884,30 +884,30 @@ namespace Phenix.Services.Host.Core
           OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Upgrade v6.10.X.X the following the configuration database", ex));
           return false;
         }
-      //升级 v6.11.X.X 以下配置库
-      if (actualVersion.Major < 6 ||
-        (actualVersion.Major == 6 && actualVersion.Minor <= 11))
-        try
-        {
-          if (connection == null)
-          {
-            OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Warning, "Upgrade v6.11.X.X the following the configuration database",
-              String.Format(Phenix.Core.Properties.Resources.CannotConnectTo, DefaultDatabase.DbConnectionInfo.Key)));
-            return false;
-          }
-          else
-          {
-            if (Upgrade_6_11(connection))
-              OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Information, "Upgrade v6.11.X.X the following the configuration database", Phenix.Services.Host.Properties.Resources.Finished));
-            else
-              result = false;
-          }
-        }
-        catch (Exception ex)
-        {
-          OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Upgrade v6.11.X.X the following the configuration database", ex));
-          return false;
-        }
+      ////升级 v6.11.X.X 以下配置库
+      //if (actualVersion.Major < 6 ||
+      //  (actualVersion.Major == 6 && actualVersion.Minor <= 11))
+      //  try
+      //  {
+      //    if (connection == null)
+      //    {
+      //      OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Warning, "Upgrade v6.11.X.X the following the configuration database",
+      //        String.Format(Phenix.Core.Properties.Resources.CannotConnectTo, DefaultDatabase.DbConnectionInfo.Key)));
+      //      return false;
+      //    }
+      //    else
+      //    {
+      //      if (Upgrade_6_11(connection))
+      //        OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Information, "Upgrade v6.11.X.X the following the configuration database", Phenix.Services.Host.Properties.Resources.Finished));
+      //      else
+      //        result = false;
+      //    }
+      //  }
+      //  catch (Exception ex)
+      //  {
+      //    OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Upgrade v6.11.X.X the following the configuration database", ex));
+      //    return false;
+      //  }
       return result;
     }
 
@@ -1180,28 +1180,28 @@ namespace Phenix.Services.Host.Core
       return result;
     }
 
-    /// <summary>
-    /// 升级 v5.7.X.X 以下配置库
-    /// 2014-12-12
-    /// </summary>
-    /// <param name="connection">数据库连接</param>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-    private bool Upgrade_5_7(DbConnection connection)
-    {
-      bool result = true;
-      try
-      {
-        DbCommandHelper.ExecuteNonQuery(connection,
-          "ALTER TABLE PH_AssemblyClassMethod ADD " +
-          "AM_AllowVisible NUMERIC(1) NULL", false);
-      }
-      catch (Exception ex)
-      {
-        OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Reconstruct the PH_AssemblyClassMethod", "If already building can be omitted the tip", ex));
-        result = false;
-      }
-      return result;
-    }
+    ///// <summary>
+    ///// 升级 v5.7.X.X 以下配置库
+    ///// 2014-12-12
+    ///// </summary>
+    ///// <param name="connection">数据库连接</param>
+    //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+    //private bool Upgrade_5_7(DbConnection connection)
+    //{
+    //  bool result = true;
+    //  try
+    //  {
+    //    DbCommandHelper.ExecuteNonQuery(connection,
+    //      "ALTER TABLE PH_AssemblyClassMethod ADD " +
+    //      "AM_AllowVisible NUMERIC(1) NULL", false);
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Reconstruct the PH_AssemblyClassMethod", "If already building can be omitted the tip", ex));
+    //    result = false;
+    //  }
+    //  return result;
+    //}
 
     /// <summary>
     /// 升级 v5.8.X.X 以下配置库
@@ -1471,29 +1471,29 @@ namespace Phenix.Services.Host.Core
       return result;
     }
 
-    /// <summary>
-    /// 升级 v6.11.X.X 以下配置库
-    /// 2018-12-18
-    /// </summary>
-    /// <param name="connection">数据库连接</param>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-    private bool Upgrade_6_11(DbConnection connection)
-    {
-      try
-      {
-        DbCommandHelper.ExecuteNonQuery(connection,
-          "ALTER TABLE PH_AssemblyClassProperty ADD AP_TableName VARCHAR(30) NULL", false);
-        DbCommandHelper.ExecuteNonQuery(connection,
-          "ALTER TABLE PH_AssemblyClassProperty ADD AP_ColumnName VARCHAR(30) NULL", false);
-        DbCommandHelper.ExecuteNonQuery(connection,
-          "ALTER TABLE PH_AssemblyClassProperty ADD AP_Alias VARCHAR(30) NULL", false);
-      }
-      catch (Exception ex)
-      {
-        OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Construct the PH_AssemblyClassProperty", "If already building can be omitted the tip", ex));
-      }
-      return true;
-    }
+    ///// <summary>
+    ///// 升级 v6.11.X.X 以下配置库
+    ///// 2018-12-18
+    ///// </summary>
+    ///// <param name="connection">数据库连接</param>
+    //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+    //private bool Upgrade_6_11(DbConnection connection)
+    //{
+    //  try
+    //  {
+    //    DbCommandHelper.ExecuteNonQuery(connection,
+    //      "ALTER TABLE PH_AssemblyClassProperty ADD AP_TableName VARCHAR(30) NULL", false);
+    //    DbCommandHelper.ExecuteNonQuery(connection,
+    //      "ALTER TABLE PH_AssemblyClassProperty ADD AP_ColumnName VARCHAR(30) NULL", false);
+    //    DbCommandHelper.ExecuteNonQuery(connection,
+    //      "ALTER TABLE PH_AssemblyClassProperty ADD AP_Alias VARCHAR(30) NULL", false);
+    //  }
+    //  catch (Exception ex)
+    //  {
+    //    OnMessageNotify(new MessageNotifyEventArgs(MessageNotifyType.Error, "Construct the PH_AssemblyClassProperty", "If already building can be omitted the tip", ex));
+    //  }
+    //  return true;
+    //}
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
     private void InitializeSystemTables(DbConnection connection)
@@ -1840,9 +1840,9 @@ namespace Phenix.Services.Host.Core
           "AC_AS_ID NUMERIC(15) NOT NULL," +
           "AC_Name VARCHAR(255) NOT NULL," +
           "AC_Caption VARCHAR(100) NULL," +
-          "AC_CaptionConfigured NUMERIC(1) default 0 NOT NULL," +
-          "AC_PermanentExecuteAction NUMERIC(5) default 0 NOT NULL," +
-          "AC_PermanentExecuteConfigured NUMERIC(1) default 0 NOT NULL," +
+          //"AC_CaptionConfigured NUMERIC(1) default 0 NOT NULL," +
+          //"AC_PermanentExecuteAction NUMERIC(5) default 0 NOT NULL," +
+          //"AC_PermanentExecuteConfigured NUMERIC(1) default 0 NOT NULL," +
           "AC_Type NUMERIC(5) default 0 NOT NULL," +
           "AC_Authorised NUMERIC(1) default 0 NOT NULL," +
           "PRIMARY KEY(AC_ID)," +
@@ -1905,17 +1905,17 @@ namespace Phenix.Services.Host.Core
           "AP_AC_ID NUMERIC(15) NOT NULL," +
           "AP_Name VARCHAR(255) NOT NULL," +
           "AP_Caption VARCHAR(100) NULL," +
-          "AP_CaptionConfigured NUMERIC(1) default 0 NOT NULL," +
-          "AP_TableName VARCHAR(30) NULL," +
-          "AP_ColumnName VARCHAR(30) NULL," +
-          "AP_Alias VARCHAR(30) NULL," +
-          "AP_PermanentExecuteModify NUMERIC(5) default 7 NOT NULL," +
-          "AP_PermanentExecuteConfigured NUMERIC(1) default 0 NOT NULL," +
+          //"AP_CaptionConfigured NUMERIC(1) default 0 NOT NULL," +
+          //"AP_TableName VARCHAR(30) NULL," +
+          //"AP_ColumnName VARCHAR(30) NULL," +
+          //"AP_Alias VARCHAR(30) NULL," +
+          //"AP_PermanentExecuteModify NUMERIC(5) default 7 NOT NULL," +
+          //"AP_PermanentExecuteConfigured NUMERIC(1) default 0 NOT NULL," +
           "AP_Configurable NUMERIC(1) default 0 NOT NULL," +
           "AP_ConfigValue VARCHAR(2000) NULL," +
-          "AP_IndexNumber NUMERIC(5) default -1 NOT NULL," +
-          "AP_Required NUMERIC(1) NULL," +
-          "AP_Visible NUMERIC(1) default 1 NOT NULL," +
+          //"AP_IndexNumber NUMERIC(5) default -1 NOT NULL," +
+          //"AP_Required NUMERIC(1) NULL," +
+          //"AP_Visible NUMERIC(1) default 1 NOT NULL," +
           "PRIMARY KEY(AP_ID)," +
           "UNIQUE(AP_AC_ID, AP_Name))", false);
       }
@@ -1962,9 +1962,9 @@ namespace Phenix.Services.Host.Core
            "AM_AC_ID NUMERIC(15) NOT NULL," +
            "AM_Name VARCHAR(255) NOT NULL," +
            "AM_Caption VARCHAR(100) NULL," +
-           "AM_CaptionConfigured NUMERIC(1) default 0 NOT NULL," +
-           "AM_Tag VARCHAR(4000) NULL," +
-           "AM_AllowVisible NUMERIC(1) NULL," +
+           //"AM_CaptionConfigured NUMERIC(1) default 0 NOT NULL," +
+           //"AM_Tag VARCHAR(4000) NULL," +
+           //"AM_AllowVisible NUMERIC(1) NULL," +
            "AM_AM_ID NUMERIC(15) NULL," +
            "PRIMARY KEY(AM_ID)," +
            "UNIQUE(AM_AC_ID, AM_Name))", false);

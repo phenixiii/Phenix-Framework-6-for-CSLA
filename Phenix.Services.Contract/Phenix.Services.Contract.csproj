@@ -86,6 +86,12 @@
     <None Include="Wcf\ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Phenix.Core\Phenix.Core.csproj">
+      <Project>{C8A08B69-46A5-433C-9892-1369EEA92397}</Project>
+      <Name>Phenix.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>

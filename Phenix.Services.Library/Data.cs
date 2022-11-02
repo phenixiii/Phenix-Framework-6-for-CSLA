@@ -30,18 +30,20 @@ namespace Phenix.Services.Library
 
     private static readonly object _sequenceValueLock = new object();
     private static readonly long _minValue = DateTime.MinValue.AddYears(2000).Ticks;
+    private static bool _haveSequenceMarker;
     private static int? _sequenceMarker;
     private static long? _sequenceValue;
     public long SequenceValue
     {
       get
       {
-        if (!_sequenceMarker.HasValue)
+        if (!_haveSequenceMarker)
         {
           _sequenceMarker = DefaultDatabase.ExecuteGet(GetSequenceMarker);
-          if (!_sequenceMarker.HasValue)
-            return Sequence.LocalValue;
+          _haveSequenceMarker = true;
         }
+        if (!_sequenceMarker.HasValue)
+          return Sequence.LocalValue;
         lock (_sequenceValueLock)
         {
           if (!_sequenceValue.HasValue)
@@ -51,7 +53,7 @@ namespace Phenix.Services.Library
               _sequenceValue = value;
             AppDomain.CurrentDomain.ProcessExit += delegate
             {
-              AppSettings.SaveValue(typeof(Sequence).FullName, _sequenceValue.ToString());
+              AppSettings.SaveValue(typeof(Sequence).FullName, SequenceValue.ToString());
             };
           }
           long i = (DateTime.Now.Ticks - _minValue) / 10000 * 1000 + _sequenceMarker.Value;

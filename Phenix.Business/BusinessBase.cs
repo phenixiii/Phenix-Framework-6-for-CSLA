@@ -912,7 +912,7 @@ namespace Phenix.Business
     public static readonly PropertyInfo<bool> SelectedProperty =
       RegisterProperty<bool>(c => c.Selected, Phenix.Core.Properties.Resources.SelectedFriendlyName, true);
     [Csla.NotUndoable]
-    [Field(NoMapping = true, InAuthorization = false)]
+    [Field(NoMapping = true, FieldConfineType = FieldConfineType.Unconfined)]
     private bool _selected;
     /// <summary>
     /// ÊÇ·ñ±»¹´Ñ¡
@@ -2016,11 +2016,11 @@ namespace Phenix.Business
     {
       if (base.CanReadProperty(property))
         return true;
-      PropertyType propertyType = ClassMemberHelper.GetPropertyType(property as IPropertyInfo);
-      switch (propertyType)
+      FieldConfineType fieldConfineType = ClassMemberHelper.GetFieldConfineType(property as IPropertyInfo);
+      switch (fieldConfineType)
       {
-        case PropertyType.Unconfined:
-        case PropertyType.Selectable:
+        case FieldConfineType.Unconfined:
+        case FieldConfineType.Selectable:
           return true;
         default:
           return false;
@@ -2036,11 +2036,11 @@ namespace Phenix.Business
     {
       if (base.CanWriteProperty(property))
         return true;
-      PropertyType propertyType = ClassMemberHelper.GetPropertyType(property as IPropertyInfo);
-      switch (propertyType)
+      FieldConfineType fieldConfineType = ClassMemberHelper.GetFieldConfineType(property as IPropertyInfo);
+      switch (fieldConfineType)
       {
-        case PropertyType.Unconfined:
-        case PropertyType.Selectable:
+        case FieldConfineType.Unconfined:
+        case FieldConfineType.Selectable:
           return true;
         default:
           return false;

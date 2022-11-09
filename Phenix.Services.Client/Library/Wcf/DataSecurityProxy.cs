@@ -319,7 +319,7 @@ namespace Phenix.Services.Client.Library.Wcf
           object result = null;
           try
           {
-            result = channel.CheckIn(identity, reset);
+            result = channel.CheckInIdentity(identity, reset);
             channelFactory.Close();
           }
           catch

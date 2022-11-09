@@ -151,7 +151,7 @@ namespace Phenix.Services.Host.Service.Wcf
 
     [OperationBehavior(Impersonation = ImpersonationOption.Allowed)]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
-    public object CheckIn(UserIdentity identity, bool reset)
+    public object CheckInIdentity(UserIdentity identity, bool reset)
     {
       try
       {

@@ -46,7 +46,7 @@ namespace Phenix.Services.Contract.Wcf
 
     [OperationContract]
     [UseNetDataContract]
-    object CheckIn(UserIdentity identity, bool reset);
+    object CheckInIdentity(UserIdentity identity, bool reset);
 
     [OperationContract]
     [UseNetDataContract]

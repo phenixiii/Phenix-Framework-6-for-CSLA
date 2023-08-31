@@ -1271,3 +1271,6 @@ Phenix.Services.Host.x64.exe.config配置项：
 2022-10-26
 为提升性能，注册到配置库的类的配置信息仅限用于权限的控制，其他类似Caption等内容都以代码上的Attribute为准
 
+
+2023-08-31
+BarManager中注释掉不允许ADMIN操作数据的代码段

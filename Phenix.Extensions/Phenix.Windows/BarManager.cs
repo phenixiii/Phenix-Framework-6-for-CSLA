@@ -375,15 +375,15 @@ namespace Phenix.Windows
       set { _autoEditOnFetched = value; }
     }
 
-    private bool _autoEdittOnSaved; 
+    private bool _autoEditOnSaved; 
     /// <summary>
     /// OnSaved时是否自动进入编辑状态
     /// </summary>
     [DefaultValue(false), Description("OnSaved时是否自动进入编辑状态?\n点击Save功能按钮保存好数据后自动点击Edit功能按钮"), Category("Phenix")]
     public bool AutoEditOnSaved
     {
-      get { return _autoEdittOnSaved; }
-      set { _autoEdittOnSaved = value; }
+      get { return _autoEditOnSaved; }
+      set { _autoEditOnSaved = value; }
     }
 
     private bool _autoEditOnEditControlByDoubleClick = true;
@@ -1551,9 +1551,9 @@ namespace Phenix.Windows
 
     private void BarManager_ItemClick(object sender, ItemClickEventArgs e)
     {
-      if (UserIdentity.CurrentIdentity.IsAdmin || UserIdentity.CurrentIdentity.HaveAdminRole)
-        if ((BarItemId)e.Item.Id != BarItemId.Fetch && (BarItemId)e.Item.Id != BarItemId.Exit)
-          return;
+      //if (UserIdentity.CurrentIdentity.IsAdmin || UserIdentity.CurrentIdentity.HaveAdminRole)
+      //  if ((BarItemId)e.Item.Id != BarItemId.Fetch && (BarItemId)e.Item.Id != BarItemId.Exit)
+      //    return;
 
       switch ((BarItemId)e.Item.Id)
       {
@@ -2729,7 +2729,7 @@ namespace Phenix.Windows
             if (business != null && !ignores.Contains(business))
             {
               if (!business.EditMode)
-              business.BeginEdit();
+                business.BeginEdit();
               ignores.Add(business);
             }
             item.ResetControlAuthorizationRules(Form, EditMode || NotUndoable, false);
@@ -3037,7 +3037,7 @@ namespace Phenix.Windows
         _bypassInvalidChecks = false;
       }
 
-    Label:
+      Label:
       if (immediateSave)
         CancelEdit();
       return false;
@@ -3422,7 +3422,7 @@ namespace Phenix.Windows
         return false;
       if (!BeginEdit())
         return false;
-     return true;
+      return true;
     }
 
     private void DoModified(BindingSource source)
@@ -3637,7 +3637,7 @@ namespace Phenix.Windows
         _bypassInvalidChecks = false;
       }
 
-    Label:
+      Label:
       if (immediateSave)
         CancelEdit();
       if (!String.IsNullOrEmpty(primaryKey) && source.Count > 0 && source.Count <= LocatePositionMaximum)
@@ -3814,7 +3814,7 @@ namespace Phenix.Windows
           MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
           return false;
 
-       _bypassInvalidChecks = true;
+      _bypassInvalidChecks = true;
       try
       {
         CancelEdit();
@@ -4997,7 +4997,7 @@ namespace Phenix.Windows
       foreach (Control item in container.Controls)
         result += ResetRules(designerHost, item);
 
-    Label:
+      Label:
       if (!String.IsNullOrEmpty(result))
         result = container.Name + Environment.NewLine + result + Environment.NewLine;
       return result;

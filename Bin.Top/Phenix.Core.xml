@@ -191,6 +191,22 @@
             该模式与“T”格式模式关联
             </summary>
         </member>
+        <member name="T:Phenix.Core.AppSettingVersionAttribute">
+            <summary>
+            "应用系统配置版本"标签
+            </summary>
+        </member>
+        <member name="M:Phenix.Core.AppSettingVersionAttribute.#ctor(System.String)">
+            <summary>
+            初始化
+            </summary>
+            <param name="versionNumber">版本号</param>
+        </member>
+        <member name="P:Phenix.Core.AppSettingVersionAttribute.VersionNumber">
+            <summary>
+            版本号
+            </summary>
+        </member>
         <member name="T:Phenix.Core.Mapping.HistoryAttribute">
             <summary>
             "历史库"标签

@@ -413,6 +413,22 @@
             <param name="allowSave">允许保存状态信息?</param>
             <param name="inEncrypt">是否加密</param>
         </member>
+        <member name="T:Phenix.Core.AppSettingVersionAttribute">
+            <summary>
+            "应用系统配置版本"标签
+            </summary>
+        </member>
+        <member name="M:Phenix.Core.AppSettingVersionAttribute.#ctor(System.String)">
+            <summary>
+            初始化
+            </summary>
+            <param name="versionNumber">版本号</param>
+        </member>
+        <member name="P:Phenix.Core.AppSettingVersionAttribute.VersionNumber">
+            <summary>
+            版本号
+            </summary>
+        </member>
         <member name="T:Phenix.Core.AppType">
             <summary>
             应用类型 
